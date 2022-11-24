@@ -1,0 +1,2 @@
+class UserPin < ApplicationRecord
+end

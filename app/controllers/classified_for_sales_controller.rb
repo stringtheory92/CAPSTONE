@@ -1,0 +1,2 @@
+class ClassifiedForSalesController < ApplicationController
+end

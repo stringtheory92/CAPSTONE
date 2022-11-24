@@ -1,0 +1,2 @@
+class SubForum < ApplicationRecord
+end

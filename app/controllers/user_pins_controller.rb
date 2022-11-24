@@ -1,0 +1,2 @@
+class UserPinsController < ApplicationController
+end

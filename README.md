@@ -42,6 +42,8 @@ Stretch: Archive sub-forums
 
 # DB TABLES:
 
+Notes: users have 2 relationships with forum_discussion_topics. One direct relationship (one to many) and indirect through user_pins (user_pins: one to many, forum_discussion_topics: many to many through user_pins and join_pins_topics). Hence the need for both user_pins and join_pins_topics instead of just a many to many involving users and forum_discussion_topics
+
 ## users
 
 ---has_one :inbox
@@ -79,7 +81,7 @@ Stretch: Archive sub-forums
 ---has_one :user (as sender_id)
 ---belongs_to :inbox
 
-> sender_id
+> user_id (sender)
 > content
 
 ## main_forums

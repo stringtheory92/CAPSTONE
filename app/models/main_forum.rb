@@ -1,0 +1,2 @@
+class MainForum < ApplicationRecord
+end

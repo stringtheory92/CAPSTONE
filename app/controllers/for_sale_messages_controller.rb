@@ -1,0 +1,2 @@
+class ForSaleMessagesController < ApplicationController
+end

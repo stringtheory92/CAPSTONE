@@ -1,0 +1,2 @@
+class ForumTopicMessage < ApplicationRecord
+end

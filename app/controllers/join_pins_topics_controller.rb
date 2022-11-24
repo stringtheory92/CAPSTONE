@@ -1,0 +1,2 @@
+class JoinPinsTopicsController < ApplicationController
+end

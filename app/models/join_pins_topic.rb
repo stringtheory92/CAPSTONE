@@ -1,0 +1,2 @@
+class JoinPinsTopic < ApplicationRecord
+end
