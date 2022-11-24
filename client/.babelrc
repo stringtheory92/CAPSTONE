@@ -1,0 +1,13 @@
+{
+  "plugins": ["babel-plugin-styled-components"]
+}
+
+// For styled components:
+// npm install --prefix client --save styled-components
+// npm install --prefix client --save-dev babel-plugin-styled-components
+// add .babelrc to root of project
+// add to .babelrc:
+//     {
+//         "plugins": ["babel-plugin-styled-components"]
+//     }
+// Install styled components vscode extension

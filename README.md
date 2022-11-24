@@ -2,6 +2,10 @@
 
 ### Name: ?
 
+Bass Mint
+Sub State
+SubSonic
+
 ### User: Has profile page. Admin Privileges allow all actions besides browsing, including
 
 1 posting messages/classified ads,
@@ -149,3 +153,12 @@ Notes: users have 2 relationships with forum_discussion_topics. One direct relat
 # PLAN:
 
 1 User Admin Namespace
+
+# TERMS TO USE:
+
+Foundation
+Fundamental frequency
+Network State
+Sovereign Network
+Sovereign State
+Basicity (Chemistry - low pH)
