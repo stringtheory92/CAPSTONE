@@ -58,6 +58,7 @@ Stretch: Archive sub-forums
 ## user_pins
 
 ---has_one :user
+---has_many :dms (sent)
 ---has_many :join_pins_topics
 ---has_many :forum_discussion_topics, through: :join_pins_topics
 
@@ -75,9 +76,10 @@ Stretch: Archive sub-forums
 
 ## dms
 
-belongs_to :inbox
+---has_one :user (as sender_id)
+---belongs_to :inbox
 
-> from
+> sender_id
 > content
 
 ## main_forums
