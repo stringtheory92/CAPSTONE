@@ -78,7 +78,7 @@ Notes: users have 2 relationships with forum_discussion_topics. One direct relat
 
 ## dms
 
----has_one :user (as sender_id)
+---belongs_to :user (as sender_id)
 ---belongs_to :inbox
 
 > user_id (sender)
@@ -93,15 +93,15 @@ Notes: users have 2 relationships with forum_discussion_topics. One direct relat
 
 ## sub_forums
 
----has-one :main_forum
+---belongs_to :main_forum
 ---has_many :forum_discussion_topics
 
 > heading
 
 ## forum_discussion_topics
 
----has_one :sub_forum
----has_one :user
+---belongs_to :sub_forum
+---belongs_to :user
 ---has_many :forum_topic_questions
 ---has_many :join_pins_topics
 ---has_many :user_pins, through: :join_pins_topics
@@ -110,8 +110,8 @@ Notes: users have 2 relationships with forum_discussion_topics. One direct relat
 
 ## forum_topic_messages
 
----has_one :forum_discussion_topic
----has_one :user
+---belongs_to :forum_discussion_topic
+---belongs_to :user
 
 > content
 > media
@@ -125,8 +125,8 @@ Notes: users have 2 relationships with forum_discussion_topics. One direct relat
 
 ## classifieds_for_sales,
 
----has_one :classifieds_category
----has_one :user
+---belongs_to :classifieds_category
+---belongs_to :user
 ---has_many :for_sale_messages
 
 > bass
@@ -140,8 +140,12 @@ Notes: users have 2 relationships with forum_discussion_topics. One direct relat
 
 ## for_sale_messages,
 
----has_one :classifieds_for_sale
----has_one :user
+---belongs_to :classifieds_for_sale
+---belongs_to :user
 
 > content
 > media
+
+# PLAN:
+
+1 User Admin Namespace
