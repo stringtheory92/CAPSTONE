@@ -1,21 +1,15 @@
 // import "./App.css";
 import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import PageTwo from "./PageTwo";
-import PageOne from "./PageOne";
-import Home from "./Home";
-import Login from "./Login";
+import PageTwo from "./components/PageTwo";
+import PageOne from "./components/PageOne";
+import Home from "./components/Home";
+import Login from "./components/Login";
+import NavBar from "./components/NavBar";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
+// import { Button } from "./components/shared";
 
-function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const toggleLogIn = () => {
-    setIsLoggedIn((status) => !status);
-  };
-
-  const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
     :root {
     --white: #f1f1f1;
     --black: #030416;
@@ -41,23 +35,35 @@ function App() {
     color: var(--color);
     background-color: var(--background);
   }
-
   `;
 
-  const lightTheme = {
-    color: "var(--black)",
-    backgroundColor: "var(--white)",
-    primary: "var(--dark-turquoise)",
+const lightTheme = {
+  color: "var(--black)",
+  backgroundColor: "var(--white)",
+  primary: "var(--dark-turquoise)",
+};
+const darkTheme = {
+  color: "var(--white)",
+  backgroundColor: "var(--black)",
+  primary: "var(--turquoise)",
+};
+
+function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const toggleLogIn = () => {
+    setIsLoggedIn((status) => !status);
   };
-  const darkTheme = {
-    color: "var(--white)",
-    backgroundColor: "var(--black)",
-    primary: "var(--turquoise)",
+
+  const toggleDarkMode = () => {
+    setIsDarkMode((status) => !status);
   };
 
   return (
     <ThemeProvider theme={isDarkMode ? lightTheme : darkTheme}>
-      <NavBar />
+      <NavBar toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
+
       <Routes>
         <Route
           exact
@@ -65,13 +71,9 @@ function App() {
           element={isLoggedIn ? <Home /> : <Login replace to={"/login"} />}
         />
 
-        <Route path="/page_one">
-          <PageOne />
-        </Route>
+        <Route path="/page_one" element={<PageOne />} />
 
-        <Route path="/page_two">
-          <PageTwo />
-        </Route>
+        <Route path="/page_two" element={<PageTwo />} />
       </Routes>
     </ThemeProvider>
   );
