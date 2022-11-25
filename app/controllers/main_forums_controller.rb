@@ -1,5 +1,5 @@
 class MainForumsController < ApplicationController
     def index
-        render json: User.all, status: :ok
+        render json: MainForum.all, status: :ok
     end
 end
