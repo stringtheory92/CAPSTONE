@@ -8,10 +8,8 @@ function Login({ onSignIn }) {
     password: "",
   });
   const [createAccount, setCreateAccount] = useState({
-    userName: "",
+    user_name: "",
     password: "",
-    image: "",
-    balance: 0,
   });
   // repeatPassword separate from createAccount for easy user creation with createAccount data
   const [repeatPassword, setRepeatPassword] = useState("");
@@ -22,12 +20,10 @@ function Login({ onSignIn }) {
   // ==========================================================
   // set sampleUser for easy login in development mode
   useEffect(() => {
-    fetch("users/1")
+    fetch("users/first_user/first")
       .then((r) => r.json())
       .then((data) => setSampleUser(data));
   }, []);
-
-  console.log("sampleUser: ", sampleUser);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,8 +33,6 @@ function Login({ onSignIn }) {
       : setCreateAccount({ ...createAccount, [name]: value });
   };
 
-  // console.log("formData: ", formData);
-  // console.log("createAccount: ", createAccount);
   console.log("errors: ", errors);
 
   const handleSignIn = (e) => {
@@ -55,15 +49,37 @@ function Login({ onSignIn }) {
         });
       } else {
         // errors come from invalid userName errors on backend
-        r.json().then((data) =>
-          setErrors(Object.entries(data.errors).map((e) => `${e[0]} ${e[1]}`))
-        );
+        r.json().then((data) => {
+          console.log("not ok: ", data);
+          setErrors(data.error);
+          // setErrors(Object.entries(data.error).map((e) => `${e[0]} ${e[1]}`));
+        });
       }
     });
     // onSignIn(user)
   };
 
-  const handleCreateUser = () => {};
+  const handleCreateUser = (e) => {
+    e.preventDefault();
+
+    const configObj = {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(createAccount),
+    };
+    fetch(`/users`, configObj).then((r) => {
+      if (r.ok) {
+        r.json().then((data) => console.log("create ok: ", data));
+      } else {
+        r.json().then((data) => {
+          console.log("create failed: ", data);
+          setErrors(data.error);
+        });
+      }
+    });
+  };
 
   const handleDontHaveAccount = () => {
     setHasAccount((status) => !status);
@@ -105,9 +121,9 @@ function Login({ onSignIn }) {
           <label htmlFor="userName">User Name</label>
           <input
             type="text"
-            name="userName"
-            id="userName"
-            value={createAccount.userName}
+            name="user_name"
+            id="user_name"
+            value={createAccount.user_name}
             onChange={handleChange}
           />
           {/* insert validations for password length, must contain a number */}

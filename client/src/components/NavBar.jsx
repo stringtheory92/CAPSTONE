@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Button } from "./shared";
 
-function NavBar({ toggleDarkMode, isDarkMode }) {
+function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn }) {
   return (
     <nav>
       <ul>
@@ -14,12 +14,15 @@ function NavBar({ toggleDarkMode, isDarkMode }) {
           {/* <NavLink to="/">Home</NavLink> */}
         </li>
         <li>
-          <NavLink to="/page_one">PageOne</NavLink>
+          <NavLink to="/forums">Forums</NavLink>
         </li>
         <li>
-          <NavLink to="/page_two">PageTwo</NavLink>
+          <NavLink to="/classifieds_container">Classifieds</NavLink>
         </li>
       </ul>
+      <button onClick={toggleLogIn}>
+        {isLoggedIn ? "Log out" : "Sign in"}
+      </button>
       <Button onClick={toggleDarkMode}>{isDarkMode ? "Light" : "Dark"}</Button>
     </nav>
   );

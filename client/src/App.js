@@ -1,5 +1,5 @@
 // import "./App.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import PageTwo from "./components/PageTwo";
 import PageOne from "./components/PageOne";
@@ -7,6 +7,8 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
+import ForumsHome from "./components/ForumsHome";
+import ClassifiedsContainer from "./components/ClassifiedsContainer";
 // import { Button } from "./components/shared";
 
 const GlobalStyle = createGlobalStyle`
@@ -53,7 +55,28 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
 
+  // keep isLoggedIn status updated on refresh
+  // const currentUserID = localStorage.getItem("userID");
+  // if (currentUserID) setIsLoggedIn(true);
+
+  useEffect(() => {
+    const currentUserID = localStorage.getItem("userID");
+
+    if (currentUserID) {
+      setIsLoggedIn(true);
+      fetch(`/users/${currentUserID}`)
+        .then((r) => r.json())
+        .then((data) => setUser(data));
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, [isLoggedIn]);
+
+  console.log("user: ", user);
+  console.log("isLoggedIn: ", isLoggedIn);
+
   const toggleLogIn = () => {
+    if (isLoggedIn) localStorage.clear();
     setIsLoggedIn((status) => !status);
   };
 
@@ -61,11 +84,20 @@ function App() {
     setIsDarkMode((status) => !status);
   };
 
-  const onSignIn = (user) => {};
+  const onSignIn = (user) => {
+    localStorage.setItem("userID", user.id);
+    setUser(user);
+    toggleLogIn();
+  };
 
   return (
     <ThemeProvider theme={isDarkMode ? lightTheme : darkTheme}>
-      <NavBar toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
+      <NavBar
+        toggleDarkMode={toggleDarkMode}
+        isDarkMode={isDarkMode}
+        isLoggedIn={isLoggedIn}
+        toggleLogIn={toggleLogIn}
+      />
 
       <Routes>
         <Route
@@ -80,9 +112,12 @@ function App() {
           }
         />
 
-        <Route path="/page_one" element={<PageOne />} />
+        <Route path="/forums" element={<ForumsHome />} />
 
-        <Route path="/page_two" element={<PageTwo />} />
+        <Route
+          path="/classifieds_container"
+          element={<ClassifiedsContainer />}
+        />
       </Routes>
     </ThemeProvider>
   );

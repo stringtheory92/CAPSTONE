@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   # resources :inboxes
   resources :users, only: [:show, :create]
 
+  # sign in route
   get '/users/by_name/:user_name', to: "users#show_by_name"
+
+  # sample user sign in data for dev
+  get '/users/first_user/first', to: "users#first"
 
   namespace :member do
     resources :inboxes, only: [:show]
