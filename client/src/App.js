@@ -51,6 +51,7 @@ const darkTheme = {
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState({});
 
   const toggleLogIn = () => {
     setIsLoggedIn((status) => !status);
@@ -60,6 +61,8 @@ function App() {
     setIsDarkMode((status) => !status);
   };
 
+  const onSignIn = (user) => {};
+
   return (
     <ThemeProvider theme={isDarkMode ? lightTheme : darkTheme}>
       <NavBar toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
@@ -68,7 +71,13 @@ function App() {
         <Route
           exact
           path="/"
-          element={isLoggedIn ? <Home /> : <Login replace to={"/login"} />}
+          element={
+            isLoggedIn ? (
+              <Home />
+            ) : (
+              <Login replace to={"/login"} onSignIn={onSignIn} />
+            )
+          }
         />
 
         <Route path="/page_one" element={<PageOne />} />

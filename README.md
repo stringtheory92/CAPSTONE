@@ -1,10 +1,16 @@
 # Bass forum site:
 
-### Name: ?
+### Name: SubSonic
 
 Bass Mint
 Sub State
-SubSonic
+SubSonic <= That's the one
+
+## Subdirectory Names: ?
+
+Pro Files
+BassMint
+Meta Threads
 
 ### User: Has profile page. Admin Privileges allow all actions besides browsing, including
 
@@ -58,7 +64,7 @@ Notes: users have 2 relationships with forum_discussion_topics. One direct relat
 
 > user_name
 > password
-> pic
+> image
 > balance
 
 ## user_pins

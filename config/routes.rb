@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   resources :main_forums, only: [:index]
   # resources :dms, 
   # resources :inboxes
-  resources :users, only: [:index, :show]
+  resources :users, only: [:show, :create]
+
+  get '/users/by_name/:user_name', to: "users#show_by_name"
 
   namespace :member do
     resources :inboxes, only: [:show]

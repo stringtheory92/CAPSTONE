@@ -30,3 +30,5 @@ end
 
 
 gem "awesome_print", "~> 1.9"
+
+gem "faker", "~> 3.0"
