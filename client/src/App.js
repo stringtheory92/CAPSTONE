@@ -114,10 +114,7 @@ function App() {
 
         <Route path="/forums" element={<ForumsHome />} />
 
-        <Route
-          path="/classifieds_container"
-          element={<ClassifiedsContainer />}
-        />
+        <Route path="/classifieds" element={<ClassifiedsContainer />} />
       </Routes>
     </ThemeProvider>
   );

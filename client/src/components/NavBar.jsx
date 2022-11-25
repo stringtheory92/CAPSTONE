@@ -17,7 +17,7 @@ function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn }) {
           <NavLink to="/forums">Forums</NavLink>
         </li>
         <li>
-          <NavLink to="/classifieds_container">Classifieds</NavLink>
+          <NavLink to="/classifieds">Classifieds</NavLink>
         </li>
       </ul>
       <button onClick={toggleLogIn}>
