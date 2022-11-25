@@ -5,21 +5,29 @@ function SubForums({ mainForumID, onSubForumSelect }) {
   const [allSubForums, setAllSubForums] = useState([]);
 
   useEffect(() => {
-    fetch("/sub_forums")
+    fetch(`/main_forums/${mainForumID}`)
       .then((r) => r.json())
-      .then(setAllSubForums);
+      .then((data) => setAllSubForums(data.sub_forums));
   }, []);
   console.log("allSubForums: ", allSubForums);
 
-  const list = allSubForums
-    ?.filter((forum) => forum.id === mainForumID)
-    .map((forum) => (
-      <ListUnit
-        key={forum.id}
-        forum={forum}
-        onSubForumSelect={onSubForumSelect}
-      />
-    ));
+  const list = allSubForums?.map((forum) => (
+    <ListUnit
+      key={forum.id}
+      forum={forum}
+      onSubForumSelect={onSubForumSelect}
+    />
+  ));
+
+  // const list = allSubForums
+  //   ?.filter((forum) => forum.id === mainForumID)
+  //   .map((forum) => (
+  //     <ListUnit
+  //       key={forum.id}
+  //       forum={forum}
+  //       onSubForumSelect={onSubForumSelect}
+  //     />
+  //   ));
 
   return (
     <div>
