@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   # resources :join_pins_topics
   resources :user_pins, only: [:index]
   resources :forum_topic_messages, only: [:index]
-  resources :forum_discussion_topics, only: [:index] 
-  resources :sub_forums, only: [:index]
-  resources :main_forums, only: [:index]
+  resources :forum_discussion_topics, only: [:index, :show] 
+  resources :sub_forums, only: [:index, :show]
+  resources :main_forums, only: [:index, :show]
   # resources :dms, 
   # resources :inboxes
   resources :users, only: [:show, :create]

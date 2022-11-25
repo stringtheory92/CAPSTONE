@@ -4,20 +4,44 @@ import SubForums from "./SubForums";
 import SubForumTopics from "./SubForumTopics";
 
 function ForumsHome() {
-  // const [allMainForums, setAllMainForums] = useState([]);
+  const [mainForumID, setMainForumID] = useState(null);
+  const [subForumID, setSubForumID] = useState(null);
+  // Must be at top to give displayedComponent access to methods
+  const onMainForumSelect = (e, mainID) => {
+    setMainForumID(mainID);
+  };
+  const onSubForumSelect = (e, subID) => {
+    setSubForumID(subID);
+  };
+  const onSubForumTopicSelect = (e, subTopicID) => {};
 
-  // useEffect(() => {
-  //   fetch("/main_forums")
-  //     .then((r) => r.json())
-  //     .then(setAllMainForums);
-  // }, []);
-  // console.log("allMainForums: ", allMainForums);
+  const componentArray = [
+    <MainForums onMainForumSelect={onMainForumSelect} />,
+    <SubForums mainForumID={mainForumID} onSubForumSelect={onSubForumSelect} />,
+    <SubForumTopics
+      subForumID={subForumID}
+      onSubForumTopicSelect={onSubForumTopicSelect}
+    />,
+  ];
+  const componentIndex = () => {
+    // If subForum was selected, display subForumTopics
+    if (subForumID) return 2;
+    // If mainForum was selected, display subForum
+    if (mainForumID) return 1;
+    // Else display mainForum
+    return 0;
+  };
+  // Don't need state to keep track of displayed component!
+  // const [displayedComponent, setDisplayedComponent] = useState(
+  //   componentArray[componentIndex()]
+  // );
 
   return (
     <div>
-      <MainForums />
-      <SubForums />
-      <SubForumTopics />
+      {componentArray[componentIndex()]}
+      {/* <MainForums onMainForumSelect={onMainForumSelect} />
+      <SubForums mainForumID={mainForumID} />
+      <SubForumTopics subForumID={subForumID} /> */}
     </div>
   );
 }

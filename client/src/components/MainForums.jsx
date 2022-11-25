@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ListUnit from "./ListUnit";
 
-function MainForums() {
+function MainForums({ onMainForumSelect }) {
   const [allMainForums, setAllMainForums] = useState([]);
 
   useEffect(() => {
@@ -12,7 +12,11 @@ function MainForums() {
   console.log("allMainForums: ", allMainForums);
 
   const list = allMainForums?.map((forum) => (
-    <ListUnit key={forum.id} forum={forum} />
+    <ListUnit
+      key={forum.id}
+      forum={forum}
+      onMainForumSelect={onMainForumSelect}
+    />
   ));
 
   return (

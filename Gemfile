@@ -34,3 +34,5 @@ gem "awesome_print", "~> 1.9"
 gem "faker", "~> 3.0"
 
 gem "byebug", "~> 11.1"
+
+gem "active_model_serializers", "~> 0.10.13"
