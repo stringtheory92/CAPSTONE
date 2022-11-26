@@ -1,4 +1,5 @@
 class ForumDiscussionTopicsController < ApplicationController
+    wrap_parameters format: []
     def index
         render json: ForumDiscussionTopic.all, status: :ok
     end

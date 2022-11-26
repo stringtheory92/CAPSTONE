@@ -61,7 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_130739) do
   create_table "forum_topic_messages", force: :cascade do |t|
     t.string "content"
     t.string "media"
-    t.integer "likes"
+    t.integer "likes", default: 0
     t.integer "forum_discussion_topic_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
