@@ -1,6 +1,6 @@
 // import "./App.css";
 import React, { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import PageTwo from "./components/PageTwo";
 import PageOne from "./components/PageOne";
 import Home from "./components/Home";
@@ -9,6 +9,7 @@ import NavBar from "./components/NavBar";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import ForumsHome from "./components/ForumsHome";
 import ClassifiedsContainer from "./components/ClassifiedsContainer";
+import NewTopicForm from "./components/NewTopicForm";
 // import { Button } from "./components/shared";
 
 const GlobalStyle = createGlobalStyle`
@@ -54,6 +55,7 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
+  const navigate = useNavigate();
 
   // keep isLoggedIn status updated on refresh
   // const currentUserID = localStorage.getItem("userID");
@@ -76,7 +78,10 @@ function App() {
   console.log("isLoggedIn: ", isLoggedIn);
 
   const toggleLogIn = () => {
-    if (isLoggedIn) localStorage.clear();
+    if (isLoggedIn) {
+      localStorage.clear();
+      navigate("/");
+    }
     setIsLoggedIn((status) => !status);
   };
 
@@ -115,6 +120,7 @@ function App() {
         <Route path="/forums" element={<ForumsHome />} />
 
         <Route path="/classifieds" element={<ClassifiedsContainer />} />
+        <Route path="/new_topic/:subForumID" element={<NewTopicForm />} />
       </Routes>
     </ThemeProvider>
   );

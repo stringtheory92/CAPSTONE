@@ -6,4 +6,15 @@ class ForumDiscussionTopicsController < ApplicationController
     def show
         render json: ForumDiscussionTopic.find(params[:id]), status: :ok
     end
+
+    def create
+        topic = ForumDiscussionTopic.create!(forum_discussion_topic_params)
+        render json: topic, status: :created
+    end
+
+    private
+
+    def forum_discussion_topic_params
+        params.permit(:heading, :sub_forum_id, :user_id)
+    end
 end

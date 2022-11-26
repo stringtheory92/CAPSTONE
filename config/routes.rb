@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :classified_categories, only: [:index]
   # resources :join_pins_topics
   resources :user_pins, only: [:index]
-  resources :forum_topic_messages, only: [:index]
-  resources :forum_discussion_topics, only: [:index, :show] 
+  resources :forum_topic_messages, only: [:index, :create, :show]
+  resources :forum_discussion_topics, only: [:index, :show, :create] 
   resources :sub_forums, only: [:index, :show]
   resources :main_forums, only: [:index, :show]
   # resources :dms, 

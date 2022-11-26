@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import ListUnit from "./ListUnit";
 
 function SubForumTopics({ onSubForumTopicSelect, subForumID }) {
@@ -33,6 +34,7 @@ function SubForumTopics({ onSubForumTopicSelect, subForumID }) {
     <div>
       <h1>SubForum Topics</h1>
       {list ? list : null}
+      <NavLink to={`/new_topic/${subForumID}`}>Create a topic</NavLink>
     </div>
   );
 }
