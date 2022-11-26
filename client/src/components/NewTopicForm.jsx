@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function NewTopicForm({}) {
   let { subForumID } = useParams();
   const userID = Number(localStorage.getItem("userID"));
+  const navigate = useNavigate();
   const [topicFormData, setTopicFormData] = useState({
     heading: "",
     sub_forum_id: Number(subForumID),
@@ -25,7 +26,7 @@ function NewTopicForm({}) {
     else setMessageData({ ...messageData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
 
     const topicConfigObj = {
@@ -35,37 +36,49 @@ function NewTopicForm({}) {
       },
       body: JSON.stringify(topicFormData),
     };
+
+    // Create topic, then set messageData.forum_discussion_topic_id, then create message
+    fetch("/forum_discussion_topics", topicConfigObj).then((r) => {
+      if (r.ok) {
+        r.json().then((data) => {
+          console.log("ok: ", data);
+          // Callback form of state setter necessary to maintain async and dependant fetches
+          // the '.then(createMessage)' was not sufficient time to make sure setMessageData had completed
+          // without using callback fn in the setter.
+
+          // (createMessage needs id from this fetches new topic)
+          setMessageData((oldObj) => {
+            return { ...messageData, forum_discussion_topic_id: data.id };
+          });
+          createMessage(data.id);
+        });
+        //   .then(createMessage(messageConfigObj));
+      } else {
+        r.json().then((data) => console.log("not ok: ", data));
+      }
+    });
+  }
+
+  // Only fires if topic creation ok
+  const createMessage = (topicID) => {
     const messageConfigObj = {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(messageData),
+      body: JSON.stringify({
+        ...messageData,
+        forum_discussion_topic_id: topicID,
+      }),
     };
-    // Create topic, then set messageData.forum_discussion_topic_id, then create message
-    fetch("/forum_discussion_topics", topicConfigObj).then((r) => {
+
+    fetch("/forum_topic_messages", messageConfigObj).then((r) => {
       if (r.ok) {
         r.json()
           .then((data) => {
             console.log("ok: ", data);
-            setMessageData((oldObj) => {
-              return { ...messageData, forum_discussion_topic_id: data.id };
-            });
           })
-          .then(createMessage(messageConfigObj));
-      } else {
-        r.json().then((data) => console.log("not ok: ", data));
-      }
-    });
-  };
-
-  // Only fires if topic creation ok
-  const createMessage = (messageConfigObj) => {
-    fetch("/forum_topic_messages", messageConfigObj).then((r) => {
-      if (r.ok) {
-        r.json().then((data) => {
-          console.log("ok: ", data);
-        });
+          .then(navigate(`/forum_messages/${subForumID}`));
       } else {
         r.json().then((data) => console.log("not ok: ", data));
       }

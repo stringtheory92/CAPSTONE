@@ -10,6 +10,7 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import ForumsHome from "./components/ForumsHome";
 import ClassifiedsContainer from "./components/ClassifiedsContainer";
 import NewTopicForm from "./components/NewTopicForm";
+import ForumMessagesContainer from "./components/ForumMessagesContainer";
 // import { Button } from "./components/shared";
 
 const GlobalStyle = createGlobalStyle`
@@ -121,6 +122,10 @@ function App() {
 
         <Route path="/classifieds" element={<ClassifiedsContainer />} />
         <Route path="/new_topic/:subForumID" element={<NewTopicForm />} />
+        <Route
+          path="/forum_messages/:subForumID"
+          element={<ForumMessagesContainer />}
+        />
       </Routes>
     </ThemeProvider>
   );
