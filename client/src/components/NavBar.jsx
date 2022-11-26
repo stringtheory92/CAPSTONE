@@ -1,11 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Button } from "./shared";
+import { Button, NavStyled, NavLinkStyled } from "./shared";
 
 function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn }) {
   return (
-    <nav>
-      <ul>
+    <NavStyled>
+      <ul style={{ display: "flex" }}>
         <li>
           {/* Allows use of styled component while maintaining properties of NavLink */}
           <Button as={NavLink} to="/">
@@ -14,17 +14,25 @@ function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn }) {
           {/* <NavLink to="/">Home</NavLink> */}
         </li>
         <li>
-          <NavLink to="/forums">Forums</NavLink>
+          <NavLinkStyled as={NavLink} to="/forums">
+            Forums
+          </NavLinkStyled>
         </li>
         <li>
-          <NavLink to="/classifieds">Classifieds</NavLink>
+          <NavLinkStyled as={NavLink} to="/classifieds">
+            Classifieds
+          </NavLinkStyled>
         </li>
       </ul>
-      <button onClick={toggleLogIn}>
-        {isLoggedIn ? "Log out" : "Sign in"}
-      </button>
-      <Button onClick={toggleDarkMode}>{isDarkMode ? "Light" : "Dark"}</Button>
-    </nav>
+      <div>
+        <button onClick={toggleLogIn}>
+          {isLoggedIn ? "Log out" : "Sign in"}
+        </button>
+        <Button onClick={toggleDarkMode}>
+          {isDarkMode ? "Light" : "Dark"}
+        </Button>
+      </div>
+    </NavStyled>
   );
 }
 

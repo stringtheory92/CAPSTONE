@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { MainForumItem } from "./shared";
 
 function ListUnit({
   forum,
@@ -12,7 +13,7 @@ function ListUnit({
 
   // Intended for use with: ForumsHome(Main Forums), SubForums, SubForumTopics, ClassifiedCategories
   return (
-    <div>
+    <MainForumItem>
       <h2>{category}</h2>
       <h2>{heading}</h2>
       {onMainForumSelect ? (
@@ -24,7 +25,7 @@ function ListUnit({
       {onSubForumTopicSelect ? (
         <button onClick={(e) => onSubForumTopicSelect(e, id)}>Select</button>
       ) : null}
-    </div>
+    </MainForumItem>
   );
 }
 

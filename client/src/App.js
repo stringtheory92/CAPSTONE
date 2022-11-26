@@ -6,7 +6,7 @@ import PageOne from "./components/PageOne";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { createGlobalStyle, ThemeProvider, css } from "styled-components";
 import ForumsHome from "./components/ForumsHome";
 import ClassifiedsContainer from "./components/ClassifiedsContainer";
 import NewTopicForm from "./components/NewTopicForm";
@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
     :root {
     --white: #f1f1f1;
     --black: #030416;
+    --light-grey: lightgrey;
     --grey: #d6e2e7;
     --dark-grey: #7f8a8e;
     --turquoise: #00efe1;
@@ -27,12 +28,10 @@ const GlobalStyle = createGlobalStyle`
     --background: ${(props) => props.theme.backgroundColor};
     --primary: ${(props) => props.theme.primary};
   }
-
-  * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
+  
+  * {padding: 0;
+  margin: 0;
+  box-sizing: border-box;}
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -40,11 +39,20 @@ const GlobalStyle = createGlobalStyle`
     color: var(--color);
     background-color: var(--background);
   }
+
+  ul {
+    list-style-type:  none;
+  }
+
+  a {
+    text-decoration: none;
+  }
   `;
 
 const lightTheme = {
   color: "var(--black)",
-  backgroundColor: "var(--white)",
+  backgroundColor: "var(--light-grey)",
+  // backgroundColor: "var(--white)",
   primary: "var(--dark-turquoise)",
 };
 const darkTheme = {
@@ -96,9 +104,12 @@ function App() {
     setUser(user);
     toggleLogIn();
   };
+  console.log("isDarkMode: ", isDarkMode);
+  // console.log("props.theme: ", props.theme);
 
   return (
     <ThemeProvider theme={isDarkMode ? lightTheme : darkTheme}>
+      <GlobalStyle />
       <NavBar
         toggleDarkMode={toggleDarkMode}
         isDarkMode={isDarkMode}

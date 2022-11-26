@@ -30,7 +30,9 @@ function ForumMessagesContainer() {
   let displayedMessages = allMessages.map((message) => (
     <Message key={message.id} message={message} />
   ));
+  //===========================================================
 
+  //===========================================================
   return (
     <div>
       {displayedMessages}

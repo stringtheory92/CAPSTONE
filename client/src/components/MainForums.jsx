@@ -18,11 +18,15 @@ function MainForums({ onMainForumSelect }) {
       onMainForumSelect={onMainForumSelect}
     />
   ));
+  //========================================================================
+  //========================================================================
 
+  //========================================================================
   return (
     <div>
+      {/* <div className="forum-list-container"> */}
       <h1>MainForums</h1>
-      {list ? list : null}
+      <ul>{list ? list : null}</ul>
     </div>
   );
 }
