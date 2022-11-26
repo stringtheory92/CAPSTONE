@@ -17,6 +17,11 @@ Rails.application.routes.draw do
 
   # sample user sign in data for dev
   get '/users/first_user/first', to: "users#first"
+  get '/users/second_user/second', to: "users#second"
+  get '/users/third_user/third', to: "users#third"
+
+  # route to fetch all messages in topic thread
+  get '/forum_topic_messages/common_topic/:forum_topic_id', to: 'forum_topic_messages#message_thread'
 
   namespace :member do
     resources :inboxes, only: [:show]

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import MainForums from "./MainForums";
 import SubForums from "./SubForums";
 import SubForumTopics from "./SubForumTopics";
 
 function ForumsHome() {
+  const navigate = useNavigate();
   const [mainForumID, setMainForumID] = useState(null);
   const [subForumID, setSubForumID] = useState(null);
   // Must be at top to give displayedComponent access to methods
@@ -13,7 +15,9 @@ function ForumsHome() {
   const onSubForumSelect = (e, subID) => {
     setSubForumID(subID);
   };
-  const onSubForumTopicSelect = (e, subTopicID) => {};
+  const onSubForumTopicSelect = (e, subForumTopicID) => {
+    navigate(`/forum_messages/${subForumTopicID}`);
+  };
 
   const componentArray = [
     <MainForums onMainForumSelect={onMainForumSelect} />,

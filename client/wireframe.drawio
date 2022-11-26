@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="ThbgS6NjA9mEhRyuva3a" name="Page-1">
-        <mxGraphModel dx="1535" dy="467" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+        <mxGraphModel dx="2236" dy="467" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -143,8 +143,8 @@
                 <mxCell id="55" value="NewTopicForm" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="-10" y="630" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="56" value="ForumMessages" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="130" y="710" width="120" height="60" as="geometry"/>
+                <mxCell id="56" value="ForumMessagesContainer&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="90" y="720" width="180" height="50" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

@@ -11,6 +11,7 @@ import ForumsHome from "./components/ForumsHome";
 import ClassifiedsContainer from "./components/ClassifiedsContainer";
 import NewTopicForm from "./components/NewTopicForm";
 import ForumMessagesContainer from "./components/ForumMessagesContainer";
+import NewForumMessageForm from "./components/NewForumMessageForm";
 // import { Button } from "./components/shared";
 
 const GlobalStyle = createGlobalStyle`
@@ -123,9 +124,13 @@ function App() {
         <Route path="/classifieds" element={<ClassifiedsContainer />} />
         <Route path="/new_topic/:subForumID" element={<NewTopicForm />} />
         <Route
-          path="/forum_messages/:subForumID"
+          path="/forum_messages/:subForumTopicID"
           element={<ForumMessagesContainer />}
         />
+        {/* <Route
+          path="/new_forum_message/:subForumTopicID"
+          element={<NewForumMessageForm />}
+        /> */}
       </Routes>
     </ThemeProvider>
   );

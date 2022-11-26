@@ -1,7 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-function ListUnit({ forum, onMainForumSelect, onSubForumSelect }) {
+function ListUnit({
+  forum,
+  onMainForumSelect,
+  onSubForumSelect,
+  onSubForumTopicSelect,
+}) {
   const { id, category, heading, created_at, updated_at } = forum;
+  const navigate = useNavigate();
 
   // Intended for use with: ForumsHome(Main Forums), SubForums, SubForumTopics, ClassifiedCategories
   return (
@@ -13,6 +20,9 @@ function ListUnit({ forum, onMainForumSelect, onSubForumSelect }) {
       ) : null}
       {onSubForumSelect ? (
         <button onClick={(e) => onSubForumSelect(e, id)}>Select</button>
+      ) : null}
+      {onSubForumTopicSelect ? (
+        <button onClick={(e) => onSubForumTopicSelect(e, id)}>Select</button>
       ) : null}
     </div>
   );

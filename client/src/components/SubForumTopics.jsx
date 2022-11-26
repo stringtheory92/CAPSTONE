@@ -34,6 +34,7 @@ function SubForumTopics({ onSubForumTopicSelect, subForumID }) {
     <div>
       <h1>SubForum Topics</h1>
       {list ? list : null}
+      {/* Pass down the current subForumID and assign it to the new topic */}
       <NavLink to={`/new_topic/${subForumID}`}>Create a topic</NavLink>
     </div>
   );

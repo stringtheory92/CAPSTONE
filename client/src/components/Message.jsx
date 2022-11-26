@@ -1,8 +1,8 @@
 import React from "react";
 
-function Messages() {
+function Message({ message }) {
   // Pass down the type of messages that it's downstream of in the instance: Forum, Classifieds, Dm
-  return <div>Messages</div>;
+  return <div>{`${message.content} - ${message.user.user_name}`}</div>;
 }
 
-export default Messages;
+export default Message;

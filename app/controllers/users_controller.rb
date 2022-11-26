@@ -11,6 +11,16 @@ class UsersController < ApplicationController
         render json: user, status: :ok
     end
 
+    def second
+        user = User.second!
+        render json: user, status: :ok
+    end
+
+    def third
+        user = User.third!
+        render json: user, status: :ok
+    end
+
     #for grabbing user on login
     def show_by_name
         user = User.find_by!(user_name: params[:user_name])

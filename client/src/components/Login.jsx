@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 
 function Login({ onSignIn }) {
   const [sampleUser, setSampleUser] = useState({});
+  const [sampleUser2, setSampleUser2] = useState({});
+  const [sampleUser3, setSampleUser3] = useState({});
   const [hasAccount, setHasAccount] = useState(true);
   const [formData, setFormData] = useState({
     userName: "",
@@ -23,6 +25,16 @@ function Login({ onSignIn }) {
     fetch("users/first_user/first")
       .then((r) => r.json())
       .then((data) => setSampleUser(data));
+  }, []);
+  useEffect(() => {
+    fetch("users/second_user/second")
+      .then((r) => r.json())
+      .then((data) => setSampleUser2(data));
+  }, []);
+  useEffect(() => {
+    fetch("users/third_user/third")
+      .then((r) => r.json())
+      .then((data) => setSampleUser3(data));
   }, []);
 
   const handleChange = (e) => {
@@ -90,7 +102,11 @@ function Login({ onSignIn }) {
       {hasAccount ? (
         <div>
           {sampleUser ? (
-            <h1>{`User Name: ${sampleUser.user_name} Password: ${sampleUser.password}`}</h1>
+            <div>
+              <h1>{`User Name: ${sampleUser.user_name} Password: ${sampleUser.password}`}</h1>
+              <h1>{`User Name: ${sampleUser2.user_name} Password: ${sampleUser2.password}`}</h1>
+              <h1>{`User Name: ${sampleUser3.user_name} Password: ${sampleUser3.password}`}</h1>
+            </div>
           ) : null}
           <form onSubmit={handleSignIn}>
             <label htmlFor="userName">User Name</label>

@@ -78,7 +78,7 @@ function NewTopicForm({}) {
           .then((data) => {
             console.log("ok: ", data);
           })
-          .then(navigate(`/forum_messages/${subForumID}`));
+          .then(navigate(`/forum_messages/${topicID}`));
       } else {
         r.json().then((data) => console.log("not ok: ", data));
       }
