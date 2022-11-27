@@ -8,7 +8,7 @@ import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import { createGlobalStyle, ThemeProvider, css } from "styled-components";
 import ForumsHome from "./components/ForumsHome";
-import ClassifiedsContainer from "./components/ClassifiedsContainer";
+import ClassifiedsHome from "./components/ClassifiedsHome";
 import NewTopicForm from "./components/NewTopicForm";
 import ForumMessagesContainer from "./components/ForumMessagesContainer";
 import NewForumMessageForm from "./components/NewForumMessageForm";
@@ -132,7 +132,7 @@ function App() {
 
         <Route path="/forums" element={<ForumsHome />} />
 
-        <Route path="/classifieds" element={<ClassifiedsContainer />} />
+        <Route path="/classifieds" element={<ClassifiedsHome />} />
         <Route path="/new_topic/:subForumID" element={<NewTopicForm />} />
         <Route
           path="/forum_messages/:subForumTopicID"

@@ -127,15 +127,15 @@ Notes: users have 2 relationships with forum_discussion_topics. One direct relat
 > media
 > likes
 
-## classifieds_categories,
+## classified_categories,
 
----has_many :classifieds_for_sale
+---has_many :classified_for_sale
 
 > heading
 
-## classifieds_for_sales,
+## classified_for_sales,
 
----belongs_to :classifieds_category
+---belongs_to :classified_category
 ---belongs_to :user
 ---has_many :for_sale_messages
 
@@ -144,13 +144,14 @@ Notes: users have 2 relationships with forum_discussion_topics. One direct relat
 > status
 > price
 > strings
-> location
+> city
+> state
 > country
 > views
 
 ## for_sale_messages,
 
----belongs_to :classifieds_for_sale
+---belongs_to :classified_for_sale
 ---belongs_to :user
 
 > content

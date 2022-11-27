@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :for_sale_messages, only: [:index]
-  resources :classified_for_sales, only: [:index, :show]
-  resources :classified_categories, only: [:index]
+  resources :for_sale_messages, only: [:index, :show, :create]
+  resources :classified_for_sales, only: [:index, :show, :create]
+  resources :classified_categories, only: [:index, :show]
   # resources :join_pins_topics
   resources :user_pins, only: [:index]
   resources :forum_topic_messages, only: [:index, :create, :show]
