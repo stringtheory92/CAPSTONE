@@ -24,12 +24,62 @@
   padding: 1rem;
   width: 100%;
 }
-
+.db-card {
+  padding-left: 2rem;
+  font-family: "Berkshire Swash", cursive;
+  color: rgb(247, 206, 158);
+}
+.bg-card {
+  text-align: center;
+  text-shadow: 3px 3px 0 var(--black);
+  padding: 1.3rem;
+  font-family: "Neucha", cursive;
+  font-size: 5rem;
+  color: var(--white);
+}
+.amp-card {
+  font-family: "Courier Prime", monospace;
+  text-shadow: 0 0 5px var(--black);
+  padding: 1rem;
+  font-size: 3rem;
+  color: rgb(196, 143, 108);
+}
+.acc-card {
+  padding-top: 4.5rem;
+  text-align: center;
+  color: var(--white);
+  font-family: "Sacramento", cursive;
+  font-size: 4rem;
+  text-shadow: 2px 2px 0 var(--black);
+  text-decoration: underline;
+  text-decoration-thickness: 5px;
+}
 @media (min-width: 750px) {
   .cardContainer {
     grid-template-columns: repeat(2, 35fr);
-    gap: 3rem;
+    /* padding: 1rem 9rem; */
+    gap: 1rem 3rem;
     min-width: 40rem;
-    max-width: 60rem;
+    max-width: 45rem;
+  }
+  .db-card {
+    padding-right: 1rem;
+    text-align: right;
+    font-size: 3rem;
+  }
+  .acc-card {
+    padding-top: 3rem;
+    text-shadow: 3px 3px 0 var(--black);
+  }
+  .bg-card {
+    text-align: center;
+    text-shadow: 0 0 5px var(--black);
+    padding-top: 4rem;
+    color: rgb(250, 252, 187);
+    /* color: rgb(189, 191, 191); */
+  }
+  .amp-card {
+    padding-top: 4rem;
+    text-shadow: 3px 3px 0 var(--black);
   }
 }
