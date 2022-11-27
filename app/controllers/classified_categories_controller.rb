@@ -12,6 +12,8 @@ class ClassifiedCategoriesController < ApplicationController
     render json: category, status: :created
    end
 
+   
+
    private
 
    def category_params

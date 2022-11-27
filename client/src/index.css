@@ -35,17 +35,17 @@
   padding: 1.3rem;
   font-family: "Neucha", cursive;
   font-size: 5rem;
-  color: var(--white);
+  color: rgb(250, 252, 187);
 }
 .amp-card {
   font-family: "Courier Prime", monospace;
   text-shadow: 0 0 5px var(--black);
   padding: 1rem;
   font-size: 3rem;
-  color: rgb(196, 143, 108);
+  color: var(--white);
 }
 .acc-card {
-  padding-top: 4.5rem;
+  padding-top: 5rem;
   text-align: center;
   color: var(--white);
   font-family: "Sacramento", cursive;
@@ -75,11 +75,11 @@
     text-align: center;
     text-shadow: 0 0 5px var(--black);
     padding-top: 4rem;
-    color: rgb(250, 252, 187);
-    /* color: rgb(189, 191, 191); */
+    /* color: rgb(250, 252, 187); */
   }
   .amp-card {
     padding-top: 4rem;
     text-shadow: 3px 3px 0 var(--black);
+    color: rgb(196, 143, 108);
   }
 }
