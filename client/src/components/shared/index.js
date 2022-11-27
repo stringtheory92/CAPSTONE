@@ -5,6 +5,7 @@ import Button from "./Button";
 import MainForumItem from "./MainForumItem";
 import NavStyled from "./NavStyled";
 import NavLinkStyled from "./NavLinkStyled";
+import MessageStyled from "./MessageStyled";
 
-export { MainForumItem, Button, NavStyled, NavLinkStyled };
+export { MainForumItem, Button, NavStyled, NavLinkStyled, MessageStyled };
 // export { Button, Form, Input, MainForumList };

@@ -23,10 +23,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_130739) do
     t.string "status"
     t.integer "price"
     t.integer "strings"
-    t.string "location"
+    t.string "city"
+    t.string "state"
     t.string "country"
-    t.integer "views"
-    t.integer "classifieds_category_id"
+    t.integer "views", default: 0
+    t.integer "classified_category_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,8 +44,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_130739) do
   create_table "for_sale_messages", force: :cascade do |t|
     t.string "content"
     t.string "media"
-    t.integer "likes"
-    t.integer "classifieds_for_sale_id"
+    t.integer "likes", default: 0
+    t.integer "classified_for_sale_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

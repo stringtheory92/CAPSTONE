@@ -6,10 +6,11 @@ class CreateClassifiedForSales < ActiveRecord::Migration[7.0]
       t.string :status
       t.integer :price
       t.integer :strings
-      t.string :location
+      t.string :city
+      t.string :state
       t.string :country
-      t.integer :views
-      t.integer :classifieds_category_id
+      t.integer :views, default: 0
+      t.integer :classified_category_id
       t.integer :user_id
 
       t.timestamps

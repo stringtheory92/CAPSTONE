@@ -1,3 +1,3 @@
 class ClassifiedCategory < ApplicationRecord
-    has_many :classifieds_for_sale
+    has_many :classified_for_sale
 end

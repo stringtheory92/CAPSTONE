@@ -1,2 +1,3 @@
 class ClassifiedCategoriesController < ApplicationController
+   
 end
