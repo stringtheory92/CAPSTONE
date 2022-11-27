@@ -4,13 +4,20 @@ import ClassifiedForSale from "./ClassifiedForSale";
 
 function ClassifiedsHome() {
   const [categoryID, setCategoryID] = useState(null);
+  const onCategorySelect = (e, id) => {
+    setCategoryID(id);
+  };
+
   const componentIndex = () => {
     // if category was selected, display items for sale
     if (categoryID) return 1;
     // or else display categories
     return 0;
   };
-  const componentArray = [<ClassifiedCategories />, <ClassifiedForSale />];
+  const componentArray = [
+    <ClassifiedCategories onCategorySelect={onCategorySelect} />,
+    <ClassifiedForSale />,
+  ];
 
   return <div>{componentArray[componentIndex()]}</div>;
 }
