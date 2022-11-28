@@ -8,6 +8,7 @@ import NavLinkStyled from "./NavLinkStyled";
 import MessageStyled from "./MessageStyled";
 import CategoryCardStyled from "./CategoryCardStyled";
 import UserMenuStyled from "./UserMenuStyled";
+import ForSaleItemStyled from "./ForSaleItemStyled";
 
 export {
   MainForumItem,
@@ -17,5 +18,6 @@ export {
   MessageStyled,
   CategoryCardStyled,
   UserMenuStyled,
+  ForSaleItemStyled,
 };
 // export { Button, Form, Input, MainForumList };

@@ -78,6 +78,37 @@
   text-decoration: underline;
   text-decoration-thickness: 5px;
 }
+/* =============== CLASSIFIED FOR SALE ============ */
+.classifiedForSaleHeading {
+  text-align: center;
+  font-size: 2rem;
+}
+.forSaleGridContainer {
+  display: grid;
+  grid-template-columns: 1;
+  gap: 1rem;
+}
+/* ============ CLASSIFIED LIST UNIT ========================= */
+.border {
+  border: 1px solid #222;
+}
+.wholeItemContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.imageAndInfoContainer {
+  display: flex;
+}
+.forSaleImageContainer {
+  border: 1px solid gray;
+  padding: 0.5rem;
+  height: 8rem;
+  width: 8rem;
+}
+.price {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
 
 /* ============== RESPONSIVE ================ */
 @media (min-width: 750px) {
@@ -160,7 +191,7 @@
   }
   .middle {
     /* width: 42rem; */
-    flex-basis: 42rem;
+    flex-basis: 44rem;
   }
 
   /* ======== USER MENU =================== */

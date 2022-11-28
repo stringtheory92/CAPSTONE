@@ -27,8 +27,8 @@ function ClassifiedForSale({ categoryID }) {
 
   return (
     <div>
-      <h1>ClassifiedForSale</h1>
-      {displayedItems}
+      <h1 className="classifiedForSaleHeading">For Sale</h1>
+      <div className="forSaleGridContainer">{displayedItems}</div>
     </div>
   );
 }
