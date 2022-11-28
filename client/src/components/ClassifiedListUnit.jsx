@@ -61,7 +61,11 @@ function ClassifiedListUnit({ item }) {
           </div>
         </div>
         <div className="extraInfo"></div>
-        <div className="sellerInfo">{user.user_name}</div>
+        <div className="sellerInfo">
+          <h3>Seller:</h3>
+          <div className="sellerImageContainer">{user.image}</div>
+          <h3>{user.user_name}</h3>
+        </div>
       </ForSaleItemStyled>
     </div>
   );
