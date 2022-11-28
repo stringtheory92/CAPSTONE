@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   # route to fetch all messages in topic thread
   get '/forum_topic_messages/common_topic/:forum_topic_id', to: 'forum_topic_messages#message_thread'
 
+  # route to fetch all classified_for_sale from particular classified_category
+  get '/classified_for_sales/from_category/:classified_category_id', to: 'classified_for_sales#show_from_category'
   namespace :member do
     resources :inboxes, only: [:show]
     resources :dms, only: [:index, :show, :create]

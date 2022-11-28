@@ -16,7 +16,7 @@ function ClassifiedsHome() {
   };
   const componentArray = [
     <ClassifiedCategories onCategorySelect={onCategorySelect} />,
-    <ClassifiedForSale />,
+    <ClassifiedForSale categoryID={categoryID} />,
   ];
 
   return <div>{componentArray[componentIndex()]}</div>;

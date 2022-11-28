@@ -26,6 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_130739) do
     t.string "city"
     t.string "state"
     t.string "country"
+    t.string "image"
     t.integer "views", default: 0
     t.integer "classified_category_id"
     t.integer "user_id"

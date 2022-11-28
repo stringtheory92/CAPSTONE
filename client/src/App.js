@@ -1,5 +1,7 @@
 // amazing bg photos:
 // https://www.facebook.com/photo/?fbid=2676395625781051&set=a.355647687855868
+// animated backgrounds:
+// https://wweb.dev/resources/animated-css-background-generator/
 import React, { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import PageTwo from "./components/PageTwo";
