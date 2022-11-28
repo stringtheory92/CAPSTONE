@@ -7,6 +7,7 @@ import NavStyled from "./NavStyled";
 import NavLinkStyled from "./NavLinkStyled";
 import MessageStyled from "./MessageStyled";
 import CategoryCardStyled from "./CategoryCardStyled";
+import UserMenuStyled from "./UserMenuStyled";
 
 export {
   MainForumItem,
@@ -15,5 +16,6 @@ export {
   NavLinkStyled,
   MessageStyled,
   CategoryCardStyled,
+  UserMenuStyled,
 };
 // export { Button, Form, Input, MainForumList };

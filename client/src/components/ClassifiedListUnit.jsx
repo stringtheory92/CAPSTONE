@@ -4,6 +4,7 @@ function ClassifiedListUnit({ item }) {
   const {
     bass,
     city,
+    image,
     classified_category,
     country,
     id,
@@ -14,9 +15,10 @@ function ClassifiedListUnit({ item }) {
     strings,
     user,
   } = item;
+
   return (
     <div>
-      <h2>{`${item.bass} : ${item.price}`}</h2>;
+      <h2>{`${item.bass} : ${item.price}`}</h2>
     </div>
   );
 }

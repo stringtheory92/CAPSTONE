@@ -5,6 +5,30 @@
 .transparent {
   background-color: transparent;
 } */
+/* ============ MAIN ======================== */
+/* ============ USER MENU ======================== */
+
+/* .namePic {
+  display: flex;
+  border: 1px solid lime;
+}
+.imageContainer {
+  border: 1px solid gray;
+  height: 6rem;
+  flex-basis: 10rem;
+  flex-grow: 0;
+}
+.nameContainer {
+  border: 1px solid orange;
+  align-self: stretch;
+  font-size: 1.5rem;
+  width: 100%;
+}
+.userName {
+  text-align: center;
+} */
+
+/* ========= CLASSIFIED ===================== */
 .gridContainer {
   display: flex;
   flex-direction: column;
@@ -54,12 +78,39 @@
   text-decoration: underline;
   text-decoration-thickness: 5px;
 }
+
+/* ============== RESPONSIVE ================ */
 @media (min-width: 750px) {
+  .whole {
+    display: flex;
+    justify-content: space-between;
+    gap: 0;
+  }
+  .sides {
+    border: 2px solid gray;
+  }
+  .left {
+    display: none;
+    /* flex-basis: 20rem; */
+  }
+  .right {
+    display: none;
+  }
+  .middle {
+    border: 2px solid lime;
+    width: 100%;
+  }
+
+  /* =========== CLASSIFIED CATEGORIES ================= */
+  .gridContainer {
+    padding-left: 0;
+    padding-right: 0;
+  }
   .cardContainer {
     grid-template-columns: repeat(2, 35fr);
     /* padding: 1rem 9rem; */
     gap: 1rem 3rem;
-    min-width: 40rem;
+    /* min-width: 40rem; */
     max-width: 45rem;
   }
   .db-card {
@@ -82,4 +133,82 @@
     text-shadow: 3px 3px 0 var(--black);
     color: rgb(196, 143, 108);
   }
+}
+
+@media (min-width: 780px) {
+  .left {
+    display: initial;
+  }
+  .userMenu {
+    visibility: hidden;
+  }
+}
+
+@media (min-width: 900px) {
+  .userMenu {
+    visibility: visible;
+  }
+  .sides {
+    flex-grow: 1;
+  }
+  .right {
+    display: initial;
+  }
+  .left {
+    /* min-width: 20rem; */
+    max-width: 30rem;
+  }
+  .middle {
+    /* width: 42rem; */
+    flex-basis: 42rem;
+  }
+
+  /* ======== USER MENU =================== */
+  .namePic {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid lime;
+  }
+  .imageContainer {
+    padding: 1rem;
+    border: 1px solid gray;
+    height: 6rem;
+    flex-basis: 10rem;
+    flex-grow: 0;
+  }
+  .nameContainer {
+    border: 1px solid orange;
+    align-self: stretch;
+    font-size: 1rem;
+    width: 100%;
+  }
+  .userName {
+    text-align: center;
+  }
+}
+
+@media (min-width: 1035px) {
+  .namePic {
+    display: flex;
+    border: 1px solid lime;
+  }
+  /* .imageContainer {
+    border: 1px solid gray;
+    height: 6rem;
+    flex-basis: 10rem;
+    flex-grow: 0;
+  }
+  .nameContainer {
+    border: 1px solid orange;
+    align-self: stretch;
+    font-size: 1.5rem;
+    width: 100%;
+  }
+  .userName {
+    text-align: center;
+  }
+
+  .right {
+    max-width: 30rem;
+  } */
 }

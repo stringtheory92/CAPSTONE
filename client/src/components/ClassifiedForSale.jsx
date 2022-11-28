@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ClassifiedListUnit from "./ClassifiedListUnit";
 
 function ClassifiedForSale({ categoryID }) {
   const [allItems, setAllItems] = useState([]);
@@ -21,7 +22,7 @@ function ClassifiedForSale({ categoryID }) {
   }, [categoryID]);
 
   const displayedItems = allItems?.map((item) => (
-    <h2>{`${item.bass} : ${item.price}`}</h2>
+    <ClassifiedListUnit key={item.id} item={item} />
   ));
 
   return (

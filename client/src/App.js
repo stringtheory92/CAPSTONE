@@ -15,6 +15,7 @@ import ClassifiedsHome from "./components/ClassifiedsHome";
 import NewTopicForm from "./components/NewTopicForm";
 import ForumMessagesContainer from "./components/ForumMessagesContainer";
 import NewForumMessageForm from "./components/NewForumMessageForm";
+import UserMenu from "./components/UserMenu";
 // import { Button } from "./components/shared";
 
 const GlobalStyle = createGlobalStyle`
@@ -119,33 +120,41 @@ function App() {
         isLoggedIn={isLoggedIn}
         toggleLogIn={toggleLogIn}
       />
+      <div className="whole">
+        <div className="sides left">
+          {user ? <UserMenu user={user} /> : null}
+        </div>
+        <div className="leftMiddleSpace"></div>
+        <div className="middle">
+          <Routes>
+            <Route
+              exact
+              path="/"
+              element={
+                isLoggedIn ? (
+                  <Home />
+                ) : (
+                  <Login replace to={"/login"} onSignIn={onSignIn} />
+                )
+              }
+            />
 
-      <Routes>
-        <Route
-          exact
-          path="/"
-          element={
-            isLoggedIn ? (
-              <Home />
-            ) : (
-              <Login replace to={"/login"} onSignIn={onSignIn} />
-            )
-          }
-        />
+            <Route path="/forums" element={<ForumsHome />} />
 
-        <Route path="/forums" element={<ForumsHome />} />
-
-        <Route path="/classifieds" element={<ClassifiedsHome />} />
-        <Route path="/new_topic/:subForumID" element={<NewTopicForm />} />
-        <Route
-          path="/forum_messages/:subForumTopicID"
-          element={<ForumMessagesContainer />}
-        />
-        {/* <Route
+            <Route path="/classifieds" element={<ClassifiedsHome />} />
+            <Route path="/new_topic/:subForumID" element={<NewTopicForm />} />
+            <Route
+              path="/forum_messages/:subForumTopicID"
+              element={<ForumMessagesContainer />}
+            />
+            {/* <Route
           path="/new_forum_message/:subForumTopicID"
           element={<NewForumMessageForm />}
         /> */}
-      </Routes>
+          </Routes>
+        </div>
+        <div className="sides right">Right</div>
+      </div>
     </ThemeProvider>
   );
 }
