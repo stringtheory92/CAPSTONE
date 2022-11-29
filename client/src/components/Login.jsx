@@ -52,18 +52,19 @@ function Login({ onSignIn }) {
 
     // calls users#show_by_name
     fetch(`/users/by_name/${formData.userName}`).then((r) => {
+      console.log(r);
       if (r.ok) {
         r.json().then((data) => {
           console.log("ok: ", data);
           // validate password on frontend
-          if (formData.password === data.password) onSignIn(data);
+          if (formData.password === data.user.password) onSignIn(data);
           else setErrors([...errors, "User Name and Password do not match"]);
         });
       } else {
         // errors come from invalid userName errors on backend
         r.json().then((data) => {
           console.log("not ok: ", data);
-          setErrors(data.error);
+          setErrors((errors) => errors.push(data.error));
           // setErrors(Object.entries(data.error).map((e) => `${e[0]} ${e[1]}`));
         });
       }

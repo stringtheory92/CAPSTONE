@@ -24,7 +24,15 @@ class UsersController < ApplicationController
     #for grabbing user on login
     def show_by_name
         user = User.find_by!(user_name: params[:user_name])
-        render json: user, status: :ok
+        if user.avatar.attached?
+           
+            avatar = rails_blob_path(user.avatar)
+            
+            render json: {user: user, avatar: avatar}, status: :ok
+        else 
+            
+            render json: {user: user}, status: :ok
+        end
     end
 
     def create

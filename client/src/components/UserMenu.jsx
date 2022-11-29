@@ -1,13 +1,20 @@
 import React from "react";
-import { UserMenuStyled } from "./shared";
+import { UserMenuStyled, AvatarStyled } from "./shared";
 
-function UserMenu({ user }) {
+function UserMenu({ user, avatar }) {
   const { id, user_name, image, balance } = user;
   return (
     <UserMenuStyled className="userMenu">
       <div className="namePic">
         <div className="imageContainer">
-          <img src={image} alt="your face here!" />
+          <AvatarStyled
+            src={
+              avatar
+                ? `http://localhost:3000/${avatar}`
+                : "../../../public/avatars/default-avatar.png"
+            }
+            alt="your face here!"
+          />
         </div>
         <div className="nameContainer">
           <h1 className="userName">{user_name}</h1>

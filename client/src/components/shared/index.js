@@ -9,6 +9,8 @@ import MessageStyled from "./MessageStyled";
 import CategoryCardStyled from "./CategoryCardStyled";
 import UserMenuStyled from "./UserMenuStyled";
 import ForSaleItemStyled from "./ForSaleItemStyled";
+import AvatarStyled from "./AvatarStyled";
+import AvatarContainerStyled from "./AvatarContainerStyled";
 
 export {
   MainForumItem,
@@ -19,5 +21,7 @@ export {
   CategoryCardStyled,
   UserMenuStyled,
   ForSaleItemStyled,
+  AvatarStyled,
+  AvatarContainerStyled,
 };
 // export { Button, Form, Input, MainForumList };

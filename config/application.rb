@@ -1,6 +1,8 @@
 require_relative "boot"
 
 require "rails"
+# Image processing
+require 'rmagick'
 # Pick the frameworks you want:
 require "active_model/railtie"
 # require "active_job/railtie"

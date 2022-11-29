@@ -72,7 +72,7 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
-  const [avatar, setAvatar] = useState("");
+  const [avatar, setAvatar] = useState(null);
   const navigate = useNavigate();
 
   // keep isLoggedIn status updated on refresh
@@ -93,6 +93,7 @@ function App() {
   }, [isLoggedIn]);
 
   console.log("user: ", user);
+  console.log("avatar: ", avatar);
   console.log("isLoggedIn: ", isLoggedIn);
 
   const toggleLogIn = () => {
@@ -107,9 +108,10 @@ function App() {
     setIsDarkMode((status) => !status);
   };
 
-  const onSignIn = (user) => {
-    localStorage.setItem("userID", user.id);
-    setUser(user);
+  const onSignIn = (data) => {
+    localStorage.setItem("userID", data.user.id);
+    setUser(data.user);
+    setAvatar(data.avatar);
     toggleLogIn();
   };
   console.log("isDarkMode: ", isDarkMode);
@@ -126,7 +128,7 @@ function App() {
       />
       <div className="whole">
         <div className="sides left">
-          {user ? <UserMenu user={user} /> : null}
+          {user ? <UserMenu user={user} avatar={avatar} /> : null}
         </div>
         <div className="leftMiddleSpace"></div>
         <div className="middle">

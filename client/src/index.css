@@ -194,10 +194,10 @@
   .right {
     display: initial;
   }
-  .left {
-    /* min-width: 20rem; */
+  /* .left {
+    min-width: 20rem;
     max-width: 30rem;
-  }
+  } */
   .middle {
     /* width: 42rem; */
     flex-basis: 44rem;
@@ -231,6 +231,13 @@
   .namePic {
     display: flex;
     border: 1px solid lime;
+  }
+  .sides {
+    flex-grow: 0;
+    width: 13rem;
+  }
+  .left {
+    flex-grow: 0;
   }
   /* .imageContainer {
     border: 1px solid gray;

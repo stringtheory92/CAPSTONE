@@ -42,3 +42,5 @@ gem "mini_magick", "~> 4.11"
 gem "activestorage", "~> 7.0"
 
 gem "image_processing", "~> 1.12"
+
+gem "rmagick", "~> 5.1"

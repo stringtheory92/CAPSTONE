@@ -117,6 +117,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.9-arm64-darwin)
       racc (~> 1.4)
+    pkg-config (1.5.1)
     puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -152,6 +153,8 @@ GEM
     rake (13.0.6)
     reline (0.3.1)
       io-console (~> 0.5)
+    rmagick (5.1.0)
+      pkg-config (~> 1.4)
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     sqlite3 (1.5.4-arm64-darwin)
@@ -178,6 +181,7 @@ DEPENDENCIES
   mini_magick (~> 4.11)
   puma (~> 5.0)
   rails (~> 7.0.4)
+  rmagick (~> 5.1)
   sqlite3 (~> 1.4)
   tzinfo-data
 
