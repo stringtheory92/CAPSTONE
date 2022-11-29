@@ -128,7 +128,7 @@
   .whole {
     display: flex;
     justify-content: space-between;
-    gap: 0;
+    /* gap: 0; */
   }
   .sides {
     border: 2px solid gray;
@@ -196,6 +196,7 @@
     flex-grow: 1;
   } */
   .right {
+    max-width: 8rem;
     flex-grow: 1;
     display: initial;
   }
@@ -240,13 +241,17 @@
     display: flex;
     border: 1px solid lime;
   }
-  .sides {
+  /* .sides {
     flex-grow: 0;
-    width: 13rem;
-  }
+    max-width: 13rem;
+  } */
   .left {
     flex-grow: 0;
     max-width: 13rem;
+  }
+  .right {
+    max-width: 18rem;
+    flex-grow: 1;
   }
   /* .imageContainer {
     border: 1px solid gray;
