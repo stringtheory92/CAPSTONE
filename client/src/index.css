@@ -99,6 +99,10 @@
 .imageAndInfoContainer {
   display: flex;
 }
+.imageContainer {
+  width: 100%;
+  border: 1px solid red;
+}
 .forSaleImageContainer {
   border: 1px solid gray;
   padding: 0.5rem;
@@ -188,16 +192,16 @@
   .userMenu {
     visibility: visible;
   }
-  .sides {
+  /* .sides {
     flex-grow: 1;
-  }
+  } */
   .right {
+    flex-grow: 1;
     display: initial;
   }
-  /* .left {
-    min-width: 20rem;
-    max-width: 30rem;
-  } */
+  .left {
+    max-width: 8rem;
+  }
   .middle {
     /* width: 42rem; */
     flex-basis: 44rem;
@@ -210,6 +214,10 @@
     border: 1px solid lime;
   }
   .imageContainer {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
     padding: 1rem;
     border: 1px solid gray;
     height: 6rem;
@@ -238,6 +246,7 @@
   }
   .left {
     flex-grow: 0;
+    max-width: 13rem;
   }
   /* .imageContainer {
     border: 1px solid gray;

@@ -44,3 +44,5 @@ gem "activestorage", "~> 7.0"
 gem "image_processing", "~> 1.12"
 
 gem "rmagick", "~> 5.1"
+
+gem "hirb", "~> 0.7.3"
