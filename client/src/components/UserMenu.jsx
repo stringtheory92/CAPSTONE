@@ -3,6 +3,7 @@ import { UserMenuStyled, AvatarStyled } from "./shared";
 
 function UserMenu({ user, avatar }) {
   const { id, user_name, image, balance } = user;
+
   return (
     <UserMenuStyled className="userMenu">
       <div className="namePic">

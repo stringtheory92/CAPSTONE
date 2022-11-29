@@ -28,6 +28,11 @@
   text-align: center;
 } */
 
+/* ========= WHOLE LAYOUT ===================== */
+.middle h1 {
+  text-align: center;
+  font-size: 2rem;
+}
 /* ========= CLASSIFIED ===================== */
 .gridContainer {
   display: flex;
@@ -228,7 +233,7 @@
   .nameContainer {
     border: 1px solid orange;
     align-self: stretch;
-    font-size: 1rem;
+    font-size: 0.5rem;
     width: 100%;
   }
   .userName {
@@ -250,8 +255,11 @@
     max-width: 13rem;
   }
   .right {
-    max-width: 18rem;
+    max-width: 20rem;
     flex-grow: 1;
+  }
+  .nameContainer {
+    font-size: 0.9rem;
   }
   /* .imageContainer {
     border: 1px solid gray;

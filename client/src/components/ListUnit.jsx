@@ -13,19 +13,39 @@ function ListUnit({
 
   // Intended for use with: ForumsHome(Main Forums), SubForums, SubForumTopics, ClassifiedCategories
   return (
-    <MainForumItem>
-      <h2>{category}</h2>
-      <h2>{heading}</h2>
+    <>
       {onMainForumSelect ? (
-        <button onClick={(e) => onMainForumSelect(e, id)}>Select</button>
+        <MainForumItem onClick={(e) => onMainForumSelect(e, id)}>
+          <h2>{category}</h2>
+          <h2>{heading}</h2>
+        </MainForumItem>
       ) : null}
       {onSubForumSelect ? (
-        <button onClick={(e) => onSubForumSelect(e, id)}>Select</button>
+        <MainForumItem onClick={(e) => onSubForumSelect(e, id)}>
+          <h2>{category}</h2>
+          <h2>{heading}</h2>
+        </MainForumItem>
       ) : null}
       {onSubForumTopicSelect ? (
-        <button onClick={(e) => onSubForumTopicSelect(e, id)}>Select</button>
+        <MainForumItem onClick={(e) => onSubForumTopicSelect(e, id)}>
+          <h2>{category}</h2>
+          <h2>{heading}</h2>
+        </MainForumItem>
       ) : null}
-    </MainForumItem>
+    </>
+    // <MainForumItem >
+    //   <h2>{category}</h2>
+    //   <h2>{heading}</h2>
+    //   {onMainForumSelect ? (
+    //     <button onClick={(e) => onMainForumSelect(e, id)}>Select</button>
+    //   ) : null}
+    //   {onSubForumSelect ? (
+    //     <button onClick={(e) => onSubForumSelect(e, id)}>Select</button>
+    //   ) : null}
+    //   {onSubForumTopicSelect ? (
+    //     <button onClick={(e) => onSubForumTopicSelect(e, id)}>Select</button>
+    //   ) : null}
+    // </MainForumItem>
   );
 }
 

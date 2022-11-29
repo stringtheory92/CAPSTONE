@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const AvatarStyled = styled.img`
   display: none;
+  border-radius: 5px;
   /* min-width: 4rem;
   max-width: 8rem; */
 
