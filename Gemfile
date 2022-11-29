@@ -36,3 +36,9 @@ gem "faker", "~> 3.0"
 gem "byebug", "~> 11.1"
 
 gem "active_model_serializers", "~> 0.10.13"
+
+gem "mini_magick", "~> 4.11"
+
+gem "activestorage", "~> 7.0"
+
+gem "image_processing", "~> 1.12"

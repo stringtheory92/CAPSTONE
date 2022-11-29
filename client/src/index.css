@@ -42,10 +42,10 @@
   border: 1px solid #222;
   display: grid;
   grid-template-columns: repeat(1, 80fr);
-  gap: 3rem;
+  gap: 2rem;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  /* padding: 0.5rem; */
   width: 100%;
 }
 .db-card {

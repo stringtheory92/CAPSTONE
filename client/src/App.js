@@ -2,6 +2,9 @@
 // https://www.facebook.com/photo/?fbid=2676395625781051&set=a.355647687855868
 // animated backgrounds:
 // https://wweb.dev/resources/animated-css-background-generator/
+
+//Active Storage Notes:
+// mini_magick installed (image resizing)
 import React, { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import PageTwo from "./components/PageTwo";
@@ -69,6 +72,7 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
+  const [avatar, setAvatar] = useState("");
   const navigate = useNavigate();
 
   // keep isLoggedIn status updated on refresh

@@ -1,4 +1,4 @@
-ap 'Destroying Old Seed Data'
+# ap 'Destroying Old Seed Data'
 
 # User.destroy_all
 # MainForum.destroy_all
@@ -6,13 +6,22 @@ ap 'Destroying Old Seed Data'
 # ClassifiedForSale.destroy_all
 # ForSaleMessage.destroy_all
 
-ap "Old Data Destroyed"
+# ap "Old Data Destroyed"
 
-ap "Seeding..."
+# ap "Seeding..."
 
 # 10.times do
 #     User.create(user_name: Faker::Name.first_name, password: "123")
 # end
+
+manny = User.create(user_name: 'Manny', password: '123')
+
+manny.avatar.attach(
+    io: File.open('./public/avatars/boy-sunglasses.jpg'),
+    filename: 'boy-sunglasses.jpg',
+    content_type: 'application/jpg'
+)
+
 
 # ========== Forums ============================================================
 # 3.times do
@@ -59,4 +68,4 @@ ap "Seeding..."
 #     ForSaleMessage.create(content: Faker::Hipster.paragraph, media: 'none', classified_for_sale_id: ad.id, user_id: rand(1..10))
 # end
 
-ap "All Seeded!"
+# ap "All Seeded!"

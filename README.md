@@ -169,3 +169,21 @@ Network State
 Sovereign Network
 Sovereign State
 Basicity (Chemistry - low pH)
+
+# Active Storage
+
+Installed mini_magick (for resizing images)
+
+# amazing bg photos:
+
+https://www.facebook.com/photo/?fbid=2676395625781051&set=a.355647687855868
+
+# animated backgrounds:
+
+// https://wweb.dev/resources/animated-css-background-generator/
+
+# Active Storage Woes
+
+- needed to find and add gems before active_storage:install was available
+- running rails active_storage:install did not include the needed config/storage.yml file
+- needed to permit the param representing the has_one_attached item
