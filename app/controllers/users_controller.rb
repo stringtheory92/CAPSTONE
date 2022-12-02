@@ -29,8 +29,7 @@ class UsersController < ApplicationController
             avatar = rails_blob_path(user.avatar)
             
             render json: {user: user, avatar: avatar}, status: :ok
-        else 
-            
+        else  
             render json: {user: user}, status: :ok
         end
     end
@@ -41,10 +40,21 @@ class UsersController < ApplicationController
         render json: full_user, status: :created
     end
 
+    def update
+       
+        user = User.find(params[:id])
+       
+        user.update!(create_user_params)
+        avatar = rails_blob_path(user.avatar)
+        render json: {user: user, avatar: avatar}, status: :accepted
+    end
+
+    
+
     private
 
     def create_user_params
-        params.require(:user_name, :password).permit(:avatar)
+        params.permit(:avatar, :user_name, :password)
     end
     
 end

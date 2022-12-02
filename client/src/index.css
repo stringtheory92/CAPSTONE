@@ -197,6 +197,11 @@
   .userMenu {
     visibility: visible;
   }
+  /* .imageContainer {
+    background-image: url("../../public/avatars/default-avatar.png");
+    background-size: cover;
+    min-width: 7rem;
+  } */
   /* .sides {
     flex-grow: 1;
   } */
@@ -220,6 +225,10 @@
     border: 1px solid lime;
   }
   .imageContainer {
+    /* background-image: url("../../public/avatars/default-avatar.png");
+    background-size: contain;
+    background-repeat: no-repeat; */
+    min-width: 5rem;
     margin: 0;
     display: flex;
     justify-content: center;
@@ -260,6 +269,9 @@
   }
   .nameContainer {
     font-size: 0.9rem;
+  }
+  .imageContainer {
+    min-width: 10rem;
   }
   /* .imageContainer {
     border: 1px solid gray;

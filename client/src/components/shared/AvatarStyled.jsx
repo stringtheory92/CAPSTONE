@@ -11,10 +11,12 @@ const AvatarStyled = styled.img`
     display: block;
     /* max-width: 4.2rem; */
     max-width: 100%;
+    max-height: 7rem;
     /* flex-basis: 4.2rem; */
   }
   @media (min-width: 950px) {
     /* max-width: 4.6rem; */
+    max-height: 8rem;
   }
   @media (min-width: 1000px) {
     /* max-width: 5rem; */

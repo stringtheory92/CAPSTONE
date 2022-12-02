@@ -9,11 +9,7 @@ function UserMenu({ user, avatar }) {
       <div className="namePic">
         <div className="imageContainer">
           <AvatarStyled
-            src={
-              avatar
-                ? `http://localhost:3000/${avatar}`
-                : "../../../public/avatars/default-avatar.png"
-            }
+            src={avatar ? `http://localhost:3000/${avatar}` : null}
             alt="your face here!"
           />
         </div>

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :main_forums, only: [:index, :show]
   # resources :dms, 
   # resources :inboxes
-  resources :users, only: [:show, :create]
+  resources :users, only: [:show, :create, :update]
 
   # sign in route
   get '/users/by_name/:user_name', to: "users#show_by_name"

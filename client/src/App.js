@@ -32,7 +32,9 @@ const GlobalStyle = createGlobalStyle`
     --mid-turquoise: #14d5c9;
     --dark-turquoise: #00333f;
     --color: ${(props) => props.theme.color};
+    --inverseColor: ${(props) => props.theme.inverseColor};
     --background: ${(props) => props.theme.backgroundColor};
+    --inverseBgColor: ${(props) => props.theme.inverseBgColor};
     --primary: ${(props) => props.theme.primary};
   }
   
@@ -58,13 +60,16 @@ const GlobalStyle = createGlobalStyle`
 
 const lightTheme = {
   color: "var(--black)",
+  inverseColor: "var(--white)",
   backgroundColor: "var(--light-grey)",
-  // backgroundColor: "var(--white)",
+  inverseBgColor: "var(--black)",
   primary: "var(--dark-turquoise)",
 };
 const darkTheme = {
   color: "var(--white)",
+  inverseColor: "var(--black)",
   backgroundColor: "var(--black)",
+  inverseBgColor: "var(--grey)",
   primary: "var(--turquoise)",
 };
 
@@ -108,6 +113,10 @@ function App() {
     setIsDarkMode((status) => !status);
   };
 
+  const onAvatarChange = (avatar) => {
+    setAvatar(avatar);
+  };
+
   const onSignIn = (data) => {
     localStorage.setItem("userID", data.user.id);
     setUser(data.user);
@@ -130,7 +139,7 @@ function App() {
         <div className="sides left">
           {user ? <UserMenu user={user} avatar={avatar} /> : null}
         </div>
-        <div className="leftMiddleSpace"></div>
+        {/* <div className="leftMiddleSpace"></div> */}
         <div className="middle">
           <Routes>
             <Route
@@ -138,7 +147,7 @@ function App() {
               path="/"
               element={
                 isLoggedIn ? (
-                  <Home />
+                  <Home onAvatarChange={onAvatarChange} />
                 ) : (
                   <Login replace to={"/login"} onSignIn={onSignIn} />
                 )
