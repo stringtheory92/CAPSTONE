@@ -11,6 +11,7 @@ import UserMenuStyled from "./UserMenuStyled";
 import ForSaleItemStyled from "./ForSaleItemStyled";
 import AvatarStyled from "./AvatarStyled";
 import AvatarContainerStyled from "./AvatarContainerStyled";
+import SellerImageStyled from "./SellerImageStyled";
 
 export {
   MainForumItem,
@@ -23,5 +24,6 @@ export {
   ForSaleItemStyled,
   AvatarStyled,
   AvatarContainerStyled,
+  SellerImageStyled,
 };
 // export { Button, Form, Input, MainForumList };

@@ -32,6 +32,7 @@ class UsersController < ApplicationController
         else  
             render json: {user: user}, status: :ok
         end
+        # render json: user, status: :ok
     end
 
     def create

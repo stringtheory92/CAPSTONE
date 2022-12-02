@@ -19,6 +19,7 @@ import NewTopicForm from "./components/NewTopicForm";
 import ForumMessagesContainer from "./components/ForumMessagesContainer";
 import NewForumMessageForm from "./components/NewForumMessageForm";
 import UserMenu from "./components/UserMenu";
+import NewForSaleForm from "./components/NewForSaleForm";
 // import { Button } from "./components/shared";
 
 const GlobalStyle = createGlobalStyle`
@@ -161,6 +162,10 @@ function App() {
             <Route
               path="/forum_messages/:subForumTopicID"
               element={<ForumMessagesContainer />}
+            />
+            <Route
+              path="/new_for_sale"
+              element={<NewForSaleForm user={user} avatar={avatar} />}
             />
             {/* <Route
           path="/new_forum_message/:subForumTopicID"

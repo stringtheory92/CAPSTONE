@@ -1,11 +1,11 @@
-import React from "react";
-import { ForSaleItemStyled } from "./shared";
+import React, { useEffect, useState } from "react";
+import { ForSaleItemStyled, SellerImageStyled } from "./shared";
 
 function ClassifiedListUnit({ item }) {
+  const [sellerAvatar, setSellerAvatar] = useState(null);
   const {
     bass,
     city,
-    image,
     classified_category,
     country,
     id,
@@ -15,8 +15,18 @@ function ClassifiedListUnit({ item }) {
     status,
     strings,
     user,
+    pic,
   } = item;
 
+  useEffect(() => {
+    fetch(`/users/by_name/${user.user_name}`)
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.avatar) setSellerAvatar(data.avatar);
+      });
+  }, []);
+
+  console.log("user.avatar: ", sellerAvatar);
   const statusRed = {
     color: "var(--white)",
     backgroundColor: "tomato",
@@ -63,7 +73,11 @@ function ClassifiedListUnit({ item }) {
         <div className="extraInfo"></div>
         <div className="sellerInfo">
           <h3>Seller:</h3>
-          <div className="sellerImageContainer">{user.image}</div>
+          <div className="sellerImageContainer">
+            {sellerAvatar ? (
+              <SellerImageStyled src={sellerAvatar} alt="" />
+            ) : null}
+          </div>
           <h3>{user.user_name}</h3>
         </div>
       </ForSaleItemStyled>

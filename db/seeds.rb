@@ -14,13 +14,13 @@
 #     User.create(user_name: Faker::Name.first_name, password: "123")
 # end
 
-manny = User.create(user_name: 'Manny', password: '123')
+# manny = User.create(user_name: 'Manny', password: '123')
 
-manny.avatar.attach(
-    io: File.open('./public/avatars/boy-sunglasses.jpg'),
-    filename: 'boy-sunglasses.jpg',
-    content_type: 'application/jpg'
-)
+# manny.avatar.attach(
+#     io: File.open('./public/avatars/boy-sunglasses.jpg'),
+#     filename: 'boy-sunglasses.jpg',
+#     content_type: 'application/jpg'
+# )
 
 
 # ========== Forums ============================================================
@@ -67,5 +67,33 @@ manny.avatar.attach(
 #     ad = ClassifiedForSale.create(bass: Faker::Music.instrument, manufacture_year: rand(1960..2021), status: 'For Sale', price: rand(200..4000), strings: rand(4..6),  city: Faker::Address.community, state: Faker::Address.state, country: 'USA', classified_category_id: acc.id, user_id: rand(1..10))
 #     ForSaleMessage.create(content: Faker::Hipster.paragraph, media: 'none', classified_for_sale_id: ad.id, user_id: rand(1..10))
 # end
+ubfs = ClassifiedForSale.create(bass: Faker::Music.instrument, manufacture_year: rand(1960..2021), status: 'For Sale', price: rand(200..4000), strings: rand(4..6),  city: Faker::Address.community, state: Faker::Address.state, country: 'USA', classified_category_id: 1, user_id: rand(1..10))
+    ForSaleMessage.create(content: Faker::Hipster.paragraph, media: 'none', classified_for_sale_id: ubfs.id, user_id: rand(1..10))
+    ubfs.pic.attach(
+        io: File.open('public/for_sale/upbass1_full.jpeg'),
+        filename: 'upbass1_full.jpeg',
+        content_type: 'application/jpg'
+    )
 
+bgfs = ClassifiedForSale.create(bass: Faker::Music.instrument, manufacture_year: rand(1960..2021), status: 'For Sale', price: rand(200..4000), strings: rand(4..6),  city: Faker::Address.community, state: Faker::Address.state, country: 'USA', classified_category_id: 2, user_id: rand(1..10))
+        ForSaleMessage.create(content: Faker::Hipster.paragraph, media: 'none', classified_for_sale_id: bgfs.id, user_id: rand(1..10))
+        bgfs.pic.attach(
+            io: File.open('public/for_sale/Jap-Fodera-bg.jpeg'),
+            filename: 'Jap-Fodera-bg.jpeg',
+            content_type: 'application/jpg'
+        )
+ampfs = ClassifiedForSale.create(bass: Faker::Music.instrument, manufacture_year: rand(1960..2021), status: 'For Sale', price: rand(200..4000), strings: rand(4..6),  city: Faker::Address.community, state: Faker::Address.state, country: 'USA', classified_category_id: 3, user_id: rand(1..10))
+            ForSaleMessage.create(content: Faker::Hipster.paragraph, media: 'none', classified_for_sale_id: ampfs.id, user_id: rand(1..10))
+            ampfs.pic.attach(
+                io: File.open('public/for_sale/amp-small2.jpeg'),
+                filename: 'amp-small2.jpeg',
+                content_type: 'application/jpg'
+            )
+accfs = ClassifiedForSale.create(bass: Faker::Music.instrument, manufacture_year: rand(1960..2021), status: 'For Sale', price: rand(200..4000), strings: rand(4..6),  city: Faker::Address.community, state: Faker::Address.state, country: 'USA', classified_category_id: 4, user_id: rand(1..10))
+                ForSaleMessage.create(content: Faker::Hipster.paragraph, media: 'none', classified_for_sale_id: accfs.id, user_id: rand(1..10))
+                accfs.pic.attach(
+                    io: File.open('public/for_sale/accessories.jpeg'),
+                    filename: 'accessories.jpeg',
+                    content_type: 'application/jpg'
+                )
 # ap "All Seeded!"

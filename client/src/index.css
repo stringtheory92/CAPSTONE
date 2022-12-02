@@ -93,6 +93,7 @@
   grid-template-columns: 1;
   gap: 1rem;
 }
+
 /* ============ CLASSIFIED LIST UNIT ========================= */
 .border {
   border: 1px solid #222;
@@ -123,6 +124,9 @@
   width: 10rem;
 }
 .sellerImageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid pink;
   height: 6rem;
   width: 6rem;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ClassifiedListUnit from "./ClassifiedListUnit";
+import { NavLink } from "react-router-dom";
 
 function ClassifiedForSale({ categoryID }) {
   const [allItems, setAllItems] = useState([]);
@@ -10,7 +11,17 @@ function ClassifiedForSale({ categoryID }) {
       if (r.ok) {
         r.json().then((data) => {
           console.log("ok: ", data);
-          setAllItems(data);
+          const mapped = data.map((item) => {
+            console.log("data.pic: ", data.pic);
+            if (item.pic) {
+              item.item["pic"] = item.pic;
+            } else {
+              item.item["pic"] = null;
+            }
+            return item.item;
+          });
+          console.log("mapped: ", mapped);
+          setAllItems(mapped);
         });
       } else {
         r.json().then((data) => {
@@ -22,6 +33,8 @@ function ClassifiedForSale({ categoryID }) {
   }, [categoryID]);
 
   const displayedItems = allItems?.map((item) => (
+    // <h2>{item.bass}</h2>
+    // <img src={item.pic} alt="" />
     <ClassifiedListUnit key={item.id} item={item} />
   ));
 
@@ -29,6 +42,7 @@ function ClassifiedForSale({ categoryID }) {
     <div>
       <h1 className="classifiedForSaleHeading">For Sale</h1>
       <div className="forSaleGridContainer">{displayedItems}</div>
+      <NavLink to={`/new_for_sale`}>List My Stuff</NavLink>
     </div>
   );
 }

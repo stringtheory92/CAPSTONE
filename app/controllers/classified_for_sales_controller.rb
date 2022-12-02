@@ -9,18 +9,38 @@ class ClassifiedForSalesController < ApplicationController
     
        def create
         item = ClassifiedForSale.create!(for_sale_params)
-        render json: item, status: :created
+        pic = rails_blob_path(item.pic)
+        
+        if pic
+            render json: {item: item, pic: pic}, status: :created
+        else
+            render json: {item: item}, status: :created
+        end
        end
     
        def show_from_category
-        
+        data_array = []
         items = ClassifiedForSale.where(classified_category_id: params[:classified_category_id])
-        render json: items, status: :ok
+        
+        items.each do |item|
+            x = item.attributes
+            x["user"] = item.user
+            
+            if item.pic.attached?
+                pic = rails_blob_path(item.pic)
+                data_array << {item: x, pic: pic}
+            else
+                data_array << {item: x}
+            end
+        end
+        
+        render json: data_array, status: :ok
+        # render json: data_array, serializer: ForSaleFromCategorySerializer, status: :ok
        end
 
        private
     
        def for_sale_params
-        params.permit(:bass, :image, :manufacture_year, :status, :price, :strings, :city, :state, :country)
+        params.permit(:pic, :bass, :image, :manufacture_year, :status, :price, :strings, :city, :state, :country)
        end
 end
