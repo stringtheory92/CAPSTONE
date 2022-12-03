@@ -14,13 +14,17 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
     state: "",
     country: "",
     views: null,
-    classifieds_category_id: selectedClassifiedsCategory,
+    classified_category_id: selectedClassifiedsCategory,
     user_id: user.id,
     // need to pass down id of classified_category via routes (like in subforums)
   });
   const [itemPic, setItemPic] = useState(null);
   const [explanation, setExplanation] = useState("");
-
+  console.log(
+    "user.id, selectedClassifiedsCategory: ",
+    user.id,
+    selectedClassifiedsCategory
+  );
   const handleChange = (e) => {
     const { name, value } = e.target;
     console.log("name: ", name);
@@ -42,7 +46,7 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
       city,
       state,
       country,
-      classifieds_category_id,
+      classified_category_id,
       user_id,
     } = formData;
     console.log("formData: ", formData);
@@ -50,24 +54,27 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
     // create new formData object (not to be confused with the formData state variable)
     const newFormData = new FormData();
     newFormData.append("bass", bass);
-    newFormData.append("manufacture_year", manufacture_year);
+    newFormData.append("manufacture_year", Number(manufacture_year));
     newFormData.append("status", status);
-    newFormData.append("price", price);
-    newFormData.append("strings", strings);
+    newFormData.append("price", Number(price));
+    newFormData.append("strings", Number(strings));
     newFormData.append("city", city);
     newFormData.append("state", state);
     newFormData.append("country", country);
-    newFormData.append("classifieds_category_id", classifieds_category_id);
-    newFormData.append("user_id", user_id);
+    newFormData.append(
+      "classified_category_id",
+      Number(classified_category_id)
+    );
+    newFormData.append("user_id", Number(user_id));
     newFormData.append("pic", itemPic);
 
     const configObj = {
       method: "POST",
-      body: formData,
+      body: newFormData,
     };
     fetch(`/classified_for_sales`, configObj)
       .then((r) => r.json())
-      .then(console.log);
+      .then((data) => console.log("data: ", data));
   };
 
   return (

@@ -50,7 +50,7 @@ function ClassifiedListUnit({ item }) {
     if (status === "For Trade") return 1;
     if (status === "Sold") return 2;
   };
-
+  console.log("item: ", item);
   return (
     <div className="border">
       <h2 className="itemDescription forSale">
@@ -61,7 +61,9 @@ function ClassifiedListUnit({ item }) {
       {/* {styledItemDescription[elementIndex()]} */}
       <ForSaleItemStyled className="wholeItemContainer">
         <div className="imageAndInfoContainer">
-          <div className="forSaleImageContainer"></div>
+          <div className="forSaleImageContainer">
+            <img src={item.pic} alt="" className="forSaleImage" />
+          </div>
           <div className="forSaleItemInfo">
             <ul>
               {/* <li className="itemDescription">{`${status}: ${bass}`}</li> */}
