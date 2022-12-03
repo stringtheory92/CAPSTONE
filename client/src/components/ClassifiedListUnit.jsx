@@ -3,6 +3,7 @@ import { ForSaleItemStyled, SellerImageStyled } from "./shared";
 
 function ClassifiedListUnit({ item }) {
   const [sellerAvatar, setSellerAvatar] = useState(null);
+  const [forSalePic, setForSalePic] = useState(null);
   const {
     bass,
     city,
@@ -23,9 +24,10 @@ function ClassifiedListUnit({ item }) {
       .then((r) => r.json())
       .then((data) => {
         if (data.avatar) setSellerAvatar(data.avatar);
+        if (pic) setForSalePic(pic);
       });
   }, []);
-
+  console.log("pic: ", forSalePic);
   console.log("user.avatar: ", sellerAvatar);
   const statusRed = {
     color: "var(--white)",
@@ -61,7 +63,9 @@ function ClassifiedListUnit({ item }) {
       {/* {styledItemDescription[elementIndex()]} */}
       <ForSaleItemStyled className="wholeItemContainer">
         <div className="imageAndInfoContainer">
-          <div className="forSaleImageContainer"></div>
+          <div className="forSaleImageContainer">
+            {forSalePic ? <img src={forSalePic} /> : null}
+          </div>
           <div className="forSaleItemInfo">
             <ul>
               {/* <li className="itemDescription">{`${status}: ${bass}`}</li> */}
