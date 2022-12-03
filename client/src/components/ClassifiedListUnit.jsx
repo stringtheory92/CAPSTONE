@@ -64,7 +64,9 @@ function ClassifiedListUnit({ item }) {
       <ForSaleItemStyled className="wholeItemContainer">
         <div className="imageAndInfoContainer">
           <div className="forSaleImageContainer">
-            {forSalePic ? <img src={forSalePic} /> : null}
+            {forSalePic ? (
+              <img className="forSaleImage" src={forSalePic} />
+            ) : null}
           </div>
           <div className="forSaleItemInfo">
             <ul>

@@ -50,10 +50,10 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
     // create new formData object (not to be confused with the formData state variable)
     const newFormData = new FormData();
     newFormData.append("bass", bass);
-    newFormData.append("manufacture_year", manufacture_year);
+    newFormData.append("manufacture_year", Number(manufacture_year));
     newFormData.append("status", status);
-    newFormData.append("price", price);
-    newFormData.append("strings", strings);
+    newFormData.append("price", Number(price));
+    newFormData.append("strings", Number(strings));
     newFormData.append("city", city);
     newFormData.append("state", state);
     newFormData.append("country", country);

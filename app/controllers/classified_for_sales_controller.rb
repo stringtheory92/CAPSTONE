@@ -8,9 +8,9 @@ class ClassifiedForSalesController < ApplicationController
        end
     
        def create
+        byebug
         item = ClassifiedForSale.create!(for_sale_params)
         pic = rails_blob_path(item.pic)
-        
         if pic
             render json: {item: item, pic: pic}, status: :created
         else
@@ -41,6 +41,6 @@ class ClassifiedForSalesController < ApplicationController
        private
     
        def for_sale_params
-        params.permit(:pic, :bass, :image, :manufacture_year, :status, :price, :strings, :city, :state, :country)
+        params.permit(:pic, :bass, :image, :manufacture_year, :status, :price, :strings, :city, :state, :country, :classified_category_id, :user_id)
        end
 end
