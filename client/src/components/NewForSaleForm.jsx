@@ -63,7 +63,7 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
 
     const configObj = {
       method: "POST",
-      body: formData,
+      body: newFormData,
     };
     fetch(`/classified_for_sales`, configObj)
       .then((r) => r.json())
