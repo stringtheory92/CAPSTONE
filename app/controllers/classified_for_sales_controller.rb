@@ -8,7 +8,7 @@ class ClassifiedForSalesController < ApplicationController
        end
     
        def create
-        byebug
+       
         item = ClassifiedForSale.create!(for_sale_params)
         pic = rails_blob_path(item.pic)
         if pic

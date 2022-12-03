@@ -14,7 +14,7 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
     state: "",
     country: "",
     views: null,
-    classifieds_category_id: selectedClassifiedsCategory,
+    classified_category_id: selectedClassifiedsCategory,
     user_id: user.id,
     // need to pass down id of classified_category via routes (like in subforums)
   });
@@ -42,7 +42,7 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
       city,
       state,
       country,
-      classifieds_category_id,
+      classified_category_id,
       user_id,
     } = formData;
     console.log("formData: ", formData);
@@ -57,7 +57,7 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
     newFormData.append("city", city);
     newFormData.append("state", state);
     newFormData.append("country", country);
-    newFormData.append("classifieds_category_id", classifieds_category_id);
+    newFormData.append("classified_category_id", classified_category_id);
     newFormData.append("user_id", user_id);
     newFormData.append("pic", itemPic);
 
