@@ -79,6 +79,8 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
   const [avatar, setAvatar] = useState(null);
+  const [selectedClassifiedsCategory, setSelectedClassifiedsCategory] =
+    useState(null);
   const navigate = useNavigate();
 
   // keep isLoggedIn status updated on refresh
@@ -116,6 +118,11 @@ function App() {
 
   const onAvatarChange = (avatar) => {
     setAvatar(avatar);
+  };
+
+  // passing up selected category for potential use in NewForSaleForm
+  const onSelectedClassifiedsCategory = (categoryID) => {
+    setSelectedClassifiedsCategory(categoryID);
   };
 
   const onSignIn = (data) => {
@@ -157,7 +164,14 @@ function App() {
 
             <Route path="/forums" element={<ForumsHome />} />
 
-            <Route path="/classifieds" element={<ClassifiedsHome />} />
+            <Route
+              path="/classifieds"
+              element={
+                <ClassifiedsHome
+                  onSelectedClassifiedsCategory={onSelectedClassifiedsCategory}
+                />
+              }
+            />
             <Route path="/new_topic/:subForumID" element={<NewTopicForm />} />
             <Route
               path="/forum_messages/:subForumTopicID"
@@ -165,7 +179,13 @@ function App() {
             />
             <Route
               path="/new_for_sale"
-              element={<NewForSaleForm user={user} avatar={avatar} />}
+              element={
+                <NewForSaleForm
+                  user={user}
+                  avatar={avatar}
+                  selectedClassifiedsCategory={selectedClassifiedsCategory}
+                />
+              }
             />
             {/* <Route
           path="/new_forum_message/:subForumTopicID"

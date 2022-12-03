@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import ClassifiedCategories from "./ClassifiedCategories";
 import ClassifiedForSale from "./ClassifiedForSale";
 
-function ClassifiedsHome() {
+function ClassifiedsHome({ onSelectedClassifiedsCategory }) {
   const [categoryID, setCategoryID] = useState(null);
   const onCategorySelect = (e, id) => {
+    // state controls what to render from ClassifiedsHome
     setCategoryID(id);
+    // method passes up categoryID to App in case it's needed in NewForSaleForm (sibling of ClassifiedsHome)
+    onSelectedClassifiedsCategory(id);
   };
 
   const componentIndex = () => {
