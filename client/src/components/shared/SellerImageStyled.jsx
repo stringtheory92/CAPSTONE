@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const SellerImageStyled = styled.img`
-  /* display: none; */
+  display: none;
   /* width: 100%; */
   max-width: 6rem;
   max-height: 6rem;

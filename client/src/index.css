@@ -110,20 +110,24 @@
   border: 1px solid red;
 }
 .forSaleImageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: centers;
   border: 1px solid gray;
   padding: 0.5rem;
   height: 8rem;
   width: 8rem;
 }
 .forSaleImage {
-  max-width: 8rem;
-  max-height: 8rem;
+  max-width: 100%;
+  max-height: 100%;
 }
 .price {
   font-size: 1.3rem;
   font-weight: 700;
 }
 .sellerInfo {
+  display: none;
   border-left: 1px solid gray;
   width: 10rem;
 }
@@ -189,6 +193,11 @@
     padding-top: 4rem;
     text-shadow: 3px 3px 0 var(--black);
     color: rgb(196, 143, 108);
+  }
+  /* ============ CLASSIFIED UNIT ================== */
+
+  .sellerInfo {
+    display: initial;
   }
 }
 
