@@ -25,6 +25,12 @@ Rails.application.routes.draw do
 
   # route to fetch all classified_for_sale from particular classified_category
   get '/classified_for_sales/from_category/:classified_category_id', to: 'classified_for_sales#show_from_category'
+
+  # AUTHORIZATION / AUTHENTICATION
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
+
   namespace :member do
     resources :inboxes, only: [:show]
     resources :dms, only: [:index, :show, :create]
