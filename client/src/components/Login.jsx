@@ -12,6 +12,7 @@ function Login({ onSignIn }) {
   const [createAccount, setCreateAccount] = useState({
     user_name: "",
     password: "",
+    password_confirmation: "",
   });
   // repeatPassword separate from createAccount for easy user creation with createAccount data
   const [repeatPassword, setRepeatPassword] = useState("");
@@ -97,7 +98,7 @@ function Login({ onSignIn }) {
     };
     fetch(`/users`, configObj).then((r) => {
       if (r.ok) {
-        r.json().then((data) => console.log("create ok: ", data));
+        r.json().then((data) => onSignIn(data));
       } else {
         r.json().then((data) => {
           console.log("create failed: ", data);
@@ -165,12 +166,12 @@ function Login({ onSignIn }) {
             value={createAccount.password}
             onChange={handleChange}
           />
-          <label htmlFor="repeatPassword">Repeat Password</label>
+          <label htmlFor="password_confirmation">Repeat Password</label>
           <input
             type="text"
-            name="repeatPassword"
-            id="repeatPassword"
-            value={repeatPassword}
+            name="password_confirmation"
+            id="password_confirmation"
+            value={createAccount.password_confirmation}
             onChange={handleChange}
           />
           <button type="submit">Create Profile</button>
