@@ -24,7 +24,7 @@ function Home({ onAvatarChange, user }) {
       if (r.ok) {
         r.json().then((data) => {
           console.log("data: ", data);
-          onAvatarChange(data.avatar);
+          onAvatarChange(data);
           toggleIsEditingUser();
         });
       } else {

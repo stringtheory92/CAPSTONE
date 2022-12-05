@@ -1,8 +1,8 @@
 import React from "react";
 import { UserMenuStyled, AvatarStyled } from "./shared";
 
-function UserMenu({ user, avatar }) {
-  const { id, user_name, image, balance } = user;
+function UserMenu({ user }) {
+  const { id, user_name, image, balance, avatar } = user;
 
   return (
     <UserMenuStyled className="userMenu">

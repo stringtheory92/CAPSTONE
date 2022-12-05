@@ -106,6 +106,7 @@ function App() {
         r.json().then((user) => {
           console.log("staying signed in: ", user);
           setUser(user);
+
           setIsLoggedIn(true);
         });
       }
@@ -128,8 +129,8 @@ function App() {
     setIsDarkMode((status) => !status);
   };
 
-  const onAvatarChange = (avatar) => {
-    setAvatar(avatar);
+  const onAvatarChange = ({ avatar }) => {
+    setUser({ ...user, avatar: avatar });
   };
 
   // passing up selected category for potential use in NewForSaleForm
@@ -141,7 +142,7 @@ function App() {
     // localStorage.setItem("userID", data.user.id);
     // setUser(data.user);
     console.log("onSignIn. User? : ", user);
-    // setAvatar(data.avatar);
+    setAvatar(data.avatar);
     toggleLogIn();
     setUser(data);
   };
