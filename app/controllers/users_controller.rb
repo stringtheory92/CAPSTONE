@@ -57,8 +57,8 @@ class UsersController < ApplicationController
     def update
        
         user = User.find(params[:id])
-       
-        user.update!(create_user_params)
+        # byebug
+        user.update!(user_params)
         avatar = rails_blob_path(user.avatar)
         render json: {user: user, avatar: avatar}, status: :accepted
     end

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Home({ onAvatarChange }) {
+function Home({ onAvatarChange, user }) {
   const [isEditingUser, setIsEditingUser] = useState(false);
   const [newAvatar, setNewAvatar] = useState("");
   const [errors, setErrors] = useState([]);
@@ -11,7 +11,7 @@ function Home({ onAvatarChange }) {
 
   const handleAvatarChange = (e) => {
     e.preventDefault();
-    console.log("newAvatar: ", newAvatar);
+    // console.log("newAvatar: ", newAvatar);
     const formData = new FormData();
     formData.append("avatar", newAvatar);
 
@@ -20,7 +20,7 @@ function Home({ onAvatarChange }) {
       body: formData,
     };
 
-    fetch(`/users/${localStorage.getItem("userID")}`, configObj).then((r) => {
+    fetch(`/users/${user.id}`, configObj).then((r) => {
       if (r.ok) {
         r.json().then((data) => {
           console.log("data: ", data);

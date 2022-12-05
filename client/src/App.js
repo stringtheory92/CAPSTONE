@@ -170,7 +170,7 @@ function App() {
               path="/"
               element={
                 user ? (
-                  <Home onAvatarChange={onAvatarChange} />
+                  <Home onAvatarChange={onAvatarChange} user={user} />
                 ) : (
                   <Login replace to={"/login"} onSignIn={onSignIn} />
                 )
