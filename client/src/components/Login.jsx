@@ -6,7 +6,7 @@ function Login({ onSignIn }) {
   const [sampleUser3, setSampleUser3] = useState({});
   const [hasAccount, setHasAccount] = useState(true);
   const [formData, setFormData] = useState({
-    userName: "",
+    user_name: "",
     password: "",
   });
   const [createAccount, setCreateAccount] = useState({
@@ -57,7 +57,8 @@ function Login({ onSignIn }) {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify({ user_name: formData.userName }),
+      body: JSON.stringify(formData),
+      // body: JSON.stringify({ user_name: formData.userName }),
     }).then((r) => {
       if (r.ok) {
         r.json().then((userData) => onSignIn(userData));
@@ -124,12 +125,12 @@ function Login({ onSignIn }) {
             </div>
           ) : null}
           <form onSubmit={handleSignIn}>
-            <label htmlFor="userName">User Name</label>
+            <label htmlFor="user_name">User Name</label>
             <input
               type="text"
-              name="userName"
-              id="userName"
-              value={formData.userName}
+              name="user_name"
+              id="user_name"
+              value={formData.user_name}
               onChange={handleChange}
             />
             <label htmlFor="password">Password</label>
