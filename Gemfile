@@ -46,3 +46,5 @@ gem "image_processing", "~> 1.12"
 gem "rmagick", "~> 5.1"
 
 gem "hirb", "~> 0.7.3"
+
+gem "bcrypt", "~> 3.1"

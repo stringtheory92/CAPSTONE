@@ -194,3 +194,7 @@ https://www.facebook.com/photo/?fbid=2676395625781051&set=a.355647687855868
 -added (require 'rmagick') to config/application.rb
 -installed rmagick (supposedly allows mini_magick use in Rails)
 -installed imagemagick (brew install imagemagick)
+
+# Implementing Bcrypt
+
+-creating migration to update user column from password to password_digest
