@@ -2,7 +2,14 @@ class UsersController < ApplicationController
     
 
     def show
-       render json: User.find(params[:id]), status: :ok
+       user = User.find_by(id: session[:user_id])
+       
+       if user
+        render json: user
+       else
+        render json: {error: "Not authorized"}, status: :unauthorized
+       end
+    #    render json: User.find(params[:id]), status: :ok
     end
 
     # for sample login data
@@ -36,9 +43,15 @@ class UsersController < ApplicationController
     end
 
     def create
-        user = User.create!(create_user_params)
-        full_user= User.find(user.id)
-        render json: full_user, status: :created
+        user = User.create!(user_params)
+        if user.valid?
+            render json: user, status: :created
+        else
+            render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
+        end
+        # user = User.create!(create_user_params)
+        # full_user= User.find(user.id)
+        # render json: full_user, status: :created
     end
 
     def update
@@ -55,7 +68,7 @@ class UsersController < ApplicationController
     private
 
     def create_user_params
-        params.permit(:avatar, :user_name, :password)
+        params.permit(:avatar, :user_name, :password, :password_confirmation)
     end
     
 end

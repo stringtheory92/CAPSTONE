@@ -188,6 +188,7 @@ https://www.facebook.com/photo/?fbid=2676395625781051&set=a.355647687855868
 - needed to find and add gems before active_storage:install was available
 - running rails active_storage:install did not include the needed config/storage.yml file
 - needed to permit the param representing the has_one_attached item
+  -including avatar method and attribute on users serializer results in death loop
 
 # Tracing Actions
 
@@ -197,4 +198,4 @@ https://www.facebook.com/photo/?fbid=2676395625781051&set=a.355647687855868
 
 # Implementing Bcrypt
 
--creating migration to update user column from password to password_digest
+-rewrote user migration password column to password_digest and seeds are working

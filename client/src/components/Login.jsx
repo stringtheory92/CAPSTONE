@@ -59,7 +59,7 @@ function Login({ onSignIn }) {
       body: JSON.stringify({ user_name: formData.userName }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((userData) => console.log(userData));
+        r.json().then((userData) => onSignIn(userData));
       }
     });
 

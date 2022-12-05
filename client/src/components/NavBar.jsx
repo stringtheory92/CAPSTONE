@@ -2,7 +2,12 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Button, NavStyled, NavLinkStyled } from "./shared";
 
-function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn }) {
+function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn, user }) {
+  const handleLogOut = () => {
+    fetch("/logout", {
+      method: "DELETE",
+    }).then(toggleLogIn);
+  };
   return (
     <NavStyled>
       <ul style={{ display: "flex" }}>
@@ -25,8 +30,8 @@ function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn }) {
         </li>
       </ul>
       <div>
-        <button onClick={toggleLogIn}>
-          {isLoggedIn ? "Log out" : "Sign in"}
+        <button onClick={user ? handleLogOut : toggleLogIn}>
+          {user ? "Log out" : "Sign in"}
         </button>
         <Button onClick={toggleDarkMode}>
           {isDarkMode ? "Light" : "Dark"}

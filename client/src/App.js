@@ -77,7 +77,7 @@ const darkTheme = {
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const [avatar, setAvatar] = useState(null);
   const [selectedClassifiedsCategory, setSelectedClassifiedsCategory] =
     useState(null);
@@ -87,29 +87,41 @@ function App() {
   // const currentUserID = localStorage.getItem("userID");
   // if (currentUserID) setIsLoggedIn(true);
 
+  // useEffect(() => {
+  //   const currentUserID = localStorage.getItem("userID");
+
+  //   if (currentUserID) {
+  //     setIsLoggedIn(true);
+  //     fetch(`/users/${currentUserID}`)
+  //       .then((r) => r.json())
+  //       .then((data) => setUser(data));
+  //   } else {
+  //     setIsLoggedIn(false);
+  //   }
+  // }, [isLoggedIn]);
+
   useEffect(() => {
-    const currentUserID = localStorage.getItem("userID");
-
-    if (currentUserID) {
-      setIsLoggedIn(true);
-      fetch(`/users/${currentUserID}`)
-        .then((r) => r.json())
-        .then((data) => setUser(data));
-    } else {
-      setIsLoggedIn(false);
-    }
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => {
+          console.log("staying signed in: ", user);
+          setUser(user);
+          setIsLoggedIn(true);
+        });
+      }
+    });
   }, [isLoggedIn]);
-
   console.log("user: ", user);
   console.log("avatar: ", avatar);
   console.log("isLoggedIn: ", isLoggedIn);
 
   const toggleLogIn = () => {
-    if (isLoggedIn) {
-      localStorage.clear();
+    if (user) {
+      setUser(null);
+      setIsLoggedIn(false);
+      // localStorage.clear();
       navigate("/");
-    }
-    setIsLoggedIn((status) => !status);
+    } else setIsLoggedIn(true);
   };
 
   const toggleDarkMode = () => {
@@ -126,10 +138,12 @@ function App() {
   };
 
   const onSignIn = (data) => {
-    localStorage.setItem("userID", data.user.id);
-    setUser(data.user);
-    setAvatar(data.avatar);
+    // localStorage.setItem("userID", data.user.id);
+    // setUser(data.user);
+    console.log("onSignIn. User? : ", user);
+    // setAvatar(data.avatar);
     toggleLogIn();
+    setUser(data);
   };
   console.log("isDarkMode: ", isDarkMode);
   // console.log("props.theme: ", props.theme);
@@ -142,6 +156,7 @@ function App() {
         isDarkMode={isDarkMode}
         isLoggedIn={isLoggedIn}
         toggleLogIn={toggleLogIn}
+        user={user}
       />
       <div className="whole">
         <div className="sides left">
@@ -154,7 +169,7 @@ function App() {
               exact
               path="/"
               element={
-                isLoggedIn ? (
+                user ? (
                   <Home onAvatarChange={onAvatarChange} />
                 ) : (
                   <Login replace to={"/login"} onSignIn={onSignIn} />
