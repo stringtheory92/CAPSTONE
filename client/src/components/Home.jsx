@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { HomeStyled } from "./shared";
+import DefaultAvatar from "../bg/default-avatar.png";
 
 function Home({ onAvatarChange, user }) {
   const [isEditingUser, setIsEditingUser] = useState(false);
@@ -19,7 +21,7 @@ function Home({ onAvatarChange, user }) {
       method: "PATCH",
       body: formData,
     };
-
+    console.log("DefaultAvatar: ", DefaultAvatar);
     fetch(`/users/${user.id}`, configObj).then((r) => {
       if (r.ok) {
         r.json().then((data) => {
@@ -35,22 +37,47 @@ function Home({ onAvatarChange, user }) {
     // console.log("formData: ", formData);
   };
 
+  const imageBoxStyles = {
+    // backgroundImage: `url(${DefaultAvatar})`,
+    // border: "1px solid lime",
+    // height: "20rem",
+  };
+
   return (
-    <div>
-      {isEditingUser ? (
-        <form action="" onSubmit={handleAvatarChange}>
-          {/* <input type="file" accept="image/*" onChange={handleChange} /> */}
-          <input
-            type="file"
-            accept="image/*"
-            onChange={(e) => setNewAvatar(e.target.files[0])}
-          />
-          <button type="submit">Update Image</button>
-        </form>
-      ) : (
-        <button onClick={toggleIsEditingUser}>Edit Profile</button>
-      )}
-    </div>
+    <HomeStyled>
+      <div className="leftSide">
+        <div className="imageBox" style={imageBoxStyles}>
+          <img src={user.avatar} alt="" />
+        </div>
+        <div className="nameBox">{user.user_name}</div>
+      </div>
+      <div className="rightSide">
+        {isEditingUser ? (
+          <form action="" onSubmit={handleAvatarChange}>
+            {/* <input type="file" accept="image/*" onChange={handleChange} /> */}
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setNewAvatar(e.target.files[0])}
+            />
+            <button type="submit">Update Image</button>
+          </form>
+        ) : (
+          <div>
+            <button onClick={toggleIsEditingUser}>Change Avatar</button>
+            <div className="pinsContainer">
+              <ul className="pins">
+                <li>pin</li>
+                <li>pin</li>
+                <li>pin</li>
+                <li>pin</li>
+                <li>pin</li>
+              </ul>
+            </div>
+          </div>
+        )}
+      </div>
+    </HomeStyled>
   );
 }
 

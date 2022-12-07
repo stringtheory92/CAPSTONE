@@ -13,6 +13,7 @@ import AvatarStyled from "./AvatarStyled";
 import AvatarContainerStyled from "./AvatarContainerStyled";
 import SellerImageStyled from "./SellerImageStyled";
 import NewForSaleFormStyled from "./NewForSaleFormStyled";
+import HomeStyled from "./HomeStyled";
 
 export {
   MainForumItem,
@@ -27,5 +28,6 @@ export {
   AvatarContainerStyled,
   SellerImageStyled,
   NewForSaleFormStyled,
+  HomeStyled,
 };
 // export { Button, Form, Input, MainForumList };
