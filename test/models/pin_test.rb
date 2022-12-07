@@ -1,6 +1,6 @@
 require "test_helper"
 
-class JoinPinsTopicsControllerTest < ActionDispatch::IntegrationTest
+class PinTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

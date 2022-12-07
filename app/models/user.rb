@@ -5,6 +5,8 @@ class User < ApplicationRecord
     has_many :classifieds_for_sales
     has_many :forum_discussion_topics
 
+    has_many :pins
+
     has_secure_password
 
     has_one_attached :avatar 
