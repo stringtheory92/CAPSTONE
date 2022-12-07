@@ -115,7 +115,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_07_162120) do
 
   create_table "pins", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "forum_discussion_topic"
+    t.integer "forum_discussion_topic_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
