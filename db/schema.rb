@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_28_220924) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_07_162120) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -82,10 +82,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_220924) do
 
   create_table "forum_discussion_topics", force: :cascade do |t|
     t.string "heading"
-    t.string "sub_forum_id"
-    t.string "user_id"
+    t.integer "sub_forum_id"
+    t.integer "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["creator_id"], name: "index_forum_discussion_topics_on_creator_id"
   end
 
   create_table "forum_topic_messages", force: :cascade do |t|
@@ -105,13 +106,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_220924) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "join_pins_topics", force: :cascade do |t|
-    t.integer "user_pin_id"
-    t.integer "topic_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "main_forums", force: :cascade do |t|
     t.string "category"
     t.string "heading"
@@ -119,15 +113,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_220924) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "sub_forums", force: :cascade do |t|
-    t.string "heading"
-    t.string "main_forum_id"
+  create_table "pins", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "forum_discussion_topic"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_pins", force: :cascade do |t|
-    t.string "user_id"
+  create_table "sub_forums", force: :cascade do |t|
+    t.string "heading"
+    t.string "main_forum_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -142,4 +137,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_220924) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "forum_discussion_topics", "users", column: "creator_id"
 end

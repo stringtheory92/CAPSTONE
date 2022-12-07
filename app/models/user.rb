@@ -3,9 +3,12 @@ class User < ApplicationRecord
     
     has_many :for_sale_messages
     has_many :classifieds_for_sales
-    has_many :forum_discussion_topics
+    has_many :creations, :class_name => 'ForumDiscussionTopic'
 
     has_many :pins
+    # No alias here if creator/creation is aliased already
+    has_many :forum_discussion_topics, through: :pins
+
 
     has_secure_password
 
