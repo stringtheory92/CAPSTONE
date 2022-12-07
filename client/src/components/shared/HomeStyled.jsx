@@ -21,9 +21,13 @@ const HomeStyled = styled.div`
     justify-content: center;
     align-items: center;
   }
-  > .imageBox > img {
+  > .leftSide > .imageBox > img {
     max-height: 90%;
     max-width: 90%;
+  }
+  > .leftSide > .nameBox {
+    text-align: center;
+    font-size: 2rem;
   }
 `;
 

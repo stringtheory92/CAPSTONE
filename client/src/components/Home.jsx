@@ -47,7 +47,11 @@ function Home({ onAvatarChange, user }) {
     <HomeStyled>
       <div className="leftSide">
         <div className="imageBox" style={imageBoxStyles}>
-          <img src={user.avatar} alt="" />
+          {user.avatar ? (
+            <img src={user.avatar} alt="" />
+          ) : (
+            <button onClick={toggleIsEditingUser}>Add an Avatar</button>
+          )}
         </div>
         <div className="nameBox">{user.user_name}</div>
       </div>
@@ -64,7 +68,9 @@ function Home({ onAvatarChange, user }) {
           </form>
         ) : (
           <div>
-            <button onClick={toggleIsEditingUser}>Change Avatar</button>
+            {user.avatar ? (
+              <button onClick={toggleIsEditingUser}>Change Avatar</button>
+            ) : null}
             <div className="pinsContainer">
               <ul className="pins">
                 <li>pin</li>
