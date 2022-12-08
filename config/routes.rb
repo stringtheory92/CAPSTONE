@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  resources :pins
   resources :for_sale_messages, only: [:index, :show, :create]
   resources :classified_for_sales, only: [:index, :show, :create]
   resources :classified_categories, only: [:index, :show]
   # resources :join_pins_topics
-  resources :user_pins, only: [:index]
+  resources :pins, only: [:index, :show, :create, :destroy]
   resources :forum_topic_messages, only: [:index, :create, :show]
   resources :forum_discussion_topics, only: [:index, :show, :create] 
   resources :sub_forums, only: [:index, :show]
@@ -31,6 +30,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get '/me', to: 'users#show'
+  
 
 
   namespace :member do

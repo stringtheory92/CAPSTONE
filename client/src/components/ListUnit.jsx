@@ -14,7 +14,22 @@ function ListUnit({
   const { id, category, heading, created_at, updated_at } = forum;
   const navigate = useNavigate();
 
-  const handlePinTopic = (e) => {};
+  const handlePinTopic = (e) => {
+    // console.log("e.currentTarget: ", e.currentTarget);
+    // console.log("e.target: ", e.target);
+    fetch(`/pins`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        user_id: user.id,
+        forum_discussion_topic_id: id,
+      }),
+    })
+      .then((r) => r.json())
+      .then((pinObj) => console.log("ok: ", pinObj));
+  };
 
   return (
     <>
@@ -31,10 +46,21 @@ function ListUnit({
         </MainForumItem>
       ) : null}
       {onSubForumTopicSelect ? (
-        <MainForumItem onClick={(e) => onSubForumTopicSelect(e, id)}>
+        <MainForumItem
+          onClick={(e) => {
+            onSubForumTopicSelect(e, id);
+          }}
+        >
           <h2>{category}</h2>
           <h2>{heading}</h2>
-          <button onClick={handlePinTopic}>pin topic</button>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              handlePinTopic(e);
+            }}
+          >
+            pin topic
+          </button>
         </MainForumItem>
       ) : null}
     </>

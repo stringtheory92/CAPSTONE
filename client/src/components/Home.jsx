@@ -66,21 +66,20 @@ function Home({ onAvatarChange, onUpdateUser, user }) {
     });
   };
 
+  const userPins = user.forum_discussion_topics?.map((topic) => {
+    console.log("topic: ", topic);
+    return <li key={topic.id}>{topic.heading}</li>;
+  });
+
   const handleNamePasswordChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const imageBoxStyles = {
-    // backgroundImage: `url(${DefaultAvatar})`,
-    // border: "1px solid lime",
-    // height: "20rem",
-  };
-
   return (
     <HomeStyled>
       <div className="leftSide">
-        <div className="imageBox" style={imageBoxStyles}>
+        <div className="imageBox">
           {user.avatar ? (
             <img src={user.avatar} alt="" />
           ) : (
@@ -136,6 +135,7 @@ function Home({ onAvatarChange, onUpdateUser, user }) {
             ) : null}
             <div className="pinsContainer">
               <ul className="pins">
+                {userPins}
                 <li>pin</li>
                 <li>pin</li>
                 <li>pin</li>
