@@ -4,7 +4,7 @@ import MainForums from "./MainForums";
 import SubForums from "./SubForums";
 import SubForumTopics from "./SubForumTopics";
 
-function ForumsHome() {
+function ForumsHome({ user }) {
   const navigate = useNavigate();
   const [mainForumID, setMainForumID] = useState(null);
   const [subForumID, setSubForumID] = useState(null);
@@ -23,6 +23,7 @@ function ForumsHome() {
     <MainForums onMainForumSelect={onMainForumSelect} />,
     <SubForums mainForumID={mainForumID} onSubForumSelect={onSubForumSelect} />,
     <SubForumTopics
+      user={user}
       subForumID={subForumID}
       onSubForumTopicSelect={onSubForumTopicSelect}
     />,

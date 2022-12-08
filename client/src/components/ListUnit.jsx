@@ -2,16 +2,20 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { MainForumItem } from "./shared";
 
+// Intended for use with: ForumsHome(Main Forums), SubForums, SubForumTopics, ClassifiedCategories
 function ListUnit({
   forum,
+  user,
   onMainForumSelect,
   onSubForumSelect,
   onSubForumTopicSelect,
 }) {
+  // Might display timestamps to user
   const { id, category, heading, created_at, updated_at } = forum;
   const navigate = useNavigate();
 
-  // Intended for use with: ForumsHome(Main Forums), SubForums, SubForumTopics, ClassifiedCategories
+  const handlePinTopic = (e) => {};
+
   return (
     <>
       {onMainForumSelect ? (
@@ -30,6 +34,7 @@ function ListUnit({
         <MainForumItem onClick={(e) => onSubForumTopicSelect(e, id)}>
           <h2>{category}</h2>
           <h2>{heading}</h2>
+          <button onClick={handlePinTopic}>pin topic</button>
         </MainForumItem>
       ) : null}
     </>

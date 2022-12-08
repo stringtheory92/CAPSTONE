@@ -186,7 +186,7 @@ function App() {
               }
             />
 
-            <Route path="/forums" element={<ForumsHome />} />
+            <Route path="/forums" element={<ForumsHome user={user} />} />
 
             <Route
               path="/classifieds"

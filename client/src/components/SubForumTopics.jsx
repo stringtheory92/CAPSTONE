@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import ListUnit from "./ListUnit";
 
-function SubForumTopics({ onSubForumTopicSelect, subForumID }) {
+function SubForumTopics({ onSubForumTopicSelect, subForumID, user }) {
   const [allSubForumTopics, setAllSubForumTopics] = useState([]);
 
   useEffect(() => {
@@ -16,6 +16,7 @@ function SubForumTopics({ onSubForumTopicSelect, subForumID }) {
     <ListUnit
       key={forum.id}
       forum={forum}
+      user={user}
       onSubForumTopicSelect={onSubForumTopicSelect}
     />
   ));
