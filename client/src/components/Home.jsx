@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { HomeStyled } from "./shared";
+import {
+  EditUserFormStyled,
+  HomeStyled,
+  UpdateProfileButtonStyled,
+} from "./shared";
 import DefaultAvatar from "../bg/default-avatar.png";
 
 function Home({ onAvatarChange, onUpdateUser, user }) {
@@ -83,7 +87,12 @@ function Home({ onAvatarChange, onUpdateUser, user }) {
           {user.avatar ? (
             <img src={user.avatar} alt="" />
           ) : (
-            <button onClick={toggleIsEditingUser}>Add an Avatar</button>
+            <button
+              onClick={toggleIsEditingUser}
+              className="updateProfileImage"
+            >
+              Update Profile/Add Image
+            </button>
           )}
         </div>
         <div className="nameBox">{user.user_name}</div>
@@ -91,7 +100,10 @@ function Home({ onAvatarChange, onUpdateUser, user }) {
       <div className="rightSide">
         {isEditingUser ? (
           <>
-            <form action="" onSubmit={handleNewNamePasswordSubmit}>
+            <EditUserFormStyled
+              action=""
+              onSubmit={handleNewNamePasswordSubmit}
+            >
               <label htmlFor="user_name">New name:</label>
               <input
                 type="text"
@@ -117,8 +129,8 @@ function Home({ onAvatarChange, onUpdateUser, user }) {
                 onChange={handleNamePasswordChange}
               />
               <button type="submit">Change name and password</button>
-            </form>
-            <form action="" onSubmit={handleAvatarChange}>
+            </EditUserFormStyled>
+            <EditUserFormStyled action="" onSubmit={handleAvatarChange}>
               {/* <input type="file" accept="image/*" onChange={handleChange} /> */}
               <input
                 type="file"
@@ -126,12 +138,14 @@ function Home({ onAvatarChange, onUpdateUser, user }) {
                 onChange={(e) => setNewAvatar(e.target.files[0])}
               />
               <button type="submit">Update Image</button>
-            </form>
+            </EditUserFormStyled>
           </>
         ) : (
           <div>
             {user.avatar ? (
-              <button onClick={toggleIsEditingUser}>Change Avatar</button>
+              <button onClick={toggleIsEditingUser} className="updateProfile">
+                Update Profile
+              </button>
             ) : null}
             <div className="pinsContainer">
               <ul className="pins">

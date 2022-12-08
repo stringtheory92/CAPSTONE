@@ -14,6 +14,8 @@ import AvatarContainerStyled from "./AvatarContainerStyled";
 import SellerImageStyled from "./SellerImageStyled";
 import NewForSaleFormStyled from "./NewForSaleFormStyled";
 import HomeStyled from "./HomeStyled";
+import EditUserFormStyled from "./EditUserFormStyled";
+import UpdateProfileButtonStyled from "./UpdateProfileButtonStyled";
 
 export {
   MainForumItem,
@@ -29,5 +31,7 @@ export {
   SellerImageStyled,
   NewForSaleFormStyled,
   HomeStyled,
+  EditUserFormStyled,
+  UpdateProfileButtonStyled,
 };
 // export { Button, Form, Input, MainForumList };
