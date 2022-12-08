@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import { HomeStyled } from "./shared";
 import DefaultAvatar from "../bg/default-avatar.png";
 
-function Home({ onAvatarChange, user }) {
+function Home({ onAvatarChange, onUpdateUser, user }) {
   const [isEditingUser, setIsEditingUser] = useState(false);
   const [newAvatar, setNewAvatar] = useState("");
+  const [formData, setFormData] = useState({
+    user_name: "",
+    password: "",
+    password_confirmation: "",
+  });
   const [errors, setErrors] = useState([]);
 
   const toggleIsEditingUser = () => {
@@ -37,6 +42,35 @@ function Home({ onAvatarChange, user }) {
     // console.log("formData: ", formData);
   };
 
+  const handleNewNamePasswordSubmit = (e) => {
+    e.preventDefault();
+
+    const configObj = {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    };
+
+    fetch(`users/${user.id}`, configObj).then((r) => {
+      if (r.ok) {
+        r.json().then((data) => {
+          console.log("data: ", data);
+          onUpdateUser(data);
+          toggleIsEditingUser();
+        });
+      } else {
+        r.json().then((data) => setErrors(data));
+      }
+    });
+  };
+
+  const handleNamePasswordChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
   const imageBoxStyles = {
     // backgroundImage: `url(${DefaultAvatar})`,
     // border: "1px solid lime",
@@ -57,15 +91,44 @@ function Home({ onAvatarChange, user }) {
       </div>
       <div className="rightSide">
         {isEditingUser ? (
-          <form action="" onSubmit={handleAvatarChange}>
-            {/* <input type="file" accept="image/*" onChange={handleChange} /> */}
-            <input
-              type="file"
-              accept="image/*"
-              onChange={(e) => setNewAvatar(e.target.files[0])}
-            />
-            <button type="submit">Update Image</button>
-          </form>
+          <>
+            <form action="" onSubmit={handleNewNamePasswordSubmit}>
+              <label htmlFor="user_name">New name:</label>
+              <input
+                type="text"
+                name="user_name"
+                id=""
+                value={formData.user_name}
+                onChange={handleNamePasswordChange}
+              />
+              <label htmlFor="password">New password:</label>
+              <input
+                type="text"
+                name="password"
+                id=""
+                value={formData.password}
+                onChange={handleNamePasswordChange}
+              />
+              <label htmlFor="password_confirmation">Confirm password:</label>
+              <input
+                type="text"
+                name="password_confirmation"
+                id=""
+                value={formData.password_confirmation}
+                onChange={handleNamePasswordChange}
+              />
+              <button type="submit">Change name and password</button>
+            </form>
+            <form action="" onSubmit={handleAvatarChange}>
+              {/* <input type="file" accept="image/*" onChange={handleChange} /> */}
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => setNewAvatar(e.target.files[0])}
+              />
+              <button type="submit">Update Image</button>
+            </form>
+          </>
         ) : (
           <div>
             {user.avatar ? (

@@ -133,6 +133,10 @@ function App() {
     setUser({ ...user, avatar: avatar });
   };
 
+  const onUpdateUser = (user) => {
+    setUser(user);
+  };
+
   // passing up selected category for potential use in NewForSaleForm
   const onSelectedClassifiedsCategory = (categoryID) => {
     setSelectedClassifiedsCategory(categoryID);
@@ -171,7 +175,11 @@ function App() {
               path="/"
               element={
                 user ? (
-                  <Home onAvatarChange={onAvatarChange} user={user} />
+                  <Home
+                    onAvatarChange={onAvatarChange}
+                    user={user}
+                    onUpdateUser={onUpdateUser}
+                  />
                 ) : (
                   <Login replace to={"/login"} onSignIn={onSignIn} />
                 )

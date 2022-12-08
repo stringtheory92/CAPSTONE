@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    
+    wrap_parameters format: []
 
     def show
        user = User.find_by(id: session[:user_id])
@@ -59,8 +59,9 @@ class UsersController < ApplicationController
         user = User.find(params[:id])
         # byebug
         user.update!(user_params)
-        avatar = rails_blob_path(user.avatar)
-        render json: {user: user, avatar: avatar}, status: :accepted
+        render json: user, status: :accepted
+        # avatar = rails_blob_path(user.avatar)
+        # render json: {user: user, avatar: avatar}, status: :accepted
     end
 
     
@@ -68,7 +69,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:avatar, :user_name, :password, :password_confirmation)
+        params.permit(:id, :avatar, :user_name, :password, :password_confirmation)
     end
     
 end
