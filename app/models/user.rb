@@ -3,7 +3,7 @@ class User < ApplicationRecord
     
     has_many :for_sale_messages
     has_many :classifieds_for_sales
-    has_many :creations, :class_name => 'ForumDiscussionTopic'
+    has_many :created_topics, class_name: 'ForumDiscussionTopic', foreign_key: 'creator_id'
 
     has_many :pins
     # No alias here if creator/creation is aliased already
