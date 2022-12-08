@@ -196,10 +196,13 @@ function App() {
                 />
               }
             />
-            <Route path="/new_topic/:subForumID" element={<NewTopicForm />} />
+            <Route
+              path="/new_topic/:subForumID"
+              element={<NewTopicForm user={user} />}
+            />
             <Route
               path="/forum_messages/:subForumTopicID"
-              element={<ForumMessagesContainer />}
+              element={<ForumMessagesContainer user={user} />}
             />
             <Route
               path="/new_for_sale"

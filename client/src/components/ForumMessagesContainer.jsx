@@ -3,7 +3,7 @@ import { useParams, useNavigate, NavLink } from "react-router-dom";
 import Message from "./Message";
 import NewForumMessageForm from "./NewForumMessageForm";
 
-function ForumMessagesContainer() {
+function ForumMessagesContainer({ user }) {
   const navigate = useNavigate();
   const [allMessages, setAllMessages] = useState([]);
   const [isCreatingNewMessage, setIsCreatingNewMessage] = useState(false);

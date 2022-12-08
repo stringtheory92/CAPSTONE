@@ -1,19 +1,18 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-function NewTopicForm({}) {
+function NewTopicForm({ user }) {
   let { subForumID } = useParams();
-  const userID = Number(localStorage.getItem("userID"));
   const navigate = useNavigate();
   const [topicFormData, setTopicFormData] = useState({
     heading: "",
     sub_forum_id: Number(subForumID),
-    user_id: userID,
+    creator_id: user.id,
   });
   const [messageData, setMessageData] = useState({
     content: "",
     media: "",
-    user_id: userID,
+    user_id: user.id,
     forum_discussion_topic_id: "",
   });
   const [errors, setErrors] = useState([]);
@@ -88,7 +87,7 @@ function NewTopicForm({}) {
   return (
     <div>
       <form action="" onSubmit={handleSubmit}>
-        <label htmlFor="heading">Title</label>
+        <label htmlFor="heading">Topic</label>
         <input
           type="text"
           name="heading"
@@ -96,7 +95,7 @@ function NewTopicForm({}) {
           value={topicFormData.heading}
           onChange={handleChange}
         />
-        <label htmlFor="content">question</label>
+        <label htmlFor="content">Question</label>
         <textarea
           name="content"
           id="content"
@@ -113,7 +112,7 @@ function NewTopicForm({}) {
           value={messageData.media}
           onChange={handleChange}
         />
-        <button type="submit">Create Topic</button>
+        <button type="submit">Start New Topic</button>
       </form>
     </div>
   );
