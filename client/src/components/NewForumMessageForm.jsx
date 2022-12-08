@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-function NewForumMessageForm({ subForumTopicID, toggleIsCreatingNewMessage }) {
+function NewForumMessageForm({
+  subForumTopicID,
+  toggleIsCreatingNewMessage,
+  user,
+}) {
   // const [user, setUser] = useState({})
   const [errors, setErrors] = useState([]);
   const [formData, setFormData] = useState({
     content: "",
     media: "",
     forum_discussion_topic_id: Number(subForumTopicID),
-    user_id: Number(localStorage.getItem("userID")),
+    user_id: user.id,
   });
 
   const handleChange = (e) => {

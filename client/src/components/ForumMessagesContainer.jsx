@@ -42,6 +42,7 @@ function ForumMessagesContainer({ user }) {
       )}
       {isCreatingNewMessage ? (
         <NewForumMessageForm
+          user={user}
           subForumTopicID={subForumTopicID}
           // toggle status so new message button and form don't appear at same time
           toggleIsCreatingNewMessage={toggleIsCreatingNewMessage}
