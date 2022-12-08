@@ -6,6 +6,6 @@ class UserSerializer < ActiveModel::Serializer
     rails_blob_url(object.avatar, only_path: true) if object.avatar.attached?
   end
   
-  has_many :creations
+  has_many :created_topics
   has_many :forum_discussion_topics
 end
