@@ -33,7 +33,7 @@ manny.avatar.attach(
     4.times do
         sub_forum = SubForum.create(heading: Faker::Music.band, main_forum_id: main_forum.id)
         10.times do
-            ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: sub_forum.id, user_id: rand(1..10))
+            ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: sub_forum.id, creator_id: rand(1..10))
         end
     end
 end
@@ -42,7 +42,7 @@ end
     4.times do
         sub_forum = SubForum.create(heading: Faker::Music.band, main_forum_id: main_forum.id)
         10.times do
-            ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: sub_forum.id, user_id: rand(1..10))
+            ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: sub_forum.id, creator_id: rand(1..10))
         end
     end
 end
