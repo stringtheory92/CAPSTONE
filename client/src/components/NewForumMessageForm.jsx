@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { NewForumMessageFormStyled } from "./shared";
 
 function NewForumMessageForm({
   subForumTopicID,
@@ -46,7 +47,7 @@ function NewForumMessageForm({
     });
   };
   return (
-    <form action="" onSubmit={handleSubmit}>
+    <NewForumMessageFormStyled action="" onSubmit={handleSubmit}>
       <label htmlFor="content">Compose message</label>
       <textarea
         name="content"
@@ -56,16 +57,16 @@ function NewForumMessageForm({
         value={formData.content}
         onChange={handleChange}
       ></textarea>
-      <label htmlFor="media">Media</label>
+      {/* <label htmlFor="media">Media</label>
       <input
         type="text"
         name="media"
         id="media"
         value={formData.media}
         onChange={handleChange}
-      />
+      /> */}
       <button type="submit">Post</button>
-    </form>
+    </NewForumMessageFormStyled>
   );
 }
 

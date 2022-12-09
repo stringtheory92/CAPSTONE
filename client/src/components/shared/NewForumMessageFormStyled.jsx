@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-const MessageStyled = styled.li`
+const NewForumMessageFormStyled = styled.form`
+  display: flex;
+  flex-direction: column;
   padding: 0.5rem 0.75rem;
   /* border: none; */
   font-weight: 600;
@@ -23,4 +25,4 @@ const MessageStyled = styled.li`
 //   transition: background-color 0.2s;
 // `;
 
-export default MessageStyled;
+export default NewForumMessageFormStyled;
