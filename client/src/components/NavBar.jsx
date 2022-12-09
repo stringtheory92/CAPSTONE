@@ -12,30 +12,38 @@ function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn, user }) {
     <NavStyled>
       <ul style={{ display: "flex" }}>
         <li>
-          {/* Allows use of styled component while maintaining properties of NavLink */}
-          <Button as={NavLink} to="/">
-            Home
-          </Button>
-          {/* <NavLink to="/">Home</NavLink> */}
+          <div>
+            {/* Allows use of styled component while maintaining properties of NavLink */}
+            <NavLinkStyled as={NavLink} to="/">
+              Home
+            </NavLinkStyled>
+            {/* <NavLink to="/">Home</NavLink> */}
+          </div>
         </li>
         <li>
-          <NavLinkStyled as={NavLink} to="/forums">
-            Forums
-          </NavLinkStyled>
+          <div>
+            <NavLinkStyled as={NavLink} to="/forums">
+              Forums
+            </NavLinkStyled>
+          </div>
         </li>
         <li>
-          <NavLinkStyled as={NavLink} to="/classifieds">
-            Classifieds
-          </NavLinkStyled>
+          <div>
+            <NavLinkStyled as={NavLink} to="/classifieds">
+              Classifieds
+            </NavLinkStyled>
+          </div>
         </li>
       </ul>
-      <div>
+      <div className="rightSideButtons">
         <button onClick={user ? handleLogOut : toggleLogIn}>
           {user ? "Log out" : "Sign in"}
         </button>
-        <Button onClick={toggleDarkMode}>
-          {isDarkMode ? "Light" : "Dark"}
-        </Button>
+        <div className="darkModeButtonContainer">
+          <Button onClick={toggleDarkMode}>
+            {isDarkMode ? "Light" : "Dark"}
+          </Button>
+        </div>
       </div>
     </NavStyled>
   );

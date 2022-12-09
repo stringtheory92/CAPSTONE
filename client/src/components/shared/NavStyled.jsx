@@ -1,18 +1,35 @@
 import React from "react";
 import styled from "styled-components";
 
-const NavStyled = styled.li`
+const NavStyled = styled.div`
+  height: 4rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0.5rem 0.75rem;
   /* border: none; */
   font-weight: 600;
-  cursor: pointer;
+
   color: var(--primary);
 
   background-color: var(--white);
   border: 2px solid var(--dark-turquoise);
   transition: background-color 0.2s;
+  > ul > li > div {
+    margin-right: 1rem;
+    /* border: 1px solid #333; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6rem;
+  }
+  > .rightSideButtons {
+    display: flex;
+  }
+  > .rightSideButtons > .darkModeButtonContainer {
+    width: 8rem;
+    height: 2rem;
+  }
 `;
 // const MainForumItem = styled.li`
 //   padding: 0.5rem 0.75rem;
