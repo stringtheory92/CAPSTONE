@@ -153,11 +153,13 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
         <br />
 
         <label htmlFor="itemPic">Upload an picture</label>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={(e) => setItemPic(e.target.files[0])}
-        />
+        <div className="picUploadContainer">
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => setItemPic(e.target.files[0])}
+          />
+        </div>
         <br />
         {/* submitButtonContainer keeps form from moving when button is pressed */}
         <div className="submitButtonContainer">

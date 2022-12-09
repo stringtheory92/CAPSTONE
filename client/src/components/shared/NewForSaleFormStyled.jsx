@@ -27,6 +27,9 @@ const NewForSaleFormStyled = styled.form`
   > .radioLabel > .radio {
     margin-right: 1rem;
   }
+  > .picUploadContainer {
+    padding-top: 1rem;
+  }
   // Keeps form from moving when submitButton is animated
   > .submitButtonContainer {
     height: 6rem;

@@ -13,12 +13,14 @@ const SubmitButtonStyled = styled.button`
   color: var(--primary);
   background-color: var(--background);
   border: 2px solid #444;
-  transition: background-color 0.3s, width 0.3s, font-size 0.3s, box-shadow 0.3s;
+  transition: background-color 0.3s, width 0.3s, font-size 0.3s, box-shadow 0.3s,
+    margin-left 0.3s;
 
   &:hover {
   }
   &:active {
     width: 9rem;
+    margin-left: 0.7rem;
     font-size: 0.7rem;
     box-shadow: 0px 0px 0 #222;
   }
