@@ -159,9 +159,12 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
           onChange={(e) => setItemPic(e.target.files[0])}
         />
         <br />
-        <SubmitButtonStyled type="submit" className="submitButton">
-          Post!
-        </SubmitButtonStyled>
+        {/* submitButtonContainer keeps form from moving when button is pressed */}
+        <div className="submitButtonContainer">
+          <SubmitButtonStyled type="submit" className="submitButton">
+            Post!
+          </SubmitButtonStyled>
+        </div>
       </NewForSaleFormStyled>
     </div>
   );
