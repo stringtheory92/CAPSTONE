@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NewForSaleFormStyled } from "./shared";
+import { NewForSaleFormStyled, SubmitButtonStyled } from "./shared";
 
 function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
   // user and avatar are passed down from App.js and represent the seller of the newly-created forSaleItem.
@@ -124,24 +124,33 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
           value={formData.country}
           onChange={handleChange}
         />
-        <label htmlFor="status">Transaction Type</label>
-        <input
-          type="radio"
-          name="status"
-          id=""
-          value="For Sale"
-          checked={formData.status === "For Sale"}
-          onChange={handleChange}
-        />
-        <input
-          type="radio"
-          name="status"
-          id=""
-          value="For Trade"
-          checked={formData.status === "For Trade"}
-          onChange={handleChange}
-        />
+        {/* <label htmlFor="status">Transaction Type</label> */}
+        <label htmlFor="" className="radioLabel">
+          <input
+            className="radio"
+            type="radio"
+            name="status"
+            id=""
+            value="For Sale"
+            checked={formData.status === "For Sale"}
+            onChange={handleChange}
+          />
+          For Sale
+        </label>
+        <label htmlFor="" className="radioLabel">
+          <input
+            className="radio"
+            type="radio"
+            name="status"
+            id=""
+            value="For Trade"
+            checked={formData.status === "For Trade"}
+            onChange={handleChange}
+          />
+          For Trade
+        </label>
         {/* <input type="radio" name="status" id="" value="Sold"/> */}
+        <br />
 
         <label htmlFor="itemPic">Upload an picture</label>
         <input
@@ -149,8 +158,10 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
           accept="image/*"
           onChange={(e) => setItemPic(e.target.files[0])}
         />
-        <label htmlFor="status">Transaction Type</label>
-        <button type="submit">Post!</button>
+        <br />
+        <SubmitButtonStyled type="submit" className="submitButton">
+          Post!
+        </SubmitButtonStyled>
       </NewForSaleFormStyled>
     </div>
   );

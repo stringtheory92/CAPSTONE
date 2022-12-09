@@ -11,8 +11,15 @@ const NewForumMessageFormStyled = styled.form`
   color: var(--black);
   list-style-type: none;
   background-color: var(--white);
-  border: 2px solid var(--dark-turquoise);
-  transition: background-color 0.2s;
+  border: 2px solid var(--black);
+  transition: border 0.4s;
+  > textarea {
+    background-color: var(--white);
+  }
+  > textarea:focus {
+    border: 2px solid #333;
+    outline: none;
+  }
 `;
 // const MainForumItem = styled.li`
 //   padding: 0.5rem 0.75rem;
