@@ -229,6 +229,7 @@
   }
   .left {
     max-width: 8rem;
+    flex-grow: 1;
   }
   .middle {
     /* width: 42rem; */
@@ -277,11 +278,11 @@
     max-width: 13rem;
   } */
   .left {
-    flex-grow: 0;
+    flex-grow: 1;
     max-width: 13rem;
   }
   .right {
-    max-width: 20rem;
+    max-width: 13rem;
     flex-grow: 1;
   }
   .nameContainer {

@@ -165,7 +165,7 @@ function App() {
       />
       <div className="whole">
         <div className="sides left">
-          {user ? <UserMenu user={user} avatar={avatar} /> : null}
+          {user ? <UserMenu user={user} avatar={avatar} /> : <div></div>}
         </div>
         {/* <div className="leftMiddleSpace"></div> */}
         <div className="middle">
