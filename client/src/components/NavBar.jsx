@@ -11,6 +11,23 @@ function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn, user }) {
       method: "DELETE",
     }).then(toggleLogIn);
   };
+
+  //=========================================================
+  const handleMenuIconClick = (e) => {
+    console.log("menuIconClicked");
+    e.target.classList.add("menuInvisible");
+    const lgMenu = document.getElementsByClassName("lgMenu");
+    lgMenu.classList.add("enter");
+    // lgMenu.addClass("enter");
+  };
+  const handleExitMenuClick = (e) => {
+    console.log("exitMenuClick");
+    const menu = document.getElementsByClassName("menu");
+    const lgMenu = document.getElementsByClassName("lgMenu");
+    lgMenu.removeClass("enter");
+    menu.classList.remove("menuInvisible");
+  };
+  //=========================================================
   return (
     <NavStyled>
       <div className="leftNav">
@@ -55,17 +72,24 @@ function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn, user }) {
           </Button>
         </div>
       </div>
-      {/* <div className="rightSideMenu">
-        <div className="icon">|||</div>
-        <div>
-          <span className="exit">&times</span>
+      <div className="rightSideMenu">
+        <div className="menu" onClick={handleMenuIconClick}>
+          |||
+        </div>
+        <div className="lgMenu">
+          <span className="exit" onClick={handleExitMenuClick}>
+            &times
+          </span>
           <ul>
             <li onClick={user ? handleLogOut : toggleLogIn}>
               {user ? "Log out" : "Sign in"}
             </li>
+            <li>item</li>
+            <li>item</li>
+            <li>item</li>
           </ul>
         </div>
-      </div> */}
+      </div>
     </NavStyled>
   );
 }
