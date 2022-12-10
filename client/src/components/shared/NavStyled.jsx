@@ -3,13 +3,14 @@ import styled from "styled-components";
 
 const NavStyled = styled.div`
   /* height: 8rem; */
+  margin: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 0.75rem;
   /* border: none; */
   font-weight: 600;
-
+  z-index: 2;
   color: var(--primary);
 
   background-color: var(--background-dark-blue);

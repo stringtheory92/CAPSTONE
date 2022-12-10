@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const NavLinkStyled = styled.button`
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
   padding: 0.5rem 0.75rem;
@@ -11,14 +11,14 @@ const NavLinkStyled = styled.button`
   cursor: pointer;
   width: 6rem;
   height: 2.5rem;
-  /* text-align: center; */
+  
   border-radius: 3px;
-  /* box-shadow: -4px -2px 2px #444; */
+ 
   box-shadow: 1px 2px 10px rgba(8, 8, 8, 0.4);
   color: var(--primary);
   background-color: var(--background);
   border: 2px solid #999;
-  /* border: none; */
+ 
   transition: background-color 0.3s, width 0.3s, font-size 0.3s, box-shadow 0.3s,
     margin-right 0.3s, margin-left 0.3s;
 
@@ -30,6 +30,12 @@ const NavLinkStyled = styled.button`
     margin-right: 0.4rem;
     font-size: 0.55rem;
     box-shadow: 0px 0px 0 #222;
+  } */
+  font-size: 1rem;
+  padding: 0 1.5rem;
+  color: var(--grey);
+  &:hover {
+    color: var(--white);
   }
 `;
 // const MainForumItem = styled.li`

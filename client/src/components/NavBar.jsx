@@ -55,6 +55,17 @@ function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn, user }) {
           </Button>
         </div>
       </div>
+      {/* <div className="rightSideMenu">
+        <div className="icon">|||</div>
+        <div>
+          <span className="exit">&times</span>
+          <ul>
+            <li onClick={user ? handleLogOut : toggleLogIn}>
+              {user ? "Log out" : "Sign in"}
+            </li>
+          </ul>
+        </div>
+      </div> */}
     </NavStyled>
   );
 }

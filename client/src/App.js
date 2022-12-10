@@ -26,12 +26,13 @@ import SSBG_1 from "./bg/SSBG_1.jpg";
 const GlobalStyle = createGlobalStyle`
     :root {
       --logo-color: #fa4902;
+      /* --logo-color: #fc6d34; */
     --white: #f1f1f1;
     --black: #030416;
     --background-dark-blue: #04101c;
     /* --background-dark-blue: #021221; */
     --light-grey: lightgrey;
-    --grey: #d6e2e7;
+    --grey: #959696;
     --dark-grey: #7f8a8e;
     --turquoise: #00efe1;
     --mid-turquoise: #14d5c9;
@@ -52,6 +53,7 @@ const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;}
 
   body {
+    /* font-family: Arial, Helvetica, sans-serif; */
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: .625rem;
     color: var(--color);
