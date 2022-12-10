@@ -20,23 +20,31 @@ import ForumMessagesContainer from "./components/ForumMessagesContainer";
 import NewForumMessageForm from "./components/NewForumMessageForm";
 import UserMenu from "./components/UserMenu";
 import NewForSaleForm from "./components/NewForSaleForm";
+import SSBG_1 from "./bg/SSBG_1.jpg";
 // import { Button } from "./components/shared";
 
 const GlobalStyle = createGlobalStyle`
     :root {
+      --logo-color: #fa4902;
     --white: #f1f1f1;
     --black: #030416;
+    --background-dark-blue: #04101c;
+    /* --background-dark-blue: #021221; */
     --light-grey: lightgrey;
     --grey: #d6e2e7;
     --dark-grey: #7f8a8e;
     --turquoise: #00efe1;
     --mid-turquoise: #14d5c9;
-    --dark-turquoise: #00333f;
+    --dark-turquoise: #fa6711;
+    --bgUrl: SSBG_1;
+    /* --dark-turquoise: #00333f; */
+    --backgroundPhoto: ${(props) => props.theme.backgroundPhoto}
     --color: ${(props) => props.theme.color};
     --inverseColor: ${(props) => props.theme.inverseColor};
     --background: ${(props) => props.theme.backgroundColor};
     --inverseBgColor: ${(props) => props.theme.inverseBgColor};
     --primary: ${(props) => props.theme.primary};
+    --accent: ${(props) => props.theme.accent};
   }
   
   * {padding: 0;
@@ -47,7 +55,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: .625rem;
     color: var(--color);
-    background-color: var(--background);
+    /* background-color: var(--background); */
+    background-image: url(${SSBG_1});
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   ul {
@@ -62,16 +73,20 @@ const GlobalStyle = createGlobalStyle`
 const lightTheme = {
   color: "var(--black)",
   inverseColor: "var(--white)",
-  backgroundColor: "var(--light-grey)",
+  backgroundColor: "var(--white)",
   inverseBgColor: "var(--black)",
+  backgroundPhoto: "var(--bgUrl)",
   primary: "var(--dark-turquoise)",
+  accent: "var(--logo-color)",
 };
 const darkTheme = {
   color: "var(--white)",
   inverseColor: "var(--black)",
   backgroundColor: "var(--black)",
   inverseBgColor: "var(--grey)",
+  backgroundPhoto: "var(--bgUrl)",
   primary: "var(--turquoise)",
+  accent: "var(--logo-color)",
 };
 
 function App() {

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const NavStyled = styled.div`
-  height: 4rem;
+  /* height: 8rem; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,7 +12,7 @@ const NavStyled = styled.div`
 
   color: var(--primary);
 
-  background-color: var(--white);
+  background-color: var(--background-dark-blue);
   border: 2px solid var(--dark-turquoise);
   transition: background-color 0.2s;
   > ul > li > div {
@@ -23,12 +23,20 @@ const NavStyled = styled.div`
     align-items: center;
     width: 6rem;
   }
+  > .leftNav {
+    width: 20rem;
+    /* border: 1px solid lime; */
+  }
   > .rightSideButtons {
     display: flex;
   }
   > .rightSideButtons > .darkModeButtonContainer {
     width: 8rem;
     height: 2rem;
+  }
+  > .leftNav > .logoContainer > img {
+    /* border: 1px solid gray; */
+    width: 19rem;
   }
 `;
 // const MainForumItem = styled.li`

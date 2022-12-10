@@ -119,8 +119,9 @@ function Login({ onSignIn }) {
         <div>
           {sampleUser ? (
             <div>
-              <h1>{`User Name: ${sampleUser.user_name} Password: ${sampleUser.password}`}</h1>
-              <h1>{`User Name: ${sampleUser2.user_name} Password: ${sampleUser2.password}`}</h1>
+              <h1>SubSonic: the voices behind the sound</h1>
+              {/* <h1>{`User Name: ${sampleUser.user_name} Password: ${sampleUser.password}`}</h1>
+              <h1>{`User Name: ${sampleUser2.user_name} Password: ${sampleUser2.password}`}</h1> */}
               <h1>{`User Name: ${sampleUser3.user_name} Password: ${sampleUser3.password}`}</h1>
             </div>
           ) : null}

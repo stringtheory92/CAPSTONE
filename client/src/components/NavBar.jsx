@@ -1,6 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Button, NavStyled, NavLinkStyled } from "./shared";
+import Logo from "../icons/SSLOGO.png";
+// import AltLogo from "../icons/SubSonic-logo-lighter-orange.png";
+import AltLogo from "../icons/SubSonic-logoA-alt.png";
 
 function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn, user }) {
   const handleLogOut = () => {
@@ -10,31 +13,38 @@ function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn, user }) {
   };
   return (
     <NavStyled>
-      <ul style={{ display: "flex" }}>
-        <li>
-          <div>
-            {/* Allows use of styled component while maintaining properties of NavLink */}
-            <NavLinkStyled as={NavLink} to="/">
-              Home
-            </NavLinkStyled>
-            {/* <NavLink to="/">Home</NavLink> */}
-          </div>
-        </li>
-        <li>
-          <div>
-            <NavLinkStyled as={NavLink} to="/forums">
-              Forums
-            </NavLinkStyled>
-          </div>
-        </li>
-        <li>
-          <div>
-            <NavLinkStyled as={NavLink} to="/classifieds">
-              Classifieds
-            </NavLinkStyled>
-          </div>
-        </li>
-      </ul>
+      <div className="leftNav">
+        <div className="logoContainer">
+          <img src={AltLogo} alt="" />
+        </div>
+
+        <ul className="leftSideButtons" style={{ display: "flex" }}>
+          <li>
+            <div>
+              {/* Allows use of styled component while maintaining properties of NavLink */}
+              <NavLinkStyled as={NavLink} to="/">
+                Home
+              </NavLinkStyled>
+              {/* <NavLink to="/">Home</NavLink> */}
+            </div>
+          </li>
+          <li>
+            <div>
+              <NavLinkStyled as={NavLink} to="/forums">
+                Forums
+              </NavLinkStyled>
+            </div>
+          </li>
+          <li>
+            <div>
+              <NavLinkStyled as={NavLink} to="/classifieds">
+                Classifieds
+              </NavLinkStyled>
+            </div>
+          </li>
+        </ul>
+      </div>
+
       <div className="rightSideButtons">
         <button onClick={user ? handleLogOut : toggleLogIn}>
           {user ? "Log out" : "Sign in"}
