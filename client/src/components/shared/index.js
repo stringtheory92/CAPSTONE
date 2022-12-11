@@ -18,6 +18,7 @@ import EditUserFormStyled from "./EditUserFormStyled";
 import UpdateProfileButtonStyled from "./UpdateProfileButtonStyled";
 import NewForumMessageFormStyled from "./NewForumMessageFormStyled";
 import SubmitButtonStyled from "./SubmitButtonStyled";
+import MainForumStyled from "./MainForumsStyled";
 
 export {
   MainForumItem,
@@ -37,5 +38,6 @@ export {
   UpdateProfileButtonStyled,
   NewForumMessageFormStyled,
   SubmitButtonStyled,
+  MainForumStyled,
 };
 // export { Button, Form, Input, MainForumList };

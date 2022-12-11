@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ListUnit from "./ListUnit";
+import { MainForumStyled } from "./shared";
 
 function MainForums({ onMainForumSelect }) {
   const [allMainForums, setAllMainForums] = useState([]);
@@ -41,15 +42,19 @@ function MainForums({ onMainForumSelect }) {
 
   //========================================================================
   return (
-    <div>
+    <MainForumStyled>
       {/* <div className="forum-list-container"> */}
       <h1>MainForums</h1>
       {/* <ul>{fullList ? fullList : null}</ul> */}
-      <h2>Double Bass Forums</h2>
+      <div className="categoryContainer">
+        <h2>Double Bass Forums</h2>
+      </div>
       <ul>{dbList ? dbList : null}</ul>
-      <h2>Bass Guitar Forums</h2>
+      <div className="categoryContainer">
+        <h2>Bass Guitar Forums</h2>
+      </div>
       <ul>{bgList ? bgList : null}</ul>
-    </div>
+    </MainForumStyled>
   );
 }
 

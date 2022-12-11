@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import SSBG_1 from "../../bg/SSBG_1.jpg";
+
+// SSBG_1 is a nice gradient background, but maybe too blue
 
 const NavStyled = styled.div`
   /* height: 8rem; */
@@ -15,9 +18,9 @@ const NavStyled = styled.div`
   font-weight: 600;
   z-index: 2;
   color: var(--inverseBgColor);
-
+  /* background-image: url(${SSBG_1}); */
   background-color: var(--background-dark-blue);
-  /* border: 2px solid var(--dark-turquoise); */
+
   transition: background-color 0.2s;
   > ul > li > div {
     margin-right: 1rem;

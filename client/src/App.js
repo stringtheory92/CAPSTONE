@@ -40,9 +40,9 @@ const GlobalStyle = createGlobalStyle`
     --dark-turquoise: #fa6711;
     --bgUrl: SSBG_1;
     /* --dark-turquoise: #00333f; */
-    --backgroundPhoto: ${(props) => props.theme.backgroundPhoto}
-    --navColor: ${(props) => props.theme.navColor}
-    --color: ${(props) => props.theme.color};
+    --backgroundPhoto: ${(props) => props.theme.backgroundPhoto};
+    --navColor: ${(props) => props.theme.navColor};
+    --textColor: ${(props) => props.theme.textColor};
     --inverseColor: ${(props) => props.theme.inverseColor};
     --background: ${(props) => props.theme.backgroundColor};
     --inverseBgColor: ${(props) => props.theme.inverseBgColor};
@@ -54,7 +54,7 @@ const GlobalStyle = createGlobalStyle`
   * {padding: 0;
   /* margin: 0; */
   box-sizing: border-box;
-  overflow: hidden;
+  overflow-x: hidden;
 
   margin: 0;
         padding: 0;
@@ -86,7 +86,7 @@ const GlobalStyle = createGlobalStyle`
   `;
 
 const lightTheme = {
-  color: "var(--black)",
+  textColor: "var(--black)",
   inverseColor: "var(--white)",
   navColor: "var(--black)",
   backgroundColor: "var(--white)",
@@ -97,7 +97,7 @@ const lightTheme = {
   forumItem: "var(--white)",
 };
 const darkTheme = {
-  color: "var(--white)",
+  textColor: "var(--white)",
   inverseColor: "var(--black)",
   navColor: "var(--white)",
   backgroundColor: "var(--black)",
