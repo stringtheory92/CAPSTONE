@@ -38,6 +38,10 @@ const LoginStyled = styled.div`
   > div > form > .createAcctButton {
     cursor: pointer;
     color: var(--grey);
+    transition: all 0.2s;
+  }
+  > div > form > .createAcctButton:hover {
+    color: var(--logo-color);
   }
 `;
 
