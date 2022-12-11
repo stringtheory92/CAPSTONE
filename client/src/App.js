@@ -6,7 +6,7 @@
 //Active Storage Notes:
 // mini_magick installed (image resizing)
 import React, { useEffect, useState } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import PageTwo from "./components/PageTwo";
 import PageOne from "./components/PageOne";
 import Home from "./components/Home";
@@ -121,22 +121,16 @@ function App() {
     useState(null);
   const navigate = useNavigate();
 
-  // keep isLoggedIn status updated on refresh
-  // const currentUserID = localStorage.getItem("userID");
-  // if (currentUserID) setIsLoggedIn(true);
+  // controls state for smooth transitions between routes
+  const location = useLocation();
+  const [displayLocation, setDisplayLocation] = useState(location);
+  const [transitionStage, setTransitionStage] = useState("fadeIn");
 
-  // useEffect(() => {
-  //   const currentUserID = localStorage.getItem("userID");
+  useEffect(() => {
+    if (location !== displayLocation) setTransitionStage("fadeOut");
+  }, [location, displayLocation]);
 
-  //   if (currentUserID) {
-  //     setIsLoggedIn(true);
-  //     fetch(`/users/${currentUserID}`)
-  //       .then((r) => r.json())
-  //       .then((data) => setUser(data));
-  //   } else {
-  //     setIsLoggedIn(false);
-  //   }
-  // }, [isLoggedIn]);
+  // transitions code END
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -207,7 +201,7 @@ function App() {
         </div>
         {/* <div className="leftMiddleSpace"></div> */}
         <div className="middle">
-          <Routes>
+          <Routes location={displayLocation}>
             <Route
               exact
               path="/"
