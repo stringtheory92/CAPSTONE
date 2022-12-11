@@ -46,15 +46,23 @@ const NavStyled = styled.div`
     height: 2rem; */
   }
   > .rightSideButtons > .loginButton {
+    cursor: pointer;
     color: white;
     border: 2px solid white;
     font-size: 1rem;
     padding: 0.5rem 1.6rem;
     border-radius: 10px;
+    transition: color 0.5s, border 0.5s, background-color 1s;
   }
   > .rightSideButtons > .loginButton:hover {
+    color: var(--logo-color);
+    border: 2px solid var(--logo-color);
   }
   > .rightSideButtons > .loginButton:active {
+    border: 2px solid gold;
+    color: gold;
+    /* background-color: var(--white); */
+    /* background-color: var(--logo-color); */
   }
   > .rightSideMenu {
     background-color: var(--white);

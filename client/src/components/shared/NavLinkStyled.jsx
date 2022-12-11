@@ -31,6 +31,7 @@ const NavLinkStyled = styled.button`
     font-size: 0.55rem;
     box-shadow: 0px 0px 0 #222;
   } */
+  cursor: pointer;
   opacity: 0;
   font-size: 1rem;
   font-weight: 300;

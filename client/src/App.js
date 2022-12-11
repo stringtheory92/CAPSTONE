@@ -35,7 +35,8 @@ const GlobalStyle = createGlobalStyle`
     /* --background-dark-blue: #021221; */
     --light-grey: lightgrey;
     --grey: #959696;
-    --dark-grey: #595f66;
+    --dark-grey: rgb(89, 95, 102);
+    --dark-grey-semi-trans: rgba(89, 95, 102, 0.5);
     --turquoise: #00efe1;
     --mid-turquoise: #14d5c9;
     --dark-turquoise: #fa6711;
@@ -56,6 +57,7 @@ const GlobalStyle = createGlobalStyle`
   
   * {padding: 0;
   /* margin: 0; */
+  cursor: default;
   box-sizing: border-box;
   overflow-x: hidden;
 
@@ -140,7 +142,7 @@ const darkTheme = {
   backgroundPhoto: "var(--bgUrl2)",
   primary: "var(--turquoise)",
   accent: "var(--logo-color)",
-  forumItem: "var(--dark-grey)",
+  forumItem: "var(--dark-grey-semi-trans)",
   forumBorder: "var(--background-dark-blue)",
 };
 

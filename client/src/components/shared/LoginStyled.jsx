@@ -35,6 +35,9 @@ const LoginStyled = styled.div`
   > div > form > .signInButton:hover {
     color: var(--logo-color);
   }
+  > div > form > .signInButton:active {
+    color: gold;
+  }
   > div > form > .createAcctButton {
     cursor: pointer;
     color: var(--grey);
@@ -42,6 +45,9 @@ const LoginStyled = styled.div`
   }
   > div > form > .createAcctButton:hover {
     color: var(--logo-color);
+  }
+  > div > form > .createAcctButton:active {
+    color: gold;
   }
 `;
 

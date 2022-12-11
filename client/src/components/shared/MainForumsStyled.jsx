@@ -11,7 +11,7 @@ const MainForumStyled = styled.div`
   > .categoryContainer {
     margin-top: 4rem;
     /* height: 5rem; */
-    border: 1px solid white;
+    border-top: 2px solid var(--forumItem);
     /* padding: 0 1rem; */
     background-image: url(${SSBG_1});
     /* background-size: contain; */
