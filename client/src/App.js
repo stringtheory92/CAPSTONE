@@ -87,6 +87,35 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
   }
+  //==============================================
+  .fadeIn {
+  animation: 0.5s fadeIn forwards;
+}
+.fadeOut {
+  animation: 0.5s fadeOut forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+  to {
+    transform: translate(-20px, 0);
+    opacity: 0;
+  }
+}
   `;
 
 const lightTheme = {
@@ -195,7 +224,15 @@ function App() {
         toggleLogIn={toggleLogIn}
         user={user}
       />
-      <div className="whole">
+      <div
+        className={`whole ${transitionStage}`}
+        onAnimationEnd={() => {
+          if (transitionStage === "fadeOut") {
+            setTransitionStage("fadeIn");
+            setDisplayLocation(location);
+          }
+        }}
+      >
         <div className="sides left">
           {user ? <UserMenu user={user} avatar={avatar} /> : <div></div>}
         </div>
