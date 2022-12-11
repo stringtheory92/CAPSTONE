@@ -69,14 +69,16 @@ function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn, user }) {
       </div>
 
       <div className="rightSideButtons">
-        <button onClick={user ? handleLogOut : toggleLogIn}>
+        <div className="darkModeButtonContainer">
+          {/* from Button styled component */}
+          <Button onClick={toggleDarkMode}>{isDarkMode ? "💡" : "🕯"}</Button>
+        </div>
+        <button
+          onClick={user ? handleLogOut : toggleLogIn}
+          className="loginButton"
+        >
           {user ? "Log out" : "Sign in"}
         </button>
-        <div className="darkModeButtonContainer">
-          <Button onClick={toggleDarkMode}>
-            {isDarkMode ? "Light" : "Dark"}
-          </Button>
-        </div>
       </div>
       <div className="rightSideMenu">
         <div
@@ -90,12 +92,12 @@ function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn, user }) {
             &times;
           </span>
           <ul>
+            <li>Home</li>
+            <li>Forums</li>
+            <li>Classifieds</li>
             <li onClick={user ? handleLogOut : toggleLogIn}>
               {user ? "Log out" : "Sign in"}
             </li>
-            <li>item</li>
-            <li>item</li>
-            <li>item</li>
           </ul>
         </div>
       </div>

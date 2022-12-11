@@ -24,6 +24,7 @@ import SSBG_1 from "./bg/SSBG_1.jpg";
 // import { Button } from "./components/shared";
 
 const GlobalStyle = createGlobalStyle`
+// navColor (intended for nav bg) variable not working for some reason. 
     :root {
       --logo-color: #fa4902;
       /* --logo-color: #fc6d34; */
@@ -40,18 +41,29 @@ const GlobalStyle = createGlobalStyle`
     --bgUrl: SSBG_1;
     /* --dark-turquoise: #00333f; */
     --backgroundPhoto: ${(props) => props.theme.backgroundPhoto}
+    --navColor: ${(props) => props.theme.navColor}
     --color: ${(props) => props.theme.color};
     --inverseColor: ${(props) => props.theme.inverseColor};
     --background: ${(props) => props.theme.backgroundColor};
     --inverseBgColor: ${(props) => props.theme.inverseBgColor};
     --primary: ${(props) => props.theme.primary};
     --accent: ${(props) => props.theme.accent};
+    --forumItem: ${(props) => props.theme.forumItem};
   }
   
   * {padding: 0;
-  margin: 0;
+  /* margin: 0; */
   box-sizing: border-box;
-  overflow: hidden;}
+  overflow: hidden;
+
+  margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+}
 
   body {
     /* font-family: Arial, Helvetica, sans-serif; */
@@ -76,20 +88,24 @@ const GlobalStyle = createGlobalStyle`
 const lightTheme = {
   color: "var(--black)",
   inverseColor: "var(--white)",
+  navColor: "var(--black)",
   backgroundColor: "var(--white)",
   inverseBgColor: "var(--black)",
   backgroundPhoto: "var(--bgUrl)",
   primary: "var(--dark-turquoise)",
   accent: "var(--logo-color)",
+  forumItem: "var(--white)",
 };
 const darkTheme = {
   color: "var(--white)",
   inverseColor: "var(--black)",
+  navColor: "var(--white)",
   backgroundColor: "var(--black)",
   inverseBgColor: "var(--grey)",
   backgroundPhoto: "var(--bgUrl)",
   primary: "var(--turquoise)",
   accent: "var(--logo-color)",
+  forumItem: "var(--grey)",
 };
 
 function App() {

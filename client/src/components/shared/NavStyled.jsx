@@ -8,13 +8,16 @@ const NavStyled = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 0.75rem;
+
+  /* position: fixed; */
+
   /* border: none; */
   font-weight: 600;
   z-index: 2;
-  color: var(--primary);
+  color: var(--inverseBgColor);
 
   background-color: var(--background-dark-blue);
-  border: 2px solid var(--dark-turquoise);
+  /* border: 2px solid var(--dark-turquoise); */
   transition: background-color 0.2s;
   > ul > li > div {
     margin-right: 1rem;
@@ -36,22 +39,35 @@ const NavStyled = styled.div`
     display: none;
   }
   > .rightSideButtons > .darkModeButtonContainer {
-    width: 8rem;
-    height: 2rem;
+    /* width: 8rem;
+    height: 2rem; */
+  }
+  > .rightSideButtons > .loginButton {
+    color: white;
+    border: 2px solid white;
+    font-size: 1rem;
+    padding: 0.5rem 1.6rem;
+    border-radius: 10px;
+  }
+  > .rightSideButtons > .loginButton:hover {
+  }
+  > .rightSideButtons > .loginButton:active {
   }
   > .rightSideMenu {
     background-color: var(--white);
   }
   > .rightSideMenu > .menu {
-    /* color: white; */
-    right: 20px;
+    color: white;
+    transform: rotate(90deg);
+    right: 2rem;
+    top: 2.5rem;
     font-size: 4em;
-    font-weight: 800;
+    font-weight: 500;
     z-index: 111;
     cursor: pointer;
     text-align: center;
     transition: all 0.5s;
-    -webkit-transition: all 0.25s;
+    -webkit-transition: all 1s;
     position: absolute;
   }
   > .rightSideMenu > .menuInvisible {
@@ -59,8 +75,11 @@ const NavStyled = styled.div`
   }
 
   > .rightSideMenu > .menu:hover {
-    transform: rotate(90deg);
-    color: #ff9900;
+    /* transform: rotate(180deg); */
+    color: var(--logo-color);
+  }
+  > .rightSideMenu > .menu:active {
+    transform: rotate(450deg);
   }
 
   > .rightSideMenu > .lgMenu {
@@ -132,6 +151,14 @@ const NavStyled = styled.div`
   @media (min-width: 780px) {
     > .rightSideButtons {
       display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      height: 7rem;
+    }
+    > .rightSideMenu {
+      display: none;
     }
   }
 `;

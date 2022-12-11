@@ -31,11 +31,17 @@ const NavLinkStyled = styled.button`
     font-size: 0.55rem;
     box-shadow: 0px 0px 0 #222;
   } */
+  opacity: 0;
   font-size: 1rem;
+  font-weight: 300;
   padding: 0 1.5rem;
   color: var(--grey);
+  transition: all 0.4s;
   &:hover {
-    color: var(--white);
+    color: white;
+  }
+  @media (min-width: 780px) {
+    opacity: 1;
   }
 `;
 // const MainForumItem = styled.li`

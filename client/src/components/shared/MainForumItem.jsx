@@ -7,9 +7,9 @@ const MainForumItem = styled.li`
   /* border: none; */
   font-weight: 600;
   cursor: pointer;
-  color: var(--inverseColor);
+  color: var(--color);
   list-style-type: none;
-  background-color: var(--inverseBgColor);
+  background-color: var(--forumItem);
   border-radius: 6px;
   box-shadow: 2px 2px 3px #222;
   /* border: 2px solid var(--dark-turquoise); */
