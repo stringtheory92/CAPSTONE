@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Button, NavStyled, NavLinkStyled } from "./shared";
 import Logo from "../icons/SSLOGO.png";
@@ -6,6 +6,8 @@ import Logo from "../icons/SSLOGO.png";
 import AltLogo from "../icons/SubSonic-logoA-alt.png";
 
 function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn, user }) {
+  const [isActive, setIsActive] = useState(false);
+
   const handleLogOut = () => {
     fetch("/logout", {
       method: "DELETE",
@@ -15,17 +17,21 @@ function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn, user }) {
   //=========================================================
   const handleMenuIconClick = (e) => {
     console.log("menuIconClicked");
+    setIsActive(true);
     e.target.classList.add("menuInvisible");
     const lgMenu = document.getElementsByClassName("lgMenu");
-    lgMenu.classList.add("enter");
-    // lgMenu.addClass("enter");
+    // lgMenu.classList.add("enter");
+    // lgMenu.style.opacity = "1";
+    // lgMenu.style.right = "0";
+    console.log("lgMenu: ", lgMenu);
   };
   const handleExitMenuClick = (e) => {
     console.log("exitMenuClick");
-    const menu = document.getElementsByClassName("menu");
-    const lgMenu = document.getElementsByClassName("lgMenu");
-    lgMenu.removeClass("enter");
-    menu.classList.remove("menuInvisible");
+    setIsActive(false);
+    // const menu = document.getElementsByClassName("menu");
+    // const lgMenu = document.getElementsByClassName("lgMenu");
+    // lgMenu.removeClass("enter");
+    // menu.classList.remove("menuInvisible");
   };
   //=========================================================
   return (
@@ -73,12 +79,15 @@ function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn, user }) {
         </div>
       </div>
       <div className="rightSideMenu">
-        <div className="menu" onClick={handleMenuIconClick}>
+        <div
+          className={isActive ? "menu menuInvisible" : "menu"}
+          onClick={handleMenuIconClick}
+        >
           |||
         </div>
-        <div className="lgMenu">
+        <div className={isActive ? "lgMenu enterLgMenu" : "lgMenu"}>
           <span className="exit" onClick={handleExitMenuClick}>
-            &times
+            &times;
           </span>
           <ul>
             <li onClick={user ? handleLogOut : toggleLogIn}>

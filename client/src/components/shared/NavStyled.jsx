@@ -23,6 +23,7 @@ const NavStyled = styled.div`
     justify-content: center;
     align-items: center;
     width: 6rem;
+    /* position: relative; */
   }
   > .leftNav {
     width: 20rem;
@@ -43,6 +44,7 @@ const NavStyled = styled.div`
     background-color: var(--white);
   }
   > .rightSideMenu > .menu {
+    /* color: white; */
     right: 20px;
     font-size: 4em;
     font-weight: 800;
@@ -60,6 +62,27 @@ const NavStyled = styled.div`
   > .rightSideMenu > .menu:hover {
     transform: rotate(90deg);
     color: #ff9900;
+  }
+
+  > .rightSideMenu > .lgMenu {
+    width: 400px;
+    height: 100%;
+    top: 0;
+    right: -400px;
+    overflow: hidden;
+    background-color: black;
+    box-shadow: 5px 5px 10px grey;
+    position: absolute;
+    z-index: 11;
+    opacity: 0;
+
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+  }
+
+  > .rightSideMenu > .enterLgMenu {
+    opacity: 1;
+    right: 0;
   }
 
   > .rightSideMenu > .lgMenu > ul {
@@ -89,22 +112,6 @@ const NavStyled = styled.div`
     font-size: 1.5em;
   }
 
-  > .rightSideMenu > .lgMenu {
-    width: 400px;
-    height: 100%;
-    top: 0;
-    right: -400px;
-    overflow: hidden;
-    background-color: black;
-    box-shadow: 5px 5px 10px grey;
-    position: absolute;
-    z-index: 11;
-    opacity: 0;
-
-    transition: all 0.25s;
-    -webkit-transition: all 0.25s;
-  }
-
   > .rightSideMenu > .lgMenu > .exit {
     position: absolute;
     right: 10px;
@@ -119,11 +126,6 @@ const NavStyled = styled.div`
   }
   > .rightSideMenu > .lgMenu > .exit:hover {
     color: #ff9900;
-  }
-
-  > .rightSideMenu > .enter {
-    opacity: 1;
-    right: 0;
   }
 
   @media (min-width: 780px) {
