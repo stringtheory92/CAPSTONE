@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { LoginStyled } from "./shared";
 
 function Login({ onSignIn }) {
   const [sampleUser, setSampleUser] = useState({});
@@ -114,15 +115,15 @@ function Login({ onSignIn }) {
   };
 
   return (
-    <div>
+    <LoginStyled>
       {hasAccount ? (
         <div>
           {sampleUser ? (
             <div>
               <h1>SubSonic: the voices behind the sound</h1>
-              {/* <h1>{`User Name: ${sampleUser.user_name} Password: ${sampleUser.password}`}</h1>
-              <h1>{`User Name: ${sampleUser2.user_name} Password: ${sampleUser2.password}`}</h1> */}
-              <h1>{`User Name: ${sampleUser3.user_name} Password: ${sampleUser3.password}`}</h1>
+              {/* <h1>{`User Name: ${sampleUser.user_name} Password: ${sampleUser.password}`}</h1> */}
+              <h1>{`User Name: ${sampleUser2.user_name} Password: ${sampleUser2.password}`}</h1>
+              {/* <h1>{`User Name: ${sampleUser3.user_name} Password: ${sampleUser3.password}`}</h1> */}
             </div>
           ) : null}
           <form onSubmit={handleSignIn}>
@@ -142,44 +143,59 @@ function Login({ onSignIn }) {
               value={formData.password}
               onChange={handleChange}
             />
-            <button type="submit">Sign In</button>
-            <button onClick={handleDontHaveAccount}>
+            <button type="submit" className="signInButton">
+              Sign In
+            </button>
+            <button
+              onClick={handleDontHaveAccount}
+              className="createAcctButton"
+            >
               Don't have an account?
             </button>
           </form>
         </div>
       ) : (
-        <form onSubmit={handleCreateUser}>
-          {/* insert validations for uniqueness */}
-          <label htmlFor="userName">User Name</label>
-          <input
-            type="text"
-            name="user_name"
-            id="user_name"
-            value={createAccount.user_name}
-            onChange={handleChange}
-          />
-          {/* insert validations for password length, must contain a number */}
-          <label htmlFor="password">Password</label>
-          <input
-            type="text"
-            name="password"
-            id="password"
-            value={createAccount.password}
-            onChange={handleChange}
-          />
-          <label htmlFor="password_confirmation">Repeat Password</label>
-          <input
-            type="text"
-            name="password_confirmation"
-            id="password_confirmation"
-            value={createAccount.password_confirmation}
-            onChange={handleChange}
-          />
-          <button type="submit">Create Profile</button>
-        </form>
+        <div>
+          <form onSubmit={handleCreateUser}>
+            {/* insert validations for uniqueness */}
+            <label htmlFor="userName">User Name</label>
+            <input
+              type="text"
+              name="user_name"
+              id="user_name"
+              value={createAccount.user_name}
+              onChange={handleChange}
+            />
+            {/* insert validations for password length, must contain a number */}
+            <label htmlFor="password">Password</label>
+            <input
+              type="text"
+              name="password"
+              id="password"
+              value={createAccount.password}
+              onChange={handleChange}
+            />
+            <label htmlFor="password_confirmation">Repeat Password</label>
+            <input
+              type="text"
+              name="password_confirmation"
+              id="password_confirmation"
+              value={createAccount.password_confirmation}
+              onChange={handleChange}
+            />
+            <button type="submit" className="signInButton">
+              Create Profile
+            </button>
+            <button
+              onClick={handleDontHaveAccount}
+              className="createAcctButton"
+            >
+              Back to Sign in
+            </button>
+          </form>
+        </div>
       )}
-    </div>
+    </LoginStyled>
   );
 }
 

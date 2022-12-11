@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-const UpdateProfileButton = styled.form``;
+const UpdateProfileButtonStyled = styled.form``;
 
-export default UpdateProfileButton;
+export default UpdateProfileButtonStyled;

@@ -20,8 +20,9 @@ import ForumMessagesContainer from "./components/ForumMessagesContainer";
 import NewForumMessageForm from "./components/NewForumMessageForm";
 import UserMenu from "./components/UserMenu";
 import NewForSaleForm from "./components/NewForSaleForm";
+// Possible main backgrounds to use:
 import SSBG_1 from "./bg/SSBG_1.jpg";
-// import { Button } from "./components/shared";
+import Spotlight from "./bg/spotlight_bg.jpg";
 
 const GlobalStyle = createGlobalStyle`
 // navColor (intended for nav bg) variable not working for some reason. 
@@ -39,6 +40,7 @@ const GlobalStyle = createGlobalStyle`
     --mid-turquoise: #14d5c9;
     --dark-turquoise: #fa6711;
     --bgUrl: SSBG_1;
+    --bgUrl2: Spotlight;
     /* --dark-turquoise: #00333f; */
     --backgroundPhoto: ${(props) => props.theme.backgroundPhoto};
     --navColor: ${(props) => props.theme.navColor};
@@ -71,9 +73,11 @@ const GlobalStyle = createGlobalStyle`
     font-size: .625rem;
     color: var(--color);
     /* background-color: var(--background); */
-    background-image: url(${SSBG_1});
+    background-image: url(${Spotlight});
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
+    position: relative;
   }
 
   ul {
@@ -102,7 +106,7 @@ const darkTheme = {
   navColor: "var(--white)",
   backgroundColor: "var(--black)",
   inverseBgColor: "var(--grey)",
-  backgroundPhoto: "var(--bgUrl)",
+  backgroundPhoto: "var(--bgUrl2)",
   primary: "var(--turquoise)",
   accent: "var(--logo-color)",
   forumItem: "var(--grey)",

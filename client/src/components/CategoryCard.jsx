@@ -10,8 +10,10 @@ import dbSide from "../resources/category-ub-side.png";
 import bgSide from "../resources/fodera-woodbackground-bg.jpeg";
 import ampSide from "../resources/amp-coverphoto.png";
 import accSide from "../resources/acc-side.jpg";
+import { useNavigate } from "react-router-dom";
 
 function CategoryCard({ category, onCategorySelect }) {
+  const navigate = useNavigate();
   const { id, heading } = category;
   const imageArray = [db, bg, amp, acc];
   const smImageArray = [dbSide, bgSide, ampSide, accSide];

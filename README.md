@@ -209,3 +209,7 @@ https://www.facebook.com/photo/?fbid=2676395625781051&set=a.355647687855868
 - uses an alias, so to access this relationship, use:
   User.first.created_topics
   ForumDiscussionTopic.first.creator (there is a creator_id on forum_discussion_topics table)
+
+  # Colors
+
+  -slate blue/navy & orange
