@@ -184,7 +184,7 @@ function Login({ onSignIn }) {
               onChange={handleChange}
             />
             <button type="submit" className="signInButton">
-              Create Profile
+              Create
             </button>
             <button
               onClick={handleDontHaveAccount}

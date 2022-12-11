@@ -35,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
     /* --background-dark-blue: #021221; */
     --light-grey: lightgrey;
     --grey: #959696;
-    --dark-grey: #7f8a8e;
+    --dark-grey: #595f66;
     --turquoise: #00efe1;
     --mid-turquoise: #14d5c9;
     --dark-turquoise: #fa6711;
@@ -51,6 +51,7 @@ const GlobalStyle = createGlobalStyle`
     --primary: ${(props) => props.theme.primary};
     --accent: ${(props) => props.theme.accent};
     --forumItem: ${(props) => props.theme.forumItem};
+    --forumBorder: ${(props) => props.theme.forumBorder};
   }
   
   * {padding: 0;
@@ -119,7 +120,7 @@ const GlobalStyle = createGlobalStyle`
   `;
 
 const lightTheme = {
-  textColor: "var(--black)",
+  textColor: "var(--background-dark-blue)",
   inverseColor: "var(--white)",
   navColor: "var(--black)",
   backgroundColor: "var(--white)",
@@ -128,17 +129,19 @@ const lightTheme = {
   primary: "var(--dark-turquoise)",
   accent: "var(--logo-color)",
   forumItem: "var(--white)",
+  forumBorder: "var(--light-grey)",
 };
 const darkTheme = {
   textColor: "var(--white)",
-  inverseColor: "var(--black)",
+  inverseColor: "var(--background-dark-blue)",
   navColor: "var(--white)",
   backgroundColor: "var(--black)",
   inverseBgColor: "var(--grey)",
   backgroundPhoto: "var(--bgUrl2)",
   primary: "var(--turquoise)",
   accent: "var(--logo-color)",
-  forumItem: "var(--grey)",
+  forumItem: "var(--dark-grey)",
+  forumBorder: "var(--background-dark-blue)",
 };
 
 function App() {
