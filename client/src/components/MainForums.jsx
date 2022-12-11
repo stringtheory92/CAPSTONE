@@ -11,13 +11,31 @@ function MainForums({ onMainForumSelect }) {
   }, []);
   console.log("allMainForums: ", allMainForums);
 
-  const list = allMainForums?.map((forum) => (
+  const fullList = allMainForums?.map((forum) => (
     <ListUnit
       key={forum.id}
       forum={forum}
       onMainForumSelect={onMainForumSelect}
     />
   ));
+  const bgList = allMainForums
+    .filter((item) => item.category === "[BG]")
+    .map((forum) => (
+      <ListUnit
+        key={forum.id}
+        forum={forum}
+        onMainForumSelect={onMainForumSelect}
+      />
+    ));
+  const dbList = allMainForums
+    .filter((item) => item.category === "[DB]")
+    .map((forum) => (
+      <ListUnit
+        key={forum.id}
+        forum={forum}
+        onMainForumSelect={onMainForumSelect}
+      />
+    ));
   //========================================================================
   //========================================================================
 
@@ -26,7 +44,11 @@ function MainForums({ onMainForumSelect }) {
     <div>
       {/* <div className="forum-list-container"> */}
       <h1>MainForums</h1>
-      <ul>{list ? list : null}</ul>
+      {/* <ul>{fullList ? fullList : null}</ul> */}
+      <h2>Double Bass Forums</h2>
+      <ul>{dbList ? dbList : null}</ul>
+      <h2>Bass Guitar Forums</h2>
+      <ul>{bgList ? bgList : null}</ul>
     </div>
   );
 }
