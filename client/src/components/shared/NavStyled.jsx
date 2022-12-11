@@ -23,7 +23,6 @@ const NavStyled = styled.div`
     justify-content: center;
     align-items: center;
     width: 6rem;
-    /* position: relative; */
   }
   > .leftNav {
     width: 20rem;
@@ -78,11 +77,13 @@ const NavStyled = styled.div`
 
     transition: all 0.25s;
     -webkit-transition: all 0.25s;
+    /* display: none; */
   }
 
   > .rightSideMenu > .enterLgMenu {
     opacity: 1;
     right: 0;
+    display: initial;
   }
 
   > .rightSideMenu > .lgMenu > ul {

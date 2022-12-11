@@ -50,7 +50,8 @@ const GlobalStyle = createGlobalStyle`
   
   * {padding: 0;
   margin: 0;
-  box-sizing: border-box;}
+  box-sizing: border-box;
+  overflow: hidden;}
 
   body {
     /* font-family: Arial, Helvetica, sans-serif; */
