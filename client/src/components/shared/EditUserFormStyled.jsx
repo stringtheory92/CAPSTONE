@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const EditUserForm = styled.form`
+const EditUserFormStyled = styled.form`
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -13,4 +13,4 @@ const EditUserForm = styled.form`
   }
 `;
 
-export default EditUserForm;
+export default EditUserFormStyled;

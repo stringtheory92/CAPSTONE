@@ -130,9 +130,15 @@ function Home({ onAvatarChange, onUpdateUser, user }) {
               />
               <button type="submit">Change name and password</button>
             </EditUserFormStyled>
-            <EditUserFormStyled action="" onSubmit={handleAvatarChange}>
+            <EditUserFormStyled
+              className="uploadForm"
+              action=""
+              onSubmit={handleAvatarChange}
+            >
               {/* <input type="file" accept="image/*" onChange={handleChange} /> */}
+
               <input
+                className="avatarUploadInput"
                 type="file"
                 accept="image/*"
                 onChange={(e) => setNewAvatar(e.target.files[0])}

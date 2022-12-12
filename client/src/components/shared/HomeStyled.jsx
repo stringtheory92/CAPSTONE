@@ -4,6 +4,7 @@ import styled from "styled-components";
 const HomeStyled = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  color: var(--textColor);
   > .leftSide {
     display: grid;
     grid-template-rows: auto 4rem auto;
@@ -21,6 +22,9 @@ const HomeStyled = styled.div`
     justify-content: center;
     align-items: center;
   }
+  > .leftSide > .imageBox > button {
+    background-color: white;
+  }
   > .leftSide > .imageBox > img {
     max-height: 90%;
     max-width: 90%;
@@ -28,6 +32,12 @@ const HomeStyled = styled.div`
   > .leftSide > .nameBox {
     text-align: center;
     font-size: 2rem;
+  }
+  > .rightSide > .uploadForm > .avatarUploadInput {
+    background-color: white;
+  }
+  > .rightSide > div > .updateProfile {
+    color: var(--textColor);
   }
 `;
 

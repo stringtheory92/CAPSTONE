@@ -45,6 +45,8 @@ gem "image_processing", "~> 1.12"
 
 gem "rmagick", "~> 5.1"
 
+gem "aws-sdk-s3", require: false
+
 gem "hirb", "~> 0.7.3"
 
 gem "bcrypt", "~> 3.1"

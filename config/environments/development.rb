@@ -46,7 +46,7 @@ Rails.application.configure do
   config.active_record.verbose_query_logs = true
 
   # Store files locally.
-  config.active_storage.service = :local
+  config.active_storage.service = :amazon
 
   config.active_storage.variant_processor = :mini_magick 
   # Raises error for missing translations.
