@@ -20,6 +20,8 @@ import NewForumMessageFormStyled from "./NewForumMessageFormStyled";
 import SubmitButtonStyled from "./SubmitButtonStyled";
 import MainForumStyled from "./MainForumsStyled";
 import LoginStyled from "./LoginStyled";
+import EventCardStyled from "./EventCardStyled";
+import GenreCardStyled from "./GenreCardStyled";
 
 export {
   MainForumItem,
@@ -41,5 +43,7 @@ export {
   SubmitButtonStyled,
   MainForumStyled,
   LoginStyled,
+  EventCardStyled,
+  GenreCardStyled,
 };
 // export { Button, Form, Input, MainForumList };

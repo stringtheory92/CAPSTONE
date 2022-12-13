@@ -1,16 +1,19 @@
 import React from "react";
+import EventCard from "./EventCard";
+import { GenreCardStyled } from "./shared";
 
 function GenreCard({ genre, events }) {
+  const mapped = events?.map((event) => {});
   console.log("genreCard");
   return (
-    <div style={{ color: "white" }}>
-      <div>{genre}</div>
+    <GenreCardStyled style={{ color: "white" }}>
+      <div className="genreDiv">{genre}</div>
       <div>
         {events?.map((event) => (
-          <h1 key={event.id}>{event.name}</h1>
+          <EventCard event={event} key={event.id} />
         ))}
       </div>
-    </div>
+    </GenreCardStyled>
   );
 }
 

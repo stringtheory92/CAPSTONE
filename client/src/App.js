@@ -256,15 +256,23 @@ function App() {
         ).then((r) => {
           if (r.ok) {
             r.json().then((data) => {
+              console.log("data: ", data);
               // Many events with multiple showings, so filter out events by unique names for the sake of variety
               const events = data._embedded.events;
               // Without instantiating eventArray with an initial event, eventArray.slice(-1)[0].name throws an error
               let eventArray = [events[0]];
               // Multiple showings are grouped together, so loop over events and compare each name to the last unique event pushed to the eventArray
               for (let event of events) {
-                if (event.name !== eventArray.slice(-1)[0].name)
-                  eventArray.push(event);
+                console.log("eventArray: ", eventArray);
+                if (eventArray.find((item) => item.name === event.name))
+                  console.log("match");
+                else eventArray.push(event);
               }
+              // First filter attempt assumed multi-showings would be grouped together, which was not always the case
+              // for (let event of events) {
+              //   if (event.name !== eventArray.slice(-1)[0].name)
+              //     eventArray.push(event);
+              // }
               console.log("loc ok: ", eventArray);
 
               setTicketMasterEvents(eventArray);

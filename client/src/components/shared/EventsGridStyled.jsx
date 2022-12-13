@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const EventsGridStyled = styled.div`
-  height: 70vh;
+  width: 100%;
+  height: 72vh;
   overflow-y: scroll;
 `;
 
