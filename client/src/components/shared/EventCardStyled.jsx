@@ -16,7 +16,7 @@ const EventCardStyled = styled.div`
     color: var(--textColor);
     /* padding-top: 0.5rem; */
     margin-bottom: 1rem;
-    transition: all 0.5s;
+    transition: all 0.3ss;
   }
   > .concertLink > h3:hover {
     color: var(--logo-color);
