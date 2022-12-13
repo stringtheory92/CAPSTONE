@@ -26,6 +26,7 @@ import RightSideContainer from "./components/RightSideContainer";
 // Possible main backgrounds to use:
 import SSBG_1 from "./bg/SSBG_1.jpg";
 import Spotlight from "./bg/spotlight_bg.jpg";
+import ConcertInfo from "./components/ConcertInfo";
 
 const GlobalStyle = createGlobalStyle`
 // navColor (intended for nav bg) variable not working for some reason. 
@@ -395,6 +396,7 @@ function App() {
                 />
               }
             />
+            <Route path="/concert_info" element={<ConcertInfo user={user} />} />
             {/* <Route
           path="/new_forum_message/:subForumTopicID"
           element={<NewForumMessageForm />}

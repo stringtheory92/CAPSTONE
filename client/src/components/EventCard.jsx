@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { EventCardStyled } from "./shared";
 
 function EventCard({ event }) {
+  const navigate = useNavigate();
   const { name, classifications, dates, images, priceRanges, sales } = event;
   const image = images.find((image) => image.ratio === "3_2").url;
   const genre = classifications[0].genre.name;
@@ -13,8 +15,18 @@ function EventCard({ event }) {
   const onSaleThrough = sales.endDateTime;
   return (
     <EventCardStyled>
-      <img src={image} alt="" />
-      <h3>{name}</h3>
+      {event ? (
+        <Link
+          to="/concert_info"
+          className="concertLink"
+          state={{ event: event }}
+        >
+          <img src={image} alt="" />
+          <h3>{name}</h3>
+        </Link>
+      ) : (
+        "loading..."
+      )}
     </EventCardStyled>
   );
 }
