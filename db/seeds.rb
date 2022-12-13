@@ -14,11 +14,11 @@ ap "Seeding..."
 #     User.create(user_name: Faker::Name.first_name, password_digest: User.digest('123'))
 # end
 10.times do
-    User.create(user_name: Faker::Name.first_name, password: "123")
+    User.create(user_name: Faker::Name.first_name, password: "123", city: Faker::Address.city, state_code: Faker::Address.state_abbr, zip: Faker::Address.zip_code[0..4])
 end
 
 # manny = User.create(user_name: 'Manny', password_digest: User.digest('123'))
-manny = User.create(user_name: 'Manny', password: '123')
+manny = User.create(user_name: 'Manny', password: '123', city: "New York", state_code: "NY", zip: '10030')
 
 manny.avatar.attach(
     io: File.open('./public/avatars/boy-sunglasses.jpg'),

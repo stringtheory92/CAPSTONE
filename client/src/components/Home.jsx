@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Ticker from "react-ticker";
 import {
   EditUserFormStyled,
   HomeStyled,
@@ -81,92 +82,103 @@ function Home({ onAvatarChange, onUpdateUser, user }) {
   };
 
   return (
-    <HomeStyled>
-      <div className="leftSide">
-        <div className="imageBox">
-          {user.avatar ? (
-            <img src={user.avatar} alt="" />
+    <div>
+      <HomeStyled>
+        <div className="leftSide">
+          <div className="imageBox">
+            {user.avatar ? (
+              <img src={user.avatar} alt="" />
+            ) : (
+              <button
+                onClick={toggleIsEditingUser}
+                className="updateProfileImage"
+              >
+                Update Profile/Add Image
+              </button>
+            )}
+          </div>
+          <div className="nameBox">{user.user_name}</div>
+        </div>
+        <div className="rightSide">
+          {isEditingUser ? (
+            <>
+              <EditUserFormStyled
+                action=""
+                onSubmit={handleNewNamePasswordSubmit}
+              >
+                <label htmlFor="user_name">New name:</label>
+                <input
+                  type="text"
+                  name="user_name"
+                  id=""
+                  value={formData.user_name}
+                  onChange={handleNamePasswordChange}
+                />
+                <label htmlFor="password">New password:</label>
+                <input
+                  type="text"
+                  name="password"
+                  id=""
+                  value={formData.password}
+                  onChange={handleNamePasswordChange}
+                />
+                <label htmlFor="password_confirmation">Confirm password:</label>
+                <input
+                  type="text"
+                  name="password_confirmation"
+                  id=""
+                  value={formData.password_confirmation}
+                  onChange={handleNamePasswordChange}
+                />
+                <button type="submit">Change name and password</button>
+              </EditUserFormStyled>
+              <EditUserFormStyled
+                className="uploadForm"
+                action=""
+                onSubmit={handleAvatarChange}
+              >
+                {/* <input type="file" accept="image/*" onChange={handleChange} /> */}
+
+                <input
+                  className="avatarUploadInput"
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => setNewAvatar(e.target.files[0])}
+                />
+                <button type="submit">Update Image</button>
+              </EditUserFormStyled>
+            </>
           ) : (
-            <button
-              onClick={toggleIsEditingUser}
-              className="updateProfileImage"
-            >
-              Update Profile/Add Image
-            </button>
+            <div>
+              {user.avatar ? (
+                <button onClick={toggleIsEditingUser} className="updateProfile">
+                  Update Profile
+                </button>
+              ) : null}
+              <div className="pinsContainer">
+                <ul className="pins">
+                  {userPins}
+                  <li>pin</li>
+                  <li>pin</li>
+                  <li>pin</li>
+                  <li>pin</li>
+                  <li>pin</li>
+                </ul>
+              </div>
+            </div>
           )}
         </div>
-        <div className="nameBox">{user.user_name}</div>
-      </div>
-      <div className="rightSide">
-        {isEditingUser ? (
+      </HomeStyled>
+      <Ticker>
+        {({ index }) => (
           <>
-            <EditUserFormStyled
-              action=""
-              onSubmit={handleNewNamePasswordSubmit}
-            >
-              <label htmlFor="user_name">New name:</label>
-              <input
-                type="text"
-                name="user_name"
-                id=""
-                value={formData.user_name}
-                onChange={handleNamePasswordChange}
-              />
-              <label htmlFor="password">New password:</label>
-              <input
-                type="text"
-                name="password"
-                id=""
-                value={formData.password}
-                onChange={handleNamePasswordChange}
-              />
-              <label htmlFor="password_confirmation">Confirm password:</label>
-              <input
-                type="text"
-                name="password_confirmation"
-                id=""
-                value={formData.password_confirmation}
-                onChange={handleNamePasswordChange}
-              />
-              <button type="submit">Change name and password</button>
-            </EditUserFormStyled>
-            <EditUserFormStyled
-              className="uploadForm"
-              action=""
-              onSubmit={handleAvatarChange}
-            >
-              {/* <input type="file" accept="image/*" onChange={handleChange} /> */}
-
-              <input
-                className="avatarUploadInput"
-                type="file"
-                accept="image/*"
-                onChange={(e) => setNewAvatar(e.target.files[0])}
-              />
-              <button type="submit">Update Image</button>
-            </EditUserFormStyled>
+            <h1 style={{ paddingRight: "0.5em", color: "white" }}>
+              This is the Headline of element #{index}!
+            </h1>
           </>
-        ) : (
-          <div>
-            {user.avatar ? (
-              <button onClick={toggleIsEditingUser} className="updateProfile">
-                Update Profile
-              </button>
-            ) : null}
-            <div className="pinsContainer">
-              <ul className="pins">
-                {userPins}
-                <li>pin</li>
-                <li>pin</li>
-                <li>pin</li>
-                <li>pin</li>
-                <li>pin</li>
-              </ul>
-            </div>
-          </div>
         )}
-      </div>
-    </HomeStyled>
+      </Ticker>
+    </div>
   );
 }
 

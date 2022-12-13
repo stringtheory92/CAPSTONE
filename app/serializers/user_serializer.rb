@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :user_name, :balance, :password, :avatar, :created_topics
+  attributes :id, :user_name, :balance, :password, :city, :state_code, :zip, :avatar, :created_topics
   include Rails.application.routes.url_helpers
   
   def avatar

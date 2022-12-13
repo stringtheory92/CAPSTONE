@@ -37,6 +37,7 @@ const HomeStyled = styled.div`
     background-color: white;
   }
   > .rightSide > div > .updateProfile {
+    cursor: pointer;
     color: var(--textColor);
   }
 `;

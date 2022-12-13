@@ -6,6 +6,7 @@
 //Active Storage Notes:
 // mini_magick installed (image resizing)
 import React, { useEffect, useState } from "react";
+import Ticker from "react-ticker";
 import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import PageTwo from "./components/PageTwo";
 import PageOne from "./components/PageOne";
@@ -20,6 +21,7 @@ import ForumMessagesContainer from "./components/ForumMessagesContainer";
 import NewForumMessageForm from "./components/NewForumMessageForm";
 import UserMenu from "./components/UserMenu";
 import NewForSaleForm from "./components/NewForSaleForm";
+import RightSideContainer from "./components/RightSideContainer";
 // Possible main backgrounds to use:
 import SSBG_1 from "./bg/SSBG_1.jpg";
 import Spotlight from "./bg/spotlight_bg.jpg";
@@ -294,7 +296,9 @@ function App() {
         /> */}
           </Routes>
         </div>
-        <div className="sides right">Right</div>
+        <div className="sides right">
+          <RightSideContainer user={user} />
+        </div>
       </div>
     </ThemeProvider>
   );

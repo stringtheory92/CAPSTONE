@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import { LoginStyled } from "./shared";
 
 function Login({ onSignIn }) {
@@ -12,6 +13,9 @@ function Login({ onSignIn }) {
   });
   const [createAccount, setCreateAccount] = useState({
     user_name: "",
+    city: "",
+    state_code: "",
+    zip: "",
     password: "",
     password_confirmation: "",
   });
@@ -164,6 +168,32 @@ function Login({ onSignIn }) {
               name="user_name"
               id="user_name"
               value={createAccount.user_name}
+              onChange={handleChange}
+            />
+            <label htmlFor="city">City</label>
+            <input
+              type="text"
+              name="city"
+              id="city"
+              value={createAccount.city}
+              onChange={handleChange}
+            />
+            {/* Validate: 2 characters */}
+            <label htmlFor="state_code">State</label>
+            <input
+              type="text"
+              name="state_code"
+              id="state_code"
+              value={createAccount.state_code}
+              onChange={handleChange}
+            />
+            {/* Validate: 5 digits */}
+            <label htmlFor="zip">Zip Code</label>
+            <input
+              type="text"
+              name="zip"
+              id="zip"
+              value={createAccount.zip}
               onChange={handleChange}
             />
             {/* insert validations for password length, must contain a number */}
