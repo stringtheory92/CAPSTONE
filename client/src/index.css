@@ -223,13 +223,13 @@
     flex-grow: 1;
   } */
   .right {
-    max-width: 8rem;
-    flex-grow: 1;
+    /* max-width: 8rem; */
+    /* flex-grow: 1; */
     display: initial;
   }
   .left {
-    max-width: 8rem;
-    flex-grow: 1;
+    /* max-width: 8rem; */
+    /* flex-grow: 1; */
   }
   .middle {
     /* width: 42rem; */
@@ -279,10 +279,10 @@
   } */
   .left {
     flex-grow: 1;
-    max-width: 13rem;
+    max-width: 25rem;
   }
   .right {
-    max-width: 13rem;
+    /* max-width: 13rem; */
     flex-grow: 1;
   }
   .nameContainer {
