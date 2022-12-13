@@ -149,13 +149,20 @@ const darkTheme = {
 };
 
 function App() {
+  const navigate = useNavigate();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
   const [avatar, setAvatar] = useState(null);
+
+  // Position data from browser (useEffect on line 199)
+  const [userPosition, setUserPosition] = useState(null);
+  // Error on unsuccessful attempt to get user position. Pass to home component to display
+  const [positionError, setPositionError] = useState("");
+  // API call based on user's location
+  const [ticketMasterEvents, setTicketMasterEvents] = useState([]);
   const [selectedClassifiedsCategory, setSelectedClassifiedsCategory] =
     useState(null);
-  const navigate = useNavigate();
 
   // controls state for smooth transitions between routes
   const location = useLocation();
@@ -165,9 +172,14 @@ function App() {
   useEffect(() => {
     if (location !== displayLocation) setTransitionStage("fadeOut");
   }, [location, displayLocation]);
-
   // transitions code END
 
+  // API Keys:
+  const geoKey = process.env.REACT_APP_GMAPS_GEO_KEY;
+  const ticketMasterKey = process.env.REACT_APP_CONSUMER_KEY;
+  const ticketMasterSecret = process.env.REACT_APP_CONSUMER_SECRET;
+
+  //Search for current, logged-in user on page refresh or if user navigates away and comes back
   useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {
@@ -183,6 +195,86 @@ function App() {
   console.log("user: ", user);
   console.log("avatar: ", avatar);
   console.log("isLoggedIn: ", isLoggedIn);
+
+  // Geolocation from browser:
+
+  useEffect(() => {
+    if (user) {
+      // console.log("here");
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+      } else {
+        setPositionError("Geolocation is not supported by this browser.");
+      }
+
+      // function getLocation() {
+      //   if (navigator.geolocation) {
+      //     navigator.geolocation.getCurrentPosition(showPosition, showError);
+      //   } else {
+      //     setPositionError("Geolocation is not supported by this browser.");
+      //   }
+      // }
+
+      function showError(error) {
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            setPositionError("User denied the request for Geolocation.");
+            break;
+          case error.POSITION_UNAVAILABLE:
+            setPositionError("Location information is unavailable.");
+            break;
+          case error.TIMEOUT:
+            setPositionError("The request to get user location timed out.");
+            break;
+          case error.UNKNOWN_ERROR:
+            setPositionError("An unknown error occurred.");
+            break;
+        }
+      }
+
+      function showPosition(position) {
+        console.log("showPosition");
+        setUserPosition(position);
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        const latlon = lat + "," + lon;
+        console.log("latlon: ", latlon);
+        console.log("ticketMasterKey: ", ticketMasterKey);
+
+        fetch(
+          `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${ticketMasterKey}&latlong=${latlon}`
+        ).then((r) => {
+          if (r.ok) {
+            r.json().then((data) => {
+              console.log("loc ok: ", data);
+              // showEvents(data);
+            });
+          } else {
+            r.json().then((data) => console.error("error", data));
+          }
+        });
+        // $.ajax({
+        //   type: "GET",
+        //   url:
+        //     "https://app.ticketmaster.com/discovery/v2/events.json?apikey=pLOeuGq2JL05uEGrZG7DuGWu6sh2OnMz&latlong=" +
+        //     latlon,
+        //   async: true,
+        //   dataType: "json",
+        //   success: function (json) {
+        //     console.log(json);
+        //     var e = document.getElementById("events");
+        //     e.innerHTML = json.page.totalElements + " events found.";
+        //     showEvents(json);
+        //     initMap(position, json);
+        //   },
+        //   error: function (xhr, status, err) {
+        //     console.log(err);
+        //   },
+        // });
+      }
+    }
+  }, [user]);
+  console.log("userPosition: ", userPosition);
 
   const toggleLogIn = () => {
     if (user) {
@@ -255,6 +347,7 @@ function App() {
                     onAvatarChange={onAvatarChange}
                     user={user}
                     onUpdateUser={onUpdateUser}
+                    positionError={positionError}
                   />
                 ) : (
                   <Login replace to={"/login"} onSignIn={onSignIn} />

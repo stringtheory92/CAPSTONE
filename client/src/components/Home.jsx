@@ -7,7 +7,7 @@ import {
 } from "./shared";
 import DefaultAvatar from "../bg/default-avatar.png";
 
-function Home({ onAvatarChange, onUpdateUser, user }) {
+function Home({ onAvatarChange, onUpdateUser, user, positionError }) {
   const [isEditingUser, setIsEditingUser] = useState(false);
   const [newAvatar, setNewAvatar] = useState("");
   const [formData, setFormData] = useState({
@@ -178,6 +178,8 @@ function Home({ onAvatarChange, onUpdateUser, user }) {
           </>
         )}
       </Ticker>
+      {/* Error on failure to obtain user location via browser */}
+      <p>{positionError}</p>
     </div>
   );
 }
