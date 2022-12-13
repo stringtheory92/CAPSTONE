@@ -6,6 +6,7 @@
 //Active Storage Notes:
 // mini_magick installed (image resizing)
 import React, { useEffect, useState } from "react";
+
 import Ticker from "react-ticker";
 import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import PageTwo from "./components/PageTwo";
@@ -238,19 +239,29 @@ function App() {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
         const latlon = lat + "," + lon;
+
+        // current date and date 4 months ahead for query params
+        const date = new Date();
+        const dateTwo = new Date();
+        const dateJSON = date.toJSON().slice(0, 19) + "Z";
+        const fourMonthsAhead = new Date(dateTwo.setMonth(date.getMonth() + 4));
+        const fourMonthsAheadJSON = fourMonthsAhead.toJSON().slice(0, 19) + "Z";
+
+        console.log("date: ", dateJSON);
+        console.log("fourMonthsAhead: ", fourMonthsAheadJSON);
         console.log("latlon: ", latlon);
-        console.log("ticketMasterKey: ", ticketMasterKey);
 
         fetch(
-          `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${ticketMasterKey}&latlong=${latlon}`
+          `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${ticketMasterKey}&latlong=${latlon}&classificationName=music&startDateTime=${dateJSON}&endDateTime=${fourMonthsAheadJSON}&size=200`
         ).then((r) => {
           if (r.ok) {
             r.json().then((data) => {
               console.log("loc ok: ", data);
+              setTicketMasterEvents(data._embedded.events);
               // showEvents(data);
             });
           } else {
-            r.json().then((data) => console.error("error", data));
+            r.json().then((data) => console.log("error", data));
           }
         });
         // $.ajax({
