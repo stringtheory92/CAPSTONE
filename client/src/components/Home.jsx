@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import Ticker from "react-ticker";
+import TickerComponent from "./TickerComponent";
+import TickerEvents from "./TickerEvents";
+import TickerEvent from "./TickerEvent";
 import {
   EditUserFormStyled,
   HomeStyled,
@@ -7,7 +10,13 @@ import {
 } from "./shared";
 import DefaultAvatar from "../bg/default-avatar.png";
 
-function Home({ onAvatarChange, onUpdateUser, user, positionError }) {
+function Home({
+  onAvatarChange,
+  onUpdateUser,
+  user,
+  positionError,
+  ticketMasterEvents,
+}) {
   const [isEditingUser, setIsEditingUser] = useState(false);
   const [newAvatar, setNewAvatar] = useState("");
   const [formData, setFormData] = useState({
@@ -80,6 +89,18 @@ function Home({ onAvatarChange, onUpdateUser, user, positionError }) {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
+  // const mapped = ticketMasterEvents?.map((event) => {
+  //   const { name, classifications, dates, images, priceRanges, sales } = event;
+  //   // const genre = classifications[0].genre.name;
+  //   const dateAndTime = [dates.start.localDate, dates.start.localTime];
+  //   // const priceRange = [priceRanges[0].min, priceRanges[0].max];
+  //   const onSaleThrough = sales.endDateTime;
+  //   // console.log(name);
+
+  //   return <TickerEvent event={event} />;
+  // });
+  // console.log("mapped", mapped);
 
   return (
     <div>
@@ -169,15 +190,53 @@ function Home({ onAvatarChange, onUpdateUser, user, positionError }) {
           )}
         </div>
       </HomeStyled>
-      <Ticker>
-        {({ index }) => (
+
+      {/* {mapped ? (
+        <Ticker offset="run-in">{({ index }) => <>{mapped[index]}</>}</Ticker>
+      ) : null} */}
+      {/* <Ticker offset="run-in">
+        {() => {
           <>
-            <h1 style={{ paddingRight: "0.5em", color: "white" }}>
-              This is the Headline of element #{index}!
-            </h1>
-          </>
-        )}
-      </Ticker>
+            {mapped ? (
+              <h2 className="toShow" style={{ color: "white" }}>
+                {mapped.join(" ")}
+           
+              </h2>
+            ) : (
+              <h2 style={{ visibility: "hidden" }}>placeholder</h2>
+            )}
+          </>;
+        }}
+      </Ticker> */}
+
+      {/* <TickerComponent ticketMasterEvents={ticketMasterEvents} /> */}
+      {/* <Ticker offset="run-in">
+        {({ index }) => {
+          ticketMasterEvents.length > 0 ? (
+            ticketMasterEvents.map((event) => {
+              const {
+                name,
+                classifications,
+                dates,
+                images,
+                priceRanges,
+                sales,
+              } = event;
+              const genre = classifications[0].genre.name;
+              const dateAndTime = [
+                dates.start.localDate,
+                dates.start.localTime,
+              ];
+              const priceRange = [priceRanges[0].min, priceRanges[0].max];
+              const onSaleThrough = sales.endDateTime;
+              console.log(name);
+              return <TickerEvent event={event} />;
+            })
+          ) : (
+            <h2>Loading...</h2>
+          );
+        }}
+      </Ticker> */}
       {/* Error on failure to obtain user location via browser */}
       <p>{positionError}</p>
     </div>

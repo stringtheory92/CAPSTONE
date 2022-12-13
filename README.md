@@ -213,3 +213,10 @@ https://www.facebook.com/photo/?fbid=2676395625781051&set=a.355647687855868
   # Colors
 
   -slate blue/navy & orange
+
+  # TicketMaster API
+
+  - dynamically obtains client/user location data based on conditions
+  - attempts to use client browser location data and dateTime to construct API query for local upcoming events and render to Home
+  - if browser location data is not enabled, query is constructed based on user's state_code in database
+  - due to unique listings for repeat showings, events are filtered for unique names

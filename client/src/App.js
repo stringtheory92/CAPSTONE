@@ -256,32 +256,24 @@ function App() {
         ).then((r) => {
           if (r.ok) {
             r.json().then((data) => {
-              console.log("loc ok: ", data);
-              setTicketMasterEvents(data._embedded.events);
+              // Many events with multiple showings, so filter out events by unique names for the sake of variety
+              const events = data._embedded.events;
+              // Without instantiating eventArray with an initial event, eventArray.slice(-1)[0].name throws an error
+              let eventArray = [events[0]];
+              // Multiple showings are grouped together, so loop over events and compare each name to the last unique event pushed to the eventArray
+              for (let event of events) {
+                if (event.name !== eventArray.slice(-1)[0].name)
+                  eventArray.push(event);
+              }
+              console.log("loc ok: ", eventArray);
+
+              setTicketMasterEvents(eventArray);
               // showEvents(data);
             });
           } else {
             r.json().then((data) => console.log("error", data));
           }
         });
-        // $.ajax({
-        //   type: "GET",
-        //   url:
-        //     "https://app.ticketmaster.com/discovery/v2/events.json?apikey=pLOeuGq2JL05uEGrZG7DuGWu6sh2OnMz&latlong=" +
-        //     latlon,
-        //   async: true,
-        //   dataType: "json",
-        //   success: function (json) {
-        //     console.log(json);
-        //     var e = document.getElementById("events");
-        //     e.innerHTML = json.page.totalElements + " events found.";
-        //     showEvents(json);
-        //     initMap(position, json);
-        //   },
-        //   error: function (xhr, status, err) {
-        //     console.log(err);
-        //   },
-        // });
       }
     }
   }, [user]);
@@ -359,6 +351,7 @@ function App() {
                     user={user}
                     onUpdateUser={onUpdateUser}
                     positionError={positionError}
+                    ticketMasterEvents={ticketMasterEvents}
                   />
                 ) : (
                   <Login replace to={"/login"} onSignIn={onSignIn} />
@@ -401,7 +394,10 @@ function App() {
           </Routes>
         </div>
         <div className="sides right">
-          <RightSideContainer user={user} />
+          <RightSideContainer
+            user={user}
+            ticketMasterEvents={ticketMasterEvents}
+          />
         </div>
       </div>
     </ThemeProvider>
