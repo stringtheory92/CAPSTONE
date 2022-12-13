@@ -206,15 +206,8 @@ function App() {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
       } else {
         setPositionError("Geolocation is not supported by this browser.");
+        showPosition(user.state_code);
       }
-
-      // function getLocation() {
-      //   if (navigator.geolocation) {
-      //     navigator.geolocation.getCurrentPosition(showPosition, showError);
-      //   } else {
-      //     setPositionError("Geolocation is not supported by this browser.");
-      //   }
-      // }
 
       function showError(error) {
         switch (error.code) {
@@ -235,10 +228,17 @@ function App() {
 
       function showPosition(position) {
         console.log("showPosition");
-        setUserPosition(position);
-        const lat = position.coords.latitude;
-        const lon = position.coords.longitude;
-        const latlon = lat + "," + lon;
+        let latlon;
+        let locationParam;
+        // If using location based on browser data
+        if (navigator.geolocation) {
+          setUserPosition(position);
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+          latlon = lat + "," + lon;
+          locationParam = `latlong=${latlon}`;
+          // fall back on using state_code from user's data
+        } else locationParam = `stateCode=${user.state_code}`;
 
         // current date and date 4 months ahead for query params
         const date = new Date();
@@ -252,7 +252,7 @@ function App() {
         console.log("latlon: ", latlon);
 
         fetch(
-          `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${ticketMasterKey}&latlong=${latlon}&classificationName=music&startDateTime=${dateJSON}&endDateTime=${fourMonthsAheadJSON}&size=200`
+          `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${ticketMasterKey}&${locationParam}&classificationName=music&startDateTime=${dateJSON}&endDateTime=${fourMonthsAheadJSON}&size=200`
         ).then((r) => {
           if (r.ok) {
             r.json().then((data) => {
