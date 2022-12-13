@@ -3,7 +3,7 @@ import Ticker from "react-ticker";
 import TickerEvent from "./TickerEvent";
 
 function RightSideContainer({ user, ticketMasterEvents }) {
-  // intended structure: {rock: [{event1}, {event2}], R&B: [{event1}, {event2}], ...}
+  // intended genreObj structure: {rock: [{event1}, {event2}], R&B: [{event1}, {event2}], ...}
   let genreObj = {};
   const mapped = ticketMasterEvents?.map((event) => {
     const { name, classifications, dates, images, priceRanges, sales } = event;
@@ -14,10 +14,13 @@ function RightSideContainer({ user, ticketMasterEvents }) {
     if (priceRanges) priceRange = [priceRanges[0].min, priceRanges[0].max];
     // const priceRange = [priceRanges[0].min, priceRanges[0].max];
     const onSaleThrough = sales.endDateTime;
+    if (!Object.keys(genreObj).includes(genre)) genreObj[genre] = [event];
+    else genreObj[genre].push(event);
 
-    console.log(genre);
     return <TickerEvent event={event} />;
   });
+
+  console.log("genreObj: ", genreObj);
   return (
     <div>
       {user ? (

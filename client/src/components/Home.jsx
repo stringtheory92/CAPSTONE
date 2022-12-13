@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Ticker from "react-ticker";
-import TickerComponent from "./TickerComponent";
-import TickerEvents from "./TickerEvents";
-import TickerEvent from "./TickerEvent";
+// import TickerComponent from "./TickerComponent";
+// import TickerEvents from "./TickerEvents";
+// import TickerEvent from "./TickerEvent";
 import {
   EditUserFormStyled,
   HomeStyled,
