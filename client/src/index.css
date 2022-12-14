@@ -206,7 +206,7 @@
     display: initial;
   }
   .userMenu {
-    visibility: hidden;
+    /* visibility: hidden; */
   }
 }
 

@@ -1,8 +1,24 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { UserMenuStyled, AvatarStyled } from "./shared";
+// import dbButton from './resources/dbButton.png'
 
 function UserMenu({ user }) {
+  const navigate = useNavigate();
   const { id, user_name, image, balance, avatar } = user;
+
+  const handleDBClick = (e) => {
+    navigate("/classifieds/1");
+  };
+  const handleBGClick = (e) => {
+    navigate("/classifieds/2");
+  };
+  const handleAMPClick = (e) => {
+    navigate("/classifieds/3");
+  };
+  const handleACCClick = (e) => {
+    navigate("/classifieds/4");
+  };
 
   return (
     <UserMenuStyled className="userMenu">
@@ -22,12 +38,22 @@ function UserMenu({ user }) {
         <li></li>
         <li></li>
       </ul>
-      <h3>Pinned</h3>
-      <ul>
-        <li>pinned 1</li>
-        <li>pinned 2</li>
-        <li>pinned 3</li>
-      </ul>
+      <div className="quickLinks">
+        <ul>
+          <li onClick={handleDBClick}>
+            <div className="db"></div>
+          </li>
+          <li onClick={handleBGClick}>
+            <div className="bg"></div>
+          </li>
+          <li onClick={handleAMPClick}>
+            <div className="amp"></div>
+          </li>
+          <li onClick={handleACCClick}>
+            <div className="acc"></div>
+          </li>
+        </ul>
+      </div>
     </UserMenuStyled>
   );
 }

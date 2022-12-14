@@ -185,6 +185,30 @@ function Home({
                   <li>pin</li>
                   <li>pin</li>
                 </ul>
+                double bass by Valter Bispo from{" "}
+                <a
+                  href="https://thenounproject.com/browse/icons/term/double-bass/"
+                  target="_blank"
+                  title="double bass Icons"
+                >
+                  Noun Project
+                </a>
+                guitar amplifier by Arthur Shlain from{" "}
+                <a
+                  href="https://thenounproject.com/browse/icons/term/guitar-amplifier/"
+                  target="_blank"
+                  title="guitar amplifier Icons"
+                >
+                  Noun Project
+                </a>
+                guitar strings by Rodolfo Alvarez from{" "}
+                <a
+                  href="https://thenounproject.com/browse/icons/term/guitar-strings/"
+                  target="_blank"
+                  title="guitar strings Icons"
+                >
+                  Noun Project
+                </a>
               </div>
             </div>
           )}

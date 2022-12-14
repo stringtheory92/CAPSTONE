@@ -99,7 +99,8 @@ const NavStyled = styled.div`
     top: 0;
     right: -400px;
     overflow: hidden;
-    background-color: black;
+
+    background-image: url(${SSBG_1});
     box-shadow: 5px 5px 10px grey;
     position: absolute;
     z-index: 11;
@@ -130,17 +131,25 @@ const NavStyled = styled.div`
     margin: 15px 0;
     color: white;
     cursor: pointer;
-    background-color: #00936e;
+    background-color: var(--forumItem);
     font-size: 1em;
     letter-spacing: 0.2em;
     transition: all 0.25s;
   }
 
   > .rightSideMenu > .lgMenu > ul > li:hover {
-    background-color: white;
-    color: black;
-    letter-spacing: 0.3em;
+    background-color: var(--textColor);
+    color: var(--inverseColor);
+    letter-spacing: 0.3rem;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  > .rightSideMenu > .lgMenu > ul > li:active {
+    background-color: var(--dark-grey);
+    color: var(--textColor);
+    letter-spacing: 0.1rem;
     font-size: 1.5em;
+    font-weight: initial;
   }
 
   > .rightSideMenu > .lgMenu > .exit {
@@ -149,14 +158,17 @@ const NavStyled = styled.div`
     padding: 0px;
     top: -10px;
     font-size: 4em;
-    color: white;
+    color: var(--dark-grey);
     font-weight: 500;
     cursor: pointer;
     transition: all 0.25s;
     -webkit-transition: all 0.25s;
   }
   > .rightSideMenu > .lgMenu > .exit:hover {
-    color: #ff9900;
+    color: var(--hover);
+  }
+  > .rightSideMenu > .lgMenu > .exit:active {
+    color: var(--active);
   }
 
   @media (min-width: 780px) {

@@ -218,5 +218,10 @@ https://www.facebook.com/photo/?fbid=2676395625781051&set=a.355647687855868
 
   - dynamically obtains client/user location data based on conditions
   - attempts to use client browser location data and dateTime to construct API query for local upcoming events and render to Home
+  - created function to recognize dateTime and localTime and convert to readable string
   - if browser location data is not enabled, query is constructed based on user's state_code in database
   - due to unique listings for repeat showings, events are filtered for unique names
+    - names come from two different locations - artist name and event. Not all events have artist names, so the name value is conditionally set depending on whether or not that data is available. Artist name is preferred due to resulting in less redundancy
+  - filtered events are sorted by genre (nested data) by converting to object with genre keys and event array values. Object is iterated over and generates appropriate components in sorted order, resulting in dynamically displayed events menu.
+  - events can be selected and direct to an event details screen, where details such as ticket price range, time, and date which tickets are on sale until are displayed. Links to venue and ticket purchasing are also provided
+  - menu displayed with independent scrolling and hidden overflow. On phones menu sits below main content, accessed by scrolling down. On desktop/larger screens menu occupies right segment

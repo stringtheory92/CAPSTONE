@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Button, NavStyled, NavLinkStyled } from "./shared";
 import Logo from "../icons/SSLOGO.png";
 // import AltLogo from "../icons/SubSonic-logo-lighter-orange.png";
 import AltLogo from "../icons/SubSonic-logoA-alt.png";
 
 function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn, user }) {
+  const navigate = useNavigate();
   const [isActive, setIsActive] = useState(false);
 
   const handleLogOut = () => {
@@ -13,25 +14,18 @@ function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn, user }) {
       method: "DELETE",
     }).then(toggleLogIn);
   };
-
+  const handleLoginClick = () => {
+    navigate("/");
+  };
   //=========================================================
   const handleMenuIconClick = (e) => {
     console.log("menuIconClicked");
     setIsActive(true);
     e.target.classList.add("menuInvisible");
-    const lgMenu = document.getElementsByClassName("lgMenu");
-    // lgMenu.classList.add("enter");
-    // lgMenu.style.opacity = "1";
-    // lgMenu.style.right = "0";
-    console.log("lgMenu: ", lgMenu);
   };
   const handleExitMenuClick = (e) => {
     console.log("exitMenuClick");
     setIsActive(false);
-    // const menu = document.getElementsByClassName("menu");
-    // const lgMenu = document.getElementsByClassName("lgMenu");
-    // lgMenu.removeClass("enter");
-    // menu.classList.remove("menuInvisible");
   };
   //=========================================================
   return (
@@ -74,7 +68,7 @@ function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn, user }) {
           <Button onClick={toggleDarkMode}>{isDarkMode ? "💡" : "🕯"}</Button>
         </div>
         <button
-          onClick={user ? handleLogOut : toggleLogIn}
+          onClick={user ? handleLogOut : handleLoginClick}
           className="loginButton"
         >
           {user ? "Log out" : "Sign in"}
