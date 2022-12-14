@@ -3,36 +3,36 @@ import ClassifiedListUnit from "./ClassifiedListUnit";
 import { NavLink, useParams } from "react-router-dom";
 
 function ClassifiedForSale() {
-  let { classified_category_id } = useParams();
+  let { category_id } = useParams();
   const [allItems, setAllItems] = useState([]);
   const [errors, setErrors] = useState([]);
 
-  useEffect(() => {
-    fetch(`/classified_for_sales/from_category/${classified_category_id}`).then(
-      (r) => {
-        if (r.ok) {
-          r.json().then((data) => {
-            console.log("ok: ", data);
-            const mapped = data.map((item) => {
-              if (item.pic) {
-                item.item["pic"] = item.pic;
-              } else {
-                item.item["pic"] = null;
-              }
+  console.log("param: ", category_id);
 
-              return item.item;
-            });
-            console.log("mapped: ", mapped);
-            setAllItems(mapped);
+  useEffect(() => {
+    fetch(`/classified_for_sales/from_category/${category_id}`).then((r) => {
+      if (r.ok) {
+        r.json().then((data) => {
+          console.log("ok: ", data);
+          const mapped = data.map((item) => {
+            if (item.pic) {
+              item.item["pic"] = item.pic;
+            } else {
+              item.item["pic"] = null;
+            }
+
+            return item.item;
           });
-        } else {
-          r.json().then((data) => {
-            console.log("not ok: ", data);
-            setErrors(data);
-          });
-        }
+          console.log("mapped: ", mapped);
+          setAllItems(mapped);
+        });
+      } else {
+        r.json().then((data) => {
+          console.log("not ok: ", data);
+          setErrors(data);
+        });
       }
-    );
+    });
   }, []);
 
   const displayedItems = allItems?.map(

@@ -39,13 +39,17 @@ function CategoryCard({ category, onCategorySelect }) {
   const headingWithStyles = headingArray[imageIndex()];
 
   console.log(category);
+  const handleClick = () => {
+    navigate(`/classifieds/${id}`);
+  };
   return (
     <CategoryCardStyled
       backgroundImageLg={backgroundPic}
       backgroundImageSm={smBackgroundPic}
       textColor={backgroundPic === db ? textColorArray[0] : textColorArray[1]}
       textShadow={backgroundPic === db ? "2px 2px 0 var(--black)" : "none"}
-      onClick={(e) => onCategorySelect(e, id)}
+      onClick={handleClick}
+      // onClick={(e) => onCategorySelect(e, id)}
     >
       {/* <img src={backgroundPic} alt="" /> */}
       <div>{headingWithStyles}</div>

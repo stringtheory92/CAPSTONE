@@ -23,10 +23,12 @@ import NewForumMessageForm from "./components/NewForumMessageForm";
 import UserMenu from "./components/UserMenu";
 import NewForSaleForm from "./components/NewForSaleForm";
 import RightSideContainer from "./components/RightSideContainer";
+import ClassifiedCategories from "./components/ClassifiedCategories";
 // Possible main backgrounds to use:
 import SSBG_1 from "./bg/SSBG_1.jpg";
 import Spotlight from "./bg/spotlight_bg.jpg";
 import ConcertInfo from "./components/ConcertInfo";
+import ClassifiedForSale from "./components/ClassifiedForSale";
 
 const GlobalStyle = createGlobalStyle`
 // navColor (intended for nav bg) variable not working for some reason. 
@@ -393,15 +395,29 @@ function App() {
             />
 
             <Route path="/forums" element={<ForumsHome user={user} />} />
-
+            {/* ============================================================================ */}
+            {/* TRYING THIS OUT */}
             <Route
+              path="/classifieds"
+              element={
+                <ClassifiedCategories
+                  onSelectedClassifiedsCategory={onSelectedClassifiedsCategory}
+                />
+              }
+            />
+            <Route
+              path="/classifieds/:category_id"
+              element={<ClassifiedForSale />}
+            />
+            {/* ============================================================================ */}
+            {/* <Route
               path="/classifieds"
               element={
                 <ClassifiedsHome
                   onSelectedClassifiedsCategory={onSelectedClassifiedsCategory}
                 />
               }
-            />
+            /> */}
             <Route
               path="/new_topic/:subForumID"
               element={<NewTopicForm user={user} />}
