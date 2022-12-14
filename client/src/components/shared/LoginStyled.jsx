@@ -33,10 +33,10 @@ const LoginStyled = styled.div`
     transition: all 0.5s;
   }
   > div > form > .signInButton:hover {
-    color: var(--logo-color);
+    color: var(--hover);
   }
   > div > form > .signInButton:active {
-    color: gold;
+    color: var(--active);
   }
   > div > form > .createAcctButton {
     cursor: pointer;

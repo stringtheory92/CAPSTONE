@@ -44,6 +44,7 @@ const GlobalStyle = createGlobalStyle`
     --turquoise: #00efe1;
     --mid-turquoise: #14d5c9;
     --dark-turquoise: #fa6711;
+    --dark-red: #9c0700;
     --bgUrl: SSBG_1;
     --bgUrl2: Spotlight;
     /* --dark-turquoise: #00333f; */
@@ -57,6 +58,8 @@ const GlobalStyle = createGlobalStyle`
     --accent: ${(props) => props.theme.accent};
     --forumItem: ${(props) => props.theme.forumItem};
     --forumBorder: ${(props) => props.theme.forumBorder};
+    --hover: ${(props) => props.theme.hover};
+    --active: ${(props) => props.theme.active};
   }
   
   * {padding: 0;
@@ -136,6 +139,8 @@ const lightTheme = {
   accent: "var(--logo-color)",
   forumItem: "var(--white)",
   forumBorder: "var(--light-grey)",
+  hover: "var(--logo-color)",
+  active: "var(--dark-red)",
 };
 const darkTheme = {
   textColor: "var(--white)",
@@ -148,6 +153,8 @@ const darkTheme = {
   accent: "var(--logo-color)",
   forumItem: "var(--dark-grey-semi-trans)",
   forumBorder: "var(--background-dark-blue)",
+  hover: "var(--logo-color)",
+  active: "var(--dark-red)",
 };
 
 function App() {
@@ -265,10 +272,26 @@ function App() {
               // Multiple showings are grouped together, so loop over events and compare each name to the last unique event pushed to the eventArray
               for (let event of events) {
                 console.log("eventArray: ", eventArray);
-                if (eventArray.find((item) => item.name === event.name))
+                // Some data sets do not have attractions array, but for the ones who do, attractions.name is better to use
+                if (
+                  eventArray.find((item) => {
+                    let itemName;
+                    if (item._embedded.attractions)
+                      itemName = item._embedded.attractions[0].name;
+                    else itemName = item.name;
+
+                    let eventName;
+                    if (event._embedded.attractions)
+                      eventName = event._embedded.attractions[0].name;
+                    else eventName = event.name;
+
+                    return itemName === eventName;
+                  })
+                )
                   console.log("match");
                 else eventArray.push(event);
               }
+
               // First filter attempt assumed multi-showings would be grouped together, which was not always the case
               // for (let event of events) {
               //   if (event.name !== eventArray.slice(-1)[0].name)

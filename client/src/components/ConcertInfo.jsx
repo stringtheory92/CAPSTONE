@@ -6,58 +6,23 @@ function ConcertInfo() {
   const location = useLocation();
   const { event } = location.state;
   console.log("event", event);
-  const { name, classifications, dates, images, priceRanges, sales } = event;
+  const { classifications, dates, images, priceRanges, sales } = event;
   const image = images.find((image) => image.ratio === "3_2").url;
+  const venueName = event._embedded.venues[0].name;
+  const venueLink = event._embedded.venues[0].url;
   const genre = classifications[0].genre.name;
-  const date = dates.start.localDate;
+  let name;
+  if (event._embedded.attractions[0].name)
+    name = event._embedded.attractions[0].name;
+  else name = event.name;
   // Cut up date to format for display
-  const year = date.slice(0, 4);
-  const monthNumber = Number(date.slice(5, 7));
-  let month;
-  switch (monthNumber) {
-    case 1:
-      month = "January";
-      break;
-    case 2:
-      month = "February";
-      break;
-    case 3:
-      month = "March";
-      break;
-    case 4:
-      month = "April";
-      break;
-    case 5:
-      month = "May";
-      break;
-    case 6:
-      month = "June";
-      break;
-    case 7:
-      month = "July";
-      break;
-    case 8:
-      month = "August";
-      break;
-    case 9:
-      month = "September";
-      break;
-    case 10:
-      month = "October";
-      break;
-    case 11:
-      month = "November";
-      break;
-    case 12:
-      month = "December";
-      break;
-  }
-  const day = date.slice(8, 10);
-  const fullDate = `${month} ${day}, ${year}`;
+  const date = dates.start.localDate;
+  const fullDate = formatDate(date);
 
   // Convert military time format
   let time;
-  if (Number(dates.start.localTime.slice(0, 2)) >= 13) {
+  if (dates.start.noSpecificTime) time = "No Time Specified";
+  else if (Number(dates.start.localTime.slice(0, 2)) >= 13) {
     const hour = Number(dates.start.localTime.slice(0, 2)) - 12;
     time = `${hour}:${dates.start.localTime.slice(3, 5)}pm`;
   } else {
@@ -71,19 +36,79 @@ function ConcertInfo() {
   if (priceRanges)
     priceRange = [priceRanges[0].min.toFixed(2), priceRanges[0].max.toFixed(2)];
 
-  const onSaleThrough = sales.endDateTime;
+  const onSaleThrough = formatDate(sales.public.endDateTime.slice(0, 10));
+  //   const onSaleThrough = sales.public.endDateTime;
+
+  function formatDate(localDate) {
+    const year = date.slice(0, 4);
+    const monthNumber = Number(date.slice(5, 7));
+    let month;
+    switch (monthNumber) {
+      case 1:
+        month = "January";
+        break;
+      case 2:
+        month = "February";
+        break;
+      case 3:
+        month = "March";
+        break;
+      case 4:
+        month = "April";
+        break;
+      case 5:
+        month = "May";
+        break;
+      case 6:
+        month = "June";
+        break;
+      case 7:
+        month = "July";
+        break;
+      case 8:
+        month = "August";
+        break;
+      case 9:
+        month = "September";
+        break;
+      case 10:
+        month = "October";
+        break;
+      case 11:
+        month = "November";
+        break;
+      case 12:
+        month = "December";
+        break;
+    }
+    const day = date.slice(8, 10);
+    return `${month} ${day}, ${year}`;
+  }
   return (
     <ConcertInfoStyled>
-      <img src={image} alt="" />
-      <h1>{name}</h1>
-      <p>{fullDate}</p>
-      <p>Time: {time}</p>
+      <img src={image} alt="" className="image" />
+      <h1 className="name">{name}</h1>
+      <p className="date">{fullDate}</p>
+      <hr className="break" />
+      <a href={venueLink} className="venue">
+        {venueName}
+      </a>
+      <p className="time">Time: {time}</p>
+      <p className="onSaleThrough">
+        On sale through: <span>{onSaleThrough}</span>
+      </p>
       {priceRanges ? (
-        <p>{`Tickets range from $${priceRange[0]} to $${priceRange[1]}`}</p>
+        <p className="price">
+          From <span className="priceSpan">{`$${priceRange[0]}`}</span> to{" "}
+          <span className="priceSpan">{`$${priceRange[1]}`}</span>
+        </p>
       ) : (
         "Go to purchase page to see price!"
       )}
-      <a href={purchaseLink}>Purchase tickets</a>
+      <a href={purchaseLink} className="purchaseLink">
+        Purchase tickets
+      </a>
+      <hr className="break" />
     </ConcertInfoStyled>
   );
 }
