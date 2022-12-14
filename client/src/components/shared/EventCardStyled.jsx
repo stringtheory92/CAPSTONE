@@ -24,12 +24,17 @@ const EventCardStyled = styled.div`
   > .concertLink > img {
     cursor: pointer;
     margin: 1rem 0 0.5rem 0;
-    width: 15rem;
+    width: 50%;
     align-self: center;
     transition: all 0.5s;
   }
   > .concertLink > img:hover {
     opacity: 0.5;
+  }
+  @media (min-width: 1035px) {
+    > .concertLink > img {
+      width: 15rem;
+    }
   }
 `;
 

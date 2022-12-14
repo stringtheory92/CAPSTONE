@@ -223,7 +223,7 @@
     flex-grow: 1;
   } */
   .right {
-    /* max-width: 8rem; */
+    max-width: 15rem;
     /* flex-grow: 1; */
     display: initial;
   }
