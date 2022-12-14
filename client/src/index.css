@@ -279,10 +279,10 @@
   } */
   .left {
     flex-grow: 1;
-    max-width: 25rem;
+    max-width: 20rem;
   }
   .right {
-    /* max-width: 13rem; */
+    max-width: 20rem;
     flex-grow: 1;
   }
   .nameContainer {

@@ -1,26 +1,34 @@
 import React, { useState } from "react";
-import { NewForSaleFormStyled, SubmitButtonStyled } from "./shared";
+import {
+  FileInputStyled,
+  NewForSaleFormStyled,
+  SubmitButtonStyled,
+} from "./shared";
 
 function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
   // user and avatar are passed down from App.js and represent the seller of the newly-created forSaleItem.
   // selectedClassifiedsCategory is the categoryID passed up from ClassifiedsHome to App, set to state, and passed down to NewSaleForm
   const [formData, setFormData] = useState({
     bass: "",
-    manufacture_year: null,
+    manufacture_year: "",
     status: "For Sale",
-    price: null,
-    strings: null,
+    price: "",
+    strings: "",
     city: "",
     state: "",
     country: "",
     views: null,
     classified_category_id: selectedClassifiedsCategory,
-    user_id: user.id,
+    user_id: sessionStorage.getItem("user_id"),
     // need to pass down id of classified_category via routes (like in subforums)
   });
   const [itemPic, setItemPic] = useState(null);
   const [explanation, setExplanation] = useState("");
 
+  console.log(
+    'sessionStorage.getItem("user_id"): ',
+    sessionStorage.getItem("user_id")
+  );
   const handleChange = (e) => {
     const { name, value } = e.target;
     console.log("name: ", name);
@@ -71,7 +79,7 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
   };
 
   return (
-    <div>
+    <div style={{ display: "flex", justifyContent: "center" }}>
       <NewForSaleFormStyled action="" onSubmit={handleSubmit}>
         <label htmlFor="bass">Headline</label>
         <input
@@ -154,7 +162,7 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
 
         <label htmlFor="itemPic">Upload an picture</label>
         <div className="picUploadContainer">
-          <input
+          <FileInputStyled
             type="file"
             accept="image/*"
             onChange={(e) => setItemPic(e.target.files[0])}

@@ -26,7 +26,7 @@ const LoginStyled = styled.div`
     font-size: 1.8rem;
     cursor: pointer;
     /* background-color: var(--logo-color); */
-    color: white;
+    color: var(--textColor);
     width: 10rem;
     padding: 0.8rem;
     border-radius: 15px;

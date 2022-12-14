@@ -194,6 +194,7 @@ function App() {
       if (r.ok) {
         r.json().then((user) => {
           console.log("staying signed in: ", user);
+          sessionStorage.setItem("user_id", user.id);
           setUser(user);
 
           setIsLoggedIn(true);

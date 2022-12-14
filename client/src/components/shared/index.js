@@ -23,6 +23,7 @@ import LoginStyled from "./LoginStyled";
 import EventCardStyled from "./EventCardStyled";
 import GenreCardStyled from "./GenreCardStyled";
 import ConcertInfoStyled from "./ConcertInfoStyled";
+import FileInputStyled from "./FileInputStyled";
 
 export {
   MainForumItem,
@@ -47,5 +48,6 @@ export {
   EventCardStyled,
   GenreCardStyled,
   ConcertInfoStyled,
+  FileInputStyled,
 };
 // export { Button, Form, Input, MainForumList };

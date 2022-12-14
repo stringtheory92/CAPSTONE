@@ -42,7 +42,7 @@ function RightSideContainer({ user, ticketMasterEvents }) {
       {user ? (
         <>
           {genreArray ? (
-            <Ticker offset="run-in" mode="await" speed={4}>
+            <Ticker offset="run-in" mode="await" speed={4} height={5}>
               {() => (
                 <>
                   {genreArray ? (
