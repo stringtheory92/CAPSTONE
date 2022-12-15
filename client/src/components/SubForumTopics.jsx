@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useParams, useNavigate } from "react-router-dom";
 import ListUnit from "./ListUnit";
+import { SubmitButtonStyled, Button, ComposeButtonStyled } from "./shared";
+import create from "../resources/create.png";
 
 function SubForumTopics({ user }) {
   const { main_forum_id, sub_forum_id } = useParams();
@@ -28,6 +30,10 @@ function SubForumTopics({ user }) {
     />
   ));
 
+  const handleComposeNewClick = (e) => {
+    navigate(`/forums/${main_forum_id}/${sub_forum_id}/new_topic`);
+  };
+
   // const list = allSubForumTopics
   //   ?.filter((forum) => forum.id === subForumID)
   //   .map((forum) => (
@@ -38,14 +44,38 @@ function SubForumTopics({ user }) {
   //     />
   //   ));
 
+  const navLinkStyles = {
+    fontSize: "1rem",
+    // border: "1px solid white",
+    padding: "1rem",
+    // marginTop: "1rem",
+    backgroundColor: "var(--forumItem)",
+    textAlign: "center",
+  };
+  const mainContainerStyles = {
+    display: "flex",
+    flexDirection: "column",
+  };
+
   return (
     <div>
       <h1>SubForum Topics</h1>
-      {list ? list : null}
-      {/* Pass down the current subForumID and assign it to the new topic */}
-      <NavLink to={`/forums/${main_forum_id}/${sub_forum_id}/new_topic`}>
-        Create a topic
-      </NavLink>
+      <div className="mainContainer" style={mainContainerStyles}>
+        <ComposeButtonStyled
+          className="composeBtn"
+          onClick={handleComposeNewClick}
+        ></ComposeButtonStyled>
+        {list ? list : null}
+        {/* Pass down the current subForumID and assign it to the new topic */}
+        {/* <div style={navLinkStyles}>
+          <Button
+            as={NavLink}
+            to={`/forums/${main_forum_id}/${sub_forum_id}/new_topic`}
+          >
+            Create a topic
+          </Button>
+        </div> */}
+      </div>
     </div>
   );
 }

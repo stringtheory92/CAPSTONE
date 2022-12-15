@@ -32,6 +32,7 @@ const Button = styled.button`
   border-radius: 50px;
   padding: 0.5rem 1rem;
   opacity: 0.7;
+  color: var(--textColor);
   transition: all 0.2s;
 
   &:hover {

@@ -24,6 +24,8 @@ import EventCardStyled from "./EventCardStyled";
 import GenreCardStyled from "./GenreCardStyled";
 import ConcertInfoStyled from "./ConcertInfoStyled";
 import FileInputStyled from "./FileInputStyled";
+import ComposeButtonStyled from "./ComposeButtonStyled";
+import SubForumTopicItem from "./SubForumTopicItem";
 
 export {
   MainForumItem,
@@ -49,5 +51,7 @@ export {
   GenreCardStyled,
   ConcertInfoStyled,
   FileInputStyled,
+  ComposeButtonStyled,
+  SubForumTopicItem,
 };
 // export { Button, Form, Input, MainForumList };

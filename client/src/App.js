@@ -46,6 +46,7 @@ const GlobalStyle = createGlobalStyle`
     --grey: #959696;
     --dark-grey: rgb(89, 95, 102);
     --dark-grey-semi-trans: rgba(89, 95, 102, 0.5);
+    --extra-dark-grey-semi-trans: rgba(20, 21, 23, 0.5);
     --turquoise: #00efe1;
     --mid-turquoise: #14d5c9;
     --dark-turquoise: #fa6711;
@@ -62,6 +63,7 @@ const GlobalStyle = createGlobalStyle`
     --primary: ${(props) => props.theme.primary};
     --accent: ${(props) => props.theme.accent};
     --forumItem: ${(props) => props.theme.forumItem};
+    --forumItemInside: ${(props) => props.theme.forumItemInside};
     --forumBorder: ${(props) => props.theme.forumBorder};
     --hover: ${(props) => props.theme.hover};
     --active: ${(props) => props.theme.active};
@@ -143,6 +145,7 @@ const lightTheme = {
   primary: "var(--dark-turquoise)",
   accent: "var(--logo-color)",
   forumItem: "var(--white)",
+  forumItemInside: "var(--extra-dark-grey-semi-trans)",
   forumBorder: "var(--light-grey)",
   hover: "var(--logo-color)",
   active: "var(--dark-red)",
@@ -157,6 +160,7 @@ const darkTheme = {
   primary: "var(--turquoise)",
   accent: "var(--logo-color)",
   forumItem: "var(--dark-grey-semi-trans)",
+  forumItemInside: "var(--extra-dark-grey-semi-trans)",
   forumBorder: "var(--background-dark-blue)",
   hover: "var(--logo-color)",
   active: "var(--dark-red)",
@@ -397,8 +401,6 @@ function App() {
               }
             />
 
-            {/* ============================================================================ */}
-            {/* TRYING THIS OUT */}
             <Route
               path="/classifieds"
               element={
@@ -411,17 +413,6 @@ function App() {
               path="/classifieds/:category_id"
               element={<ClassifiedForSale />}
             />
-            {/* ============================================================================ */}
-            {/* <Route
-              path="/classifieds"
-              element={
-                <ClassifiedsHome
-                  onSelectedClassifiedsCategory={onSelectedClassifiedsCategory}
-                />
-              }
-            /> */}
-            {/* <Route path="/forums" element={<ForumsHome user={user} />} /> */}
-            {/* ============================================================================= */}
 
             <Route path="/forums" element={<MainForums user={user} />} />
             <Route
@@ -432,23 +423,17 @@ function App() {
               path="/forums/:main_forum_id/:sub_forum_id"
               element={<SubForumTopics user={user} />}
             />
-            {/* ============================================================================= */}
+
             <Route
               path="/forums/:main_forum_id/:sub_forum_id/new_topic"
               element={<NewTopicForm user={user} />}
             />
-            {/* <Route
-              path="/new_topic/:subForumID"
-              element={<NewTopicForm user={user} />}
-            /> */}
+
             <Route
               path="/forums/:main_forum_id/:sub_forum_id/:sub_forum_topic_id"
               element={<ForumMessagesContainer user={user} />}
             />
-            {/* <Route
-              path="/forum_messages/:subForumTopicID"
-              element={<ForumMessagesContainer user={user} />}
-            /> */}
+
             <Route
               path="/new_for_sale"
               element={
@@ -460,10 +445,6 @@ function App() {
               }
             />
             <Route path="/concert_info" element={<ConcertInfo user={user} />} />
-            {/* <Route
-          path="/new_forum_message/:subForumTopicID"
-          element={<NewForumMessageForm />}
-        /> */}
           </Routes>
         </div>
         <div className="sides right">

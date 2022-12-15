@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { MainForumItem } from "./shared";
+import { MainForumItem, SubForumTopicItem } from "./shared";
+import PinButtonStyled from "./shared/PinButtonStyled";
 
 // Intended for use with: ForumsHome(Main Forums), SubForums, SubForumTopics, ClassifiedCategories
 function ListUnit({
@@ -50,38 +51,28 @@ function ListUnit({
         </MainForumItem>
       ) : null}
       {onSubForumTopicSelect ? (
-        <MainForumItem
+        <SubForumTopicItem
           onClick={(e) => {
             console.log("here: ", id);
             onSubForumTopicSelect(e, id);
           }}
         >
-          <h2>{forum.category}</h2>
-          <h2>{heading}</h2>
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              handlePinTopic(e);
-            }}
-          >
-            pin topic
-          </button>
-        </MainForumItem>
+          <div className="topBar">
+            <div>
+              <h2>{forum.category}</h2>
+              <h2>{heading}</h2>
+            </div>
+            <PinButtonStyled
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePinTopic(e);
+              }}
+            ></PinButtonStyled>
+          </div>
+          <div className="bodySection"></div>
+        </SubForumTopicItem>
       ) : null}
     </>
-    // <MainForumItem >
-    //   <h2>{category}</h2>
-    //   <h2>{heading}</h2>
-    //   {onMainForumSelect ? (
-    //     <button onClick={(e) => onMainForumSelect(e, id)}>Select</button>
-    //   ) : null}
-    //   {onSubForumSelect ? (
-    //     <button onClick={(e) => onSubForumSelect(e, id)}>Select</button>
-    //   ) : null}
-    //   {onSubForumTopicSelect ? (
-    //     <button onClick={(e) => onSubForumTopicSelect(e, id)}>Select</button>
-    //   ) : null}
-    // </MainForumItem>
   );
 }
 
