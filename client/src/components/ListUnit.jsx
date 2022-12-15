@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { MainForumItem, SubForumTopicItem } from "./shared";
 import PinButtonStyled from "./shared/PinButtonStyled";
+import { DateTime } from "luxon";
 
 // Intended for use with: ForumsHome(Main Forums), SubForums, SubForumTopics, ClassifiedCategories
 function ListUnit({
@@ -32,6 +33,9 @@ function ListUnit({
       .then((r) => r.json())
       .then((pinObj) => console.log("ok: ", pinObj));
   };
+  const date = DateTime.fromISO(`${updated_at}`).toFormat(`dd LLL yyyy `);
+  const time = DateTime.fromISO(`${updated_at}`).toFormat(`hh${":"}mm`);
+  // const time = DateTime.fromISO(`${updated_at}`).toFormat(`HH${":"}mm`);
 
   return (
     <>
@@ -69,7 +73,14 @@ function ListUnit({
               }}
             ></PinButtonStyled>
           </div>
-          <div className="bodySection"></div>
+          <div className="bodySection">
+            <h3>
+              {`${time} ${date}`}
+              {/* {DateTime.fromISO(`${updated_at}`).toFormat(
+                `HH${":"}mm dd LLL yyyy `
+              )} */}
+            </h3>
+          </div>
         </SubForumTopicItem>
       ) : null}
     </>

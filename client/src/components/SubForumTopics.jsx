@@ -44,12 +44,12 @@ function SubForumTopics({ user }) {
   //     />
   //   ));
 
-  const navLinkStyles = {
-    fontSize: "1rem",
+  const headerStyles = {
+    fontSize: "2rem",
     // border: "1px solid white",
     padding: "1rem",
     // marginTop: "1rem",
-    backgroundColor: "var(--forumItem)",
+    color: "var(--textColor)",
     textAlign: "center",
   };
   const mainContainerStyles = {
@@ -59,7 +59,7 @@ function SubForumTopics({ user }) {
 
   return (
     <div>
-      <h1>SubForum Topics</h1>
+      <h1 style={headerStyles}>SubForum Topics</h1>
       <div className="mainContainer" style={mainContainerStyles}>
         <ComposeButtonStyled
           className="composeBtn"
