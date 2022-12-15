@@ -90,7 +90,7 @@ function ConcertInfo() {
       <h1 className="name">{name}</h1>
       <p className="date">{fullDate}</p>
       <hr className="break" />
-      <a href={venueLink} className="venue">
+      <a href={venueLink} className="venue" data-tool-tip="Go to venue page">
         {venueName}
       </a>
       <p className="time">Time: {time}</p>
@@ -105,7 +105,11 @@ function ConcertInfo() {
       ) : (
         "Go to purchase page to see price!"
       )}
-      <a href={purchaseLink} className="purchaseLink">
+      <a
+        href={purchaseLink}
+        data-tool-tip="Enjoy the show!"
+        className="purchaseLink"
+      >
         Purchase tickets
       </a>
       <hr className="break" />
