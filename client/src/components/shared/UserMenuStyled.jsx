@@ -7,6 +7,7 @@ import accButton from "../../resources/accButton.png";
 
 const UserMenuStyled = styled.div`
   display: none;
+  /* margin-right: 0.8rem; */
 
   @media (min-width: 750px) {
     color: var(--textColor);
@@ -33,8 +34,14 @@ const UserMenuStyled = styled.div`
       background-size: contain;
       background-repeat: no-repeat;
       background-color: var(--dark-grey);
-
+      transition: all 0.4s;
       margin: 0.3rem;
+    }
+    > .quickLinks > ul > li > div:hover {
+      background-color: var(--hover);
+    }
+    > .quickLinks > ul > li > div:active {
+      background-color: var(--active);
     }
     > .quickLinks > ul > li > .db {
       background-image: url(${dbButton});

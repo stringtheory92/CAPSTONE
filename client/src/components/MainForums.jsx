@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import ListUnit from "./ListUnit";
 import { MainForumStyled } from "./shared";
 
-function MainForums({ onMainForumSelect }) {
+function MainForums() {
+  const navigate = useNavigate();
   const [allMainForums, setAllMainForums] = useState([]);
 
   useEffect(() => {
@@ -12,13 +14,18 @@ function MainForums({ onMainForumSelect }) {
   }, []);
   console.log("allMainForums: ", allMainForums);
 
-  const fullList = allMainForums?.map((forum) => (
-    <ListUnit
-      key={forum.id}
-      forum={forum}
-      onMainForumSelect={onMainForumSelect}
-    />
-  ));
+  const onMainForumSelect = (e, mainID) => {
+    // To SubForums
+    navigate(`/forums/${mainID}`);
+  };
+
+  // const fullList = allMainForums?.map((forum) => (
+  //   <ListUnit
+  //     key={forum.id}
+  //     forum={forum}
+  //     onMainForumSelect={onMainForumSelect}
+  //   />
+  // ));
   const bgList = allMainForums
     .filter((item) => item.category === "[BG]")
     .map((forum) => (

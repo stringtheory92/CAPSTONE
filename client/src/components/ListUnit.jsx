@@ -11,7 +11,8 @@ function ListUnit({
   onSubForumTopicSelect,
 }) {
   // Might display timestamps to user
-  const { id, category, heading, created_at, updated_at } = forum;
+  const { id, heading, created_at, updated_at } = forum;
+  // console.log("listUnit: ", id);
   const navigate = useNavigate();
 
   const handlePinTopic = (e) => {
@@ -44,17 +45,18 @@ function ListUnit({
       ) : null}
       {onSubForumSelect ? (
         <MainForumItem onClick={(e) => onSubForumSelect(e, id)}>
-          <h2>{category}</h2>
+          <h2>{forum.category}</h2>
           <h2>{heading}</h2>
         </MainForumItem>
       ) : null}
       {onSubForumTopicSelect ? (
         <MainForumItem
           onClick={(e) => {
+            console.log("here: ", id);
             onSubForumTopicSelect(e, id);
           }}
         >
-          <h2>{category}</h2>
+          <h2>{forum.category}</h2>
           <h2>{heading}</h2>
           <button
             onClick={(e) => {

@@ -12,7 +12,7 @@ function NewForumMessageForm({
   const [formData, setFormData] = useState({
     content: "",
     media: "",
-    forum_discussion_topic_id: Number(subForumTopicID),
+    forum_discussion_topic_id: subForumTopicID,
     user_id: user.id,
   });
 
@@ -65,7 +65,9 @@ function NewForumMessageForm({
         value={formData.media}
         onChange={handleChange}
       /> */}
-      <button type="submit">Post</button>
+      <button type="submit" style={{ border: "1px solid black" }}>
+        Post
+      </button>
     </NewForumMessageFormStyled>
   );
 }

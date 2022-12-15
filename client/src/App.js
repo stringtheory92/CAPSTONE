@@ -17,6 +17,9 @@ import NavBar from "./components/NavBar";
 import { createGlobalStyle, ThemeProvider, css } from "styled-components";
 import ForumsHome from "./components/ForumsHome";
 import ClassifiedsHome from "./components/ClassifiedsHome";
+import MainForums from "./components/MainForums";
+import SubForums from "./components/SubForums";
+import SubForumTopics from "./components/SubForumTopics";
 import NewTopicForm from "./components/NewTopicForm";
 import ForumMessagesContainer from "./components/ForumMessagesContainer";
 import NewForumMessageForm from "./components/NewForumMessageForm";
@@ -394,7 +397,6 @@ function App() {
               }
             />
 
-            <Route path="/forums" element={<ForumsHome user={user} />} />
             {/* ============================================================================ */}
             {/* TRYING THIS OUT */}
             <Route
@@ -418,14 +420,35 @@ function App() {
                 />
               }
             /> */}
+            {/* <Route path="/forums" element={<ForumsHome user={user} />} /> */}
+            {/* ============================================================================= */}
+
+            <Route path="/forums" element={<MainForums user={user} />} />
             <Route
-              path="/new_topic/:subForumID"
+              path="/forums/:main_forum_id"
+              element={<SubForums user={user} />}
+            />
+            <Route
+              path="/forums/:main_forum_id/:sub_forum_id"
+              element={<SubForumTopics user={user} />}
+            />
+            {/* ============================================================================= */}
+            <Route
+              path="/forums/:main_forum_id/:sub_forum_id/new_topic"
               element={<NewTopicForm user={user} />}
             />
+            {/* <Route
+              path="/new_topic/:subForumID"
+              element={<NewTopicForm user={user} />}
+            /> */}
             <Route
-              path="/forum_messages/:subForumTopicID"
+              path="/forums/:main_forum_id/:sub_forum_id/:sub_forum_topic_id"
               element={<ForumMessagesContainer user={user} />}
             />
+            {/* <Route
+              path="/forum_messages/:subForumTopicID"
+              element={<ForumMessagesContainer user={user} />}
+            /> */}
             <Route
               path="/new_for_sale"
               element={
