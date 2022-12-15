@@ -16,6 +16,6 @@ class ForumDiscussionTopicsController < ApplicationController
     private
 
     def forum_discussion_topic_params
-        params.permit(:heading, :sub_forum_id, :creator_id)
+        params.permit(:heading, :sub_forum_id, :creator_id, :last_message_date)
     end
 end

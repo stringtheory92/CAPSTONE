@@ -26,6 +26,7 @@ import ConcertInfoStyled from "./ConcertInfoStyled";
 import FileInputStyled from "./FileInputStyled";
 import ComposeButtonStyled from "./ComposeButtonStyled";
 import SubForumTopicItem from "./SubForumTopicItem";
+import NewTopicFormStyled from "./NewTopicFormStyled";
 
 export {
   MainForumItem,
@@ -53,5 +54,6 @@ export {
   FileInputStyled,
   ComposeButtonStyled,
   SubForumTopicItem,
+  NewTopicFormStyled,
 };
 // export { Button, Form, Input, MainForumList };

@@ -33,9 +33,14 @@ function ListUnit({
       .then((r) => r.json())
       .then((pinObj) => console.log("ok: ", pinObj));
   };
-  const date = DateTime.fromISO(`${updated_at}`).toFormat(`dd LLL yyyy `);
-  const time = DateTime.fromISO(`${updated_at}`).toFormat(`hh${":"}mm`);
-  // const time = DateTime.fromISO(`${updated_at}`).toFormat(`HH${":"}mm`);
+  const date = DateTime.fromISO(`${forum.last_message_date}`).toFormat(
+    `LLL dd, yyyy `
+  );
+  const time = DateTime.fromISO(`${forum.last_message_date}`).toFormat(
+    `HH${":"}mm`
+  );
+  // const date = DateTime.fromISO(`${updated_at}`).toFormat(`dd LLL yyyy `);
+  // const time = DateTime.fromISO(`${updated_at}`).toFormat(`hh${":"}mm`);
 
   return (
     <>
@@ -75,11 +80,15 @@ function ListUnit({
           </div>
           <div className="bodySection">
             <h3>
-              {`${time} ${date}`}
+              Latest message:
+              {forum.last_message_date
+                ? ` ${date} at ${time}`
+                : " No Messages Yet!"}
               {/* {DateTime.fromISO(`${updated_at}`).toFormat(
                 `HH${":"}mm dd LLL yyyy `
               )} */}
             </h3>
+            <h3>Total messages: {forum.total_messages}</h3>
           </div>
         </SubForumTopicItem>
       ) : null}

@@ -83,6 +83,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_07_162120) do
   create_table "forum_discussion_topics", force: :cascade do |t|
     t.string "heading"
     t.integer "sub_forum_id"
+    t.datetime "last_message_date"
     t.integer "creator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

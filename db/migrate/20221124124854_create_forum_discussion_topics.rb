@@ -3,6 +3,7 @@ class CreateForumDiscussionTopics < ActiveRecord::Migration[7.0]
     create_table :forum_discussion_topics do |t|
       t.string :heading
       t.integer :sub_forum_id
+      t.datetime :last_message_date
       
       # Rails looks for :creator alias declaration in the model and connects the 
       # foreign_key name (also declared in the model) with the foreign_key direction

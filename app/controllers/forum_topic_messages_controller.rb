@@ -10,6 +10,7 @@ class ForumTopicMessagesController < ApplicationController
 
     def create
         message = ForumTopicMessage.create!(forum_topic_message_params)
+        message.forum_discussion_topic.update!(last_message_date: message.created_at)
         render json: message, status: :created
     end
 

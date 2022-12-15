@@ -118,6 +118,7 @@ Notes: users have 2 relationships with forum_discussion_topics. One direct relat
 ---has_many :user_pins, through: :join_pins_topics
 
 > heading
+> last_message_date (created_at of the latest message)
 
 ## forum_topic_messages
 

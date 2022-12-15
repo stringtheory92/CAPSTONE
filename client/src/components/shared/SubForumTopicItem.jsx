@@ -25,6 +25,7 @@ const SubForumTopicItem = styled.li`
 
   > .topBar > div > h2 {
     font-size: 1.3rem;
+    padding-left: 0.5rem;
     transition: all 0.2s;
   }
   > .topBar > div > h2:hover {
@@ -45,6 +46,9 @@ const SubForumTopicItem = styled.li`
   }
   > .bodySection {
     background-color: var(--forumItemInside);
+    color: var(--inverseBgColor);
+    padding: 0.5rem;
+    font-size: 0.8rem;
     min-height: 4rem;
   }
 `;

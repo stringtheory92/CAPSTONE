@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { NewTopicFormStyled } from "./shared";
 
 function NewTopicForm({ user }) {
   let { subForumID } = useParams();
@@ -86,7 +87,10 @@ function NewTopicForm({ user }) {
 
   return (
     <div>
-      <form action="" onSubmit={handleSubmit}>
+      <NewTopicFormStyled action="" onSubmit={handleSubmit}>
+        <div className="headerDiv">
+          <h1>Create a New Topic</h1>
+        </div>
         <label htmlFor="heading">Topic</label>
         <input
           type="text"
@@ -113,7 +117,7 @@ function NewTopicForm({ user }) {
           onChange={handleChange}
         />
         <button type="submit">Start New Topic</button>
-      </form>
+      </NewTopicFormStyled>
     </div>
   );
 }
