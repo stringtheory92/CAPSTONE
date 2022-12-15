@@ -8,12 +8,12 @@ function NewTopicForm({ user }) {
   const [topicFormData, setTopicFormData] = useState({
     heading: "",
     sub_forum_id: Number(subForumID),
-    creator_id: user.id,
+    creator_id: sessionStorage.getItem("user_id"),
   });
   const [messageData, setMessageData] = useState({
     content: "",
     media: "",
-    user_id: user.id,
+    user_id: sessionStorage.getItem("user_id"),
     forum_discussion_topic_id: "",
   });
   const [errors, setErrors] = useState([]);
