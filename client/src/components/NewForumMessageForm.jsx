@@ -7,13 +7,13 @@ function NewForumMessageForm({
   toggleIsCreatingNewMessage,
   user,
 }) {
-  // const [user, setUser] = useState({})
+  const { sub_forum_topic_id } = useParams();
   const [errors, setErrors] = useState([]);
   const [formData, setFormData] = useState({
     content: "",
     media: "",
-    forum_discussion_topic_id: subForumTopicID,
-    user_id: user.id,
+    forum_discussion_topic_id: sub_forum_topic_id,
+    user_id: sessionStorage.getItem("user_id"),
   });
 
   const handleChange = (e) => {

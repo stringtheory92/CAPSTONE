@@ -9,6 +9,7 @@ class ForumDiscussionTopicsController < ApplicationController
     end
 
     def create
+       
         topic = ForumDiscussionTopic.create!(forum_discussion_topic_params)
         render json: topic, status: :created
     end

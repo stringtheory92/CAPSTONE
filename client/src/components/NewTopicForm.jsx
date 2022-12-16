@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { NewTopicFormStyled } from "./shared";
+import Editor from "./Editor.jsx";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 function NewTopicForm({ user }) {
-  let { subForumID } = useParams();
+  const [value, setValue] = useState("");
+  let { sub_forum_id } = useParams();
   const navigate = useNavigate();
   const [topicFormData, setTopicFormData] = useState({
     heading: "",
-    sub_forum_id: Number(subForumID),
+    sub_forum_id: sub_forum_id,
     creator_id: sessionStorage.getItem("user_id"),
   });
   const [messageData, setMessageData] = useState({
@@ -85,6 +89,10 @@ function NewTopicForm({ user }) {
     });
   };
 
+  useEffect(() => {
+    setMessageData({ ...messageData, content: value });
+  }, [value]);
+
   return (
     <div>
       <NewTopicFormStyled action="" onSubmit={handleSubmit}>
@@ -100,14 +108,22 @@ function NewTopicForm({ user }) {
           onChange={handleChange}
         />
         <label htmlFor="content">Question</label>
-        <textarea
+        <ReactQuill
+          theme="snow"
+          value={value}
+          onChange={setValue}
+          modules={NewTopicForm.modules}
+          formats={NewTopicForm.formats}
+        />
+        {/* <Editor onEditorChange={onEditorChange} /> */}
+        {/* <textarea
           name="content"
           id="content"
           cols="30"
           rows="10"
           value={messageData.content}
           onChange={handleChange}
-        ></textarea>
+        ></textarea> */}
         <label htmlFor="media">media</label>
         <input
           type="text"
@@ -121,5 +137,33 @@ function NewTopicForm({ user }) {
     </div>
   );
 }
+
+NewTopicForm.modules = {
+  toolbar: [
+    [{ header: "1" }, { header: "2" }, { header: [3, 4, 5, 6] }, { font: [] }],
+    [{ size: [] }],
+    ["bold", "italic", "underline", "strike", "blockquote"],
+    [{ list: "ordered" }, { list: "bullet" }],
+    ["link", "image", "video"],
+    ["clean"],
+    ["code-block"],
+  ],
+};
+NewTopicForm.formats = [
+  "header",
+  "font",
+  "size",
+  "bold",
+  "italic",
+  "underline",
+  "strike",
+  "blockquote",
+  "list",
+  "bullet",
+  "link",
+  "image",
+  "video",
+  "code-block",
+];
 
 export default NewTopicForm;
