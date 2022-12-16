@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import {
   FileInputStyled,
   NewForSaleFormStyled,
@@ -6,6 +7,8 @@ import {
 } from "./shared";
 
 function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
+  const { category_id } = useParams();
+  const navigate = useNavigate();
   // user and avatar are passed down from App.js and represent the seller of the newly-created forSaleItem.
   // selectedClassifiedsCategory is the categoryID passed up from ClassifiedsHome to App, set to state, and passed down to NewSaleForm
   const [formData, setFormData] = useState({
@@ -18,7 +21,7 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
     state: "",
     country: "",
     views: null,
-    classified_category_id: selectedClassifiedsCategory,
+    classified_category_id: category_id,
     user_id: sessionStorage.getItem("user_id"),
     // need to pass down id of classified_category via routes (like in subforums)
   });
@@ -75,7 +78,10 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
     };
     fetch(`/classified_for_sales`, configObj)
       .then((r) => r.json())
-      .then(console.log);
+      .then((data) => {
+        console.log("ok: ", data);
+        navigate(`/classifieds/${category_id}/${data.item.id}`);
+      });
   };
 
   return (

@@ -32,6 +32,7 @@ import SSBG_1 from "./bg/SSBG_1.jpg";
 import Spotlight from "./bg/spotlight_bg.jpg";
 import ConcertInfo from "./components/ConcertInfo";
 import ClassifiedForSale from "./components/ClassifiedForSale";
+import ClassifiedMessages from "./components/ClassifiedMessages";
 
 const GlobalStyle = createGlobalStyle`
 // navColor (intended for nav bg) variable not working for some reason. 
@@ -219,7 +220,6 @@ function App() {
 
   useEffect(() => {
     if (user) {
-      // console.log("here");
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
       } else {
@@ -257,6 +257,7 @@ function App() {
           locationParam = `latlong=${latlon}`;
           // fall back on using state_code from user's data
         } else locationParam = `stateCode=${user.state_code}`;
+        console.log("locationParam: ", locationParam);
 
         // current date and date 4 months ahead for query params
         const date = new Date();
@@ -325,7 +326,7 @@ function App() {
     if (user) {
       setUser(null);
       setIsLoggedIn(false);
-      // localStorage.clear();
+      sessionStorage.clear();
       navigate("/");
     } else setIsLoggedIn(true);
   };
@@ -348,7 +349,7 @@ function App() {
   };
 
   const onSignIn = (data) => {
-    // localStorage.setItem("userID", data.user.id);
+    sessionStorage.setItem("user_id", data.id);
     // setUser(data.user);
     console.log("onSignIn. User? : ", user);
     setAvatar(data.avatar);
@@ -413,6 +414,20 @@ function App() {
               path="/classifieds/:category_id"
               element={<ClassifiedForSale />}
             />
+            <Route
+              path="/classifieds/:category_id/new_for_sale"
+              element={
+                <NewForSaleForm
+                  user={user}
+                  avatar={avatar}
+                  selectedClassifiedsCategory={selectedClassifiedsCategory}
+                />
+              }
+            />
+            <Route
+              path="/classifieds/:category_id/:item_id"
+              element={<ClassifiedMessages user={user} avatar={avatar} />}
+            />
 
             <Route path="/forums" element={<MainForums user={user} />} />
             <Route
@@ -434,16 +449,6 @@ function App() {
               element={<ForumMessagesContainer user={user} />}
             />
 
-            <Route
-              path="/new_for_sale"
-              element={
-                <NewForSaleForm
-                  user={user}
-                  avatar={avatar}
-                  selectedClassifiedsCategory={selectedClassifiedsCategory}
-                />
-              }
-            />
             <Route path="/concert_info" element={<ConcertInfo user={user} />} />
           </Routes>
         </div>

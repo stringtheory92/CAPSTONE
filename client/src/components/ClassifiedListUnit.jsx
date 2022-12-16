@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { ForSaleItemStyled, SellerImageStyled } from "./shared";
 
 function ClassifiedListUnit({ item }) {
+  const { category_id } = useParams();
+  const navigate = useNavigate();
   const [sellerAvatar, setSellerAvatar] = useState(null);
   const [forSalePic, setForSalePic] = useState(null);
   const {
@@ -55,7 +58,7 @@ function ClassifiedListUnit({ item }) {
 
   return (
     <ForSaleItemStyled className="border">
-      <div>
+      <div className="topBar">
         <h2 className="itemDescription forSale">
           <span style={styledStatus[styleIndex()]}>{`${status}`}</span>
           {` ${bass}`}
@@ -63,7 +66,10 @@ function ClassifiedListUnit({ item }) {
       </div>
       {/* <h2 className="itemDescription">{`${status}: ${bass}`}</h2> */}
       {/* {styledItemDescription[elementIndex()]} */}
-      <div className="wholeItemContainer">
+      <div
+        className="wholeItemContainer"
+        onClick={() => navigate(`/classifieds/${category_id}/${id}`)}
+      >
         <div className="imageAndInfoContainer">
           <div className="forSaleImageContainer">
             {forSalePic ? (

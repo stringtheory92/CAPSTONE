@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { NewForumMessageFormStyled } from "./shared";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
@@ -9,37 +9,58 @@ function NewForumMessageForm({
   toggleIsCreatingNewMessage,
   user,
 }) {
-  const { sub_forum_topic_id } = useParams();
+  const navigate = useNavigate();
+  const { sub_forum_topic_id, category_id, item_id } = useParams();
   const [errors, setErrors] = useState([]);
-  const [formData, setFormData] = useState({
+  const [forumFormData, setForumFormData] = useState({
     content: "",
     media: "",
     forum_discussion_topic_id: sub_forum_topic_id,
     user_id: sessionStorage.getItem("user_id"),
   });
+  const [classifiedFormData, setClassifiedFormData] = useState({
+    content: "",
+    media: "",
+    classified_for_sale_id: item_id,
+    user_id: sessionStorage.getItem("user_id"),
+  });
   const [value, setValue] = useState("");
 
   useEffect(() => {
-    setFormData({ ...formData, content: value });
+    sub_forum_topic_id
+      ? setForumFormData({ ...forumFormData, content: value })
+      : setClassifiedFormData({ ...classifiedFormData, content: value });
   }, [value]);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
 
-    setFormData({ ...formData, [name]: value });
-  };
+  //   setFormData({ ...formData, [name]: value });
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const configObj = {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    };
-    fetch("/forum_topic_messages", configObj).then((r) => {
+    const url = sub_forum_topic_id
+      ? "/forum_topic_messages"
+      : "/for_sale_messages";
+
+    const configObj = sub_forum_topic_id
+      ? {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(forumFormData),
+        }
+      : {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(classifiedFormData),
+        };
+    fetch(url, configObj).then((r) => {
       if (r.ok) {
         r.json().then((data) => {
           toggleIsCreatingNewMessage();

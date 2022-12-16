@@ -1,4 +1,5 @@
 class ForSaleMessagesController < ApplicationController
+    wrap_parameters format: []
     def index
         render json: ForSaleMessage.all, status: :ok
        end
@@ -8,6 +9,7 @@ class ForSaleMessagesController < ApplicationController
        end
     
        def create
+        # byebug
         message = ForSaleMessage.create!(message_params)
         render json: message, status: :created
        end
@@ -15,6 +17,6 @@ class ForSaleMessagesController < ApplicationController
        private
     
        def message_params
-        params.permit(:content, :media)
+        params.permit(:content, :media, :classified_for_sale_id, :user_id)
        end
 end

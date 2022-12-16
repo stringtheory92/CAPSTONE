@@ -49,7 +49,9 @@ function ClassifiedForSale() {
     <ForSaleStyled>
       <h1 className="classifiedForSaleHeading">For Sale</h1>
       <div className="forSaleGridContainer">{displayedItems}</div>
-      <NavLink to={`/new_for_sale`}>List My Stuff</NavLink>
+      <NavLink to={`/classifieds/${category_id}/new_for_sale`}>
+        List My Stuff
+      </NavLink>
     </ForSaleStyled>
   );
 }

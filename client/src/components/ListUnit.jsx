@@ -54,10 +54,32 @@ function ListUnit({
         </MainForumItem>
       ) : null}
       {onSubForumSelect ? (
-        <MainForumItem onClick={(e) => onSubForumSelect(e, id)}>
-          <h2>{forum.category}</h2>
-          <h2>{heading}</h2>
-        </MainForumItem>
+        <SubForumTopicItem onClick={(e) => onSubForumSelect(e, id)}>
+          <div className="topBar">
+            <div>
+              <h2>{forum.category}</h2>
+              <h2>{heading}</h2>
+            </div>
+            {/* <PinButtonStyled
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePinTopic(e);
+              }}
+            ></PinButtonStyled> */}
+          </div>
+          <div className="bodySection">
+            <h3>
+              {/* Latest message:
+              {forum.last_message_date
+                ? ` ${date} at ${time}`
+                : " No Messages Yet!"} */}
+              {/* {DateTime.fromISO(`${updated_at}`).toFormat(
+                `HH${":"}mm dd LLL yyyy `
+              )} */}
+            </h3>
+            <h3>Topics: {forum.forum_discussion_topics.length}</h3>
+          </div>
+        </SubForumTopicItem>
       ) : null}
       {onSubForumTopicSelect ? (
         <SubForumTopicItem
