@@ -54,14 +54,16 @@ function ClassifiedListUnit({ item }) {
   };
 
   return (
-    <div className="border">
-      <h2 className="itemDescription forSale">
-        <span style={styledStatus[styleIndex()]}>{`${status}`}</span>
-        {` ${bass}`}
-      </h2>
+    <ForSaleItemStyled className="border">
+      <div>
+        <h2 className="itemDescription forSale">
+          <span style={styledStatus[styleIndex()]}>{`${status}`}</span>
+          {` ${bass}`}
+        </h2>
+      </div>
       {/* <h2 className="itemDescription">{`${status}: ${bass}`}</h2> */}
       {/* {styledItemDescription[elementIndex()]} */}
-      <ForSaleItemStyled className="wholeItemContainer">
+      <div className="wholeItemContainer">
         <div className="imageAndInfoContainer">
           <div className="forSaleImageContainer">
             {forSalePic ? (
@@ -86,8 +88,8 @@ function ClassifiedListUnit({ item }) {
           </div>
           <h3>{user.user_name}</h3>
         </div>
-      </ForSaleItemStyled>
-    </div>
+      </div>
+    </ForSaleItemStyled>
   );
 }
 

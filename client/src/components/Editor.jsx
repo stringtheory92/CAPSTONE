@@ -5,7 +5,9 @@ import "react-quill/dist/quill.snow.css";
 function Editor({ onEditorChange }) {
   const [value, setValue] = useState("");
 
-  const handleValueChange = (e) => {};
+  const handleValueChange = (e) => {
+    onEditorChange(e.target.value);
+  };
 
   return <ReactQuill theme="snow" value={value} onChange={setValue} />;
 }

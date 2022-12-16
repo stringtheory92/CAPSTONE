@@ -4,6 +4,6 @@ class MainForumsController < ApplicationController
     end
 
     def show
-        render json: MainForum.find(params[:id]), status: :ok
+        render json: MainForum.find(params[:id]), status: :ok, serializer: MainForumSerializer, include: ['sub_forums.forum_discussion_topics']
     end
 end

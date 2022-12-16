@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ClassifiedListUnit from "./ClassifiedListUnit";
 import { NavLink, useParams } from "react-router-dom";
+import { ForSaleStyled } from "./shared";
 
 function ClassifiedForSale() {
   let { category_id } = useParams();
@@ -45,11 +46,11 @@ function ClassifiedForSale() {
   );
 
   return (
-    <div>
+    <ForSaleStyled>
       <h1 className="classifiedForSaleHeading">For Sale</h1>
       <div className="forSaleGridContainer">{displayedItems}</div>
       <NavLink to={`/new_for_sale`}>List My Stuff</NavLink>
-    </div>
+    </ForSaleStyled>
   );
 }
 

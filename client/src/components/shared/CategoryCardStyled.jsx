@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const CategoryCardStyled = styled.div`
-  margin: 1rem;
   padding: 0.5rem 0.75rem;
   border: none;
   height: 18rem;
