@@ -7,7 +7,7 @@ import "react-quill/dist/quill.snow.css";
 
 function NewTopicForm({ user }) {
   const [value, setValue] = useState("");
-  let { sub_forum_id } = useParams();
+  let { main_forum_id, sub_forum_id } = useParams();
   const navigate = useNavigate();
   const [topicFormData, setTopicFormData] = useState({
     heading: "",
@@ -82,7 +82,10 @@ function NewTopicForm({ user }) {
           .then((data) => {
             console.log("ok: ", data);
           })
-          .then(navigate(`/forum_messages/${topicID}`));
+          // .then(navigate(`/forum_messages/${topicID}`));
+          .then(
+            navigate(`/forums/${main_forum_id}/${sub_forum_id}/${topicID}`)
+          );
       } else {
         r.json().then((data) => console.log("not ok: ", data));
       }
@@ -108,6 +111,7 @@ function NewTopicForm({ user }) {
           onChange={handleChange}
         />
         <label htmlFor="content">Question</label>
+
         <ReactQuill
           theme="snow"
           value={value}
@@ -115,6 +119,7 @@ function NewTopicForm({ user }) {
           modules={NewTopicForm.modules}
           formats={NewTopicForm.formats}
         />
+
         {/* <Editor onEditorChange={onEditorChange} /> */}
         {/* <textarea
           name="content"

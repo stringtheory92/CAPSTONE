@@ -11,6 +11,15 @@ const MessageStyled = styled.li`
   background-color: var(--white);
   border: 2px solid var(--dark-turquoise);
   transition: background-color 0.2s;
+  > p {
+    display: flex;
+    flex-direction: column;
+  }
+  > p > img {
+    max-width: 90%;
+    max-height: 200px;
+    object-fit: contain;
+  }
 `;
 // const MainForumItem = styled.li`
 //   padding: 0.5rem 0.75rem;
