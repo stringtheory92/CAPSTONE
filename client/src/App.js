@@ -244,14 +244,24 @@ function App() {
             setPositionError("An unknown error occurred.");
             break;
         }
+        showPosition(user.state_code);
       }
-
+      console.log("positionError: ", positionError);
       function showPosition(position) {
         console.log("showPosition", position);
+        console.log(
+          "navigator.geolocation.length > 0: ",
+          navigator.geolocation.length > 0
+        );
+        console.log(
+          "Boolean(position): ",
+          Boolean(typeof position === "object")
+        );
         let latlon;
         let locationParam;
         // If using location based on browser data
-        if (navigator.geolocation.length > 0) {
+        if (Boolean(typeof position === "object")) {
+          console.log("in line 255");
           setUserPosition(position);
           const lat = position.coords.latitude;
           const lon = position.coords.longitude;
