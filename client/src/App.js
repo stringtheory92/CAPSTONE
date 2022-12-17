@@ -220,7 +220,9 @@ function App() {
 
   useEffect(() => {
     if (user) {
+      // if (navigator.geolocation.length > 0) {
       if (navigator.geolocation) {
+        console.log("nav", navigator.geolocation);
         navigator.geolocation.getCurrentPosition(showPosition, showError);
       } else {
         setPositionError("Geolocation is not supported by this browser.");
@@ -245,11 +247,11 @@ function App() {
       }
 
       function showPosition(position) {
-        console.log("showPosition");
+        console.log("showPosition", position);
         let latlon;
         let locationParam;
         // If using location based on browser data
-        if (navigator.geolocation) {
+        if (navigator.geolocation.length > 0) {
           setUserPosition(position);
           const lat = position.coords.latitude;
           const lon = position.coords.longitude;
@@ -269,20 +271,21 @@ function App() {
         console.log("date: ", dateJSON);
         console.log("fourMonthsAhead: ", fourMonthsAheadJSON);
         console.log("latlon: ", latlon);
+        console.log("locationParam: ", locationParam);
 
         fetch(
           `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${ticketMasterKey}&${locationParam}&classificationName=music&startDateTime=${dateJSON}&endDateTime=${fourMonthsAheadJSON}&size=200`
         ).then((r) => {
           if (r.ok) {
             r.json().then((data) => {
-              console.log("data: ", data);
+              // console.log("data: ", data);
               // Many events with multiple showings, so filter out events by unique names for the sake of variety
               const events = data._embedded.events;
               // Without instantiating eventArray with an initial event, eventArray.slice(-1)[0].name throws an error
               let eventArray = [events[0]];
               // Multiple showings are grouped together, so loop over events and compare each name to the last unique event pushed to the eventArray
               for (let event of events) {
-                console.log("eventArray: ", eventArray);
+                // console.log("eventArray: ", eventArray);
                 // Some data sets do not have attractions array, but for the ones who do, attractions.name is better to use
                 if (
                   eventArray.find((item) => {

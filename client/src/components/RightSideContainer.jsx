@@ -14,7 +14,10 @@ function RightSideContainer({ user, ticketMasterEvents }) {
     ticketMasterEvents?.forEach((event) => {
       const { name, classifications, dates, images, priceRanges, sales } =
         event;
-      const genre = classifications[0].genre.name;
+      let genre;
+      if (classifications[0].genre) {
+        genre = classifications[0].genre.name;
+      } else genre = "General";
       const dateAndTime = [dates.start.localDate, dates.start.localTime];
       // Some events do not have priceRange data, so conditional is necessary
       let priceRange;
