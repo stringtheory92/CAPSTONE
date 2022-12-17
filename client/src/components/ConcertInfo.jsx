@@ -12,8 +12,7 @@ function ConcertInfo() {
   const venueLink = event._embedded.venues[0].url;
   const genre = classifications[0].genre.name;
   let name;
-  if (event._embedded.attractions[0].name)
-    name = event._embedded.attractions[0].name;
+  if (event._embedded.attractions) name = event._embedded.attractions[0].name;
   else name = event.name;
   // Cut up date to format for display
   const date = dates.start.localDate;
