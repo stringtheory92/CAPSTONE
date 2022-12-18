@@ -63,6 +63,7 @@ const ForSaleItemStyled = styled.div`
   > .wholeItemContainer > .imageAndInfoContainer > .forSaleItemInfo {
     cursor: pointer;
     margin: 1rem;
+    align-self: center;
   }
   > .wholeItemContainer
     > .imageAndInfoContainer
@@ -87,7 +88,7 @@ const ForSaleItemStyled = styled.div`
     cursor: pointer;
     font-size: 1.3rem;
     font-weight: 700;
-    padding-bottom: 0.5rem;
+    padding-bottom: 1rem;
     transition: all 0.3s;
     &:hover {
       opacity: 0.5;

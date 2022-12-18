@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ForSaleItemStyled, SellerImageStyled } from "./shared";
+import { DateTime } from "luxon";
 import whiteLogo from "../icons/SubSonic-logo-white-A-alt.png";
 
 function ClassifiedListUnit({ item }) {
@@ -21,8 +22,22 @@ function ClassifiedListUnit({ item }) {
     strings,
     user,
     pic,
+    last_message,
+    total_messages,
   } = item;
 
+  let lastMessageTime;
+  if (last_message) {
+    const date = DateTime.fromISO(`${last_message.created_at}`).toFormat(
+      `LLL dd, yyyy `
+    );
+    const time = DateTime.fromISO(`${last_message.created_at}`).toFormat(
+      `HH${":"}mm`
+    );
+    lastMessageTime = `${date} at ${time}`;
+  } else {
+    lastMessageTime = "No messages yet!";
+  }
   useEffect(() => {
     fetch(`/users/by_name/${user.user_name}`)
       .then((r) => r.json())
@@ -104,8 +119,9 @@ function ClassifiedListUnit({ item }) {
         </div>
         <div className="extraInfo">
           <ul>
-            <li>Total messages:</li>
-            <li>last message:</li>
+            <li>Total messages: {total_messages}</li>
+            {total_messages ? <li>Last message:</li> : null}
+            <li>{lastMessageTime}</li>
           </ul>
         </div>
         <div className="sellerInfo">
