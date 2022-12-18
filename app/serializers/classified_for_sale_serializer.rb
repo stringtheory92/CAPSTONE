@@ -18,8 +18,11 @@ class ClassifiedForSaleSerializer < ActiveModel::Serializer
   
 
   # def last_message_by
+  #   name = User.find(object.for_sale_messages.last["user_id"]).user_name
+  #   return name
+
+      # object.for_sale_messages.last.user.user_name 
     
-  #   self.object.for_sale_messages.last.user.user_name
   # end
 
   belongs_to :classified_category

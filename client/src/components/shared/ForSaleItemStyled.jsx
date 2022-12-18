@@ -70,7 +70,8 @@ const ForSaleItemStyled = styled.div`
     > .forSaleItemInfo
     > ul
     > li
-    > span {
+    > span,
+  > .wholeItemContainer > .extraInfo > ul > li > span {
     cursor: pointer;
     font-size: 0.8rem;
     line-height: 1.5;
@@ -99,6 +100,9 @@ const ForSaleItemStyled = styled.div`
     background-color: var(--forumItemInside);
     margin: 1rem;
     padding: 0.5rem;
+  }
+
+  > .wholeItemContainer > .extraInfo > ul > li > span {
   }
 
   > .wholeItemContainer > .sellerInfo {

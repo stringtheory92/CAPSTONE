@@ -8,6 +8,7 @@ function ClassifiedListUnit({ item }) {
   const { category_id } = useParams();
   const navigate = useNavigate();
   const [sellerAvatar, setSellerAvatar] = useState(null);
+  const [lastMessageUserName, setLastMessageUserName] = useState(null);
   const [forSalePic, setForSalePic] = useState(null);
   const {
     bass,
@@ -25,7 +26,7 @@ function ClassifiedListUnit({ item }) {
     last_message,
     total_messages,
   } = item;
-
+  console.log("last_message: ", last_message);
   let lastMessageTime;
   if (last_message) {
     const date = DateTime.fromISO(`${last_message.created_at}`).toFormat(
@@ -46,8 +47,14 @@ function ClassifiedListUnit({ item }) {
         if (pic) setForSalePic(pic);
       });
   }, []);
-  console.log("pic: ", forSalePic);
-  console.log("user.avatar: ", sellerAvatar);
+  useEffect(() => {
+    if (total_messages > 0) {
+      fetch(`/users/${last_message.user_id}`)
+        .then((r) => r.json())
+        .then((user) => setLastMessageUserName(user.user_name));
+    }
+  }, []);
+
   const statusRed = {
     color: "var(--white)",
     backgroundColor: "tomato",
@@ -73,7 +80,7 @@ function ClassifiedListUnit({ item }) {
     if (status === "For Trade") return 1;
     if (status === "Sold") return 2;
   };
-
+  console.log("lastMessageUserName: ", lastMessageUserName);
   return (
     <ForSaleItemStyled className="border">
       <div
@@ -120,7 +127,13 @@ function ClassifiedListUnit({ item }) {
         <div className="extraInfo">
           <ul>
             <li>Total messages: {total_messages}</li>
-            {total_messages ? <li>Last message:</li> : null}
+            {total_messages ? (
+              <li>
+                Last message by:{" "}
+                <span className="lastMessageUser">{lastMessageUserName}</span>{" "}
+                on
+              </li>
+            ) : null}
             <li>{lastMessageTime}</li>
           </ul>
         </div>
