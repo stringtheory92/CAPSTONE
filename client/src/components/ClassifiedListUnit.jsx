@@ -78,9 +78,9 @@ function ClassifiedListUnit({ item }) {
           </div>
           <div className="forSaleItemInfo">
             <ul>
-              {/* <li className="itemDescription">{`${status}: ${bass}`}</li> */}
               <li className="price">{`$${price}`}</li>
               <li>{`Strings: ${strings}`}</li>
+              <li>{`${city}, ${state}`}</li>
             </ul>
           </div>
         </div>
