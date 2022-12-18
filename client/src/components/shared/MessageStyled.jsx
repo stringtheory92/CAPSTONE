@@ -5,6 +5,7 @@ const MessageStyled = styled.li`
   padding: 0.5rem 0.75rem;
   /* border: none; */
   font-weight: 600;
+  font-size: 0.8rem;
   /* cursor: pointer; */
   color: var(--black);
   list-style-type: none;
@@ -19,6 +20,9 @@ const MessageStyled = styled.li`
     max-width: 90%;
     max-height: 200px;
     object-fit: contain;
+  }
+  > h2 {
+    font-size: 1rem;
   }
 `;
 // const MainForumItem = styled.li`

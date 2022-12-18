@@ -14,8 +14,8 @@ const MessageContainerStyled = styled.div`
   /* background-image: url(${SSBG_1}); */
   transition: border 0.4s;
 
-  > h2 {
-    font-size: 1rem;
+  > .messageWrapper > h2 {
+    font-size: 3rem;
   }
 `;
 
