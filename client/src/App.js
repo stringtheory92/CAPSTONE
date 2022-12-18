@@ -220,9 +220,14 @@ function App() {
 
   useEffect(() => {
     if (user) {
+      // this condition based on length doesn't work. Always false. The other condition,
+      // if (navigator.geolocation) is always true (so far)
       // if (navigator.geolocation.length > 0) {
       if (navigator.geolocation) {
         console.log("nav", navigator.geolocation);
+        // since this if is always true (so far), the next line will try to fire whether or not there is location data.
+        // Hence, it is necessary to call showPosition in the showError component in case there is an error getting current
+        // browser position.
         navigator.geolocation.getCurrentPosition(showPosition, showError);
       } else {
         setPositionError("Geolocation is not supported by this browser.");
@@ -247,18 +252,13 @@ function App() {
         showPosition(user.state_code);
       }
       console.log("positionError: ", positionError);
+
       function showPosition(position) {
         console.log("showPosition", position);
-        console.log(
-          "navigator.geolocation.length > 0: ",
-          navigator.geolocation.length > 0
-        );
-        console.log(
-          "Boolean(position): ",
-          Boolean(typeof position === "object")
-        );
+
         let latlon;
         let locationParam;
+
         // If using location based on browser data
         if (Boolean(typeof position === "object")) {
           console.log("in line 255");

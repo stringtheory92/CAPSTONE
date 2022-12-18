@@ -61,7 +61,10 @@ function ClassifiedListUnit({ item }) {
 
   return (
     <ForSaleItemStyled className="border">
-      <div className="topBar">
+      <div
+        className="topBar"
+        onClick={() => navigate(`/classifieds/${category_id}/${id}`)}
+      >
         <h2 className="itemDescription forSale">
           <span style={styledStatus[styleIndex()]}>{`${status}`}</span>
           {` ${bass}`}

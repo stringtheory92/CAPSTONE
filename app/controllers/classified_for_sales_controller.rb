@@ -27,6 +27,7 @@ class ClassifiedForSalesController < ApplicationController
             x = item.attributes
             x["user"] = item.user
             
+            
             if item.pic.attached?
                 pic = rails_blob_path(item.pic)
                 data_array << {item: x, pic: pic}

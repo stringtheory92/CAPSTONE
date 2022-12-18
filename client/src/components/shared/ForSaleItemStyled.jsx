@@ -13,6 +13,10 @@ const ForSaleItemStyled = styled.div`
   > .topBar > h2 {
     font-size: 1.3rem;
     padding: 0.5rem 0;
+    transition: all 0.3s;
+    &:hover {
+      opacity: 0.5;
+    }
   }
   > .topBar > h2 > span {
     font-size: 1rem;
@@ -26,10 +30,13 @@ const ForSaleItemStyled = styled.div`
     justify-content: space-between;
   }
   > .wholeItemContainer > .imageAndInfoContainer {
+    cursor: pointer;
     display: flex;
     width: 25rem;
+    cursor: pointer;
   }
   > .wholeItemContainer > .imageAndInfoContainer .forSaleImageContainer {
+    cursor: pointer;
     align-self: center;
     display: flex;
     justify-content: center;
@@ -44,11 +51,17 @@ const ForSaleItemStyled = styled.div`
     > .imageAndInfoContainer
     .forSaleImageContainer
     .forSaleImage {
+    cursor: pointer;
     max-width: 100%;
     max-height: 100%;
+    transition: all 0.3s;
+    &:hover {
+      opacity: 0.5;
+    }
   }
 
   > .wholeItemContainer > .imageAndInfoContainer > .forSaleItemInfo {
+    cursor: pointer;
     margin: 1rem;
   }
   > .wholeItemContainer
@@ -57,9 +70,13 @@ const ForSaleItemStyled = styled.div`
     > ul
     > li
     > span {
+    cursor: pointer;
     font-size: 0.8rem;
     line-height: 1.5;
-    /* text-shadow: 5px 5px 10px #333; */
+    transition: all 0.3s;
+    &:hover {
+      opacity: 0.5;
+    }
   }
 
   > .wholeItemContainer
@@ -67,9 +84,14 @@ const ForSaleItemStyled = styled.div`
     > .forSaleItemInfo
     > ul
     > .price {
+    cursor: pointer;
     font-size: 1.3rem;
     font-weight: 700;
     padding-bottom: 0.5rem;
+    transition: all 0.3s;
+    &:hover {
+      opacity: 0.5;
+    }
   }
   > .wholeItemContainer > .extraInfo {
     width: 30%;
