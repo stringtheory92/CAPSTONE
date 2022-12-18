@@ -15,17 +15,17 @@ function ClassifiedForSale() {
       if (r.ok) {
         r.json().then((data) => {
           console.log("ok: ", data);
-          const mapped = data.map((item) => {
-            if (item.pic) {
-              item.item["pic"] = item.pic;
-            } else {
-              item.item["pic"] = null;
-            }
+          // const mapped = data.map((item) => {
+          //   if (item.pic) {
+          //     item.item["pic"] = item.pic;
+          //   } else {
+          //     item.item["pic"] = null;
+          //   }
 
-            return item.item;
-          });
-          console.log("mapped: ", mapped);
-          setAllItems(mapped);
+          //   return item.item;
+          // });
+          // console.log("mapped: ", mapped);
+          setAllItems(data);
         });
       } else {
         r.json().then((data) => {

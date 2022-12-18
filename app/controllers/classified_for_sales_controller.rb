@@ -23,22 +23,25 @@ class ClassifiedForSalesController < ApplicationController
 
         items = ClassifiedForSale.where(classified_category_id: params[:classified_category_id])
      
-        items.each do |item|
-            x = item.attributes
-            x["user"] = item.user
-            x["total_messages"] = item.for_sale_messages.count
-            x["last_message"] = item.for_sale_messages.last
+        # items.each do |item|
+        #     x = item.attributes
+            # x["user"] = item.user
+            # x["total_messages"] = item.for_sale_messages.count
+            # x["last_message"] = item.for_sale_messages.last
+            # x["last_message_by"] = item.for_sale_messages.last.user.user_name
+            # byebug
             
-            if item.pic.attached?
-                pic = rails_blob_path(item.pic)
-                data_array << {item: x, pic: pic}
-            else
-                data_array << {item: x}
-            end
-        end
+            
+        #     if item.pic.attached?
+        #         pic = rails_blob_path(item.pic)
+        #         data_array << {item: x, pic: pic}
+        #     else
+        #         data_array << {item: x}
+        #     end
+        # end
         
-        render json: data_array, status: :ok
-        # render json: data_array, serializer: ForSaleFromCategorySerializer, status: :ok
+        render json: items, status: :ok
+       
        end
 
        private
