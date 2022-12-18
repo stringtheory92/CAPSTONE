@@ -26,6 +26,7 @@ const NewForumMessageFormStyled = styled.form`
     color: var(--black);
     border-radius: 10px;
     height: 15rem;
+    overflow-y: hidden;
   }
   > textarea {
     background-color: var(--white);
@@ -33,6 +34,12 @@ const NewForumMessageFormStyled = styled.form`
   > textarea:focus {
     border: 2px solid #333;
     outline: none;
+  }
+  > button {
+    border: none;
+    outline: none;
+    width: 10rem;
+    justify-self: center;
   }
 `;
 // const MainForumItem = styled.li`

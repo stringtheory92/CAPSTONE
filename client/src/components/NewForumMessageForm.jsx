@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { NewForumMessageFormStyled } from "./shared";
+import { NewForumMessageFormStyled, SubmitButtonStyled } from "./shared";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
@@ -85,17 +85,8 @@ function NewForumMessageForm({
         modules={NewForumMessageForm.modules}
         formats={NewForumMessageForm.formats}
       />
-      {/* <textarea
-        name="content"
-        id="content"
-        cols="30"
-        rows="10"
-        value={formData.content}
-        onChange={handleChange}
-      ></textarea> */}
-      <button type="submit" style={{ border: "1px solid black" }}>
-        Post
-      </button>
+
+      <SubmitButtonStyled type="submit">Post</SubmitButtonStyled>
     </NewForumMessageFormStyled>
   );
 }
