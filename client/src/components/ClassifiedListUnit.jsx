@@ -49,7 +49,7 @@ function ClassifiedListUnit({ item }) {
   }, []);
   useEffect(() => {
     if (total_messages > 0) {
-      fetch(`/users/${last_message.user_id}`)
+      fetch(`/users/by_id/${last_message.user_id}`)
         .then((r) => r.json())
         .then((user) => setLastMessageUserName(user.user_name));
     }

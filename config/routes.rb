@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   # sign in route
   get '/users/by_name/:user_name', to: "users#show_by_name"
+  get 'users/by_id/:user_id', to: 'users#show_by_id'
 
   # sample user sign in data for dev
   get '/users/first_user/first', to: "users#first"

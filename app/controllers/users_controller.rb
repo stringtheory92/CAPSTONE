@@ -42,6 +42,11 @@ class UsersController < ApplicationController
         # render json: user, status: :ok
     end
 
+    def show_by_id
+        user = User.find(params[:user_id])
+        render json: user, status: :ok
+    end
+
     def create
         user = User.create!(user_params)
         if user.valid?
