@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ForSaleItemStyled, SellerImageStyled } from "./shared";
+import whiteLogo from "../icons/SubSonic-logo-white-A-alt.png";
 
 function ClassifiedListUnit({ item }) {
   const { category_id } = useParams();
@@ -41,11 +42,13 @@ function ClassifiedListUnit({ item }) {
     color: "var(--white)",
     backgroundColor: "green",
     padding: "0 0.3rem",
+    textShadow: "1px 1px 0 #333",
   };
   const statusYellow = {
     color: "var(--white)",
-    backgroundColor: "gold",
+    backgroundColor: "#edbe13",
     padding: "0 0.3rem",
+    textShadow: "0px 0px 3px #333",
   };
 
   const styledStatus = [statusGreen, statusYellow, statusRed];
@@ -74,25 +77,44 @@ function ClassifiedListUnit({ item }) {
           <div className="forSaleImageContainer">
             {forSalePic ? (
               <img className="forSaleImage" src={forSalePic} />
-            ) : null}
+            ) : (
+              <img className="forSaleImage" src={whiteLogo} alt="" />
+            )}
           </div>
           <div className="forSaleItemInfo">
             <ul>
               <li className="price">{`$${price}`}</li>
-              <li>{`Strings: ${strings}`}</li>
-              <li>{`${city}, ${state}`}</li>
+
+              <li>
+                <span>Year:</span> {manufacture_year}
+              </li>
+
+              <li>
+                <span>Strings:</span> {strings}
+              </li>
+
+              <li>
+                <span>Location:</span> {city}, {state}
+              </li>
             </ul>
           </div>
         </div>
-        <div className="extraInfo"></div>
+        <div className="extraInfo">
+          <ul>
+            <li>Total messages:</li>
+            <li>last message:</li>
+          </ul>
+        </div>
         <div className="sellerInfo">
           <h3>Seller:</h3>
           <div className="sellerImageContainer">
             {sellerAvatar ? (
               <SellerImageStyled src={sellerAvatar} alt="" />
-            ) : null}
+            ) : (
+              <SellerImageStyled src={whiteLogo} alt="" />
+            )}
+            <h3>{user.user_name}</h3>
           </div>
-          <h3>{user.user_name}</h3>
         </div>
       </div>
     </ForSaleItemStyled>

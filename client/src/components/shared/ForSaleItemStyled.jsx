@@ -27,7 +27,7 @@ const ForSaleItemStyled = styled.div`
   }
   > .wholeItemContainer > .imageAndInfoContainer {
     display: flex;
-    /* flex-grow: 1; */
+    width: 25rem;
   }
   > .wholeItemContainer > .imageAndInfoContainer .forSaleImageContainer {
     align-self: center;
@@ -49,10 +49,17 @@ const ForSaleItemStyled = styled.div`
   }
 
   > .wholeItemContainer > .imageAndInfoContainer > .forSaleItemInfo {
-    /* border: 1px solid grey; */
-    /* width: 20rem; */
+    margin: 1rem;
   }
-  > .wholeItemContainer > .imageAndInfoContainer > .forSaleItemInfo > ul > li {
+  > .wholeItemContainer
+    > .imageAndInfoContainer
+    > .forSaleItemInfo
+    > ul
+    > li
+    > span {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    /* text-shadow: 5px 5px 10px #333; */
   }
 
   > .wholeItemContainer
@@ -62,6 +69,13 @@ const ForSaleItemStyled = styled.div`
     > .price {
     font-size: 1.3rem;
     font-weight: 700;
+    padding-bottom: 0.5rem;
+  }
+  > .wholeItemContainer > .extraInfo {
+    width: 30%;
+    background-color: var(--forumItemInside);
+    margin: 1rem;
+    padding: 0.5rem;
   }
 
   > .wholeItemContainer > .sellerInfo {
@@ -74,10 +88,13 @@ const ForSaleItemStyled = styled.div`
 
   > .wholeItemContainer > .sellerInfo > .sellerImageContainer {
     display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     justify-content: center;
     align-items: center;
+
     /* border: 1px solid pink; */
-    height: 6rem;
+    height: 7rem;
     width: 6rem;
   }
 
