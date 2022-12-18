@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import SSBG_1 from "../../bg/SSBG_1.jpg";
 
 const CategoryCardStyled = styled.div`
   padding: 0.5rem 0.75rem;
@@ -17,8 +18,16 @@ const CategoryCardStyled = styled.div`
   background-color: var(--background);
   border-radius: 6px;
   box-shadow: 2px 2px 3px #222;
-  border: 2px solid var(--dark-turquoise);
-  transition: background-color 0.2s;
+  /* border: 2px solid var(--logo-color); */
+  transition: filter 0.8s, border 0.8s, opacity 0.2s;
+
+  &:hover {
+    border: 5px solid var(--logo-color);
+    filter: blur(2px);
+  }
+  &:active {
+    opacity: 0.5;
+  }
 
   @media (min-width: 750px) {
     height: 26rem;
