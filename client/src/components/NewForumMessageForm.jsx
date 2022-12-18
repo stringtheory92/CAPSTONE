@@ -78,6 +78,7 @@ function NewForumMessageForm({
     <NewForumMessageFormStyled action="" onSubmit={handleSubmit}>
       <label htmlFor="content">Compose message</label>
       <ReactQuill
+        className="quill"
         theme="snow"
         value={value}
         onChange={setValue}

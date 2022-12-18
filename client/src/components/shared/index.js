@@ -28,6 +28,7 @@ import ComposeButtonStyled from "./ComposeButtonStyled";
 import SubForumTopicItem from "./SubForumTopicItem";
 import NewTopicFormStyled from "./NewTopicFormStyled";
 import ForSaleStyled from "./ForSaleStyled";
+import MessageContainerStyled from "./MessageContainerStyled";
 
 export {
   MainForumItem,
@@ -57,5 +58,6 @@ export {
   SubForumTopicItem,
   NewTopicFormStyled,
   ForSaleStyled,
+  MessageContainerStyled,
 };
 // export { Button, Form, Input, MainForumList };

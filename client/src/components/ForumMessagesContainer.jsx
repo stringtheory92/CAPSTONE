@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, NavLink } from "react-router-dom";
 import Message from "./Message";
 import NewForumMessageForm from "./NewForumMessageForm";
+import { MessageContainerStyled } from "./shared";
 
 function ForumMessagesContainer({ user }) {
   const { main_forum_id, sub_forum_id, sub_forum_topic_id } = useParams();
@@ -36,7 +37,7 @@ function ForumMessagesContainer({ user }) {
 
   //===========================================================
   return (
-    <div>
+    <MessageContainerStyled>
       {displayedMessages}
       {/* <button onClick={toggleIsCreatingNewMessage}>Compose message</button> */}
       {isCreatingNewMessage ? null : (
@@ -55,7 +56,7 @@ function ForumMessagesContainer({ user }) {
       {/* <NavLink to={`/new_forum_message/${subForumTopicID}`}>
         Compose message
       </NavLink> */}
-    </div>
+    </MessageContainerStyled>
   );
 }
 
