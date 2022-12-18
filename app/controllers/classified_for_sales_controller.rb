@@ -26,7 +26,8 @@ class ClassifiedForSalesController < ApplicationController
         items.each do |item|
             x = item.attributes
             x["user"] = item.user
-            
+            x["total_messages"] = item.for_sale_messages.count
+            x["last_message"] = item.for_sale_messages.last
             
             if item.pic.attached?
                 pic = rails_blob_path(item.pic)
