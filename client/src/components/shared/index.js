@@ -29,6 +29,7 @@ import SubForumTopicItem from "./SubForumTopicItem";
 import NewTopicFormStyled from "./NewTopicFormStyled";
 import ForSaleStyled from "./ForSaleStyled";
 import MessageContainerStyled from "./MessageContainerStyled";
+import ClassifiedMessagesStyled from "./ClassifiedMessagesStyled";
 
 export {
   MainForumItem,
@@ -59,5 +60,6 @@ export {
   NewTopicFormStyled,
   ForSaleStyled,
   MessageContainerStyled,
+  ClassifiedMessagesStyled,
 };
 // export { Button, Form, Input, MainForumList };

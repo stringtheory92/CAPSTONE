@@ -3,6 +3,7 @@ import { useParams, useNavigate, NavLink } from "react-router-dom";
 import Message from "./Message";
 import NewForumMessageForm from "./NewForumMessageForm";
 import whiteLogo from "../icons/SubSonic-logo-white-A-alt.png";
+import { ClassifiedMessagesStyled, SubmitButtonStyled } from "./shared";
 
 function ClassifiedMessages({ user }) {
   const { category_id, item_id } = useParams();
@@ -33,17 +34,17 @@ function ClassifiedMessages({ user }) {
   ));
 
   return (
-    <div>
+    <ClassifiedMessagesStyled>
       <div className="headingContainer">
-        {item ? <h2>{item}</h2> : null}
         {itemPic ? <img src={itemPic} /> : <img src={whiteLogo} />}
+        {item ? <h2>{item}</h2> : null}
       </div>
       {displayedMessages}
       {/* <button onClick={toggleIsCreatingNewMessage}>Compose message</button> */}
       {isCreatingNewMessage ? null : (
-        <button onClick={toggleIsCreatingNewMessage} style={{ color: "white" }}>
+        <SubmitButtonStyled onClick={toggleIsCreatingNewMessage}>
           Compose message
-        </button>
+        </SubmitButtonStyled>
       )}
       {isCreatingNewMessage ? (
         <NewForumMessageForm
@@ -57,7 +58,7 @@ function ClassifiedMessages({ user }) {
       {/* <NavLink to={`/new_forum_message/${subForumTopicID}`}>
     Compose message
   </NavLink> */}
-    </div>
+    </ClassifiedMessagesStyled>
   );
 }
 
