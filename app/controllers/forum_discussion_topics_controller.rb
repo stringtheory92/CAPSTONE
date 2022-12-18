@@ -5,6 +5,7 @@ class ForumDiscussionTopicsController < ApplicationController
     end
 
     def show
+      
         render json: ForumDiscussionTopic.find(params[:id]), status: :ok
     end
 

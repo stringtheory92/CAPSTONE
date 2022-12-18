@@ -8,6 +8,7 @@ function ForumMessagesContainer({ user }) {
   const { main_forum_id, sub_forum_id, sub_forum_topic_id } = useParams();
   const navigate = useNavigate();
   const [allMessages, setAllMessages] = useState([]);
+  const [topicHeading, setTopicHeading] = useState(null);
   const [isCreatingNewMessage, setIsCreatingNewMessage] = useState(false);
   const [errors, setErrors] = useState([]);
 
@@ -26,6 +27,17 @@ function ForumMessagesContainer({ user }) {
     );
   }, [sub_forum_topic_id, isCreatingNewMessage]);
 
+  useEffect(() => {
+    fetch(`/forum_discussion_topics/${sub_forum_topic_id}`).then((r) => {
+      if (r.ok) {
+        r.json().then((topic) => {
+          console.log("topic: ", topic);
+          setTopicHeading(topic.heading);
+        });
+      } else r.json().then(console.log);
+    });
+  }, []);
+
   const toggleIsCreatingNewMessage = (e) => {
     setIsCreatingNewMessage((status) => !status);
   };
@@ -38,6 +50,7 @@ function ForumMessagesContainer({ user }) {
   //===========================================================
   return (
     <MessageContainerStyled>
+      {topicHeading ? <h2 className="heading">{topicHeading}</h2> : null}
       {displayedMessages}
       {/* <button onClick={toggleIsCreatingNewMessage}>Compose message</button> */}
       {isCreatingNewMessage ? null : (

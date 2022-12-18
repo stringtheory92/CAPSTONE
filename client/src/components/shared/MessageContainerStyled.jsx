@@ -11,9 +11,16 @@ const MessageContainerStyled = styled.div`
   font-weight: 600;
   /* cursor: pointer; */
   color: var(--white);
-  /* background-image: url(${SSBG_1}); */
-  transition: border 0.4s;
+  background-image: url(${SSBG_1});
 
+  border-top: 2px solid var(--forumItem);
+
+  transition: border 0.4s;
+  > .heading {
+    margin: 1rem 1rem 0.1rem 1rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
   > .messageWrapper > h2 {
     font-size: 3rem;
   }
