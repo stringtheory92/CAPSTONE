@@ -16,11 +16,13 @@ function Message({ message }) {
     <div>
       <MessageStyled className="messageWrapper">
         <div className="authorInfo">
-          <img src={message.author.avatar} alt="" />
+          {/* <img src={message.author.avatar} alt="" /> */}
+          <img src={message.user.avatar} alt="" />
           <div className="details">
             <p>{date}</p>
             <p>At: {time}</p>
-            <h2>By: {message.author.user_name}</h2>
+            <h2>By: {message.user.user_name}</h2>
+            {/* <h2>By: {message.author.user_name}</h2> */}
           </div>
         </div>
         <hr className="line" />

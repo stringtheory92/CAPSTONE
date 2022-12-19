@@ -21,8 +21,8 @@ class ClassifiedForSaleSerializer < ActiveModel::Serializer
   def for_sale_messages
     return self.object.for_sale_messages.map do |message|
 
-      message_hash = {**message.attributes, author: {**message.user.attributes}}
-      message_hash[:author]['avatar'] = rails_blob_path(message.user.avatar.blob, only_path: true) if message.user.avatar.blob
+      message_hash = {**message.attributes, user: {**message.user.attributes}}
+      message_hash[:user]['avatar'] = rails_blob_path(message.user.avatar.blob, only_path: true) if message.user.avatar.blob
       message_hash
     end
   end
