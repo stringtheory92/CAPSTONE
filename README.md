@@ -226,3 +226,7 @@ https://www.facebook.com/photo/?fbid=2676395625781051&set=a.355647687855868
   - filtered events are sorted by genre (nested data) by converting to object with genre keys and event array values. Object is iterated over and generates appropriate components in sorted order, resulting in dynamically displayed events menu.
   - events can be selected and direct to an event details screen, where details such as ticket price range, time, and date which tickets are on sale until are displayed. Links to venue and ticket purchasing are also provided
   - menu displayed with independent scrolling and hidden overflow. On phones menu sits below main content, accessed by scrolling down. On desktop/larger screens menu occupies right segment
+
+# OBSTACLES
+
+- For forum/classified messages, had to not only write custom serializer methods and manage deeply-nested associations (beyond what is semantically supported by active record), but also the nested associations' associated active storage data (from blob with polymorphic association). Took research and time to figure out how to isolate the active record association of a user (two associations away from the sub_forum_topics or classified_for_sales, who's serializers were accessing it.

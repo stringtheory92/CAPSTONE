@@ -7,12 +7,16 @@ const AvatarStyled = styled.img`
   /* min-width: 4rem;
   max-width: 8rem; */
 
-  @media (min-width: 900px) {
+  @media (min-width: 750px) {
     display: block;
-    /* max-width: 4.2rem; */
+    /* visibility: hidden; */
     max-width: 100%;
-    max-height: 7rem;
-    /* flex-basis: 4.2rem; */
+    max-height: 5rem;
+  }
+  @media (min-width: 900px) {
+    /* display: block; */
+    /* max-width: 100%; */
+    /* max-height: 7rem; */
   }
   @media (min-width: 950px) {
     /* max-width: 4.6rem; */

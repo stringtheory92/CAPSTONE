@@ -7,7 +7,7 @@ import accButton from "../../resources/accButton.png";
 
 const UserMenuStyled = styled.div`
   display: none;
-  /* margin-right: 0.8rem; */
+  /* margin: 1rem; */
 
   @media (min-width: 750px) {
     color: var(--textColor);
@@ -20,6 +20,7 @@ const UserMenuStyled = styled.div`
       font-size: 1rem;
     }
     > .quickLinks > ul {
+      margin: 0.8rem;
     }
     > .quickLinks > ul > li {
       width: 100%;
@@ -54,6 +55,11 @@ const UserMenuStyled = styled.div`
     }
     > .quickLinks > ul > li > .acc {
       background-image: url(${accButton});
+    }
+  }
+  @media (min-width: 900px) {
+    > .quickLinks > ul {
+      margin: 1.3rem;
     }
   }
   @media (min-width: 950px) {

@@ -34,7 +34,7 @@ function ClassifiedForSale() {
         });
       }
     });
-  }, []);
+  }, [category_id]);
 
   const displayedItems = allItems?.map(
     (item) => {

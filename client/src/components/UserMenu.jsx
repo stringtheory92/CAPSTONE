@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { UserMenuStyled, AvatarStyled } from "./shared";
+import Logo from "../icons/SubSonic-logo-white-A-alt.png";
 // import dbButton from './resources/dbButton.png'
 
 function UserMenu({ user }) {
@@ -25,7 +26,7 @@ function UserMenu({ user }) {
       <div className="namePic">
         <div className="imageContainer">
           <AvatarStyled
-            src={avatar ? `http://localhost:3000/${avatar}` : null}
+            src={avatar ? `http://localhost:3000/${avatar}` : { Logo }}
             alt="your face here!"
           />
         </div>
