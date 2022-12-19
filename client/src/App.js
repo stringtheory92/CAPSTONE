@@ -40,6 +40,7 @@ const GlobalStyle = createGlobalStyle`
       --logo-color: #fa4902;
       /* --logo-color: #fc6d34; */
     --white: #f1f1f1;
+    --white-semi-trans: rgba(241, 241, 241, 0.8);
     --black: #030416;
     --background-dark-blue: #04101c;
     /* --background-dark-blue: #021221; */
@@ -66,6 +67,7 @@ const GlobalStyle = createGlobalStyle`
     --forumItem: ${(props) => props.theme.forumItem};
     --forumItemInside: ${(props) => props.theme.forumItemInside};
     --forumBorder: ${(props) => props.theme.forumBorder};
+    --messageItem: ${(props) => props.theme.messageItem};
     --hover: ${(props) => props.theme.hover};
     --active: ${(props) => props.theme.active};
   }
@@ -148,6 +150,7 @@ const lightTheme = {
   forumItem: "var(--white)",
   forumItemInside: "var(--extra-dark-grey-semi-trans)",
   forumBorder: "var(--light-grey)",
+  messageItem: "var(--white-semi-trans)",
   hover: "var(--logo-color)",
   active: "var(--dark-red)",
 };
@@ -163,6 +166,7 @@ const darkTheme = {
   forumItem: "var(--dark-grey-semi-trans)",
   forumItemInside: "var(--extra-dark-grey-semi-trans)",
   forumBorder: "var(--background-dark-blue)",
+  messageItem: "var(--white-semi-trans)",
   hover: "var(--logo-color)",
   active: "var(--dark-red)",
 };

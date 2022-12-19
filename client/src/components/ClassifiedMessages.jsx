@@ -24,7 +24,7 @@ function ClassifiedMessages({ user }) {
         if (item.pic) setItemPic(item.pic);
       });
   }, [isCreatingNewMessage]);
-
+  console.log("allMessages: ", allMessages);
   const toggleIsCreatingNewMessage = (e) => {
     setIsCreatingNewMessage((status) => !status);
   };
