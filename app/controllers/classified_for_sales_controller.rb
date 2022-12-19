@@ -20,10 +20,10 @@ class ClassifiedForSalesController < ApplicationController
        end
     
        def show_from_category
-        data_array = []
-
+        
         items = ClassifiedForSale.where(classified_category_id: params[:classified_category_id])
-     
+        
+        # data_array = []
         # items.each do |item|
         #     x = item.attributes
             # x["user"] = item.user
