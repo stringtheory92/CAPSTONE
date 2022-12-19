@@ -9,6 +9,7 @@ function Message({ message }) {
   return (
     <div>
       <MessageStyled className="messageWrapper">
+        <h2>{message.author.user_name}</h2>
         {parse(message.content)}
       </MessageStyled>
       {/* <MessageStyled>{`${message.content} - ${message.user.user_name}`}</MessageStyled> */}

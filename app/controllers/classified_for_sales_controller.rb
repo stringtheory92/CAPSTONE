@@ -4,6 +4,7 @@ class ClassifiedForSalesController < ApplicationController
        end
     
        def show 
+        
         render json: ClassifiedForSale.find(params[:id]), status: :ok, serializer: ClassifiedForSaleSerializer, include: ['for_sale_messages.users']
        end
     
