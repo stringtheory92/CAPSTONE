@@ -50,3 +50,5 @@ gem "aws-sdk-s3", require: false
 gem "hirb", "~> 0.7.3"
 
 gem "bcrypt", "~> 3.1"
+
+gem "pry", "~> 0.14.1"

@@ -3,13 +3,21 @@ class ClassifiedForSalesController < ApplicationController
         render json: ClassifiedForSale.all, status: :ok
        end
     
+
        def show 
         
-        render json: ClassifiedForSale.find(params[:id]), status: :ok, serializer: ClassifiedForSaleSerializer, include: ['for_sale_messages.users']
+        
+        # item = ClassifiedForSale.find(params[:id])
+        # item_messages = item.for_sale_messages_method
+
+        # render json: {**item.attributes, messages: item_messages}, status: :ok, serializer: ClassifiedForSaleSerializer
+        # render json: item, status: :ok, serializer: ClassifiedForSaleSerializer
+        
+        render json: ClassifiedForSale.find(params[:id]), status: :ok, serializer: ClassifiedForSaleSerializer
        end
     
+
        def create
-       
         item = ClassifiedForSale.create!(for_sale_params)
         pic = rails_blob_path(item.pic)
         if pic
@@ -19,27 +27,11 @@ class ClassifiedForSalesController < ApplicationController
         end
        end
     
+
        def show_from_category
         
         items = ClassifiedForSale.where(classified_category_id: params[:classified_category_id])
         
-        # data_array = []
-        # items.each do |item|
-        #     x = item.attributes
-            # x["user"] = item.user
-            # x["total_messages"] = item.for_sale_messages.count
-            # x["last_message"] = item.for_sale_messages.last
-            # x["last_message_by"] = item.for_sale_messages.last.user.user_name
-            # byebug
-            
-            
-        #     if item.pic.attached?
-        #         pic = rails_blob_path(item.pic)
-        #         data_array << {item: x, pic: pic}
-        #     else
-        #         data_array << {item: x}
-        #     end
-        # end
         
         render json: items, status: :ok
        
