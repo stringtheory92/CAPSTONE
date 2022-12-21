@@ -42,7 +42,10 @@ function ClassifiedMessages({ user }) {
       {displayedMessages}
       {/* <button onClick={toggleIsCreatingNewMessage}>Compose message</button> */}
       {isCreatingNewMessage ? null : (
-        <SubmitButtonStyled onClick={toggleIsCreatingNewMessage}>
+        <SubmitButtonStyled
+          onClick={toggleIsCreatingNewMessage}
+          className="CreateBtn"
+        >
           Compose message
         </SubmitButtonStyled>
       )}

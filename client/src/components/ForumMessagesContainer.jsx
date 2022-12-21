@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, NavLink } from "react-router-dom";
 import Message from "./Message";
 import NewForumMessageForm from "./NewForumMessageForm";
-import { MessageContainerStyled } from "./shared";
+import { MessageContainerStyled, SubmitButtonStyled } from "./shared";
 
 function ForumMessagesContainer({ user }) {
   const { main_forum_id, sub_forum_id, sub_forum_topic_id } = useParams();
@@ -59,7 +59,7 @@ function ForumMessagesContainer({ user }) {
   return (
     <MessageContainerStyled>
       {topicHeading ? (
-        <div>
+        <div className="headerContainer">
           <p>Topic:</p>
           <h2 className="heading">
             <span style={headerStyles}>{topicHeading}</span>
@@ -69,9 +69,12 @@ function ForumMessagesContainer({ user }) {
       {displayedMessages}
       {/* <button onClick={toggleIsCreatingNewMessage}>Compose message</button> */}
       {isCreatingNewMessage ? null : (
-        <button onClick={toggleIsCreatingNewMessage} style={{ color: "white" }}>
+        <SubmitButtonStyled
+          onClick={toggleIsCreatingNewMessage}
+          style={{ color: "white" }}
+        >
           Compose message
-        </button>
+        </SubmitButtonStyled>
       )}
       {isCreatingNewMessage ? (
         <NewForumMessageForm
