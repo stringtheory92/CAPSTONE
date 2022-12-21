@@ -32,6 +32,7 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
   const [stateName, setStateName] = useState("");
   const [itemPic, setItemPic] = useState(null);
   const [explanation, setExplanation] = useState("");
+  const [errors, setErrors] = useState({});
 
   console.log(
     'sessionStorage.getItem("user_id"): ',
@@ -99,18 +100,37 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
       method: "POST",
       body: newFormData,
     };
-    fetch(`/classified_for_sales`, configObj)
-      .then((r) => r.json())
-      .then((data) => {
-        console.log("ok: ", data);
-        navigate(`/classifieds/${category_id}/${data.item.id}`);
-      });
+    fetch(`/classified_for_sales`, configObj).then((r) => {
+      if (r.ok) {
+        r.json().then((data) => {
+          console.log("ok: ", data);
+          navigate(`/classifieds/${category_id}/${data.item.id}`);
+        });
+      } else {
+        r.json().then((errors) => {
+          console.log("Not Ok. Errors: ", errors);
+          setErrors(errors);
+        });
+      }
+    });
   };
-
+  const displayedErrors = () => {
+    let errorArray = [];
+    for (const [key, value] of Object.entries(errors)) {
+      for (let message of value) {
+        errorArray.push(`${key} value ${message}`);
+      }
+      return errorArray.map((error) => <p>{error}</p>);
+    }
+    console.log("errorArray: ", errorArray);
+  };
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
+      <div></div>
       <NewForSaleFormStyled action="" onSubmit={handleSubmit}>
-        <label htmlFor="bass">Headline</label>
+        {errors ? displayedErrors() : null}
+        {/* {errors ? displayedErrors()?.map((error) => <p>{error}</p>) : null} */}
+        <label htmlFor="bass">Headline (max 20 chars)</label>
         <input
           className="text"
           type="text"
@@ -118,7 +138,7 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
           value={formData.bass}
           onChange={handleChange}
         />
-        <label htmlFor="manufacture_year">Year</label>
+        <label htmlFor="manufacture_year">Year (yyyy)</label>
         <input
           className="text"
           type="text"
@@ -127,7 +147,7 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
           onChange={handleChange}
         />
         {/* STATUS USING RADIO BUTTONS AT THE END OF FORM */}
-        <label htmlFor="price">Price</label>
+        <label htmlFor="price">$Price</label>
         <input
           className="text"
           type="number"
