@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import ListUnit from "./ListUnit";
+import { SubForumsStyled } from "./shared";
 
 function SubForums() {
   const { main_forum_id } = useParams();
@@ -30,10 +31,10 @@ function SubForums() {
   ));
 
   return (
-    <div>
+    <SubForumsStyled>
       <h1>SubForums</h1>
       {list ? list : null}
-    </div>
+    </SubForumsStyled>
   );
 }
 

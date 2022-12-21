@@ -46,11 +46,12 @@ function SubForumTopics({ user, onPinningTopic }) {
   //   ));
 
   const headerStyles = {
-    fontSize: "2rem",
-    // border: "1px solid white",
-    padding: "1rem",
-    // marginTop: "1rem",
-    color: "var(--textColor)",
+    color: "white",
+    fontSize: "3rem",
+    fontWeight: "400",
+    letterSpacing: "0.4rem",
+    paddingTop: "3rem",
+    paddingBottom: "2rem",
     textAlign: "center",
   };
   const mainContainerStyles = {

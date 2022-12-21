@@ -50,7 +50,11 @@ function ForumMessagesContainer({ user }) {
   //===========================================================
   return (
     <MessageContainerStyled>
-      {topicHeading ? <h2 className="heading">{topicHeading}</h2> : null}
+      {topicHeading ? (
+        <h2 className="heading">
+          Topic: <span style={{ fontStyle: "italic" }}>{topicHeading}</span>
+        </h2>
+      ) : null}
       {displayedMessages}
       {/* <button onClick={toggleIsCreatingNewMessage}>Compose message</button> */}
       {isCreatingNewMessage ? null : (

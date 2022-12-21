@@ -6,8 +6,12 @@ import Compose from "../../resources/compose.png";
 const ForSaleStyled = styled.div`
   color: var(--textColor);
   > .classifiedForSaleHeading {
-    margin: 2rem;
-    font-size: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    color: white;
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: 0.4rem;
   }
   > .categoryContainer {
     margin-top: 4rem;

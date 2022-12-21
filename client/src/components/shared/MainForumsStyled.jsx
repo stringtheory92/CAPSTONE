@@ -4,9 +4,12 @@ import SSBG_1 from "../../bg/SSBG_1.jpg";
 
 const MainForumStyled = styled.div`
   > h1 {
-    margin: 2rem;
-    font-size: 2rem;
-    color: var(--textColor);
+    color: white;
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: 0.4rem;
+    padding-top: 3rem;
+    /* padding-bottom: 2rem;s */
   }
   > .categoryContainer {
     margin-top: 4rem;
