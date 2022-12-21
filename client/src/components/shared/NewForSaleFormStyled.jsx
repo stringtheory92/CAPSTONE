@@ -7,7 +7,7 @@ const NewForSaleFormStyled = styled.form`
   padding: 1rem;
   font-size: 1.2rem;
   color: var(--grey);
-  > input {
+  > .text {
     // need these three in order to keep focus border from changing the size of the input
     box-sizing: border-box;
     background-color: var(--forumItem);
@@ -22,11 +22,20 @@ const NewForSaleFormStyled = styled.form`
     border: none;
     transition: border 0.2s;
   }
-  > input:focus {
+  > .text:focus {
     border: 2px solid var(--primary);
     outline: none;
   }
-
+  > .react_select__option {
+    border: 5px solid blue;
+    color: red;
+    z-index: 999;
+  }
+  > .select_container {
+    /* border: 3px solid red; */
+    z-index: 999;
+    /* menuportal: ${(provided) => ({ ...provided, zIndex: 9999 })}; */
+  }
   > .radioLabel > .radio {
     margin-right: 1rem;
   }

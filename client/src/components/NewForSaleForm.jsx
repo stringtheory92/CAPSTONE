@@ -112,6 +112,7 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
       <NewForSaleFormStyled action="" onSubmit={handleSubmit}>
         <label htmlFor="bass">Headline</label>
         <input
+          className="text"
           type="text"
           name="bass"
           value={formData.bass}
@@ -119,6 +120,7 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
         />
         <label htmlFor="manufacture_year">Year</label>
         <input
+          className="text"
           type="text"
           name="manufacture_year"
           value={formData.manufacture_year}
@@ -127,6 +129,7 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
         {/* STATUS USING RADIO BUTTONS AT THE END OF FORM */}
         <label htmlFor="price">Price</label>
         <input
+          className="text"
           type="number"
           name="price"
           value={formData.price}
@@ -134,6 +137,7 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
         />
         <label htmlFor="strings">Number of strings</label>
         <input
+          className="text"
           type="number"
           name="strings"
           value={formData.strings}
@@ -154,9 +158,14 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
             setCountryCode(e.isoCode);
           }}
         /> */}
-
         <label htmlFor="state">State</label>
         <Select
+          // classNames={{
+          //   menuPortal: state => zIndex: '999'
+          // }}
+          menuPosition={"fixed"}
+          className="select_container"
+          classNamePrefix="select"
           options={updatedStates(formData.country)}
           placeholder={formData.state ? stateName : "Select State"}
           type="text"
@@ -169,6 +178,7 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
         />
         <label htmlFor="city">City</label>
         <Select
+          className="select"
           options={updatedCities(formData.country, formData.state)}
           placeholder={formData.city ? formData.city : "Select City"}
           type="text"
@@ -203,7 +213,6 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
         </label>
         {/* <input type="radio" name="status" id="" value="Sold"/> */}
         <br />
-
         <label htmlFor="itemPic">Upload an picture</label>
         <div className="picUploadContainer">
           <FileInputStyled

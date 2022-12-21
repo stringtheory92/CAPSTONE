@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import ClassifiedListUnit from "./ClassifiedListUnit";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useParams, useNavigate } from "react-router-dom";
 import { ForSaleStyled } from "./shared";
 
 function ClassifiedForSale() {
+  const navigate = useNavigate();
   let { category_id } = useParams();
   const [allItems, setAllItems] = useState([]);
   const [errors, setErrors] = useState([]);
@@ -44,14 +45,14 @@ function ClassifiedForSale() {
     // <h2>{item.bass}</h2>
     // <img src={item.pic} alt="" />
   );
-
+  const handleNewListingClick = () => {
+    navigate(`/classifieds/${category_id}/new_for_sale`);
+  };
   return (
     <ForSaleStyled>
       <h1 className="classifiedForSaleHeading">For Sale</h1>
+      <button onClick={handleNewListingClick}></button>
       <div className="forSaleGridContainer">{displayedItems}</div>
-      <NavLink to={`/classifieds/${category_id}/new_for_sale`}>
-        List My Stuff
-      </NavLink>
     </ForSaleStyled>
   );
 }
