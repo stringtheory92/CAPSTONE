@@ -22,8 +22,19 @@ const HomeStyled = styled.div`
     justify-content: center;
     align-items: center;
   }
-  > .leftSide > .imageBox > button {
-    background-color: white;
+  > .leftSide > .imageBox > button,
+  .leftSide > button {
+    cursor: pointer;
+    height: 3rem;
+    color: var(--textColor);
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    background-color: var(--logo-color);
+    transition: all 0.3s;
+    &:hover {
+      opacity: 0.5;
+    }
   }
   > .leftSide > .imageBox > img {
     max-height: 90%;
@@ -34,7 +45,7 @@ const HomeStyled = styled.div`
     font-size: 2rem;
   }
   > .rightSide > .uploadForm > .avatarUploadInput {
-    background-color: white;
+    color: var(--textColor);
   }
   > .rightSide > div > .updateProfile {
     cursor: pointer;

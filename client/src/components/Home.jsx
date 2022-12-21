@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { PinItem } from "./shared";
+import { PinItem, FileInputStyled } from "./shared";
 import Ticker from "react-ticker";
 // import TickerComponent from "./TickerComponent";
 // import TickerEvents from "./TickerEvents";
@@ -137,6 +137,11 @@ function Home({
             )}
           </div>
           <div className="nameBox">{user.user_name}</div>
+          {user.avatar ? (
+            <button onClick={toggleIsEditingUser} className="updateProfile">
+              Update Profile
+            </button>
+          ) : null}
         </div>
         <div className="rightSide">
           {isEditingUser ? (
@@ -147,6 +152,7 @@ function Home({
               >
                 <label htmlFor="user_name">New name:</label>
                 <input
+                  className="textInput"
                   type="text"
                   name="user_name"
                   id=""
@@ -155,6 +161,7 @@ function Home({
                 />
                 <label htmlFor="password">New password:</label>
                 <input
+                  className="textInput"
                   type="text"
                   name="password"
                   id=""
@@ -163,6 +170,7 @@ function Home({
                 />
                 <label htmlFor="password_confirmation">Confirm password:</label>
                 <input
+                  className="textInput"
                   type="text"
                   name="password_confirmation"
                   id=""
@@ -178,7 +186,7 @@ function Home({
               >
                 {/* <input type="file" accept="image/*" onChange={handleChange} /> */}
 
-                <input
+                <FileInputStyled
                   className="avatarUploadInput"
                   type="file"
                   accept="image/*"
@@ -189,11 +197,6 @@ function Home({
             </>
           ) : (
             <div>
-              {user.avatar ? (
-                <button onClick={toggleIsEditingUser} className="updateProfile">
-                  Update Profile
-                </button>
-              ) : null}
               <div className="pinsContainer">
                 <PinItem>{userPins}</PinItem>
                 double bass by Valter Bispo from{" "}
