@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import HomePinnedTopic from "./HomePinnedTopic";
 import { PinItem, FileInputStyled } from "./shared";
 import Ticker from "react-ticker";
 // import TickerComponent from "./TickerComponent";
@@ -19,6 +21,7 @@ function Home({
   ticketMasterEvents,
   userPinState,
 }) {
+  const navigate = useNavigate();
   const [updatedUser, setUpdatedUser] = useState(user);
   const [isEditingUser, setIsEditingUser] = useState(false);
   const [newAvatar, setNewAvatar] = useState("");
@@ -93,13 +96,24 @@ function Home({
     });
   };
 
+  const handlePinnedTopicClick = (
+    e,
+    sub_forum_topic_id,
+    sub_forum_id,
+    main_forum_id
+  ) => {
+    console.log("e: ", e);
+    navigate(`/forums/${main_forum_id}/${sub_forum_id}/${sub_forum_topic_id}`);
+  };
   const userPins = updatedUser.forum_discussion_topics?.map((topic) => {
     console.log("topic: ", topic);
     return (
-      <div
+      <HomePinnedTopic
         key={topic.id}
+        topic={topic}
         className="item"
-      >{`${topic.wrapped_sub_forum.heading} >> \n ${topic.heading}`}</div>
+        handlePinnedTopicClick={handlePinnedTopicClick}
+      ></HomePinnedTopic>
     );
   });
 
