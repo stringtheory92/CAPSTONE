@@ -105,7 +105,7 @@
 } */
 .imageContainer {
   width: 100%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 /* .forSaleImageContainer {
   display: flex;
@@ -238,7 +238,7 @@
   .namePic {
     display: flex;
     flex-direction: column;
-    border: 1px solid lime;
+    /* border: 1px solid lime; */
   }
   .imageContainer {
     /* background-image: url("../../public/avatars/default-avatar.png");
@@ -250,13 +250,13 @@
     justify-content: center;
     align-items: flex-end;
     padding: 1rem;
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
     height: 6rem;
     flex-basis: 10rem;
     flex-grow: 0;
   }
   .nameContainer {
-    border: 1px solid orange;
+    /* border: 1px solid orange; */
     align-self: stretch;
     font-size: 0.5rem;
     width: 100%;
@@ -269,7 +269,7 @@
 @media (min-width: 1035px) {
   .namePic {
     display: flex;
-    border: 1px solid lime;
+    /* border: 1px solid lime; */
   }
   /* .sides {
     flex-grow: 0;

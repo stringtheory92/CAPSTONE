@@ -1,28 +1,48 @@
 import React from "react";
 import styled from "styled-components";
+import SSBG_1 from "../../bg/SSBG_1.jpg";
 
 const HomeStyled = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  color: var(--textColor);
-  > .leftSide {
+  /* background: url(${SSBG_1});
+  box-shadow: 0px -10px 10px rgb(13, 30, 128); */
+  > .headerBox {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: 0.4rem;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    /* border: 2px solid white; */
+  }
+
+  > .subHeaderBox {
+    background: url(${SSBG_1});
+    border-top: 2px solid var(--forumItem);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    color: var(--textColor);
+  }
+  > div > .leftSide {
     display: grid;
     grid-template-rows: auto 4rem auto;
   }
-  > .leftSide,
+  > div > .leftSide,
   .rightSide {
+    text-align: left;
     width: 100%;
-    border: 1px solid var(--white);
+    /* border: 1px solid var(--white); */
   }
-  > .leftSide > .imageBox {
+  > div > .leftSide > .imageBox {
     /* width: 100%; */
-    min-height: 10rem;
-    border: 1px solid lime;
+    /* min-height: 10rem; */
+    /* border: 1px solid lime; */
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  > .leftSide > .imageBox > button,
+  > div > .leftSide > .imageBox > button,
   .leftSide > button {
     cursor: pointer;
     height: 3rem;
@@ -36,20 +56,28 @@ const HomeStyled = styled.div`
       opacity: 0.5;
     }
   }
-  > .leftSide > .imageBox > img {
+  > div > .leftSide > .imageBox > img {
     max-height: 90%;
     max-width: 90%;
   }
-  > .leftSide > .nameBox {
+  > div > .leftSide > .nameBox {
     text-align: center;
     font-size: 2rem;
   }
-  > .rightSide > .uploadForm > .avatarUploadInput {
+  > div > .rightSide > .uploadForm > .avatarUploadInput {
     color: var(--textColor);
   }
-  > .rightSide > div > .updateProfile {
+  > div > .rightSide > div > .updateProfile {
     cursor: pointer;
     color: var(--textColor);
+  }
+  > div > .rightSide > div > .pinnedTopics {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.1rem 1rem;
+    padding: 1rem;
+    font-size: 1.5rem;
   }
 `;
 

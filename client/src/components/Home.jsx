@@ -137,83 +137,88 @@ function Home({
   return (
     <div>
       <HomeStyled>
-        <div className="leftSide">
-          <div className="imageBox">
+        <div className="headerBox">HOME</div>
+        <div className="subHeaderBox">
+          <div className="leftSide">
+            <div className="imageBox">
+              {user.avatar ? (
+                <img src={user.avatar} alt="" />
+              ) : (
+                <button
+                  onClick={toggleIsEditingUser}
+                  className="updateProfileImage"
+                >
+                  Update Profile/Add Image
+                </button>
+              )}
+            </div>
+            <div className="nameBox">{user.user_name}</div>
             {user.avatar ? (
-              <img src={user.avatar} alt="" />
-            ) : (
-              <button
-                onClick={toggleIsEditingUser}
-                className="updateProfileImage"
-              >
-                Update Profile/Add Image
+              <button onClick={toggleIsEditingUser} className="updateProfile">
+                Update Profile
               </button>
-            )}
+            ) : null}
           </div>
-          <div className="nameBox">{user.user_name}</div>
-          {user.avatar ? (
-            <button onClick={toggleIsEditingUser} className="updateProfile">
-              Update Profile
-            </button>
-          ) : null}
-        </div>
-        <div className="rightSide">
-          {isEditingUser ? (
-            <>
-              <EditUserFormStyled
-                action=""
-                onSubmit={handleNewNamePasswordSubmit}
-              >
-                <label htmlFor="user_name">New name:</label>
-                <input
-                  className="textInput"
-                  type="text"
-                  name="user_name"
-                  id=""
-                  value={formData.user_name}
-                  onChange={handleNamePasswordChange}
-                />
-                <label htmlFor="password">New password:</label>
-                <input
-                  className="textInput"
-                  type="text"
-                  name="password"
-                  id=""
-                  value={formData.password}
-                  onChange={handleNamePasswordChange}
-                />
-                <label htmlFor="password_confirmation">Confirm password:</label>
-                <input
-                  className="textInput"
-                  type="text"
-                  name="password_confirmation"
-                  id=""
-                  value={formData.password_confirmation}
-                  onChange={handleNamePasswordChange}
-                />
-                <button type="submit">Change name and password</button>
-              </EditUserFormStyled>
-              <EditUserFormStyled
-                className="uploadForm"
-                action=""
-                onSubmit={handleAvatarChange}
-              >
-                {/* <input type="file" accept="image/*" onChange={handleChange} /> */}
+          <div className="rightSide">
+            {isEditingUser ? (
+              <>
+                <EditUserFormStyled
+                  action=""
+                  onSubmit={handleNewNamePasswordSubmit}
+                >
+                  <label htmlFor="user_name">New name:</label>
+                  <input
+                    className="textInput"
+                    type="text"
+                    name="user_name"
+                    id=""
+                    value={formData.user_name}
+                    onChange={handleNamePasswordChange}
+                  />
+                  <label htmlFor="password">New password:</label>
+                  <input
+                    className="textInput"
+                    type="text"
+                    name="password"
+                    id=""
+                    value={formData.password}
+                    onChange={handleNamePasswordChange}
+                  />
+                  <label htmlFor="password_confirmation">
+                    Confirm password:
+                  </label>
+                  <input
+                    className="textInput"
+                    type="text"
+                    name="password_confirmation"
+                    id=""
+                    value={formData.password_confirmation}
+                    onChange={handleNamePasswordChange}
+                  />
+                  <button type="submit">Change name and password</button>
+                </EditUserFormStyled>
+                <EditUserFormStyled
+                  className="uploadForm"
+                  action=""
+                  onSubmit={handleAvatarChange}
+                >
+                  {/* <input type="file" accept="image/*" onChange={handleChange} /> */}
 
-                <FileInputStyled
-                  className="avatarUploadInput"
-                  type="file"
-                  accept="image/*"
-                  onChange={(e) => setNewAvatar(e.target.files[0])}
-                />
-                <button type="submit">Update Image</button>
-              </EditUserFormStyled>
-            </>
-          ) : (
-            <div>
-              <div className="pinsContainer">
-                <PinItem>{userPins}</PinItem>
-                double bass by Valter Bispo from{" "}
+                  <FileInputStyled
+                    className="avatarUploadInput"
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => setNewAvatar(e.target.files[0])}
+                  />
+                  <button type="submit">Update Image</button>
+                </EditUserFormStyled>
+              </>
+            ) : (
+              <div>
+                <div className="pinnedTopics">Your Pinned Topics</div>
+                <div className="pinsContainer">
+                  <PinItem>{userPins}</PinItem>
+                  {/* double bass by Valter Bispo from{" "}
                 <a
                   href="https://thenounproject.com/browse/icons/term/double-bass/"
                   target="_blank"
@@ -236,10 +241,11 @@ function Home({
                   title="guitar strings Icons"
                 >
                   Noun Project
-                </a>
+                </a> */}
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </HomeStyled>
 
