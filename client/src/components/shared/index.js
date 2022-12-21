@@ -30,6 +30,7 @@ import NewTopicFormStyled from "./NewTopicFormStyled";
 import ForSaleStyled from "./ForSaleStyled";
 import MessageContainerStyled from "./MessageContainerStyled";
 import ClassifiedMessagesStyled from "./ClassifiedMessagesStyled";
+import PinItem from "./PinItem";
 
 export {
   MainForumItem,
@@ -61,5 +62,6 @@ export {
   ForSaleStyled,
   MessageContainerStyled,
   ClassifiedMessagesStyled,
+  PinItem,
 };
 // export { Button, Form, Input, MainForumList };

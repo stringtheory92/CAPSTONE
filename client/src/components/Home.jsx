@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { PinItem } from "./shared";
 import Ticker from "react-ticker";
 // import TickerComponent from "./TickerComponent";
 // import TickerEvents from "./TickerEvents";
@@ -94,7 +95,12 @@ function Home({
 
   const userPins = updatedUser.forum_discussion_topics?.map((topic) => {
     console.log("topic: ", topic);
-    return <li key={topic.id}>{topic.heading}</li>;
+    return (
+      <div
+        key={topic.id}
+        className="item"
+      >{`${topic.wrapped_sub_forum.heading} >> \n ${topic.heading}`}</div>
+    );
   });
 
   const handleNamePasswordChange = (e) => {
@@ -189,14 +195,7 @@ function Home({
                 </button>
               ) : null}
               <div className="pinsContainer">
-                <ul className="pins">
-                  {userPins}
-                  <li>pin</li>
-                  <li>pin</li>
-                  <li>pin</li>
-                  <li>pin</li>
-                  <li>pin</li>
-                </ul>
+                <PinItem>{userPins}</PinItem>
                 double bass by Valter Bispo from{" "}
                 <a
                   href="https://thenounproject.com/browse/icons/term/double-bass/"
