@@ -6,6 +6,8 @@ import {
   SubmitButtonStyled,
 } from "./shared";
 
+import { Country, State, City } from "country-state-city";
+
 function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
   const { category_id } = useParams();
   const navigate = useNavigate();
@@ -39,6 +41,15 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
 
     setFormData({ ...formData, [name]: value });
   };
+
+  const updatedCountries = Country.getAllCountries();
+  const updatedStates = (countryCode) => State.getStatesOfCountry(countryCode);
+  const updatedCities = (countryCode, stateCode) =>
+    City.getCitiesOfState(countryCode, stateCode);
+
+  console.log("updatedCountries: ", updatedCountries);
+  // console.log("updatedStates: ", updatedStates("US"));
+  // console.log("updatedCities: ", updatedCities("US", "NY"));
 
   const handleImageUpload = () => {};
 
@@ -117,6 +128,13 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
           onChange={handleChange}
         />
         {/* FIND QUALITY NPM FOR CITY/STATE/COUNTRY FOR CONSISTENCY   */}
+        <label htmlFor="country">Country</label>
+        <input
+          type="text"
+          name="country"
+          value={formData.country}
+          onChange={handleChange}
+        />
         <label htmlFor="city">City</label>
         <input
           type="text"
@@ -131,13 +149,7 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
           value={formData.state}
           onChange={handleChange}
         />
-        <label htmlFor="country">Country</label>
-        <input
-          type="text"
-          name="country"
-          value={formData.country}
-          onChange={handleChange}
-        />
+
         {/* <label htmlFor="status">Transaction Type</label> */}
         <label htmlFor="" className="radioLabel">
           <input
