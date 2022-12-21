@@ -249,53 +249,6 @@ function Home({
         </div>
       </HomeStyled>
 
-      {/* {mapped ? (
-        <Ticker offset="run-in">{({ index }) => <>{mapped[index]}</>}</Ticker>
-      ) : null} */}
-      {/* <Ticker offset="run-in">
-        {() => {
-          <>
-            {mapped ? (
-              <h2 className="toShow" style={{ color: "white" }}>
-                {mapped.join(" ")}
-           
-              </h2>
-            ) : (
-              <h2 style={{ visibility: "hidden" }}>placeholder</h2>
-            )}
-          </>;
-        }}
-      </Ticker> */}
-
-      {/* <TickerComponent ticketMasterEvents={ticketMasterEvents} /> */}
-      {/* <Ticker offset="run-in">
-        {({ index }) => {
-          ticketMasterEvents.length > 0 ? (
-            ticketMasterEvents.map((event) => {
-              const {
-                name,
-                classifications,
-                dates,
-                images,
-                priceRanges,
-                sales,
-              } = event;
-              const genre = classifications[0].genre.name;
-              const dateAndTime = [
-                dates.start.localDate,
-                dates.start.localTime,
-              ];
-              const priceRange = [priceRanges[0].min, priceRanges[0].max];
-              const onSaleThrough = sales.endDateTime;
-              console.log(name);
-              return <TickerEvent event={event} />;
-            })
-          ) : (
-            <h2>Loading...</h2>
-          );
-        }}
-      </Ticker> */}
-      {/* Error on failure to obtain user location via browser */}
       <p>{positionError}</p>
     </div>
   );

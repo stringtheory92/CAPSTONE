@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const LoginStyled = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 77vh;
   > div > form > label {
     color: var(--light-grey);
@@ -9,6 +12,8 @@ const LoginStyled = styled.div`
   > div > form {
     display: flex;
     flex-direction: column;
+
+    /* align-items: center; */
     padding: 1rem;
     font-size: 1rem;
   }
@@ -22,6 +27,7 @@ const LoginStyled = styled.div`
     margin-bottom: 1.5rem;
   }
   > div > form > .signInButton {
+    align-self: center;
     font-family: "Monoton", cursive;
     font-size: 1.8rem;
     cursor: pointer;

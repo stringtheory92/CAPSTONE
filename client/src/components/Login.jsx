@@ -124,9 +124,9 @@ function Login({ onSignIn }) {
         <div>
           {sampleUser ? (
             <div>
-              <h1>SubSonic: the voices behind the sound</h1>
+              {/* <h1>SubSonic: the voices behind the sound</h1> */}
               {/* <h1>{`User Name: ${sampleUser.user_name} Password: ${sampleUser.password}`}</h1> */}
-              <h1>{`User Name: ${sampleUser2.user_name} Password: ${sampleUser2.password}`}</h1>
+              {/* <h1>{`User Name: ${sampleUser2.user_name} Password: ${sampleUser2.password}`}</h1> */}
               {/* <h1>{`User Name: ${sampleUser3.user_name} Password: ${sampleUser3.password}`}</h1> */}
             </div>
           ) : null}
@@ -170,7 +170,7 @@ function Login({ onSignIn }) {
               value={createAccount.user_name}
               onChange={handleChange}
             />
-            <label htmlFor="city">City</label>
+            <label htmlFor="city">City (full name)</label>
             <input
               type="text"
               name="city"
@@ -179,7 +179,7 @@ function Login({ onSignIn }) {
               onChange={handleChange}
             />
             {/* Validate: 2 characters */}
-            <label htmlFor="state_code">State</label>
+            <label htmlFor="state_code">State (2 chars)</label>
             <input
               type="text"
               name="state_code"
@@ -188,14 +188,14 @@ function Login({ onSignIn }) {
               onChange={handleChange}
             />
             {/* Validate: 5 digits */}
-            <label htmlFor="zip">Zip Code</label>
+            {/* <label htmlFor="zip">Zip Code</label>
             <input
               type="text"
               name="zip"
               id="zip"
               value={createAccount.zip}
               onChange={handleChange}
-            />
+            /> */}
             {/* insert validations for password length, must contain a number */}
             <label htmlFor="password">Password</label>
             <input
