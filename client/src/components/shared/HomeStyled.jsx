@@ -18,6 +18,8 @@ const HomeStyled = styled.div`
   }
 
   > .subHeaderBox {
+    padding: 1rem 0;
+
     background: url(${SSBG_1});
     border-top: 2px solid var(--forumItem);
     display: grid;
@@ -48,7 +50,7 @@ const HomeStyled = styled.div`
     height: 3rem;
     color: var(--textColor);
     font-size: 1rem;
-    margin: 1rem 3rem;
+    margin: 0 3rem;
     padding: 0.6rem 1.2rem;
     border-radius: 10px;
     background-color: var(--logo-color);
