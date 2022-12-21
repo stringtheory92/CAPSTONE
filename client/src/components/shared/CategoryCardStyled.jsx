@@ -22,7 +22,7 @@ const CategoryCardStyled = styled.div`
   transition: filter 0.8s, border 0.8s, opacity 0.2s;
 
   &:hover {
-    border: 5px solid var(--logo-color);
+    outline: 5px solid var(--logo-color);
     filter: blur(2px);
   }
   &:active {
