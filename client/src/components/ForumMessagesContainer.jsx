@@ -46,14 +46,25 @@ function ForumMessagesContainer({ user }) {
     <Message key={message.id} message={message} />
   ));
   //===========================================================
-
+  const headerStyles = {
+    color: "white",
+    fontSize: "2rem",
+    fontWeight: "400",
+    letterSpacing: "0.4rem",
+    paddingTop: "3rem",
+    paddingBottom: "2rem",
+    // textAlign: "center",
+  };
   //===========================================================
   return (
     <MessageContainerStyled>
       {topicHeading ? (
-        <h2 className="heading">
-          Topic: <span style={{ fontStyle: "italic" }}>{topicHeading}</span>
-        </h2>
+        <div>
+          <p>Topic:</p>
+          <h2 className="heading">
+            <span style={headerStyles}>{topicHeading}</span>
+          </h2>
+        </div>
       ) : null}
       {displayedMessages}
       {/* <button onClick={toggleIsCreatingNewMessage}>Compose message</button> */}

@@ -48,7 +48,7 @@ const HomeStyled = styled.div`
     height: 3rem;
     color: var(--textColor);
     font-size: 1rem;
-    margin: 0 1rem;
+    margin: 1rem 3rem;
     padding: 0.6rem 1.2rem;
     border-radius: 10px;
     background-color: var(--logo-color);

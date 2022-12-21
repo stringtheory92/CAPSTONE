@@ -61,7 +61,7 @@ function SubForumTopics({ user, onPinningTopic }) {
 
   return (
     <div>
-      <h1 style={headerStyles}>SubForum Topics</h1>
+      <h1 style={headerStyles}>Topics</h1>
       <div className="mainContainer" style={mainContainerStyles}>
         <ComposeButtonStyled
           className="composeBtn"

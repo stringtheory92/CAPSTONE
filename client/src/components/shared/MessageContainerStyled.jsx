@@ -16,9 +16,19 @@ const MessageContainerStyled = styled.div`
   border-top: 2px solid var(--forumItem);
 
   transition: border 0.4s;
-  > .heading {
+  > .headerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  > div > p {
+    margin: 2rem;
+    font-size: 1rem;
+  }
+  > div > .heading {
+    overflow: hidden;
     margin: 1rem 1rem 0.1rem 1rem;
-    padding: 1rem;
+    padding: 0 1rem;
     font-size: 1.5rem;
   }
   > .messageWrapper > h2 {

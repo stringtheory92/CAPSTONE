@@ -51,7 +51,7 @@ function MainForums() {
   return (
     <MainForumStyled>
       {/* <div className="forum-list-container"> */}
-      <h1>MainForums</h1>
+      <h1>Forums</h1>
       {/* <ul>{fullList ? fullList : null}</ul> */}
       <div className="categoryContainer">
         <h2>Double Bass Forums</h2>

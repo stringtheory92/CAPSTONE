@@ -18,6 +18,14 @@ const PinItem = styled.div`
     /* border-radius: 6px; */
     box-shadow: 2px 2px 3px #222;
     border: 0.5px solid var(--forumBorder);
+    transition: all 0.3s;
+    &:hover {
+      opacity: 0.5;
+    }
+    &:active {
+      /* opacity: 1; */
+      background-color: var(--light-grey);
+    }
   }
   /* box-shadow: 2px 2px 3px #222;
   border: 0.5px solid var(--forumBorder); */
