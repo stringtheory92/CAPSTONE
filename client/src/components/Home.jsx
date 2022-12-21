@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Ticker from "react-ticker";
 // import TickerComponent from "./TickerComponent";
 // import TickerEvents from "./TickerEvents";
@@ -16,7 +16,9 @@ function Home({
   user,
   positionError,
   ticketMasterEvents,
+  userPinState,
 }) {
+  const [updatedUser, setUpdatedUser] = useState(user);
   const [isEditingUser, setIsEditingUser] = useState(false);
   const [newAvatar, setNewAvatar] = useState("");
   const [formData, setFormData] = useState({
@@ -29,6 +31,16 @@ function Home({
   const toggleIsEditingUser = () => {
     setIsEditingUser((status) => !status);
   };
+
+  useEffect(() => {
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((userObj) => {
+          setUpdatedUser(userObj);
+        });
+      }
+    });
+  }, [userPinState]);
 
   const handleAvatarChange = (e) => {
     e.preventDefault();
@@ -80,7 +92,7 @@ function Home({
     });
   };
 
-  const userPins = user.forum_discussion_topics?.map((topic) => {
+  const userPins = updatedUser.forum_discussion_topics?.map((topic) => {
     console.log("topic: ", topic);
     return <li key={topic.id}>{topic.heading}</li>;
   });

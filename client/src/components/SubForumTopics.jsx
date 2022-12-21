@@ -4,7 +4,7 @@ import ListUnit from "./ListUnit";
 import { SubmitButtonStyled, Button, ComposeButtonStyled } from "./shared";
 import create from "../resources/create.png";
 
-function SubForumTopics({ user }) {
+function SubForumTopics({ user, onPinningTopic }) {
   const { main_forum_id, sub_forum_id } = useParams();
   const navigate = useNavigate();
   const [allSubForumTopics, setAllSubForumTopics] = useState([]);
@@ -26,6 +26,7 @@ function SubForumTopics({ user }) {
       key={forum.id}
       forum={forum}
       user={user}
+      onPinningTopic={onPinningTopic}
       onSubForumTopicSelect={onSubForumTopicSelect}
     />
   ));

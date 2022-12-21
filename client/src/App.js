@@ -177,7 +177,10 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
   const [avatar, setAvatar] = useState(null);
-
+  // userPins set here in state so when new pins are added, state here is changed, triggering
+  // useEffect in home component to fire and refetch the user, updating the user's pinned items
+  // in Home without refreshing the dom. Pin action happens in ListUnit via SubForumTopics
+  const [userPinState, setUserPinState] = useState([]);
   // Position data from browser (useEffect on line 199)
   const [userPosition, setUserPosition] = useState(null);
   // Error on unsuccessful attempt to get user position. Pass to home component to display
@@ -376,6 +379,10 @@ function App() {
   console.log("isDarkMode: ", isDarkMode);
   // console.log("props.theme: ", props.theme);
 
+  const onPinningTopic = (pinObj) => {
+    setUserPinState([...userPinState, pinObj]);
+  };
+
   return (
     <ThemeProvider theme={isDarkMode ? lightTheme : darkTheme}>
       <GlobalStyle />
@@ -409,6 +416,7 @@ function App() {
                   <Home
                     onAvatarChange={onAvatarChange}
                     user={user}
+                    userPinState={userPinState}
                     onUpdateUser={onUpdateUser}
                     positionError={positionError}
                     ticketMasterEvents={ticketMasterEvents}
@@ -453,7 +461,9 @@ function App() {
             />
             <Route
               path="/forums/:main_forum_id/:sub_forum_id"
-              element={<SubForumTopics user={user} />}
+              element={
+                <SubForumTopics user={user} onPinningTopic={onPinningTopic} />
+              }
             />
 
             <Route

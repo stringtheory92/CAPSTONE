@@ -11,6 +11,7 @@ function ListUnit({
   onMainForumSelect,
   onSubForumSelect,
   onSubForumTopicSelect,
+  onPinningTopic,
 }) {
   // Might display timestamps to user
   const { id, heading, created_at, updated_at } = forum;
@@ -31,7 +32,10 @@ function ListUnit({
       }),
     })
       .then((r) => r.json())
-      .then((pinObj) => console.log("ok: ", pinObj));
+      .then((pinObj) => {
+        console.log("ok: ", pinObj);
+        onPinningTopic(pinObj);
+      });
   };
   const date = DateTime.fromISO(`${forum.last_message_date}`).toFormat(
     `LLL dd, yyyy `
