@@ -7,6 +7,7 @@ import {
 } from "./shared";
 
 import { Country, State, City } from "country-state-city";
+import Select from "react-select";
 
 function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
   const { category_id } = useParams();
@@ -21,12 +22,14 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
     strings: "",
     city: "",
     state: "",
-    country: "",
+    country: "US",
     views: null,
     classified_category_id: category_id,
     user_id: sessionStorage.getItem("user_id"),
     // need to pass down id of classified_category via routes (like in subforums)
   });
+  // only needed to display selected state in Select menu
+  const [stateName, setStateName] = useState("");
   const [itemPic, setItemPic] = useState(null);
   const [explanation, setExplanation] = useState("");
 
@@ -42,14 +45,23 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
     setFormData({ ...formData, [name]: value });
   };
 
-  const updatedCountries = Country.getAllCountries();
-  const updatedStates = (countryCode) => State.getStatesOfCountry(countryCode);
+  const updatedCountries = Country.getAllCountries()?.map((country) => {
+    return { ...country, label: country.name, value: country.isoCode };
+  });
+  const updatedStates = (countryCode) =>
+    State.getStatesOfCountry(countryCode).map((state) => {
+      return { ...state, label: state.name, value: state.isoCode };
+    });
   const updatedCities = (countryCode, stateCode) =>
-    City.getCitiesOfState(countryCode, stateCode);
+    City.getCitiesOfState(countryCode, stateCode).map((city) => {
+      return { ...city, label: city.name, value: city.name };
+    });
 
-  console.log("updatedCountries: ", updatedCountries);
+  // console.log("updatedCountries: ", updatedCountries);
   // console.log("updatedStates: ", updatedStates("US"));
   // console.log("updatedCities: ", updatedCities("US", "NY"));
+  console.log("formData: ", formData);
+  // console.log("formData.city: ", formData.city);
 
   const handleImageUpload = () => {};
 
@@ -128,28 +140,42 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
           onChange={handleChange}
         />
         {/* FIND QUALITY NPM FOR CITY/STATE/COUNTRY FOR CONSISTENCY   */}
-        <label htmlFor="country">Country</label>
-        <input
+        {/* <label htmlFor="country">Country</label> */}
+        {/* <Select
+          placeholder="Select Country"
+          isSearchable={true}
+          
+          options={updatedCountries}
           type="text"
           name="country"
           value={formData.country}
-          onChange={handleChange}
-        />
-        <label htmlFor="city">City</label>
-        <input
-          type="text"
-          name="city"
-          value={formData.city}
-          onChange={handleChange}
-        />
+          onChange={(e) => {
+            setFormData({ ...formData, country: e.name });
+            setCountryCode(e.isoCode);
+          }}
+        /> */}
+
         <label htmlFor="state">State</label>
-        <input
+        <Select
+          options={updatedStates(formData.country)}
+          placeholder={formData.state ? stateName : "Select State"}
           type="text"
           name="state"
           value={formData.state}
-          onChange={handleChange}
+          onChange={(e) => {
+            setFormData({ ...formData, state: e.value });
+            setStateName(e.label);
+          }}
         />
-
+        <label htmlFor="city">City</label>
+        <Select
+          options={updatedCities(formData.country, formData.state)}
+          placeholder={formData.city ? formData.city : "Select City"}
+          type="text"
+          name="city"
+          value={formData.city}
+          onChange={(e) => setFormData({ ...formData, city: e.value })}
+        />
         {/* <label htmlFor="status">Transaction Type</label> */}
         <label htmlFor="" className="radioLabel">
           <input
