@@ -15,21 +15,20 @@ function Message({ message }) {
   return (
     <div>
       <MessageStyled className="messageWrapper">
-        <div className="authorInfo">
-          {/* <img src={message.author.avatar} alt="" /> */}
-          <img src={message.user.avatar} alt="" />
-          <div className="details">
-            <p>{date}</p>
-            <p>At: {time}</p>
-            <h2>By: {message.user.user_name}</h2>
-            {/* <h2>By: {message.author.user_name}</h2> */}
-          </div>
+        <div className="topBar">
+          {date} at {time}
         </div>
-        <hr className="line" />
-
-        {parse(message.content)}
+        <div className="mainBody">
+          <div className="authorInfo">
+            <img src={message.user.avatar} alt="" />
+            <div className="details">
+              <h2>*{message.user.user_name}*</h2>
+            </div>
+          </div>
+          <hr className="line" />
+          <div className="messageContent">{parse(message.content)}</div>
+        </div>
       </MessageStyled>
-      {/* <MessageStyled>{`${message.content} - ${message.user.user_name}`}</MessageStyled> */}
     </div>
   );
 }

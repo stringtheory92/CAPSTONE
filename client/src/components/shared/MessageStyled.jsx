@@ -6,7 +6,7 @@ const MessageStyled = styled.li`
   /* border: none; */
   font-weight: 600;
   font-size: 0.8rem;
-  padding: 1.5rem;
+  /* padding: 1.5rem; */
   min-height: 4rem;
   margin: 0.5rem 1rem;
   border-radius: 10px;
@@ -16,25 +16,45 @@ const MessageStyled = styled.li`
   background-color: var(--messageItem);
   border: 2px solid var(--dark-turquoise);
   transition: background-color 0.2s;
-  > .line {
+  > .topBar {
+    color: var(--textColor);
+    background-color: var(--forumItemInside);
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    padding: 0.7rem;
+    /* margin-bottom: 0.7rem; */
+  }
+  /* > .line {
     color: grey;
     border: 0.5px solid var(--forumItem);
-    margin: 1rem;
-  }
-  > .authorInfo {
+    padding: 2rem 1rem;
+  } */
+  > .mainBody {
     display: flex;
   }
-  > .authorInfo > img {
-    max-width: 5rem;
-    max-height: 5rem;
-    border-radius: 50px;
-    margin-right: 2rem;
+  > .mainBody > .messageContent {
+    margin: 0.5rem;
   }
-  > .authorInfo > .details {
+  > div > .authorInfo {
+    border-right: 0.5px solid var(--forumItem);
+    width: 6rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 0.5rem 0;
+    /* justify-content: center; */
+    align-items: center;
+  }
+  > div > .authorInfo > img {
+    max-width: 5rem;
+    max-height: 5rem;
+
+    /* border-radius: 50px; */
+    margin: 0.5rem;
+    /* justify-self: center; */
+  }
+  > div > .authorInfo > .details > {
+    display: flex;
+
+    justify-content: center;
   }
   > p {
     display: flex;
