@@ -26,9 +26,7 @@ function UserMenu({ user }) {
       <div className="namePic">
         <div className="imageContainer">
           <AvatarStyled
-            src={
-              avatar ? `https://subsonic-app.onrender.com/${avatar}` : { Logo }
-            }
+            src={avatar ? { avatar } : { Logo }}
             alt="your face here!"
             // src={avatar ? `http://localhost:3000/${avatar}` : { Logo }}
             // alt="your face here!"
