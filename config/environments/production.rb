@@ -58,6 +58,7 @@ Rails.application.configure do
   # Store files on amazon.
   config.active_storage.service = :amazon
 
+  config.active_storage.variant_processor = :mini_magick 
   # Use a different logger for distributed setups.
   # require "syslog/logger"
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")

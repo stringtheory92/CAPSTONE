@@ -20,14 +20,18 @@ function UserMenu({ user }) {
   const handleACCClick = (e) => {
     navigate("/classifieds/4");
   };
-
+  // line 29, change url for avatar src
   return (
     <UserMenuStyled className="userMenu">
       <div className="namePic">
         <div className="imageContainer">
           <AvatarStyled
-            src={avatar ? `http://localhost:3000/${avatar}` : { Logo }}
+            src={
+              avatar ? `https://subsonic-app.onrender.com/${avatar}` : { Logo }
+            }
             alt="your face here!"
+            // src={avatar ? `http://localhost:3000/${avatar}` : { Logo }}
+            // alt="your face here!"
           />
         </div>
         <div className="nameContainer">
