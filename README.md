@@ -233,7 +233,11 @@ https://www.facebook.com/photo/?fbid=2676395625781051&set=a.355647687855868
 
 - For city/state form fields discovered react-select and country-state-city. To get fields to display selected option had to create a workaround by modifying placeholder value
 
-- react-select dropdown did not play nicely with my css. Tried targeting individual components with classNamePrefix for styling with styled components and changing z-index, but no matter what could not get dropdown to display. Only with one style did it work, but it also wiped out all styling on the page. Had to move on for now.
+- react-select dropdown did not play nicely with my css. Tried targeting individual components with classNamePrefix for styling with styled components and changing z-index, but no matter what could not get dropdown to display. Only with one style did it work:
+
+menuportal: ${(provided) => ({ ...provided, zIndex: 9999 })};
+
+but it also wiped out all styling on the page. Had to move on for now.
 
 - react-ticker struggles: Wanted to dynamically render jsx based on ticketmaster api calls and display events in scrolling banner. Compatibility with async data was 'experimental' and didn't end up working, though a whole day was spent trying.
 

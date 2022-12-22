@@ -94,7 +94,6 @@ function ListUnit({
         >
           <div className="topBar">
             <div>
-              <h2>{forum.category}</h2>
               <h2>{heading}</h2>
             </div>
             <PinButtonStyled
