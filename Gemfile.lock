@@ -137,6 +137,9 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.9-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.13.9-x86_64-linux)
+      racc (~> 1.4)
+    pg (1.4.5)
     pkg-config (1.5.1)
     pry (0.14.1)
       coderay (~> 1.1)
@@ -180,7 +183,6 @@ GEM
       pkg-config (~> 1.4)
     ruby-vips (2.1.4)
       ffi (~> 1.12)
-    sqlite3 (1.5.4-arm64-darwin)
     thor (1.2.1)
     timeout (0.3.0)
     tzinfo (2.0.5)
@@ -192,6 +194,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   active_model_serializers (~> 0.10.13)
@@ -205,11 +208,11 @@ DEPENDENCIES
   hirb (~> 0.7.3)
   image_processing (~> 1.12)
   mini_magick (~> 4.11)
+  pg
   pry (~> 0.14.1)
   puma (~> 5.0)
   rails (~> 7.0.4)
   rmagick (~> 5.1)
-  sqlite3 (~> 1.4)
   tzinfo-data
 
 RUBY VERSION

@@ -242,3 +242,9 @@ but it also wiped out all styling on the page. Had to move on for now.
 - react-ticker struggles: Wanted to dynamically render jsx based on ticketmaster api calls and display events in scrolling banner. Compatibility with async data was 'experimental' and didn't end up working, though a whole day was spent trying.
 
 - displaying images embedded with quill rich text editor was a challenge due to many intermediate-level html tags. Dev console elements tab was vital here.
+
+# POSTGRESQL
+
+- check details about connection between rails app and postgres by typing in console:
+
+ActiveRecord::Base.connection
