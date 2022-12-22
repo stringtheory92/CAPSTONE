@@ -37,13 +37,14 @@ const MessageStyled = styled.li`
   > .mainBody > .messageContent {
     margin: 2rem;
   }
-  > .mainBody > .messageContent > img {
-    max-width: 7rem;
-    max-height: 7rem;
+  > .mainBody > .messageContent > p > img {
+    margin: 2rem 0;
+    max-width: 10rem;
+    max-height: 10rem;
   }
   > div > .authorInfo {
     border-right: 0.5px solid var(--forumItem);
-    width: 9rem;
+    width: 10rem;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
@@ -66,8 +67,16 @@ const MessageStyled = styled.li`
   }
   > div > .authorInfo > .details > {
     display: flex;
-
+    flex-direction: column;
+    /* align-items: center; */
     justify-content: center;
+  }
+  > div > .authorInfo > .details > h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  > div > .authorInfo > .details > p {
+    font-style: italic;
   }
   > p {
     display: flex;

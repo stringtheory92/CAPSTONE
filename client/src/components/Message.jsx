@@ -30,6 +30,9 @@ function Message({ message }) {
             </div>
             <div className="details">
               <h2>*{message.user.user_name}*</h2>
+              <p>
+                {message.user.city}, {message.user.state_code}{" "}
+              </p>
             </div>
           </div>
           <hr className="line" />
