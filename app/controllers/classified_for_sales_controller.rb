@@ -19,7 +19,9 @@ class ClassifiedForSalesController < ApplicationController
 
        def create
         item = ClassifiedForSale.create!(for_sale_params)
+        
         pic = rails_blob_path(item.pic)
+
         if pic
             render json: {item: item, pic: pic}, status: :created
         else

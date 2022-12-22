@@ -21,6 +21,7 @@ function UserMenu({ user }) {
     navigate("/classifieds/4");
   };
   // line 29, change url for avatar src
+  console.log("Usermenu avatar: ", avatar);
   return (
     <UserMenuStyled className="userMenu">
       <div className="namePic">

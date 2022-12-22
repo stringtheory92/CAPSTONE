@@ -115,6 +115,7 @@ function NewForSaleForm({ user, avatar, selectedClassifiedsCategory }) {
     });
   };
   const displayedErrors = () => {
+    console.log("in displaydErrors: errors: ", errors);
     let errorArray = [];
     for (const [key, value] of Object.entries(errors)) {
       for (let message of value) {
