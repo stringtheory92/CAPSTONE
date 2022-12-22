@@ -28,6 +28,10 @@ const NewForumMessageFormStyled = styled.form`
     height: 15rem;
     overflow-y: hidden;
   }
+  > .quill > .ql-container > .ql-editor > p > img {
+    max-height: 10rem;
+    max-width: 10rem;
+  }
   > textarea {
     background-color: var(--white);
   }

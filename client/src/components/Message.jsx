@@ -2,6 +2,7 @@ import React from "react";
 import { MessageStyled } from "./shared";
 import parse from "html-react-parser";
 import { DateTime } from "luxon";
+import Logo from "../icons/SubSonic-logo-black-A-alt.png";
 
 function Message({ message }) {
   // Pass down the type of messages that it's downstream of in the instance: Forum, Classifieds, Dm
@@ -20,7 +21,13 @@ function Message({ message }) {
         </div>
         <div className="mainBody">
           <div className="authorInfo">
-            <img src={message.user.avatar} alt="" />
+            <div className="imageContainer">
+              {message.user.avatar ? (
+                <img src={message.user.avatar} alt="" />
+              ) : (
+                <img src={Logo} />
+              )}
+            </div>
             <div className="details">
               <h2>*{message.user.user_name}*</h2>
             </div>

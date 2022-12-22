@@ -49,6 +49,7 @@ const GlobalStyle = createGlobalStyle`
     --dark-grey: rgb(89, 95, 102);
     --dark-grey-semi-trans: rgba(89, 95, 102, 0.5);
     --extra-dark-grey-semi-trans: rgba(20, 21, 23, 0.5);
+    --extra-dark-grey: rgb(20, 21, 23);
     --turquoise: #00efe1;
     --mid-turquoise: #14d5c9;
     --dark-turquoise: #fa6711;

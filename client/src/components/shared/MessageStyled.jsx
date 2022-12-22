@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const MessageStyled = styled.li`
-  padding: 0.5rem 0.75rem;
+  /* padding: 0.5rem 0.75rem; */
   /* border: none; */
   font-weight: 600;
   font-size: 0.8rem;
@@ -18,7 +18,7 @@ const MessageStyled = styled.li`
   transition: background-color 0.2s;
   > .topBar {
     color: var(--textColor);
-    background-color: var(--forumItemInside);
+    background-color: var(--extra-dark-grey);
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
     padding: 0.7rem;
@@ -31,19 +31,32 @@ const MessageStyled = styled.li`
   } */
   > .mainBody {
     display: flex;
+    min-height: 10rem;
+    padding-bottom: 1rem;
   }
   > .mainBody > .messageContent {
-    margin: 0.5rem;
+    margin: 2rem;
+  }
+  > .mainBody > .messageContent > img {
+    max-width: 7rem;
+    max-height: 7rem;
   }
   > div > .authorInfo {
     border-right: 0.5px solid var(--forumItem);
-    width: 6rem;
+    width: 9rem;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
   }
-  > div > .authorInfo > img {
+  > div > .authorInfo > .imageContainer {
+    height: 6rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  > div > .authorInfo > .imageContainer > img {
     max-width: 5rem;
     max-height: 5rem;
 
