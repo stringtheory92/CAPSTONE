@@ -1,5 +1,6 @@
 ap 'Destroying Old Seed Data'
 
+ForumDiscussionTopic.destroy_all
 User.destroy_all
 MainForum.destroy_all
 ClassifiedCategory.destroy_all
