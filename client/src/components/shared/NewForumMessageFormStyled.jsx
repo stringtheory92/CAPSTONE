@@ -46,11 +46,12 @@ const NewForumMessageFormStyled = styled.form`
     border: 2px solid #333;
     outline: none;
   }
-  > button {
+  > .submitBtn {
     border: none;
     outline: none;
     width: 10rem;
     justify-self: center;
+    align-self: center;
   }
 `;
 // const MainForumItem = styled.li`

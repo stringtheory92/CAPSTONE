@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { NewForumMessageFormStyled, NewTopicFormStyled } from "./shared";
+import {
+  NewForumMessageFormStyled,
+  NewTopicFormStyled,
+  SubmitButtonStyled,
+} from "./shared";
 import Editor from "./Editor.jsx";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
@@ -140,7 +144,9 @@ function NewTopicForm({ user }) {
           value={messageData.media}
           onChange={handleChange}
         /> */}
-        <button type="submit">Start New Topic</button>
+        <SubmitButtonStyled className="submitBtn" type="submit">
+          Start New Topic
+        </SubmitButtonStyled>
       </NewForumMessageFormStyled>
       {/* </NewTopicFormStyled> */}
     </div>
