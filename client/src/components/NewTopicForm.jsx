@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { NewTopicFormStyled } from "./shared";
+import { NewForumMessageFormStyled, NewTopicFormStyled } from "./shared";
 import Editor from "./Editor.jsx";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import NewForumMessageForm from "./NewForumMessageForm";
 
 function NewTopicForm({ user }) {
   const [value, setValue] = useState("");
@@ -98,12 +99,14 @@ function NewTopicForm({ user }) {
 
   return (
     <div>
-      <NewTopicFormStyled action="" onSubmit={handleSubmit}>
+      <NewForumMessageFormStyled action="" onSubmit={handleSubmit}>
+        {/* <NewTopicFormStyled action="" onSubmit={handleSubmit}> */}
         <div className="headerDiv">
           <h1>Create a New Topic</h1>
         </div>
         <label htmlFor="heading">Topic</label>
         <input
+          className="topicInput"
           type="text"
           name="heading"
           id="heading"
@@ -129,16 +132,17 @@ function NewTopicForm({ user }) {
           value={messageData.content}
           onChange={handleChange}
         ></textarea> */}
-        <label htmlFor="media">media</label>
+        {/* <label htmlFor="media">media</label>
         <input
           type="text"
           name="media"
           id="media"
           value={messageData.media}
           onChange={handleChange}
-        />
+        /> */}
         <button type="submit">Start New Topic</button>
-      </NewTopicFormStyled>
+      </NewForumMessageFormStyled>
+      {/* </NewTopicFormStyled> */}
     </div>
   );
 }

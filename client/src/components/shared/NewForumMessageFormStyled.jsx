@@ -21,12 +21,19 @@ const NewForumMessageFormStyled = styled.form`
     padding: 1rem;
     font-size: 1.5rem;
   }
-  > .quill {
+  > .topicInput,
+  .quill {
     background-color: var(--white);
     color: var(--black);
     border-radius: 10px;
-    height: 15rem;
+  }
+  > .topicInput {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+  > .quill {
     overflow-y: hidden;
+    height: 15rem;
   }
   > .quill > .ql-container > .ql-editor > p > img {
     max-height: 10rem;
