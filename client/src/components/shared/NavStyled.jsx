@@ -34,6 +34,10 @@ const NavStyled = styled.div`
     width: 20rem;
     /* border: 1px solid lime; */
   }
+  > .leftNav > .logoContainer {
+    /* border: 1px solid gray; */
+    width: 19rem;
+  }
   > .leftNav > .logoContainer > img {
     /* border: 1px solid gray; */
     width: 19rem;

@@ -14,12 +14,11 @@ const HomeStyled = styled.div`
     letter-spacing: 0.4rem;
     padding-top: 3rem;
     padding-bottom: 2rem;
-    /* border: 2px solid white; */
   }
 
   > .subHeaderBox {
     padding: 1rem 0;
-
+    min-height: 75vh;
     background: url(${SSBG_1});
     border-top: 2px solid var(--forumItem);
     display: grid;
