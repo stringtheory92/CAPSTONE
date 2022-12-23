@@ -29,24 +29,66 @@ manny.avatar.attach(
 
 
 # ========== Forums ============================================================
-3.times do
-    main_forum = MainForum.create(category: "[BG]", heading: Faker::Music.genre)
-    4.times do
-        sub_forum = SubForum.create(heading: Faker::Music.band, main_forum_id: main_forum.id)
-        10.times do
-            ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: sub_forum.id, creator_id: rand(1..10))
-        end
-    end
-end
-3.times do
-    main_forum = MainForum.create(category: "[DB]", heading: Faker::Music.genre)
-    4.times do
-        sub_forum = SubForum.create(heading: Faker::Music.band, main_forum_id: main_forum.id)
-        10.times do
-            ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: sub_forum.id, creator_id: rand(1..10))
-        end
-    end
-end
+# === MAIN
+bg_general = MainForum.create(category: "[BG]", heading: "General Forums")
+bg_classified = MainForum.create(category: "[BG]", heading: "Classifieds [BG]")
+db_general = MainForum.create(category: "[DB]", heading: "General Forums")
+db_classified = MainForum.create(category: "[DB]", heading: "Classifieds [DB]")
+
+# === Sub_BG
+bg_basses = SubForum.create(heading: "Basses", main_forum_id: bg_general.id)
+bg_effects = SubForum.create(heading: "Effects", main_forum_id: bg_general.id)
+bg_repair = SubForum.create(heading: "Repair", main_forum_id: bg_general.id)
+bg_setup = SubForum.create(heading: "Hardware/Setup", main_forum_id: bg_general.id)
+bg_technique = SubForum.create(heading: "Technique", main_forum_id: bg_general.id)
+bg_humor = SubForum.create(heading: "Bass Humor/Stories", main_forum_id: bg_general.id)
+bg_amps = SubForum.create(heading: "Amps/Cabs", main_forum_id: bg_general.id)
+bg_bassists = SubForum.create(heading: "Bassists", main_forum_id: bg_general.id)
+bg_recording = SubForum.create(heading: "Recording Gear", main_forum_id: bg_general.id)
+bg_instruction = SubForum.create(heading: "General Instruction", main_forum_id: bg_general.id)
+bg_meetups = SubForum.create(heading: "Meetups", main_forum_id: bg_general.id)
+bg_Notation = SubForum.create(heading: "Notation", main_forum_id: bg_general.id)
+bg_off_topic = SubForum.create(heading: "Off Topic", main_forum_id: bg_general.id)
+
+# === Sub_DB
+db_basses = SubForum.create(heading: "Basses", main_forum_id: db_general.id)
+db_strings = SubForum.create(heading: "Strings", main_forum_id: db_general.id)
+db_repair = SubForum.create(heading: "Luthier's Corner", main_forum_id: db_general.id)
+db_setup = SubForum.create(heading: "Hardware/Setup", main_forum_id: db_general.id)
+db_classical_technique = SubForum.create(heading: "Classical Technique", main_forum_id: db_general.id)
+db_auditions = SubForum.create(heading: "Orchestral Auditions", main_forum_id: db_general.id)
+db_jazz_technique = SubForum.create(heading: "Jazz Technique", main_forum_id: db_general.id)
+db_pedagogy = SubForum.create(heading: "Pedagogy", main_forum_id: db_general.id)
+db_bows = SubForum.create(heading: "Bows/Rosin", main_forum_id: db_general.id)
+db_amps = SubForum.create(heading: "Amps/Mics/Pickups", main_forum_id: db_general.id)
+db_bassists = SubForum.create(heading: "Bassists", main_forum_id: db_general.id)
+db_recording = SubForum.create(heading: "Recording Gear", main_forum_id: db_general.id)
+db_instruction = SubForum.create(heading: "General Instruction", main_forum_id: db_general.id)
+db_humor = SubForum.create(heading: "Bass Humor/Stories", main_forum_id: db_general.id)
+db_meetups = SubForum.create(heading: "Meetups", main_forum_id: db_general.id)
+db_Notation = SubForum.create(heading: "Notation", main_forum_id: db_general.id)
+db_off_topic = SubForum.create(heading: "Off Topic", main_forum_id: db_general.id)
+
+
+
+# 3.times do
+#     main_forum = MainForum.create(category: "[BG]", heading: Faker::Music.genre)
+#     4.times do
+#         sub_forum = SubForum.create(heading: Faker::Music.band, main_forum_id: main_forum.id)
+#         10.times do
+#             ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: sub_forum.id, creator_id: rand(1..10))
+#         end
+#     end
+# end
+# 3.times do
+#     main_forum = MainForum.create(category: "[DB]", heading: Faker::Music.genre)
+#     4.times do
+#         sub_forum = SubForum.create(heading: Faker::Music.band, main_forum_id: main_forum.id)
+#         10.times do
+#             ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: sub_forum.id, creator_id: rand(1..10))
+#         end
+#     end
+# end
 
 # ========== Classifieds ============================================================
 upright = ClassifiedCategory.create(heading: 'Upright Basses')
