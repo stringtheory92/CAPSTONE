@@ -253,6 +253,8 @@ but it also wiped out all styling on the page. Had to move on for now.
 
 - displaying images embedded with quill rich text editor was a challenge due to many intermediate-level html tags. Dev console elements tab was vital here.
 
+- have a look at logic in category cards. style and component arrays based on category prop passed in
+
 # POSTGRESQL
 
 DBs:

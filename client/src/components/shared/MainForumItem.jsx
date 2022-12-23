@@ -3,8 +3,11 @@ import styled from "styled-components";
 
 const MainForumItem = styled.li`
   height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  padding: 0.5rem 0.75rem;
+  /* padding: 0.5rem 0.75rem; */
 
   font-weight: 600;
 
@@ -16,7 +19,12 @@ const MainForumItem = styled.li`
   border: 0.5px solid var(--forumBorder);
 
   > h2 {
-    font-size: 1.3rem;
+    /* font-family: "Sacramento", cursive; */
+    /* font-family: "Neucha", cursive; */
+    /* font-family: "Berkshire Swash", cursive; */
+    font-family: "Courier Prime", monospace;
+    /* font-family: "Monoton", cursive; */
+    font-size: 2rem;
     transition: all 0.2s;
   }
   > h2:hover {

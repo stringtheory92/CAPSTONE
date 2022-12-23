@@ -52,9 +52,6 @@ function ListUnit({
         <MainForumItem onClick={(e) => onMainForumSelect(e, id)}>
           {/* <h2>{category}</h2> */}
           <h2>{heading}</h2>
-          <p>
-            serialize data for latest subforum message under RECENT ACTIVITY
-          </p>
         </MainForumItem>
       ) : null}
       {onSubForumSelect ? (
