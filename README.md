@@ -227,6 +227,16 @@ https://www.facebook.com/photo/?fbid=2676395625781051&set=a.355647687855868
   - events can be selected and direct to an event details screen, where details such as ticket price range, time, and date which tickets are on sale until are displayed. Links to venue and ticket purchasing are also provided
   - menu displayed with independent scrolling and hidden overflow. On phones menu sits below main content, accessed by scrolling down. On desktop/larger screens menu occupies right segment
 
+- notes on logic:
+  Used browser data to get client location and constructed a dynamic locationParam that changes keys/values depending on whether browser data request was successful. If not, uses the state_code from the user’s data in db
+
+Constructs params for the event dates based on current time and the time 4 months from now
+Had to figure out how to structure dateTime for query.. cut off decimal places from seconds programmatically
+
+Filters return data for unique names before setting to state
+
+Carved up data for ticket price range, on sale until date, show start date in local time
+
 # OBSTACLES
 
 - For forum/classified messages, had to not only write custom serializer methods and manage deeply-nested associations (beyond what is semantically supported by active record), but also the nested associations' associated active storage data (from blob with polymorphic association). Took research and time to figure out how to isolate the active record association of a user (two associations away from the sub_forum_topics or classified_for_sales, who's serializers were accessing it.
@@ -244,6 +254,10 @@ but it also wiped out all styling on the page. Had to move on for now.
 - displaying images embedded with quill rich text editor was a challenge due to many intermediate-level html tags. Dev console elements tab was vital here.
 
 # POSTGRESQL
+
+DBs:
+Production: subsonic_app_db
+Development: subsonic_dev_db
 
 - check details about connection between rails app and postgres by typing in console:
 
