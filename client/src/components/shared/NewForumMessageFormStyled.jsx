@@ -49,7 +49,7 @@ const NewForumMessageFormStyled = styled.form`
   > .submitBtn {
     border: none;
     outline: none;
-    width: 10rem;
+    /* width: 10rem; */
     justify-self: center;
     align-self: center;
   }
