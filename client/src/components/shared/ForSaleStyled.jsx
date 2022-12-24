@@ -40,6 +40,13 @@ const ForSaleStyled = styled.div`
       opacity: 1;
     }
   }
+  //Phone
+  @media (max-width: 500px) {
+    > button {
+      height: 2rem;
+      width: 2rem;
+    }
+  }
 `;
 
 export default ForSaleStyled;

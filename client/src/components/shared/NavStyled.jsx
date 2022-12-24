@@ -42,6 +42,9 @@ const NavStyled = styled.div`
     /* border: 1px solid gray; */
     width: 19rem;
   }
+  > .leftNav > .leftSideButtons {
+    display: none;
+  }
   > .rightSideButtons {
     display: none;
   }
@@ -176,6 +179,9 @@ const NavStyled = styled.div`
   }
 
   @media (min-width: 780px) {
+    > .leftNav > .leftSideButtons {
+      display: flex;
+    }
     > .rightSideButtons {
       display: flex;
       flex-direction: column;
@@ -188,16 +194,21 @@ const NavStyled = styled.div`
       display: none;
     }
   }
+  //PHONE
+  @media (max-width: 500px) {
+    height: 8.5rem;
+    > .leftNav {
+      display: flex;
+    }
+    > .leftNav > .logoContainer {
+      display: flex;
+      align-self: center;
+    }
+    > .leftNav > .logoContainer > img {
+      align-self: center;
+      width: 14rem;
+    }
+  }
 `;
-// const MainForumItem = styled.li`
-//   padding: 0.5rem 0.75rem;
-//   border: none;
-//   font-weight: 600;
-//   cursor: pointer;
-//   color: var(--primary);
-//   background-color: var(--background);
-//   border: 2px solid var(--dark-turquoise);
-//   transition: background-color 0.2s;
-// `;
 
 export default NavStyled;

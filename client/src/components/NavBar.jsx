@@ -35,7 +35,7 @@ function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn, user }) {
           <img src={AltLogo} alt="" />
         </div>
 
-        <ul className="leftSideButtons" style={{ display: "flex" }}>
+        <ul className="leftSideButtons">
           <li>
             <div>
               {/* Allows use of styled component while maintaining properties of NavLink */}

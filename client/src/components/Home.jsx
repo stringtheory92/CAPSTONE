@@ -148,14 +148,14 @@ function Home({
                   onClick={toggleIsEditingUser}
                   className="updateProfileImage"
                 >
-                  Update Profile/Add Image
+                  Update
                 </button>
               )}
             </div>
             <div className="nameBox">{user.user_name}</div>
             {user.avatar ? (
               <button onClick={toggleIsEditingUser} className="updateProfile">
-                Update Profile
+                Update
               </button>
             ) : null}
           </div>

@@ -45,6 +45,7 @@ const HomeStyled = styled.div`
   }
   > div > .leftSide > .imageBox > button,
   .leftSide > button {
+    overflow: hidden;
     cursor: pointer;
     height: 3rem;
     color: var(--textColor);
