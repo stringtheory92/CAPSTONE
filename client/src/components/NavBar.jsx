@@ -86,9 +86,30 @@ function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn, user }) {
             &times;
           </span>
           <ul>
-            <li onClick={() => navigate("/")}>Home</li>
-            <li onClick={() => navigate("/forums")}>Forums</li>
-            <li onClick={() => navigate("/classifieds")}>Classifieds</li>
+            <li
+              onClick={() => {
+                navigate("/");
+                handleExitMenuClick();
+              }}
+            >
+              Home
+            </li>
+            <li
+              onClick={() => {
+                navigate("/forums");
+                handleExitMenuClick();
+              }}
+            >
+              Forums
+            </li>
+            <li
+              onClick={() => {
+                navigate("/classifieds");
+                handleExitMenuClick();
+              }}
+            >
+              Classifieds
+            </li>
             <li onClick={user ? handleLogOut : toggleLogIn}>
               {user ? "Log out" : "Sign in"}
             </li>
