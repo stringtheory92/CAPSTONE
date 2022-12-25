@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
   # calls fallback_index_html on application_controller (necessary for react-router to work)
-  get '*path', to: "application#fallback_index_html", constraints: ->(request) do
-    !request.xhr? && request.format.html?
-  end
+  # get '*path', to: "application#fallback_index_html", constraints: ->(request) do
+  #   !request.xhr? && request.format.html?
+  # end
+  # Routing logic: fallback requests for React Router.
+  # Leave this here to help deploy your app later!
+  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 
   resources :for_sale_messages, only: [:index, :show, :create]
   resources :classified_for_sales, only: [:index, :show, :create]

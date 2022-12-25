@@ -5,10 +5,10 @@ class ApplicationController < ActionController::API
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
   
-    def fallback_index_html
-      render file:
-      'client/public/index.html'
-    end
+    # def fallback_index_html
+    #   render file:
+    #   'client/public/index.html'
+    # end
 
     private
 
