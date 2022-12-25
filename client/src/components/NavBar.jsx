@@ -32,7 +32,7 @@ function NavBar({ toggleDarkMode, isDarkMode, isLoggedIn, toggleLogIn, user }) {
     <NavStyled>
       <div className="leftNav">
         <div className="logoContainer">
-          <img src={AltLogo} alt="" />
+          <img src={AltLogo} alt="" onClick={() => navigate("/")} />
         </div>
 
         <ul className="leftSideButtons">

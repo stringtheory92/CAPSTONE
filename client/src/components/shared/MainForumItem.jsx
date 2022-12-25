@@ -12,6 +12,7 @@ const MainForumItem = styled.li`
   font-weight: 600;
 
   color: var(--textColor);
+  /* color: var(--textColor); */
   list-style-type: none;
   background-color: var(--forumItem);
   /* border-radius: 6px; */

@@ -255,6 +255,19 @@ but it also wiped out all styling on the page. Had to move on for now.
 
 - have a look at logic in category cards. style and component arrays based on category prop passed in
 
+- Routes not working properly. One set of solution code:
+  (in routes.rb)
+
+get '\*path', to: "application#fallback_index_html", constraints: ->(request) do
+!request.xhr? && request.format.html?
+end
+
+(in application_controller)
+def fallback_index_html
+render file:
+'client/public/index.html'
+end
+
 # POSTGRESQL
 
 DBs:
