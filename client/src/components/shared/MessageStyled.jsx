@@ -36,6 +36,7 @@ const MessageStyled = styled.li`
   }
   > .mainBody > .messageContent {
     margin: 2rem;
+    width: 34rem;
   }
   > .mainBody > .messageContent > p > img {
     margin: 2rem 0;
@@ -44,7 +45,8 @@ const MessageStyled = styled.li`
   }
   > div > .authorInfo {
     border-right: 0.5px solid var(--forumItem);
-    width: 24rem;
+    width: 10rem;
+    /* width: 24rem; */
     display: flex;
     flex-direction: column;
     /* justify-content: center; */

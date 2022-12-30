@@ -112,6 +112,138 @@ db_meetups = SubForum.create(heading: "Meetups", main_forum_id: db_general.id)
 db_Notation = SubForum.create(heading: "Notation", main_forum_id: db_general.id)
 db_off_topic = SubForum.create(heading: "Off Topic", main_forum_id: db_general.id)
 
+# ======= Topics
+
+# ======= [BG]
+one = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_basses.id, creator_id: trey.id)
+two = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_basses.id, creator_id: manny.id)
+three = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_effects.id, creator_id: scott.id)
+four = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_effects.id, creator_id: hal.id)
+five = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_repair.id, creator_id: matthew.id)
+six = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_repair.id, creator_id: rikki.id)
+seven = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_setup.id, creator_id: calvin.id)
+eight = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_setup.id, creator_id: lakshmi.id)
+nine = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_technique.id, creator_id: trey.id)
+ten = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_technique.id, creator_id: manny.id)
+eleven = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_humor.id, creator_id: scott.id)
+twelve = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_humor.id, creator_id: hal.id)
+thirteen = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_amps.id, creator_id: matthew.id)
+fourteen = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_amps.id, creator_id: rikki.id)
+fifteen = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_bassists.id, creator_id: calvin.id)
+sixteen = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_bassists.id, creator_id: lakshmi.id)
+seventeen = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_recording.id, creator_id: trey.id)
+eighteen = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_recording.id, creator_id: manny.id)
+nineteen = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_instruction.id, creator_id: scott.id)
+twenty = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_instruction.id, creator_id: hal.id)
+twentyone = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_meetups.id, creator_id: matthew.id)
+twentytwo = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_meetups.id, creator_id: rikki.id)
+twentythree = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_Notation.id, creator_id: calvin.id)
+twentyfour = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_Notation.id, creator_id: lakshmi.id)
+twentyfive = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_off_topic.id, creator_id: trey.id)
+twentysix = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: bg_off_topic.id, creator_id: scott.id)
+
+#==== [DB]
+twentyseven = ForumDiscussionTopic.create(heading: 'Who Here Has the Oldest Bass?', sub_forum_id: db_basses.id, creator_id: trey.id)
+ForumTopicMessage.create(content: '<p>Mine is from the 1920s!<p/>', media: '', forum_discussion_topic_id: twentyseven.id, user_id: trey.id)
+
+twentyeight = ForumDiscussionTopic.create(heading: 'How Does Wood Type Effect Sound?', sub_forum_id: db_basses.id, creator_id: manny.id)
+ForumTopicMessage.create(content: '<p>I have one with spruce top and maple sides/back/neck. It has a bright full sound<p/>', media: '', forum_discussion_topic_id: twentyeight.id, user_id: manny.id)
+
+twentynine = ForumDiscussionTopic.create(heading: 'What Type of Strings do you use for jazz?', sub_forum_id: db_strings.id, creator_id: scott.id)
+ForumTopicMessage.create(content: 'Spirocore Weichs are my goto, but Im in the mood to experiment!', media: '', forum_discussion_topic_id: twentynine.id, user_id: scott.id)
+
+thirty = ForumDiscussionTopic.create(heading: 'Best string for concerto solo play?', sub_forum_id: db_strings.id, creator_id: hal.id)
+ForumTopicMessage.create(content: 'My first classical auditions are coming up and looking for a change', media: '', forum_discussion_topic_id: thirty.id, user_id: hal.id)
+
+thirtyone = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_repair.id, creator_id: matthew.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: thirtyone.id, user_id: matthew.id)
+
+thirtytwo = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_repair.id, creator_id: rikki.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: thirtytwo.id, user_id: rikki.id)
+
+thirtythree = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_setup.id, creator_id: calvin.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: thirtythree.id, user_id: calvin.id)
+
+thirtyfour = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_setup.id, creator_id: lakshmi.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: thirtyfour.id, user_id: lakshmi.id)
+
+thirtyfive = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_classical_technique.id, creator_id: trey.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: thirtyfive.id, user_id: trey.id)
+
+thirtysix = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_classical_technique.id, creator_id: manny.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: thirtysix.id, user_id: manny.id)
+
+thirtyseven = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_auditions.id, creator_id: scott.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: thirtyseven.id, user_id: scott.id)
+
+thirtyeight = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_auditions.id, creator_id: hal.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: thirtyeight.id, user_id: hal.id)
+
+thirtynine = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_jazz_technique.id, creator_id: matthew.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: thirtynine.id, user_id: matthew.id)
+
+forty = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_jazz_technique.id, creator_id: rikki.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: forty.id, user_id: rikki.id)
+
+fortyone = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_pedagogy.id, creator_id: calvin.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: fortyone.id, user_id: calvin.id)
+
+fortytwo = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_pedagogy.id, creator_id: lakshmi.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: fortytwo.id, user_id: lakshmi.id)
+
+fortythree = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_bows.id, creator_id: trey.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: fortythree.id, user_id: trey.id)
+
+fortyfour = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_bows.id, creator_id: manny.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: fortyfour.id, user_id: manny.id)
+
+fortyfive = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_amps.id, creator_id: scott.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: fortyfive.id, user_id: scott.id)
+
+fortysix = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_amps.id, creator_id: hal.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: fortysix.id, user_id: hal.id)
+
+fortyseven = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_bassists.id, creator_id: matthew.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: fortyseven.id, user_id: matthew.id)
+
+fortyeight = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_bassists.id, creator_id: rikki.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: fortyeight.id, user_id: rikki.id)
+
+fortynine = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_recording.id, creator_id: calvin.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: fortynine.id, user_id: calvin.id)
+
+fifty = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_recording.id, creator_id: lakshmi.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: fifty.id, user_id: lakshmi.id)
+
+fiftyone = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_instruction.id, creator_id: trey.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: fiftyone.id, user_id: trey.id)
+
+fiftytwo = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_instruction.id, creator_id: scott.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: fiftytwo.id, user_id: scott.id)
+
+fiftythree = ForumDiscussionTopic.create(heading: 'Classical bass memes', sub_forum_id: db_humor.id, creator_id: scott.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: fiftythree.id, user_id: scott.id)
+
+fiftyfour = ForumDiscussionTopic.create(heading: 'Jazz bass memes', sub_forum_id: db_humor.id, creator_id: scott.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: fiftyfour.id, user_id: scott.id)
+
+fiftyfive = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_meetups.id, creator_id: scott.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: fiftyfive.id, user_id: scott.id)
+
+fiftysix = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_meetups.id, creator_id: scott.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: fiftysix.id, user_id: scott.id)
+
+fiftyseven = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_Notation.id, creator_id: scott.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: fiftyseven.id, user_id: scott.id)
+
+fiftyeight = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_Notation.id, creator_id: scott.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: fiftyeight.id, user_id: scott.id)
+
+fiftynine = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_off_topic.id, creator_id: scott.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: fiftynine.id, user_id: scott.id)
+
+sixty = ForumDiscussionTopic.create(heading: Faker::Music.album, sub_forum_id: db_off_topic.id, creator_id: scott.id)
+ForumTopicMessage.create(content: '<p>testing!<p/>', media: '', forum_discussion_topic_id: sixty.id, user_id: scott.id)
 
 
 # 3.times do
