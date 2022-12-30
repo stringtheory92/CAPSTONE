@@ -44,7 +44,7 @@ const MessageStyled = styled.li`
   }
   > div > .authorInfo {
     border-right: 0.5px solid var(--forumItem);
-    width: 10rem;
+    width: 24rem;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */

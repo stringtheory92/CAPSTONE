@@ -268,6 +268,8 @@ render file:
 'client/public/index.html'
 end
 
+- anomalous requirement to interpolate image path urls in the img in UserMenu, however in Home path variables able to be passed in brackets (for the same paths/files)
+
 # POSTGRESQL
 
 DBs:

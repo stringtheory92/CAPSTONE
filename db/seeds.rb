@@ -39,7 +39,7 @@ hal.avatar.attach(
 )
 matthew = User.create(user_name: 'Matthew', password: '123', city: "Miami", state_code: "FL", zip: '33101')
 matthew.avatar.attach(
-    io: File.open('./public/avatars/boy-blue.jpg'),
+    io: File.open('./public/avatars/boy-kid.jpg'),
     filename: 'boy-blue.jpg',
     content_type: 'application/jpg'
 )
@@ -150,6 +150,26 @@ manny_ub.pic.attach(
     filename: 'ub1.jpeg.jpg',
     content_type: 'application/jpg'
 )
+scott_ub = ClassifiedForSale.create!(bass: "Yankee 4/4", manufacture_year: 1800, status: 'For Sale', price: 87000, strings: 4, city: scott.city, state: scott.state_code, country: 'USA', classified_category_id: upright.id, user_id: scott.id)
+scott_ub.pic.attach(
+    io: File.open('./public/for_sale/UB_fs/ub8.jpeg'),
+    filename: 'ub8.jpeg.jpg',
+    content_type: 'application/jpg'
+)
+hal_ub = ClassifiedForSale.create!(bass: "Manchester", manufacture_year: 1931, status: 'For Sale', price: 97500, strings: 4, city: hal.city, state: hal.state_code, country: 'USA', classified_category_id: upright.id, user_id: hal.id)
+hal_ub.pic.attach(
+    io: File.open('./public/for_sale/UB_fs/ub3.jpeg'),
+    filename: 'ub3.jpeg.jpg',
+    content_type: 'application/jpg'
+)
+matthew_ub = ClassifiedForSale.create!(bass: "Busan, Romania", manufacture_year: 2020, status: 'For Sale', price: 8500, strings: 4, city: matthew.city, state: matthew.state_code, country: 'USA', classified_category_id: upright.id, user_id: matthew.id)
+matthew_ub.pic.attach(
+    io: File.open('./public/for_sale/UB_fs/ub6.jpeg'),
+    filename: 'ub6.jpeg.jpg',
+    content_type: 'application/jpg'
+)
+ForSaleMessage.create(content: '<p>An early American Yankee 4/4 of enormous proportions, with a 4-piece pine top, four-piece figured sugar maple flatback, and original maple neck/scroll. Currently in a 5-string configuration. A very unique instrument and a true survivor in good condition!</p>
+    ', media: 'none', classified_for_sale_id: matthew_ub.id, user_id: matthew.id)
 
 bg = ClassifiedCategory.create(heading: 'Bass Guitars')
 10.times do
