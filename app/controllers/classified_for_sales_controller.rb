@@ -18,7 +18,9 @@ class ClassifiedForSalesController < ApplicationController
     
 
        def create
+        
         item = ClassifiedForSale.create!(for_sale_params)
+
         
         pic = rails_blob_path(item.pic)
 
