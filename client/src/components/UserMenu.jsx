@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { UserMenuStyled, AvatarStyled } from "./shared";
-import Logo from "../icons/SubSonic-logo-white-A-alt.png";
+import whiteLogo from "../icons/SubSonic-logo-white-A-alt.png";
 // import dbButton from './resources/dbButton.png'
 
 function UserMenu({ user }) {
@@ -22,14 +22,15 @@ function UserMenu({ user }) {
   };
   // line 29, change url for avatar src
   console.log("Usermenu avatar: ", avatar);
+
   return (
     <UserMenuStyled className="userMenu">
       <div className="namePic">
         <div className="imageContainer">
           <AvatarStyled
-            src={avatar ? { avatar } : { Logo }}
+            src={avatar ? `${avatar}` : `${whiteLogo}`}
             alt="your face here!"
-            // src={avatar ? `http://localhost:3000/${avatar}` : { Logo }}
+            // src={avatar ? `http://localhost:3000/${avatar}` : `${whiteLogo}`}
             // alt="your face here!"
           />
         </div>

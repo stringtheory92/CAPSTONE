@@ -133,7 +133,7 @@ function Home({
   //   return <TickerEvent event={event} />;
   // });
   // console.log("mapped", mapped);
-
+  console.log("user.avatar - HOME: ", user.avatar);
   return (
     <div>
       <HomeStyled>

@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import Logo from "../../icons/SubSonic-logo-white-A-alt.png";
 
 const AvatarStyled = styled.img`
   display: none;
   border-radius: 5px;
+  /* background-image: url(${Logo}); */
   /* min-width: 4rem;
   max-width: 8rem; */
 
