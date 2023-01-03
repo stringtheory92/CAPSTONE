@@ -35,7 +35,9 @@ function ConcertInfo() {
   if (priceRanges)
     priceRange = [priceRanges[0].min.toFixed(2), priceRanges[0].max.toFixed(2)];
 
-  const onSaleThrough = formatDate(sales.public.endDateTime.slice(0, 10));
+  const onSaleThrough = sales.public.endDateTime
+    ? formatDate(sales.public.endDateTime.slice(0, 10))
+    : "TBA";
   //   const onSaleThrough = sales.public.endDateTime;
 
   function formatDate(localDate) {
