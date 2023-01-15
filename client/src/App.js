@@ -207,22 +207,27 @@ function App() {
   const ticketMasterKey = process.env.REACT_APP_CONSUMER_KEY;
   const ticketMasterSecret = process.env.REACT_APP_CONSUMER_SECRET;
 
+  // keep alive on render free tier - goes to sleep periodically with inactivity
+  setInterval(() => {
+    console.log("ping");
+    fetch("/me").then((r) => {
+      console.log("ping response");
+    });
+  }, 300000); // every 5 minutes
+
   //Search for current, logged-in user on page refresh or if user navigates away and comes back
   useEffect(() => {
-    // keep alive on render free tier - goes to sleep periodically with inactivity
-    setInterval(() => {
-      fetch("/me").then((r) => {
-        if (r.ok) {
-          r.json().then((user) => {
-            console.log("staying signed in: ", user);
-            sessionStorage.setItem("user_id", user.id);
-            setUser(user);
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => {
+          console.log("staying signed in: ", user);
+          sessionStorage.setItem("user_id", user.id);
+          setUser(user);
 
-            setIsLoggedIn(true);
-          });
-        }
-      });
-    }, 300000); // every 5 minutes
+          setIsLoggedIn(true);
+        });
+      }
+    });
   }, [isLoggedIn]);
   console.log("user: ", user);
   console.log("avatar: ", avatar);
