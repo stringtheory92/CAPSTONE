@@ -33,6 +33,7 @@ import Spotlight from "./bg/spotlight_bg.jpg";
 import ConcertInfo from "./components/ConcertInfo";
 import ClassifiedForSale from "./components/ClassifiedForSale";
 import ClassifiedMessages from "./components/ClassifiedMessages";
+import PersonalPage from "./components/PersonalPage";
 
 const GlobalStyle = createGlobalStyle`
 // navColor (intended for nav bg) variable not working for some reason. 
@@ -208,17 +209,20 @@ function App() {
 
   //Search for current, logged-in user on page refresh or if user navigates away and comes back
   useEffect(() => {
-    fetch("/me").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => {
-          console.log("staying signed in: ", user);
-          sessionStorage.setItem("user_id", user.id);
-          setUser(user);
+    // keep alive on render free tier - goes to sleep periodically with inactivity
+    setInterval(() => {
+      fetch("/me").then((r) => {
+        if (r.ok) {
+          r.json().then((user) => {
+            console.log("staying signed in: ", user);
+            sessionStorage.setItem("user_id", user.id);
+            setUser(user);
 
-          setIsLoggedIn(true);
-        });
-      }
-    });
+            setIsLoggedIn(true);
+          });
+        }
+      });
+    }, 300000); // every 5 minutes
   }, [isLoggedIn]);
   console.log("user: ", user);
   console.log("avatar: ", avatar);
@@ -478,6 +482,7 @@ function App() {
             />
 
             <Route path="/concert_info" element={<ConcertInfo user={user} />} />
+            <Route path="/personal_info" element={<PersonalPage />} />
           </Routes>
         </div>
         <div className="sides right">
