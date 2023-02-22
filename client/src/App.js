@@ -241,6 +241,7 @@ function App() {
       // if (navigator.geolocation) is always true (so far)
       // if (navigator.geolocation.length > 0) {
       if (navigator.geolocation) {
+        console.log("nav", navigator.geolocation);
         // since this if is always true (so far), the next line will try to fire whether or not there is location data.
         // Hence, it is necessary to call showPosition in the showError component in case there is an error getting current
         // browser position.
@@ -267,16 +268,17 @@ function App() {
         }
         showPosition(user.state_code);
       }
-      // console.log("positionError: ", positionError);
+      console.log("positionError: ", positionError);
 
       function showPosition(position) {
-        // console.log("showPosition", position);
+        console.log("showPosition", position);
 
         let latlon;
         let locationParam;
 
         // If using location based on browser data
         if (Boolean(typeof position === "object")) {
+          console.log("in line 255");
           setUserPosition(position);
           const lat = position.coords.latitude;
           const lon = position.coords.longitude;
@@ -284,7 +286,7 @@ function App() {
           locationParam = `latlong=${latlon}`;
           // fall back on using state_code from user's data
         } else locationParam = `stateCode=${user.state_code}`;
-        // console.log("locationParam: ", locationParam);
+        console.log("locationParam: ", locationParam);
 
         // current date and date 4 months ahead for query params
         const date = new Date();
@@ -293,10 +295,10 @@ function App() {
         const fourMonthsAhead = new Date(dateTwo.setMonth(date.getMonth() + 4));
         const fourMonthsAheadJSON = fourMonthsAhead.toJSON().slice(0, 19) + "Z";
 
-        // console.log("date: ", dateJSON);
-        // console.log("fourMonthsAhead: ", fourMonthsAheadJSON);
-        // console.log("latlon: ", latlon);
-        // console.log("locationParam: ", locationParam);
+        console.log("date: ", dateJSON);
+        console.log("fourMonthsAhead: ", fourMonthsAheadJSON);
+        console.log("latlon: ", latlon);
+        console.log("locationParam: ", locationParam);
 
         fetch(
           `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${ticketMasterKey}&${locationParam}&classificationName=music&startDateTime=${dateJSON}&endDateTime=${fourMonthsAheadJSON}&size=200`
@@ -336,7 +338,7 @@ function App() {
               //   if (event.name !== eventArray.slice(-1)[0].name)
               //     eventArray.push(event);
               // }
-              // console.log("loc ok: ", eventArray);
+              console.log("loc ok: ", eventArray);
 
               setTicketMasterEvents(eventArray);
               // showEvents(data);
@@ -348,7 +350,7 @@ function App() {
       }
     }
   }, [user]);
-  // console.log("userPosition: ", userPosition);
+  console.log("userPosition: ", userPosition);
 
   const toggleLogIn = () => {
     if (user) {
